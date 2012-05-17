@@ -7,7 +7,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'salary_calculator.views.home', name='home'),
+    url(r'^$calculate/', 'salary_calculator.views.calculate', name='calculate'),
+
     # url(r'^salary_calculator/', include('salary_calculator.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

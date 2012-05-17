@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-es" lang="es-es" dir="ltr">
+
+	<head>
+		<link rel="stylesheet" href="static_media/css/style.css" type="text/css" />
+		<title>Calculo Salarial</title>
+	</head>
+	
+	<body>
+		<form action="" method="POST">
+			<div id="form_content">
+				<div id="form_mes">
+					Mes:
+					<select>
+						<option>Septiembre - 2011</option>
+						<option>Marzo - 2012</option>
+						<option>Junio - 2012</option>
+						<option>Septiembre - 2012</option>
+					</select>
+				</div>
+
+				<div class="form_cargo">
+					<table>
+						<tr>
+							<td> Cargo: </td>
+							<td><input name="cargo" type="text"></td>
+						</tr>
+						<tr>
+							<td>A&ntilde;os de antiguedad:</td>
+							<td>
+								<select name="antiguedad">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="5">5</option>
+									<option value="7">7</option>
+									<option value="10">10</option>
+									<option value="12">12</option>
+									<option value="15">15</option>
+									<option value="17">17</option>
+									<option value="20">20</option>
+									<option value="22">22</option>
+									<option value="24">24</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>T&iacute;tulos adicionales:</td>
+							<td>
+								<input name="doctorado" type="checkbox"/>Doctorado<br>
+								<input name="master" type="checkbox"/>Master
+
+							</td>
+						</tr>					
+					</table>
+				</div>
+				<a id="nuevo_cargo" href="">[+] A&ntilde;adir nuevo cargo</a>
+				<div id="submit"><input type="submit" value="Calcular" /></div>
+			</div>
+		</form>
+	</body>
+
+</html>

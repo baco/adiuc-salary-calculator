@@ -1,4 +1,9 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+import sys
+import os
+sys.path.append(os.getcwd() + '/../')
 
 try:
 	from salary_calculator import settings
@@ -11,8 +16,6 @@ from django.core.management import setup_environ
 setup_environ(settings)
 
 from salary_calculator_app.models import *
-
-import os
 
 
 #=============================================#

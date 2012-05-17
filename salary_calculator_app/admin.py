@@ -4,6 +4,8 @@ from salary_calculator_app.models import *
 from django.contrib import admin
 
 admin.site.register(Cargo)
+admin.site.register(CargoPreUniv)
 admin.site.register(Antiguedad)
 admin.site.register(Aumento)
-admin.site.register(RetRemCommon)
+admin.site.register(Retencion)
+admin.site.register(Remuneracion)

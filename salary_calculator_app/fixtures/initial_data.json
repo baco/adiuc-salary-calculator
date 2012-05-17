@@ -1,0 +1,63 @@
+[
+
+	{
+		"model": "salary_calculator_app.cargo",
+		"pk": 1,
+		"fields": {
+			"lu": "5",
+			"pampa": "101",
+			"tipo": "Profesor Titular D.E",
+			"basico": 6831.76,
+			"garantia": -1
+		}
+	},
+
+	{
+		"model": "salary_calculator_app.cargo",
+		"pk": 2,
+		"fields": {
+			"lu": "13",
+			"pampa": "102",
+			"tipo": "Profesor Titular D.S.E",
+			"basico": 3415.88,
+			"garantia": -1
+		}
+	},
+
+	{
+		"model": "salary_calculator_app.cargo",
+		"pk": 3,
+		"fields": {
+			"lu": "27",
+			"pampa": "103",
+			"tipo": "Profesor Titular D.S",
+			"basico": 1707.94,
+			"garantia": -1
+		}
+	},
+
+	{
+		"model": "salary_calculator_app.cargo",
+		"pk": 4,
+		"fields": {
+			"lu": "6",
+			"pampa": "105",
+			"tipo": "Profesor Asociado D.E",
+			"basico": 6146.54,
+			"garantia": -1
+		}
+	},
+
+	{
+		"model": "salary_calculator_app.cargo",
+		"pk": 5,
+		"fields": {
+			"lu": "8",
+			"pampa": "106",
+			"tipo": "Profesor Asociado D.S.E",
+			"basico": 3073.27,
+			"garantia": -1
+		}
+	}
+
+]

@@ -16,6 +16,10 @@ class Cargo(models.Model):
 		return self.lu + " " + self.tipo
 
 
+class CargoPreUniv(Cargo):
+	horas = models.SmallIntegerField(u'Cantidad de Horas Cátedra')
+
+
 class Antiguedad(models.Model):
 	anio 				= models.SmallIntegerField(u'Años de Antiguedad', unique=True)
 	porcentaje 	= models.FloatField(u'Porcentaje')
@@ -32,7 +36,7 @@ class Aumento(models.Model):
 		return self.fecha + ":" + self.porcentaje
 
 
-class RetRemCommon(models.Model):
+class Retencion(models.Model):
 	codigo 	= models.CharField(u'Código', max_length=3, validators=[validate_isdigit])
 	nombre = models.CharField(u'Nombre', max_length=50)
 	porcentage = models.FloatField(u'Porcentaje')
@@ -40,5 +44,11 @@ class RetRemCommon(models.Model):
 	def __unicode__(self):
 		return self.codigo + " " + self.nombre
 
-	#class Meta:
-		#abstract = True
+
+class Remuneracion(models.Model):
+	codigo 	= models.CharField(u'Código', max_length=3, validators=[validate_isdigit])
+	nombre = models.CharField(u'Nombre', max_length=50)
+	porcentage = models.FloatField(u'Porcentaje')
+
+	def __unicode__(self):
+		return self.codigo + " " + self.nombre

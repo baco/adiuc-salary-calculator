@@ -10,10 +10,10 @@ class Cargo(models.Model):
 	pampa 		= models.CharField(u'Código PAMPA', max_length=3, unique=True, validators=[validate_isdigit])
 	tipo 		= models.CharField(u'Tipo de Cargo', max_length=50, unique=True)
 	basico 		= models.FloatField(u'Sueldo Básico')
-	garantia 	= models.FloatField(u'Garantía Salarial', blank=True)
+	garantia 	= models.FloatField(u'Garantía Salarial', blank=True, default=-1)
 
 	def __unicode__(self):
-		return self.lu + " " + self.tipo
+		return unicode(self.lu) + " " + self.tipo
 
 
 class CargoPreUniv(Cargo):
@@ -25,7 +25,7 @@ class Antiguedad(models.Model):
 	porcentaje 	= models.FloatField(u'Porcentaje')
 
 	def __unicode__(self):
-		return self.anio + ": " + self.porcentaje
+		return unicode(self.anio) + " - " + unicode(self.porcentaje) + "%"
 
 
 class Aumento(models.Model):
@@ -33,22 +33,25 @@ class Aumento(models.Model):
 	porcentaje 	= models.FloatField(u'Porcentaje')
 
 	def __unicode__(self):
-		return self.fecha + ":" + self.porcentaje
+		return unicode(self.fecha) + " - " + unicode(self.porcentaje) + "%"
 
 
 class Retencion(models.Model):
 	codigo 	= models.CharField(u'Código', max_length=3, validators=[validate_isdigit])
 	nombre  = models.CharField(u'Nombre', max_length=50)
-	porcentage = models.FloatField(u'Porcentaje')
+	porcentage = models.FloatField(u'Porcentaje de Descuento')
 
 	def __unicode__(self):
-		return self.codigo + " " + self.nombre
+		return unicode(self.codigo) + " " + self.nombre
 
 
 class Remuneracion(models.Model):
 	codigo 	= models.CharField(u'Código', max_length=3, validators=[validate_isdigit])
 	nombre = models.CharField(u'Nombre', max_length=50)
-	porcentage = models.FloatField(u'Porcentaje')
+	porcentage = models.FloatField(u'Porcentaje de Incremento')
 
 	def __unicode__(self):
-		return self.codigo + " " + self.nombre
+		return unicode(self.codigo) + " " + self.nombre
+
+#class GarantiaSalarial(models.Model):
+

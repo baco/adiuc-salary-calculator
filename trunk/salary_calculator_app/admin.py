@@ -3,9 +3,12 @@
 from salary_calculator_app.models import *
 from django.contrib import admin
 
-admin.site.register(Cargo)
+admin.site.register(CargoUniv)
 admin.site.register(CargoPreUniv)
-admin.site.register(Antiguedad)
+admin.site.register(AntiguedadUniv)
+admin.site.register(AntiguedadPreUniv)
 admin.site.register(Aumento)
-admin.site.register(Retencion)
-admin.site.register(Remuneracion)
+admin.site.register(RetencionPorcentual)
+admin.site.register(RetencionFija)
+admin.site.register(RemuneracionPorcentual)
+admin.site.register(RemuneracionFija)

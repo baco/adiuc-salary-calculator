@@ -16,10 +16,10 @@ def calculate(request):
 			antiguedad = form.cleaned_data['antiguedad']
 			
 	        cargo = Cargo.objects.get(nombre=tipo)
-			#calcular el sueldo acorde...
+			#calcular el sueldo acorde.
 			
-		else:
-			context = {'error':True}
+#		else:
+#			context = {'error':True}
 
 		return render_to_response('salary_calculated.html',context)
 

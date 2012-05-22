@@ -161,10 +161,53 @@
     }
   }, 
   {
+    "pk": "2e7ae2c683a9ce898a09d26a3db308f5", 
+    "model": "sessions.session", 
+    "fields": {
+      "expire_date": "2012-06-05T04:00:21.241Z", 
+      "session_data": "YmJmMTcyNTc4ZmRhZjY1Mjk3MzE1NjUyZDUzMzZjMTg1Y2QyMjQ0YzqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQRLAnUu\n"
+    }
+  }, 
+  {
     "pk": 1, 
     "model": "salary_calculator_app.tipocargo", 
     "fields": {
       "nombre": "Profesor Titular"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.tipocargo", 
+    "fields": {
+      "nombre": "Profesor Adjunto"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.tipocargo", 
+    "fields": {
+      "nombre": "Profesor Ayudante (Aux.)"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.tipocargo", 
+    "fields": {
+      "nombre": "Profesor Asociado"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "salary_calculator_app.tipocargo", 
+    "fields": {
+      "nombre": "Profesor Asistente (JTP)"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "salary_calculator_app.tipocargo", 
+    "fields": {
+      "nombre": "Profesor Ayudante 2"
     }
   }, 
   {
@@ -174,6 +217,24 @@
       "anio": "2012", 
       "mes": "MAR", 
       "valor": 6913.58
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "anio": "2011", 
+      "mes": "MAR", 
+      "valor": 2839.51
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "anio": "2012", 
+      "mes": "MAR", 
+      "valor": 3456.79
     }
   }, 
   {
@@ -198,12 +259,109 @@
     }
   }, 
   {
+    "pk": 2, 
+    "model": "salary_calculator_app.antiguedaduniv", 
+    "fields": {
+      "anio": 0, 
+      "porcentaje": 20.0
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.antiguedaduniv", 
+    "fields": {
+      "anio": 1, 
+      "porcentaje": 20.0
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.antiguedaduniv", 
+    "fields": {
+      "anio": 2, 
+      "porcentaje": 20.0
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "salary_calculator_app.antiguedaduniv", 
+    "fields": {
+      "anio": 7, 
+      "porcentaje": 40.0
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "salary_calculator_app.antiguedaduniv", 
+    "fields": {
+      "anio": 10, 
+      "porcentaje": 50.0
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "salary_calculator_app.antiguedaduniv", 
+    "fields": {
+      "anio": 12, 
+      "porcentaje": 60.0
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "salary_calculator_app.antiguedaduniv", 
+    "fields": {
+      "anio": 15, 
+      "porcentaje": 70.0
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "salary_calculator_app.antiguedaduniv", 
+    "fields": {
+      "anio": 17, 
+      "porcentaje": 80.0
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "salary_calculator_app.antiguedaduniv", 
+    "fields": {
+      "anio": 20, 
+      "porcentaje": 100.0
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "salary_calculator_app.antiguedaduniv", 
+    "fields": {
+      "anio": 22, 
+      "porcentaje": 110.0
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "salary_calculator_app.antiguedaduniv", 
+    "fields": {
+      "anio": 24, 
+      "porcentaje": 120.0
+    }
+  }, 
+  {
     "pk": 1, 
     "model": "salary_calculator_app.aumento", 
     "fields": {
       "anio": "2012", 
       "mes": "MAR", 
-      "porcentaje": 6.0
+      "porcentaje": 12.0
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.aumento", 
+    "fields": {
+      "anio": "2012", 
+      "mes": "JUN", 
+      "porcentaje": 18.0
     }
   }, 
   {
@@ -681,6 +839,323 @@
       "password": "pbkdf2_sha256$10000$jsSVkRFbEFDk$PjhMaxw61HVWgYOjGBCFIla74+AzFNPkmbDqZ6JvDyE=", 
       "email": "d@d.co", 
       "date_joined": "2012-05-22T03:49:05.245Z"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "auth.user", 
+    "fields": {
+      "username": "admin", 
+      "first_name": "", 
+      "last_name": "", 
+      "is_active": true, 
+      "is_superuser": true, 
+      "is_staff": true, 
+      "last_login": "2012-05-22T04:00:21.166Z", 
+      "groups": [], 
+      "user_permissions": [], 
+      "password": "pbkdf2_sha256$10000$haI4h1kYzD8x$ZkzOtbcjyDuDU2QaOjR9eDuJ2V2SvUkn+ir9QFZJPcY=", 
+      "email": "a@a.com", 
+      "date_joined": "2012-05-22T04:00:10.117Z"
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-05-22T04:12:19.090Z", 
+      "object_repr": "MAR 2012 - 12.0%", 
+      "object_id": "1", 
+      "change_message": "Modifica porcentaje.", 
+      "user": 2, 
+      "content_type": 13
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:12:13.043Z", 
+      "object_repr": "JUN 2012 - 18.0%", 
+      "object_id": "2", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 13
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:11:36.372Z", 
+      "object_repr": "24 - 120.0%", 
+      "object_id": "12", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 11
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:11:29.805Z", 
+      "object_repr": "22 - 110.0%", 
+      "object_id": "11", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 11
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:11:26.537Z", 
+      "object_repr": "20 - 100.0%", 
+      "object_id": "10", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 11
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:11:12.266Z", 
+      "object_repr": "17 - 80.0%", 
+      "object_id": "9", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 11
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:11:07.511Z", 
+      "object_repr": "15 - 70.0%", 
+      "object_id": "8", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 11
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:10:40.214Z", 
+      "object_repr": "12 - 60.0%", 
+      "object_id": "7", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 11
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:10:35.689Z", 
+      "object_repr": "10 - 50.0%", 
+      "object_id": "6", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 11
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:10:32.146Z", 
+      "object_repr": "7 - 40.0%", 
+      "object_id": "5", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 11
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:10:20.188Z", 
+      "object_repr": "2 - 20.0%", 
+      "object_id": "4", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 11
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:10:16.040Z", 
+      "object_repr": "1 - 20.0%", 
+      "object_id": "3", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 11
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:10:09.538Z", 
+      "object_repr": "0 - 20.0%", 
+      "object_id": "2", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 11
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:04:10.258Z", 
+      "object_repr": "$3456.79 MAR 2012", 
+      "object_id": "3", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 8
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:03:31.424Z", 
+      "object_repr": "$2839.51 MAR 2011", 
+      "object_id": "2", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 8
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:02:49.096Z", 
+      "object_repr": "Profesor Ayudante 2", 
+      "object_id": "6", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 7
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:02:27.151Z", 
+      "object_repr": "Profesor Asistente (JTP)", 
+      "object_id": "5", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 7
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-05-22T04:02:12.692Z", 
+      "object_repr": "Profesor Adjunto", 
+      "object_id": "2", 
+      "change_message": "No ha modificado ning\u00fan campo.", 
+      "user": 2, 
+      "content_type": 7
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-05-22T04:01:41.472Z", 
+      "object_repr": "Profesor Ayudante (Aux.)", 
+      "object_id": "3", 
+      "change_message": "Modifica nombre.", 
+      "user": 2, 
+      "content_type": 7
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-05-22T04:01:13.741Z", 
+      "object_repr": "5 Profesor Titular D.E", 
+      "object_id": "1", 
+      "change_message": "No ha modificado ning\u00fan campo.", 
+      "user": 2, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:00:57.858Z", 
+      "object_repr": "Profesor Asociado", 
+      "object_id": "4", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 7
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:00:50.296Z", 
+      "object_repr": "Profesor Ayudante", 
+      "object_id": "3", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 7
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-22T04:00:44.310Z", 
+      "object_repr": "Profesor Adjunto", 
+      "object_id": "2", 
+      "change_message": "", 
+      "user": 2, 
+      "content_type": 7
     }
   }, 
   {

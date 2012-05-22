@@ -39,7 +39,7 @@ class Cargo(models.Model):
         help_text=u'El sueldo básico del cargo que figura en la planilla de la UNC. Los cálculos de aumentos y salarios brutos/netos se calcularán tomando como base este valor.')
     basico_nac = models.FloatField(u'Sueldo Básico Paritaria Nacional', validators=[validate_isgezero],
         help_text=u'El sueldo básico del cargo que figura en la planilla grande, es decir, la planilla de las paritarias nacionales. Se toma este valor para el cálculo de los aumentos')
-    garantia_salarial = models.OneToOneField('GarantiaSalarial', blank=True, null=True,
+    garantia_salarial = models.ForeignKey('GarantiaSalarial', blank=True, null=True,
         help_text=u'La garantía salarial asociada a este cargo. Es el monto mínimo que una persona con el cargo puede cobrar.')
 
     class Meta:

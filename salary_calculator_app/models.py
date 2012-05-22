@@ -33,7 +33,7 @@ class Cargo(models.Model):
         help_text=u'El código L.U. del cargo que figura en la planilla de la UNC.')
     pampa = models.CharField(u'Código PAMPA', max_length=3, unique=True, validators=[validate_isdigit],
         help_text=u'El código PAMPA del cargo que figura en la planilla de la UNC.')
-    tipo = models.OneToOneField('TipoCargo',
+    tipo = models.ForeignKey('TipoCargo',
         help_text=u'El nombre o tipo de cargo asociado.')
     basico_unc = models.FloatField(u'Sueldo Básico UNC', validators=[validate_isgezero],
         help_text=u'El sueldo básico del cargo que figura en la planilla de la UNC. Los cálculos de aumentos y salarios brutos/netos se calcularán tomando como base este valor.')
@@ -52,7 +52,7 @@ class Cargo(models.Model):
 class TipoCargo(models.Model):
     """El nombre o tipo de cargo. Ej: Profesor Adjunto, Ayudante Alumno, etc"""
 
-    nombre = models.CharField(u'Tipo de Cargo', max_length=50, unique=True,
+    nombre = models.CharField(u'Tipo de Cargo', max_length=50,
         help_text=u'El nombre de un tipo de cargo como figura en la planilla de la UNC. Ej: Profesor Titular, Profesor Asociado, etc')
 
     def __unicode__(self):

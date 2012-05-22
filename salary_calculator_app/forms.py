@@ -27,5 +27,6 @@ class CargoUnivForm(forms.Form):
         help_text=u'Ingrese el nombre del cargo.')
     antiguedad = forms.ModelChoiceField(label=u'Antigüedad', queryset=AntiguedadUniv.objects.all(), empty_label=None,
         help_text=u'Ingrese su antigüedad para el cargo.')
-    master = forms.BooleanField(label=u'¿Posee título de maestría?', required=False)
-    doctorado = forms.BooleanField(label=u'¿Posee título de doctorado?', required=False)
+    master = forms.BooleanField(label=u'Master', required=False)
+    doctorado = forms.BooleanField(label=u'Doctorado', required=False)
+    

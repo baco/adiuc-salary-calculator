@@ -33,8 +33,8 @@ class Cargo(models.Model):
         help_text=u'El código L.U. del cargo que figura en la planilla de la UNC.')
     pampa = models.CharField(u'Código PAMPA', max_length=3, unique=True, validators=[validate_isdigit],
         help_text=u'El código PAMPA del cargo que figura en la planilla de la UNC.')
-    nombre = models.CharField(u'Tipo de Cargo', max_length=50, unique=True,
-        help_text=u'El nombre del cargo como figura en la planilla de la UNC. Ej: Profesor Titular D.E, Profesor Asociado D.S, etc')
+    tipo = models.OneToOneField('TipoCargo',
+        help_text=u'El nombre o tipo de cargo asociado.')
     basico_unc = models.FloatField(u'Sueldo Básico UNC', validators=[validate_isgezero],
         help_text=u'El sueldo básico del cargo que figura en la planilla de la UNC. Los cálculos de aumentos y salarios brutos/netos se calcularán tomando como base este valor.')
     basico_nac = models.FloatField(u'Sueldo Básico Paritaria Nacional', validators=[validate_isgezero],
@@ -46,7 +46,17 @@ class Cargo(models.Model):
         abstract = True
 
     def __unicode__(self):
-        return self.lu + " " + self.nombre
+        return self.lu + " " + unicode(self.tipo)
+
+
+class TipoCargo(models.Model):
+    """El nombre o tipo de cargo. Ej: Profesor Adjunto, Ayudante Alumno, etc"""
+
+    nombre = models.CharField(u'Tipo de Cargo', max_length=50, unique=True,
+        help_text=u'El nombre de un tipo de cargo como figura en la planilla de la UNC. Ej: Profesor Titular, Profesor Asociado, etc')
+
+    def __unicode__(self):
+        return self.nombre
 
 
 class GarantiaSalarial(models.Model):
@@ -66,16 +76,16 @@ class GarantiaSalarial(models.Model):
 class CargoUniv(Cargo):
     """Cargo de docente Universitario."""
 
-    TIPO_OPCS = (
+    DEDICACION_OPCS = (
         ('D.E', u'Dedicación Exclusiva'),
         ('D.S.E', u'Dedicación Semi Exclusiva'),
         ('D.S', u'Dedicación Simple')
     )
-    tipo = models.CharField(max_length=5, choices=TIPO_OPCS,
+    dedicacion = models.CharField(max_length=5, choices=DEDICACION_OPCS,
         help_text=u'El tipo de dedicación para el cargo. Pueden ser dedicación exclusiva, semi-exclusiva o simple.')
 
     def __unicode__(self):
-        return super(CargoUniv, self).__unicode__() + " " + self.tipo
+        return super(CargoUniv, self).__unicode__() + " " + self.dedicacion
 
 
 class CargoPreUniv(Cargo):

@@ -3,31 +3,35 @@
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
-from forms import CargoUnivForm
+from forms import CargoUnivForm, MesForm
 import models
 
 def calculate(request):
 
-	if request.method == 'POST':
-		form = CargoUnivForm(request.POST)
+    if request.method == 'POST':
 
-		if form.is_valid():
-			context = {}
-			
-			cargo	   = form.cleaned_data['cargo']
-			doctorado  = form.cleaned_data['doctorado']
-			master	   = form.cleaned_data['master']
-			antiguedad = form.cleaned_data['antiguedad']
-			
-	        cargo = Cargo.objects.get(nombre=tipo)
-			#calcular el sueldo acorde.
-			
-#		else:
-#			context = {'error':True}
+        mform = MesForm(request.POST)
+        cform = CargoUnivForm(request.POST)
+        context = {}
+        
+        if cform.is_valid() and mform.is_valid():
+            cargo	   = cform.cleaned_data['cargo']
+            doctorado  = cform.cleaned_data['doctorado']
+            master	   = cform.cleaned_data['master']
+            antiguedad = cform.cleaned_data['antiguedad']
 
-		return render_to_response('salary_calculated.html', context)
+            context['cform'] = cform
 
-	else:
-		form = CargoUnivForm()
-		return render_to_response('calculate.html', {'form': form})
+            aumento = fmes.cleaned_data['aumento']
+            context['mform'] = mform
+
+            
+        #else: reportar error
+            
+        return render_to_response('salary_calculated.html',context)
+
+    else:
+        cform = CargoUnivForm()
+        mform = MesForm()
+        return render_to_response('calculate.html', {'cform':cform,'mform':mform})
 

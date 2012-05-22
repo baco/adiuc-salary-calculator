@@ -41,7 +41,12 @@ class Cargo(models.Model):
         help_text=u'El sueldo básico del cargo que figura en la planilla grande, es decir, la planilla de las paritarias nacionales. Se toma este valor para el cálculo de los aumentos')
     garantia_salarial = models.ForeignKey('GarantiaSalarial', blank=True, null=True,
         help_text=u'La garantía salarial asociada a este cargo. Es el monto mínimo que una persona con el cargo puede cobrar.')
-
+    rem_fijas = models.ManyToManyField('RemuneracionFija')
+    rem_porcentuales = models.ManyToManyField('RemuneracionPorcentual')
+    ret_fijas = models.ManyToManyField('RetencionFija')
+    ret_porcentuales = models.ManyToManyField('RetencionPorcentual')
+    
+    
     class Meta:
         abstract = True
 

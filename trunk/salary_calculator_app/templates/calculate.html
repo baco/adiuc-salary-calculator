@@ -9,30 +9,32 @@
 	</head>
 	
 	<body>
+	    {{ context }}
+	    
 		<form action="/calculate/" method="POST">
 			<div id="form_content">
 				<div id="form_mes">
-					{{ fmes.as_table}}
+					{{ mform.aumento}}
 				</div>
 
 				<div class="form_cargo">
 					<table>
 						<tr>
 							<td> Cargo: </td>
-							<td> {{ form.cargo }} </td>
+							<td> {{ cform.cargo }} </td>
 						</tr>
 						<tr>
 							<td>A&ntilde;os de antiguedad:</td>
-							<td> {{form.antiguedad}} </td>
+							<td> {{ cform.antiguedad}} </td>
 						</tr>
 						<tr>
 							<td>T&iacute;tulos adicionales:</td>
 						</tr>
 						<tr colspand=2>
 							<td><blockquote>
-								{{ form.master }} {{ form.master.label }} 
+								{{ cform.master }} {{ cform.master.label }} 
 								<br>
-								{{ form.doctorado }} {{ form.doctorado.label }}
+								{{ cform.doctorado }} {{ cform.doctorado.label }}
 								</blockquote>
 
 							</td>

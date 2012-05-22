@@ -9,3 +9,9 @@ def validate_isdigit(string):
 
 	if not string.isdigit():
 		raise ValidationError(u'Debe ingresar caracteres numéricos: "0", "1", "2", ... , "7", "8", "9".')
+
+def validate_isgezero(number):
+    """number es valido si es mayor o igual a 0."""
+
+    if number<0:
+        raise ValidationError(u'Debe ingresar un número positivo.')

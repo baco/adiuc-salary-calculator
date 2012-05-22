@@ -20,6 +20,12 @@ from models import *
 #('24','24'),
 #)
 
+class MesForm(forms.Form):
+	"""Formulario para el cálculo de salario docente. Indica el mes correspondiente al cálculo."""
+
+	aumento = forms.ModelChoiceField(label=u'aumento', queryset=Aumento.objects.all(),empty_label=None,
+		help_text=u'Seleccione el mes sobre el cual calcular el salario.')
+
 class CargoUnivForm(forms.Form):
     """Formulario de calculo de salario docente para docentes universitarios."""
 

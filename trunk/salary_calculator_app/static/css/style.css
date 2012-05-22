@@ -1,6 +1,6 @@
 div#form_content {width:500px;margin:2px;background-color:#cdd9de;}
 div#form_mes {background-color:#004b6a;color:#FFFFFF;text-align:center;font-family:"Arial";}
-div.form_cargo {background-color:#ededed;margin:2px}
+div.form_cargo {background-color:#ededed;margin:2px;;}
 a#nuevo_cargo{color:#000000;font-size:small;}
 div#submit {background-color:#fff;margin:0px; text-align:center}
 

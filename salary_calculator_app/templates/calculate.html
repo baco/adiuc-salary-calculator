@@ -5,43 +5,90 @@
 
 	<head>
 		<link rel="stylesheet" href="{% get_static_prefix %}css/style.css" type="text/css" />
-		<title>Calculo Salarial</title>
+        <script type="text/javascript" src="{% get_static_prefix %}js/jquery.js"></script>
+        <script type="text/javascript" src="{% get_static_prefix %}js/formset.js"></script>
+		<title>Simulador Salarial ADIUC</title>
 	</head>
 	
 	<body>
 	    {{ context }}
 	    
 		<form action="/calculate/" method="POST">
+
+            <!-- Requerido para contabilizar cuantos forms tiene el formset -->
+            {{ univformset.management_form }}
+
 			<div id="form_content">
+
 				<div id="form_mes">
 					{{ mform.aumento}}
 				</div>
 
+                {% for univform in univformset %}
+
 				<div class="form_cargo">
 					<table>
 						<tr>
-							<td> Cargo: </td>
-							<td> {{ cform.cargo }} </td>
+
+							<td> {{ univform.cargo.label_tag }}: </td>
+							<td> {{ univform.cargo }} </td>
+
 						</tr>
 						<tr>
-							<td>A&ntilde;os de antiguedad:</td>
-							<td> {{ cform.antiguedad}} </td>
+
+							<td> {{ univform.antiguedad.label_tag }}:</td>
+							<td> {{ univform.antiguedad }} </td>
+
 						</tr>
 						<tr>
 							<td>T&iacute;tulos adicionales:</td>
 						</tr>
 						<tr colspand=2>
 							<td><blockquote>
-								{{ cform.master }} {{ cform.master.label }} 
-								<br>
-								{{ cform.doctorado }} {{ cform.doctorado.label }}
-								</blockquote>
 
+								{{ univform.master }} {{ univform.master.label_tag }} 
+
+								<br>
+
+								{{ univform.doctorado }} {{ univform.doctorado.label_tag }}
+
+								</blockquote>
 							</td>
-						</tr>					
+						</tr>
 					</table>
+                    <p class="agregar_quitar rightalign"><a href="javascript:null" onclick="hide_father(this)">Quitar</a></p>
 				</div>
-				<a id="nuevo_cargo" href="">[+] A&ntilde;adir nuevo cargo</a>
+
+                {% endfor %}
+
+				<a id="nuevo_cargo" class="agregar_quitar" href="javascript:null" onclick="show_new_form_HTML('form_content',
+                '\
+                <div class=\'form_cargo\'>\
+                    <table>\
+                        <tr>\
+                            <td> {{ univformset.empty_form.cargo.label_tag|escapejs }}: </td>\
+                            <td> {{ univformset.empty_form.cargo|escapejs }} </td>\
+						</tr>\
+						<tr>\
+							<td> {{ univformset.empty_form.antiguedad.label_tag|escapejs }}:</td>\
+							<td> {{ univformset.empty_form.antiguedad|escapejs }} </td>\
+						</tr>\
+						<tr>\
+							<td>T&iacute;tulos adicionales:</td>\
+						</tr>\
+						<tr colspand=2>\
+							<td><blockquote>\
+								{{ univformset.empty_form.master|escapejs }} {{ univformset.empty_form.master.label_tag|escapejs }}\
+								<br>\
+								{{ univformset.empty_form.doctorado|escapejs }} {{ univformset.empty_form.doctorado.label_tag|escapejs }}\
+								</blockquote>\
+							</td>\
+						</tr>\
+					</table>\
+                    <p class=\'agregar_quitar rightalign\'><a href=\'javascript:null\' onclick=\'hide_father(this, id_form-TOTAL_FORMS)\'>Quitar</a></p>\
+				</div>\
+                ',
+                'id_form-TOTAL_FORMS', 'id_form-MAX_NUM_FORMS', 'nuevo_cargo')">[+] A&ntilde;adir nuevo cargo</a>
 				<div id="submit"><input type="submit" value="Calcular" /></div>
 			</div>
 		</form>

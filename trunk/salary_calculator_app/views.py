@@ -9,13 +9,13 @@ from forms import CargoUnivForm, MesForm
 import models
 
 # debugger
-import pdb
+#import pdb
 
 def calculate(request):
     #error = 1 : error einvformset
     #error = 2 : error formularios invalidos
 
-    pdb.set_trace()
+#    pdb.set_trace()
 
     context = {}
 
@@ -50,7 +50,7 @@ def calculate(request):
                 antiguedad_obj = univform.cleaned_data['antiguedad']
 
                 antiguedad = 1. + float(antiguedad_obj.porcentaje)/100.0
-                anios_antiguedad = antiguedad_obj_anio
+                anios_antiguedad = antiguedad_obj.anio
                 dedicacion = cargo_obj.dedicacion
                 tipo_cargo = cargo_obj.tipo
                 basico_unc = cargo_obj.basico_unc
@@ -74,7 +74,7 @@ def calculate(request):
                 else:
                     aumento_posg = 1.
 
-                bruto_sep11 = bruto_nac * antiguedad
+                bruto_sep11 = basico_nac * antiguedad
                 neto_basico_sep11 = basico_nac - (basico_nac * descuentos)
                 neto_sep11 = neto_basico_sep11 * antiguedad
             
@@ -95,6 +95,7 @@ def calculate(request):
                     context['bruto'] = salario_bruto
                     context['neto'] = salario_neto
 
+                    context['mes'] = mes
             return render_to_response('salary_calculated.html', context)
 
     else:

@@ -8,91 +8,102 @@ from django.forms.formsets import formset_factory
 from forms import CargoUnivForm, MesForm
 import models
 
-def calculate(request):
-#error = 1 : error einvformset
-#error = 2 : error formularios invalidos
+# debugger
+import pdb
 
+def calculate(request):
+    #error = 1 : error einvformset
+    #error = 2 : error formularios invalidos
+
+    pdb.set_trace()
+
+    context = {}
 
     # CargoUnivFormSet: Permite que aparezcan multiples formularios identicos.
     CargoUnivFormSet = formset_factory(CargoUnivForm, extra=1, max_num=5)
 
     if request.method == 'POST':
-        univformset = CargoUnivFormSet(request.POST)
-        context = {}
+
+        # Sacamos la info del POST y bindeamos los forms.
+        univformset = CargoUnivFormSet(request.POST, prefix='univcargo')
         mform = MesForm(request.POST)
 
-        if univformset.is_valid():
-            cform = CargoUnivForm(request.POST)
-            context.update({'cform':cform,'mform':mform})       
-        else:        
-            error = 1
-            print error            
-            context['error'] = error
-            return render_to_response('calculate.html',context)
+        #if univformset.is_valid():
+         #   univformset = CargoUnivForm(request.POST)
+          #  context.update({'univformset':univformset, 'mform':mform})
+        #else:
+          #  error = 1
+           # print error
+            #context['error'] = error
+            #return render_to_response('calculate.html', context)
 
-        if cform.is_valid() and mform.is_valid():
-            cargo	   = cform.cleaned_data['cargo']
-            doctorado  = cform.cleaned_data['doctorado']
-            master	   = cform.cleaned_data['master']
-            antiguedad_obj = cform.cleaned_data['antiguedad']
+        if univformset.is_valid() and mform.is_valid():
 
             aumento_obj = mform.cleaned_data['aumento']
 
-            antiguedad = 1 + float(antiguedad_obj.porcentaje)/100.0
-            anios_antiguedad = antiguedad_obj_anio
-            dedicacion = cargo_obj.dedicacion
-            tipo_cargo = cargo_obj.tipo
-            basico_unc = cargo_obj.basico_unc
-            basico_nac = cargo_obj.basico_nac
-            
-            aumento = float(aumento_obj.porcentaje)/100.0
-            mes = aumento_obj.mes
-            anio = aumento_obj.anio
+            # Itero sobre todos los cargos.
+            for univform in univformset:
 
-            ldescuentos = []      #lista de cosas a descontar, retencioens, etc.
-            aumento2003   = 0
-            descuentos    = 0.19  #calcularlo basadose en lista_descuentos
-            
-            context.update({'ldescuentos':ldescuentos,'aumento2003':aumento2003,'descuentos':descuentos})
+                cargo_obj = univform.cleaned_data['cargo']
+                has_doctorado = univform.cleaned_data['doctorado']
+                has_master = univform.cleaned_data['master']
+                antiguedad_obj = univform.cleaned_data['antiguedad']
 
-            # ej: Sueldo*aumento_posg = sueldo_resultante
-            if doctorado:
-                aumento_posg = 1.15
-            elif master:
-                aumento_posg = 1.05
-            else:
-                aumento_posg = 1
+                antiguedad = 1. + float(antiguedad_obj.porcentaje)/100.0
+                anios_antiguedad = antiguedad_obj_anio
+                dedicacion = cargo_obj.dedicacion
+                tipo_cargo = cargo_obj.tipo
+                basico_unc = cargo_obj.basico_unc
+                basico_nac = cargo_obj.basico_nac
 
-            bruto_sep11 = bruto_nac * antiguedad
-            neto_basico_sep11 = basico_nac - (basico_nac * descuentos)
-            neto_sep11 = neto_basico_sep11 * antiguedad
+                aumento = float(aumento_obj.porcentaje)/100.0
+                mes = aumento_obj.mes
+                anio = aumento_obj.anio
+
+                ldescuentos = []      #lista de cosas a descontar, retencioens, etc.
+                aumento2003   = 0
+                descuentos    = 0.19  #calcularlo basadose en lista_descuentos
             
-            if mes == "SEP" and anio == "2011":
+                context.update({'ldescuentos':ldescuentos,'aumento2003':aumento2003,'descuentos':descuentos})
+
+                # ej: Sueldo*aumento_posg = sueldo_resultante
+                if has_doctorado:
+                    aumento_posg = 1.15
+                elif has_master:
+                    aumento_posg = 1.05
+                else:
+                    aumento_posg = 1.
+
+                bruto_sep11 = bruto_nac * antiguedad
+                neto_basico_sep11 = basico_nac - (basico_nac * descuentos)
+                neto_sep11 = neto_basico_sep11 * antiguedad
+            
+                if mes == "SEP" and anio == "2011":
+                    
+                    context['bruto'] = bruto_sep11
+                    context['neto'] = neto_sep11
+
+                if mes == "MAR" or mes == "JUN" or (mes == "SEP" and anio == "2012"):
+                    acum_mensual = basico_nac * aumento
+                    salario_basico = basico_unc + acum_mensual + aumento2003
+                    salario_bruto = salario_basico * antiguedad
+                    
+                    salario_bruto = salario_bruto * aumento_posg
                 
-                context['bruto'] = bruto_sep11
-                context['neto'] = neto_sep11
+                    salario_neto = neto_sep11 + (neto_sep11 * aumento)
 
-            if mes == "MAR" or mes == "JUN" or (mes == "SEP" and anio == "2012"):
-                acum_mensual = basico_nac * aumento
-                salario_basico = basico_unc + acum_mensual + aumento2003
-                salario_bruto = salario_basico * antiguedad
-                
-                salario_bruto = salario_bruto * aumento_posg
-            
-                salario_neto = neto_sep11 + (neto_sep11 * aumento)
+                    context['bruto'] = salario_bruto
+                    context['neto'] = salario_neto
 
-                context['bruto'] = salario_bruto
-                context['neto'] = salario_neto
-                
             return render_to_response('salary_calculated.html', context)
 
-        else:
-            error = 2 #error de validacion, indicar errores.
-            context['error']= error
-            return render_to_response('calculate.html',context)
-
     else:
-        univformset = CargoUnivFormSet()
+
+        # Creamos formularios vacios (sin bindear) y los mandamos.
+        univformset = CargoUnivFormSet(prefix='univcargo')
         mform = MesForm()
-        return render_to_response('calculate.html', {'univformset': univformset,'mform':mform})
+        context['univformset'] = univformset
+        context['mform'] = mform
+
+    return render_to_response('calculate.html', context)
 

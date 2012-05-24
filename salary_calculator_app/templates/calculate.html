@@ -56,15 +56,13 @@
 							</td>
 						</tr>
 					</table>
-                    <p class="agregar_quitar rightalign"><a href="javascript:null" onclick="hide_father(this)">Quitar</a></p>
+                    <p class="agregar_quitar rightalign"><a href="javascript:null" onclick="hide_father(this,univPrefix)">Quitar</a></p>
 				</div>
 
                 {% endfor %}
 
-				<a id="nuevo_cargo" class="agregar_quitar" href="javascript:null" onclick="show_new_form_HTML('form_content',
-                '\
-                <div class=\'form_cargo\'>\
-                    <table>\
+				<a id="nuevo_cargo" class="agregar_quitar" href="javascript:null" onclick="show_new_form_HTML('form_content', univDivAttrs,
+                '<table>\
                         <tr>\
                             <td> {{ univformset.empty_form.cargo.label_tag|escapejs }}: </td>\
                             <td> {{ univformset.empty_form.cargo|escapejs }} </td>\
@@ -85,13 +83,19 @@
 							</td>\
 						</tr>\
 					</table>\
-                    <p class=\'agregar_quitar rightalign\'><a href=\'javascript:null\' onclick=\'hide_father(this, id_form-TOTAL_FORMS)\'>Quitar</a></p>\
-				</div>\
-                ',
-                'id_form-TOTAL_FORMS', 'id_form-MAX_NUM_FORMS', 'nuevo_cargo')">[+] A&ntilde;adir nuevo cargo</a>
+                    <p class=\'agregar_quitar rightalign\'><a href=\'javascript:null\' onclick=\'hide_father(this, univPrefix)\'>Quitar</a></p>',
+                univPrefix, 'nuevo_cargo')">[+] A&ntilde;adir nuevo cargo</a>
 				<div id="submit"><input type="submit" value="Calcular" /></div>
 			</div>
 		</form>
+    
+        <!-- Script para setear valores iniciales de variables luego de cargar el body -->
+        <script type="text/javascript">
+            univPrefix = "univcargo";
+            univDivAttrs = {};
+            univDivAttrs['class'] = 'form_cargo';
+        </script>
+
 	</body>
 
 </html>

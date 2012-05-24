@@ -7,7 +7,7 @@ Cómo calcular?
         BrutoSep11: SEPbasico_nac + antiguedad%
         NetoSep11: = BasNetSep11 + antiguedad%
                 
-              DONDE, BasNetSep11 = BrutosSep11 - (Jubilacion + Ley + Obra Social)%
+              DONDE, BasNetSep11 = SEPbasico_nac - (Jubilacion + Ley + Obra Social)%
                                                             13       3        3
         
     Caso Marzo 2012:

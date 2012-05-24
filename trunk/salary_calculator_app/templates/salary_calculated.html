@@ -6,6 +6,16 @@
 	</head>
 	
 	<body>
+			<div class = "title"> Cálculo salarial para el mes de {{ mes }} </div>
+
+			<div class= "cargo">
+			    <table>
+			        {% for k in context %}
+			        <tr><td> {{ context[k] }}</td></tr>
+			        {% endfor %}
+			    
+			    </table>
+			</div>
 			
 	</body>
 	

@@ -1,21 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-es" lang="es-es" dir="ltr">
 	<head>
-		<link rel="stylesheet" href="static_media/css/style.css" type="text/css" />
 		<title>Calculo Salarial</title>
 	</head>
 	
 	<body>
+
+	
 			<div class = "title"> Cálculo salarial para el mes de {{ mes }} </div>
-
-			<div class= "cargo">
-			    <table>
-			        <tr><td> {{ context }}</td></tr>
-
-			    
-			    </table>
-			</div>
 			
+            <br>
+            <div class="form_cargo">
+            {% for d in lista_res %}
+            <table>
+                {% for k,v in d.items %}
+                <tr><td>{{k}}</td><td>{{ v }}</td></tr>
+                {% endfor %}
+            </table><br>
+            {% endfor %}
+            Total Bruto: {{ total_bruto }}<br>
+            Total Neto: {{ total_neto  }}
+            </div>
 	</body>
 	
 </html>

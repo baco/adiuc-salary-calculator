@@ -153,19 +153,11 @@
     }
   }, 
   {
-    "pk": "89d5a423af5e232f047e77931b2709e3", 
+    "pk": "fcff8d0e543d7d06c53b877dadc13b76", 
     "model": "sessions.session", 
     "fields": {
-      "expire_date": "2012-06-05T03:52:11.593Z", 
-      "session_data": "YTFjZWI1MjYxNTk2MTg0ZDkxNDg0ZTA5YjRhMzRjMmRmMjRjMDdiODqAAn1xAS4=\n"
-    }
-  }, 
-  {
-    "pk": "2e7ae2c683a9ce898a09d26a3db308f5", 
-    "model": "sessions.session", 
-    "fields": {
-      "expire_date": "2012-06-05T04:00:21.241Z", 
-      "session_data": "YmJmMTcyNTc4ZmRhZjY1Mjk3MzE1NjUyZDUzMzZjMTg1Y2QyMjQ0YzqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQRLAnUu\n"
+      "expire_date": "2012-06-11T14:16:28.899Z", 
+      "session_data": "ZDQxMmNlZWNmMWJiMzc2ZmJiMDk1ZTdhZWIwNzJjYTY1MWM3ZmY2NTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQRLAXUu\n"
     }
   }, 
   {
@@ -179,44 +171,44 @@
     "pk": 2, 
     "model": "salary_calculator_app.tipocargo", 
     "fields": {
-      "nombre": "Profesor Adjunto"
+      "nombre": "Profesor Asistente (JTP)"
     }
   }, 
   {
     "pk": 3, 
     "model": "salary_calculator_app.tipocargo", 
     "fields": {
-      "nombre": "Profesor Ayudante (Aux.)"
+      "nombre": "Profesor Asociado"
     }
   }, 
   {
     "pk": 4, 
     "model": "salary_calculator_app.tipocargo", 
     "fields": {
-      "nombre": "Profesor Asociado"
+      "nombre": "Profesor Adjunto"
     }
   }, 
   {
     "pk": 5, 
     "model": "salary_calculator_app.tipocargo", 
     "fields": {
-      "nombre": "Profesor Asistente (JTP)"
+      "nombre": "Profesor Ayudante (Aux.)"
     }
   }, 
   {
     "pk": 6, 
     "model": "salary_calculator_app.tipocargo", 
     "fields": {
-      "nombre": "Profesor Ayudante 2"
+      "nombre": "Profesor Ayudante (Aux) 2\u00ba"
     }
   }, 
   {
     "pk": 1, 
     "model": "salary_calculator_app.garantiasalarial", 
     "fields": {
-      "anio": "2012", 
+      "anio": "2011", 
       "mes": "MAR", 
-      "valor": 6913.58
+      "valor": 4600.0
     }
   }, 
   {
@@ -225,7 +217,7 @@
     "fields": {
       "anio": "2011", 
       "mes": "MAR", 
-      "valor": 2839.51
+      "valor": 2300.0
     }
   }, 
   {
@@ -234,32 +226,395 @@
     "fields": {
       "anio": "2012", 
       "mes": "MAR", 
-      "valor": 3456.79
+      "valor": 5600.0
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "anio": "2012", 
+      "mes": "MAR", 
+      "valor": 2800.0
     }
   }, 
   {
     "pk": 1, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
       "dedicacion": "D.E", 
       "tipo": 1, 
       "basico_nac": 6831.76, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
       "lu": "5", 
       "basico_unc": 6848.33, 
       "pampa": "101", 
-      "garantia_salarial": 1
-    }
-  }, 
-  {
-    "pk": 1, 
-    "model": "salary_calculator_app.antiguedaduniv", 
-    "fields": {
-      "anio": 5, 
-      "porcentaje": 30.0
+      "garantia_salarial": []
     }
   }, 
   {
     "pk": 2, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S.E", 
+      "tipo": 1, 
+      "basico_nac": 3415.88, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "13", 
+      "basico_unc": 3420.72, 
+      "pampa": "102", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S", 
+      "tipo": 1, 
+      "basico_nac": 1707.94, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "27", 
+      "basico_unc": 1709.47, 
+      "pampa": "103", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.E", 
+      "tipo": 3, 
+      "basico_nac": 6146.54, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "6", 
+      "basico_unc": 6162.16, 
+      "pampa": "105", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S.E", 
+      "tipo": 3, 
+      "basico_nac": 3073.27, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "8", 
+      "basico_unc": 3077.92, 
+      "pampa": "106", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S", 
+      "tipo": 3, 
+      "basico_nac": 1536.63, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "54", 
+      "basico_unc": 1538.07, 
+      "pampa": "107", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.E", 
+      "tipo": 4, 
+      "basico_nac": 5461.32, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "7", 
+      "basico_unc": 5474.84, 
+      "pampa": "109", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S.E", 
+      "tipo": 4, 
+      "basico_nac": 2730.66, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "20", 
+      "basico_unc": 2734.95, 
+      "pampa": "110", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S", 
+      "tipo": 4, 
+      "basico_nac": 1365.33, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "31", 
+      "basico_unc": 1366.62, 
+      "pampa": "111", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.E", 
+      "tipo": 2, 
+      "basico_nac": 4776.1, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "9", 
+      "basico_unc": 4786.34, 
+      "pampa": "113", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S.E", 
+      "tipo": 2, 
+      "basico_nac": 2388.05, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "26", 
+      "basico_unc": 2392.05, 
+      "pampa": "114", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S", 
+      "tipo": 2, 
+      "basico_nac": 1194.02, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "32", 
+      "basico_unc": 1195.18, 
+      "pampa": "115", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.E", 
+      "tipo": 5, 
+      "basico_nac": 4090.87, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "14", 
+      "basico_unc": 4101.53, 
+      "pampa": "117", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S.E", 
+      "tipo": 5, 
+      "basico_nac": 2045.44, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "28", 
+      "basico_unc": 2049.21, 
+      "pampa": "118", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S", 
+      "tipo": 6, 
+      "basico_nac": 818.17, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "36", 
+      "basico_unc": 819.12, 
+      "pampa": "121", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 1, 
     "model": "salary_calculator_app.antiguedaduniv", 
     "fields": {
       "anio": 0, 
@@ -267,7 +622,7 @@
     }
   }, 
   {
-    "pk": 3, 
+    "pk": 2, 
     "model": "salary_calculator_app.antiguedaduniv", 
     "fields": {
       "anio": 1, 
@@ -275,11 +630,19 @@
     }
   }, 
   {
-    "pk": 4, 
+    "pk": 3, 
     "model": "salary_calculator_app.antiguedaduniv", 
     "fields": {
       "anio": 2, 
       "porcentaje": 20.0
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.antiguedaduniv", 
+    "fields": {
+      "anio": 5, 
+      "porcentaje": 30.0
     }
   }, 
   {
@@ -362,6 +725,76 @@
       "anio": "2012", 
       "mes": "JUN", 
       "porcentaje": 18.0
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "salary_calculator_app.retencionporcentual", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Aporte Fondo Adic. Universitario", 
+      "codigo": "203", 
+      "porcentage": 2.0
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.retencionporcentual", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Jubilaci\u00f3n R\u00e9gimen Especial", 
+      "codigo": "209", 
+      "porcentage": 11.0
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.retencionporcentual", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Caja Complementaria de Jub.", 
+      "codigo": "210", 
+      "porcentage": 4.5
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.retencionporcentual", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Ley 19032 Obra Soc. Jub.", 
+      "codigo": "220", 
+      "porcentage": 3.0
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "salary_calculator_app.retencionporcentual", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "DASPU", 
+      "codigo": "400", 
+      "porcentage": 3.0
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "salary_calculator_app.retencionporcentual", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "ADIUC - Afiliaci\u00f3n", 
+      "codigo": "640", 
+      "porcentage": 1.5
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "salary_calculator_app.retencionporcentual", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Fondo de Becas", 
+      "codigo": "770", 
+      "porcentage": 3.8
     }
   }, 
   {
@@ -827,49 +1260,343 @@
     "pk": 1, 
     "model": "auth.user", 
     "fields": {
-      "username": "david", 
-      "first_name": "", 
-      "last_name": "", 
-      "is_active": true, 
-      "is_superuser": true, 
-      "is_staff": true, 
-      "last_login": "2012-05-22T03:49:22.580Z", 
-      "groups": [], 
-      "user_permissions": [], 
-      "password": "pbkdf2_sha256$10000$jsSVkRFbEFDk$PjhMaxw61HVWgYOjGBCFIla74+AzFNPkmbDqZ6JvDyE=", 
-      "email": "d@d.co", 
-      "date_joined": "2012-05-22T03:49:05.245Z"
-    }
-  }, 
-  {
-    "pk": 2, 
-    "model": "auth.user", 
-    "fields": {
       "username": "admin", 
       "first_name": "", 
       "last_name": "", 
       "is_active": true, 
       "is_superuser": true, 
       "is_staff": true, 
-      "last_login": "2012-05-22T04:00:21.166Z", 
+      "last_login": "2012-05-28T14:16:28.812Z", 
       "groups": [], 
       "user_permissions": [], 
-      "password": "pbkdf2_sha256$10000$haI4h1kYzD8x$ZkzOtbcjyDuDU2QaOjR9eDuJ2V2SvUkn+ir9QFZJPcY=", 
+      "password": "pbkdf2_sha256$10000$VxuSGKl5CqvG$dCbIsfWEecFaCNPbCXgpBba6KQjcmawvH4VzX8G0jak=", 
       "email": "a@a.com", 
-      "date_joined": "2012-05-22T04:00:10.117Z"
+      "date_joined": "2012-05-28T14:16:16.479Z"
+    }
+  }, 
+  {
+    "pk": 52, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:47:51.166Z", 
+      "object_repr": "36 Profesor Ayudante (Aux) 2\u00ba D.S", 
+      "object_id": "15", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 51, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:46:44.681Z", 
+      "object_repr": "28 Profesor Ayudante (Aux.) D.S.E", 
+      "object_id": "14", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 50, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:45:24.665Z", 
+      "object_repr": "14 Profesor Ayudante (Aux.) D.E", 
+      "object_id": "13", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 49, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:43:28.881Z", 
+      "object_repr": "32 Profesor Asistente (JTP) D.S", 
+      "object_id": "12", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 48, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:42:10.193Z", 
+      "object_repr": "26 Profesor Asistente (JTP) D.S.E", 
+      "object_id": "11", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 47, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:41:34.307Z", 
+      "object_repr": "9 Profesor Asistente (JTP) D.E", 
+      "object_id": "10", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 46, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:41:02.458Z", 
+      "object_repr": "31 Profesor Adjunto D.S", 
+      "object_id": "9", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 45, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:40:22.991Z", 
+      "object_repr": "20 Profesor Adjunto D.S.E", 
+      "object_id": "8", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 44, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:39:40.507Z", 
+      "object_repr": "7 Profesor Adjunto D.E", 
+      "object_id": "7", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 43, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:37:44.932Z", 
+      "object_repr": "54 Profesor Asociado D.S", 
+      "object_id": "6", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 42, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:37:04.526Z", 
+      "object_repr": "8 Profesor Asociado D.S.E", 
+      "object_id": "5", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 41, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:36:31.125Z", 
+      "object_repr": "6 Profesor Asociado D.E", 
+      "object_id": "4", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 40, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:32:11.092Z", 
+      "object_repr": "27 Profesor Titular D.S", 
+      "object_id": "3", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 39, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:31:21.141Z", 
+      "object_repr": "13 Profesor Titular D.S.E", 
+      "object_id": "2", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:30:40.660Z", 
+      "object_repr": "5 Profesor Titular D.E", 
+      "object_id": "1", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 37, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:28:33.233Z", 
+      "object_repr": "770 Fondo de Becas 3.8%", 
+      "object_id": "7", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 14
+    }
+  }, 
+  {
+    "pk": 36, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:28:18.451Z", 
+      "object_repr": "640 ADIUC - Afiliaci\u00f3n 1.5%", 
+      "object_id": "6", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 14
+    }
+  }, 
+  {
+    "pk": 35, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:27:55.746Z", 
+      "object_repr": "400 DASPU 3.0%", 
+      "object_id": "5", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 14
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:27:45.284Z", 
+      "object_repr": "220 Ley 19032 Obra Soc. Jub. 3.0%", 
+      "object_id": "4", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 14
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:27:18.692Z", 
+      "object_repr": "210 Caja Complementaria de Jub. 4.5%", 
+      "object_id": "3", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 14
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:26:56.474Z", 
+      "object_repr": "209 Jubilaci\u00f3n R\u00e9gimen Especial 11.0%", 
+      "object_id": "2", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 14
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:26:42.547Z", 
+      "object_repr": "203 Aporte Fondo Adic. Universitario 2.0%", 
+      "object_id": "1", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 14
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:25:06.677Z", 
+      "object_repr": "$2800.0 MAR 2012", 
+      "object_id": "4", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 8
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:24:58.435Z", 
+      "object_repr": "$5600.0 MAR 2012", 
+      "object_id": "3", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 8
     }
   }, 
   {
     "pk": 28, 
     "model": "admin.logentry", 
     "fields": {
-      "action_flag": 2, 
-      "action_time": "2012-05-22T04:12:19.090Z", 
-      "object_repr": "MAR 2012 - 12.0%", 
-      "object_id": "1", 
-      "change_message": "Modifica porcentaje.", 
-      "user": 2, 
-      "content_type": 13
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:24:38.283Z", 
+      "object_repr": "$2300.0 MAR 2011", 
+      "object_id": "2", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 8
     }
   }, 
   {
@@ -877,12 +1604,12 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T04:12:13.043Z", 
-      "object_repr": "JUN 2012 - 18.0%", 
-      "object_id": "2", 
+      "action_time": "2012-05-28T14:24:20.160Z", 
+      "object_repr": "$4600.0 MAR 2011", 
+      "object_id": "1", 
       "change_message": "", 
-      "user": 2, 
-      "content_type": 13
+      "user": 1, 
+      "content_type": 8
     }
   }, 
   {
@@ -890,11 +1617,11 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T04:11:36.372Z", 
+      "action_time": "2012-05-28T14:23:23.638Z", 
       "object_repr": "24 - 120.0%", 
       "object_id": "12", 
       "change_message": "", 
-      "user": 2, 
+      "user": 1, 
       "content_type": 11
     }
   }, 
@@ -903,11 +1630,11 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T04:11:29.805Z", 
+      "action_time": "2012-05-28T14:23:16.791Z", 
       "object_repr": "22 - 110.0%", 
       "object_id": "11", 
       "change_message": "", 
-      "user": 2, 
+      "user": 1, 
       "content_type": 11
     }
   }, 
@@ -916,11 +1643,11 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T04:11:26.537Z", 
+      "action_time": "2012-05-28T14:23:10.695Z", 
       "object_repr": "20 - 100.0%", 
       "object_id": "10", 
       "change_message": "", 
-      "user": 2, 
+      "user": 1, 
       "content_type": 11
     }
   }, 
@@ -929,11 +1656,11 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T04:11:12.266Z", 
+      "action_time": "2012-05-28T14:23:02.791Z", 
       "object_repr": "17 - 80.0%", 
       "object_id": "9", 
       "change_message": "", 
-      "user": 2, 
+      "user": 1, 
       "content_type": 11
     }
   }, 
@@ -942,11 +1669,11 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T04:11:07.511Z", 
+      "action_time": "2012-05-28T14:22:55.631Z", 
       "object_repr": "15 - 70.0%", 
       "object_id": "8", 
       "change_message": "", 
-      "user": 2, 
+      "user": 1, 
       "content_type": 11
     }
   }, 
@@ -955,11 +1682,11 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T04:10:40.214Z", 
+      "action_time": "2012-05-28T14:22:41.898Z", 
       "object_repr": "12 - 60.0%", 
       "object_id": "7", 
       "change_message": "", 
-      "user": 2, 
+      "user": 1, 
       "content_type": 11
     }
   }, 
@@ -968,11 +1695,11 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T04:10:35.689Z", 
+      "action_time": "2012-05-28T14:22:31.931Z", 
       "object_repr": "10 - 50.0%", 
       "object_id": "6", 
       "change_message": "", 
-      "user": 2, 
+      "user": 1, 
       "content_type": 11
     }
   }, 
@@ -981,11 +1708,11 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T04:10:32.146Z", 
+      "action_time": "2012-05-28T14:22:26.372Z", 
       "object_repr": "7 - 40.0%", 
       "object_id": "5", 
       "change_message": "", 
-      "user": 2, 
+      "user": 1, 
       "content_type": 11
     }
   }, 
@@ -994,11 +1721,11 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T04:10:20.188Z", 
-      "object_repr": "2 - 20.0%", 
+      "action_time": "2012-05-28T14:22:19.983Z", 
+      "object_repr": "5 - 30.0%", 
       "object_id": "4", 
       "change_message": "", 
-      "user": 2, 
+      "user": 1, 
       "content_type": 11
     }
   }, 
@@ -1007,11 +1734,11 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T04:10:16.040Z", 
-      "object_repr": "1 - 20.0%", 
+      "action_time": "2012-05-28T14:22:13.629Z", 
+      "object_repr": "2 - 20.0%", 
       "object_id": "3", 
       "change_message": "", 
-      "user": 2, 
+      "user": 1, 
       "content_type": 11
     }
   }, 
@@ -1020,11 +1747,11 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T04:10:09.538Z", 
-      "object_repr": "0 - 20.0%", 
+      "action_time": "2012-05-28T14:22:01.091Z", 
+      "object_repr": "1 - 20.0%", 
       "object_id": "2", 
       "change_message": "", 
-      "user": 2, 
+      "user": 1, 
       "content_type": 11
     }
   }, 
@@ -1033,12 +1760,12 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T04:04:10.258Z", 
-      "object_repr": "$3456.79 MAR 2012", 
-      "object_id": "3", 
+      "action_time": "2012-05-28T14:21:46.209Z", 
+      "object_repr": "0 - 20.0%", 
+      "object_id": "1", 
       "change_message": "", 
-      "user": 2, 
-      "content_type": 8
+      "user": 1, 
+      "content_type": 11
     }
   }, 
   {
@@ -1046,12 +1773,12 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T04:03:31.424Z", 
-      "object_repr": "$2839.51 MAR 2011", 
+      "action_time": "2012-05-28T14:21:28.215Z", 
+      "object_repr": "JUN 2012 - 18.0%", 
       "object_id": "2", 
       "change_message": "", 
-      "user": 2, 
-      "content_type": 8
+      "user": 1, 
+      "content_type": 13
     }
   }, 
   {
@@ -1059,24 +1786,24 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T04:02:49.096Z", 
-      "object_repr": "Profesor Ayudante 2", 
-      "object_id": "6", 
+      "action_time": "2012-05-28T14:21:19.715Z", 
+      "object_repr": "MAR 2012 - 12.0%", 
+      "object_id": "1", 
       "change_message": "", 
-      "user": 2, 
-      "content_type": 7
+      "user": 1, 
+      "content_type": 13
     }
   }, 
   {
     "pk": 12, 
     "model": "admin.logentry", 
     "fields": {
-      "action_flag": 1, 
-      "action_time": "2012-05-22T04:02:27.151Z", 
-      "object_repr": "Profesor Asistente (JTP)", 
-      "object_id": "5", 
-      "change_message": "", 
-      "user": 2, 
+      "action_flag": 2, 
+      "action_time": "2012-05-28T14:20:22.867Z", 
+      "object_repr": "Profesor Ayudante (Aux) 2\u00ba", 
+      "object_id": "6", 
+      "change_message": "Modifica nombre.", 
+      "user": 1, 
       "content_type": 7
     }
   }, 
@@ -1084,12 +1811,12 @@
     "pk": 11, 
     "model": "admin.logentry", 
     "fields": {
-      "action_flag": 2, 
-      "action_time": "2012-05-22T04:02:12.692Z", 
-      "object_repr": "Profesor Adjunto", 
-      "object_id": "2", 
-      "change_message": "No ha modificado ning\u00fan campo.", 
-      "user": 2, 
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:20:09.207Z", 
+      "object_repr": "Profesor Ayudante (Aux) 2", 
+      "object_id": "6", 
+      "change_message": "", 
+      "user": 1, 
       "content_type": 7
     }
   }, 
@@ -1097,12 +1824,12 @@
     "pk": 10, 
     "model": "admin.logentry", 
     "fields": {
-      "action_flag": 2, 
-      "action_time": "2012-05-22T04:01:41.472Z", 
+      "action_flag": 1, 
+      "action_time": "2012-05-28T14:19:53.113Z", 
       "object_repr": "Profesor Ayudante (Aux.)", 
-      "object_id": "3", 
-      "change_message": "Modifica nombre.", 
-      "user": 2, 
+      "object_id": "5", 
+      "change_message": "", 
+      "user": 1, 
       "content_type": 7
     }
   }, 
@@ -1111,24 +1838,24 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 2, 
-      "action_time": "2012-05-22T04:01:13.741Z", 
-      "object_repr": "5 Profesor Titular D.E", 
-      "object_id": "1", 
-      "change_message": "No ha modificado ning\u00fan campo.", 
-      "user": 2, 
-      "content_type": 9
+      "action_time": "2012-05-28T14:19:11.744Z", 
+      "object_repr": "Profesor Asistente (JTP)", 
+      "object_id": "2", 
+      "change_message": "Modifica nombre.", 
+      "user": 1, 
+      "content_type": 7
     }
   }, 
   {
     "pk": 8, 
     "model": "admin.logentry", 
     "fields": {
-      "action_flag": 1, 
-      "action_time": "2012-05-22T04:00:57.858Z", 
-      "object_repr": "Profesor Asociado", 
-      "object_id": "4", 
+      "action_flag": 3, 
+      "action_time": "2012-05-28T14:18:27.554Z", 
+      "object_repr": "Profesor Ayudante Cat. \"B\"", 
+      "object_id": "6", 
       "change_message": "", 
-      "user": 2, 
+      "user": 1, 
       "content_type": 7
     }
   }, 
@@ -1136,12 +1863,12 @@
     "pk": 7, 
     "model": "admin.logentry", 
     "fields": {
-      "action_flag": 1, 
-      "action_time": "2012-05-22T04:00:50.296Z", 
-      "object_repr": "Profesor Ayudante", 
-      "object_id": "3", 
+      "action_flag": 3, 
+      "action_time": "2012-05-28T14:18:27.360Z", 
+      "object_repr": "Profesor Ayudante Cat. \"A\"", 
+      "object_id": "5", 
       "change_message": "", 
-      "user": 2, 
+      "user": 1, 
       "content_type": 7
     }
   }, 
@@ -1150,11 +1877,11 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T04:00:44.310Z", 
-      "object_repr": "Profesor Adjunto", 
-      "object_id": "2", 
+      "action_time": "2012-05-28T14:17:46.845Z", 
+      "object_repr": "Profesor Ayudante Cat. \"B\"", 
+      "object_id": "6", 
       "change_message": "", 
-      "user": 2, 
+      "user": 1, 
       "content_type": 7
     }
   }, 
@@ -1163,12 +1890,12 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T03:52:01.590Z", 
-      "object_repr": "5 - 30.0%", 
-      "object_id": "1", 
+      "action_time": "2012-05-28T14:17:37.460Z", 
+      "object_repr": "Profesor Ayudante Cat. \"A\"", 
+      "object_id": "5", 
       "change_message": "", 
       "user": 1, 
-      "content_type": 11
+      "content_type": 7
     }
   }, 
   {
@@ -1176,12 +1903,12 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T03:51:41.027Z", 
-      "object_repr": "MAR 2012 - 6.0%", 
-      "object_id": "1", 
+      "action_time": "2012-05-28T14:17:12.812Z", 
+      "object_repr": "Profesor Adjunto", 
+      "object_id": "4", 
       "change_message": "", 
       "user": 1, 
-      "content_type": 13
+      "content_type": 7
     }
   }, 
   {
@@ -1189,12 +1916,12 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T03:51:04.817Z", 
-      "object_repr": "5 Profesor Titular D.E", 
-      "object_id": "1", 
+      "action_time": "2012-05-28T14:17:07.349Z", 
+      "object_repr": "Profesor Asociado", 
+      "object_id": "3", 
       "change_message": "", 
       "user": 1, 
-      "content_type": 9
+      "content_type": 7
     }
   }, 
   {
@@ -1202,12 +1929,12 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T03:50:06.835Z", 
-      "object_repr": "$6913.58 MAR 2012", 
-      "object_id": "1", 
+      "action_time": "2012-05-28T14:16:53.319Z", 
+      "object_repr": "Profesor Asistente", 
+      "object_id": "2", 
       "change_message": "", 
       "user": 1, 
-      "content_type": 8
+      "content_type": 7
     }
   }, 
   {
@@ -1215,7 +1942,7 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-22T03:49:45.850Z", 
+      "action_time": "2012-05-28T14:16:46.870Z", 
       "object_repr": "Profesor Titular", 
       "object_id": "1", 
       "change_message": "", 

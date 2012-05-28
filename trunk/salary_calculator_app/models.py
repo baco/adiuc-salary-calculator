@@ -39,12 +39,12 @@ class Cargo(models.Model):
         help_text=u'El sueldo básico del cargo que figura en la planilla de la UNC. Los cálculos de aumentos y salarios brutos/netos se calcularán tomando como base este valor.')
     basico_nac = models.FloatField(u'Sueldo Básico Paritaria Nacional', validators=[validate_isgezero],
         help_text=u'El sueldo básico del cargo que figura en la planilla grande, es decir, la planilla de las paritarias nacionales. Se toma este valor para el cálculo de los aumentos')
-    garantia_salarial = models.ForeignKey('GarantiaSalarial', blank=True, null=True,
+    garantia_salarial = models.ManyToManyField('GarantiaSalarial', blank=True, null=True,
         help_text=u'La garantía salarial asociada a este cargo. Es el monto mínimo que una persona con el cargo puede cobrar.')
-    rem_fijas = models.ManyToManyField('RemuneracionFija')
-    rem_porcentuales = models.ManyToManyField('RemuneracionPorcentual')
-    ret_fijas = models.ManyToManyField('RetencionFija')
-    ret_porcentuales = models.ManyToManyField('RetencionPorcentual')
+    rem_fijas = models.ManyToManyField('RemuneracionFija',blank=True)
+    rem_porcentuales = models.ManyToManyField('RemuneracionPorcentual',blank=True )
+    ret_fijas = models.ManyToManyField('RetencionFija',blank=True )
+    ret_porcentuales = models.ManyToManyField('RetencionPorcentual',blank=True )
     
     
     class Meta:

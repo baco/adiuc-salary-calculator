@@ -4,6 +4,12 @@
 	<head>
 		<title>Calculo Salarial</title>
     	<link rel="stylesheet" href="{% get_static_prefix %}css/style.css" type="text/css" />
+    	
+    	<script type="text/javascript">
+            function goBack(){
+                  window.history.back()
+            }
+        </script>
 	</head>
 	
 	<body>
@@ -28,7 +34,7 @@
                     {% endif %}
 
                 {% endfor %}
-            </table><hr><br>
+            </table><hr>
             {% endfor %}
             </div>
             <div class="totales">
@@ -43,6 +49,9 @@
                     </tr>
                 </table>
             </div>
+            <br><br>
+            <a class="agregar_quitar"href="javascript: history.back()"> Volver</a>
+
 	</body>
 	
 </html>

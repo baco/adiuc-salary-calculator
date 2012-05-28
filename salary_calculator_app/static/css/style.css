@@ -39,3 +39,12 @@ div#submit {
 .rightalign {
     text-align: right;  
 }
+div.totales {
+    background-color: #224d8c;
+    text-align: center;
+    font-family: "Arial";
+}
+table#result{
+    margin:1px;
+    padding:2px;
+{

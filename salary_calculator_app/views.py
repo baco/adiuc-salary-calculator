@@ -68,11 +68,12 @@ def calculate(request):
                 descuentos  = 0.19  #calcularlo basadose en lista_descuentos
 
                 tipo_cargo = str(tipo_cargo) + " " + str(dedicacion)
+                
                 form_res.update({
                                  'Tipo de Cargo':tipo_cargo,
                                  'Aaumento desde 2003':aumento2003,
-                                 'Total Descuentos':descuentos,
-                                 'ldescuentos':ldescuentos                             
+                                 'ldescuentos':ldescuentos,
+                                 'Total Descuentos': str(descuentos*100) + "%",
                                 })
 
                 if has_doctorado:
@@ -85,7 +86,7 @@ def calculate(request):
                 bruto_sep11 = basico_nac * antiguedad
                 neto_basico_sep11 = basico_nac - (basico_nac * descuentos)
                 neto_sep11 = neto_basico_sep11 * antiguedad
-            
+                
                 if mes == "SEP" and anio == "2011":
                     salario_bruto = bruto_sep11
                     salario_neto = neto_sep11
@@ -98,15 +99,18 @@ def calculate(request):
                     salario_bruto = salario_bruto * aumento_posg
                 
                     salario_neto = neto_sep11 + (neto_sep11 * aumento)
-
+                
+                salario_bruto = round(salario_bruto, 2)
+                salario_neto = round(salario_neto, 2)
                 form_res.update({'Sueldo Bruto':salario_bruto,'Sueldo Neto':salario_neto})                    
                 total_bruto += salario_bruto
                 total_neto += salario_neto
                 i = i+1
-
-            context['total_bruto']=total_bruto
-            context['total_neto'] = total_neto
+            
+            context['total_bruto']= round(total_bruto, 2)
+            context['total_neto'] = round(total_neto, 2)
             context['lista_res'] = lista_res
+            context['mes'] = mes
             print context
             return render_to_response('salary_calculated.html', context)
 

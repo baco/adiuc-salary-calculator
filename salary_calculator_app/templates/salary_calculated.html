@@ -1,25 +1,47 @@
+{% load static %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-es" lang="es-es" dir="ltr">
 	<head>
 		<title>Calculo Salarial</title>
+    	<link rel="stylesheet" href="{% get_static_prefix %}css/style.css" type="text/css" />
 	</head>
 	
 	<body>
 
 	
-			<div class = "title"> Cálculo salarial para el mes de {{ mes }} </div>
+			<div id="form_mes"> Cálculo salarial para el mes de {{ mes }} </div>
 			
             <br>
             <div class="form_cargo">
             {% for d in lista_res %}
-            <table>
+            <table class=result>
                 {% for k,v in d.items %}
-                <tr><td>{{k}}</td><td>{{ v }}</td></tr>
+                    
+                    {% if k == "ldescuentos" %}
+                        {% for d in v %}
+                        <tr>
+                            <td> Retenciones aplicadas: </td>
+                            <td> <blockquote> ({{ d.codigo }}) {{ d.nombre }}: {{d.porcentaje }} %</blockquote></td></tr>
+                        {% endfor %}
+                    {% else %}
+                       <tr><td>{{k}}</td><td> {{ v }}</td></tr>
+                    {% endif %}
+
                 {% endfor %}
-            </table><br>
+            </table><hr><br>
             {% endfor %}
-            Total Bruto: {{ total_bruto }}<br>
-            Total Neto: {{ total_neto  }}
+            </div>
+            <div class="totales">
+                <table>
+                    <tr>
+                        <td><b>Total Bruto: </b></td>
+                        <td><b>{{total_bruto}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>Total Neto: </b></td>
+                        <td><b>{{total_neto}}</b></td>
+                    </tr>
+                </table>
             </div>
 	</body>
 	

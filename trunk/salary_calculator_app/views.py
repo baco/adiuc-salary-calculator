@@ -9,10 +9,10 @@ from forms import CargoUnivForm, MesForm
 import models
 
 # debugger
-#import pdb
+import pdb
 
 def calculate(request):
-#    pdb.set_trace()
+    pdb.set_trace()
 
     # CargoUnivFormSet: Permite que aparezcan multiples formularios identicos.
     CargoUnivFormSet = formset_factory(CargoUnivForm, extra=1, max_num=5)
@@ -31,87 +31,114 @@ def calculate(request):
             #guardo en esta lista un diccionario para cada formulario procesado
             #en cada una de estas, los resultados para renderizar luego.
             lista_res = list()
-            for univform in univformset:
-                lista_res.append(dict())
 
             # Itero sobre todos los cargos.
             i = 0
             total_bruto = 0.0
             total_neto = 0.0 
 
-            for univform in univformset:                
-                form_res = lista_res[i] #i-esimo diccionario de la lista. 
-                                        #para guardar los res del cargo i esimo                
-                salario_bruto = 0
-                salario_neto = 0
+            for univform in univformset:
 
                 cargo_obj = univform.cleaned_data['cargo']
                 has_doctorado = univform.cleaned_data['doctorado']
                 has_master = univform.cleaned_data['master']
                 antiguedad_obj = univform.cleaned_data['antiguedad']
 
-                antiguedad = 1. + float(antiguedad_obj.porcentaje)/100.0
-                anios_antiguedad = antiguedad_obj.anio
-                dedicacion = cargo_obj.dedicacion
-                tipo_cargo = cargo_obj.tipo
-                dedicacion = cargo_obj.dedicacion
-
+                ###### Salario Bruto.
                 basico_unc = cargo_obj.basico_unc
                 basico_nac = cargo_obj.basico_nac
+                adic2003 = cargo_obj.rem_fijas.get(codigo='118').valor # 118: Adicional 8% 2003
+                aumento = basico_nac * aumento_obj.porcentaje / 100.0
+                salario_bruto = basico_unc + aumento + adic2003
 
-                aumento = float(aumento_obj.porcentaje)/100.0
-                mes = aumento_obj.mes
-                anio = aumento_obj.anio
+                ###### El Neto se calcula del basico restando las retenciones y sumando las remuneraciones.
+                ret_porcentuales = cargo_obj.ret_porcentuales.all()
+                ret_fijas = cargo_obj.ret_fijas.all()
+                rem_porcentuales = cargo_obj.rem_porcentuales.all()
+                rem_fijas = cargo_obj.rem_fijas.all()
 
-                ldescuentos = []      #lista de cosas a descontar, retencioens, etc.
-                aumento2003 = 0
-                descuentos  = 0.19  #calcularlo basadose en lista_descuentos
+                ret_list = list()   # Aqui iran tuplas de la forma (obj retencion, importe) para mostrar esta info en el template
+                rem_list = list()  # De forma similar, va a tener tuplas (obj remuneracion, importe)
 
-                tipo_cargo = str(tipo_cargo) + " " + str(dedicacion)
-                
-                form_res.update({
-                                 'Tipo de Cargo':tipo_cargo,
-                                 'Aaumento desde 2003':aumento2003,
-                                 'ldescuentos':ldescuentos,
-                                 'Total Descuentos': str(descuentos*100) + "%",
-                                })
+                acum_ret = 0.   # El acumulado de todo lo que hay que descontarle al bruto.
+                acum_rem = 0. # El acumulado de todo lo que hay que sumarle.
 
+                ## Remuneraciones Especiales:
+
+                # 1: Adicional 8% 2003 (cod 118).
+                rem_list.append( (rem_fijas.get(codigo='118'), adic2003) )
+                rem_fijas = rem_fijas.exclude(codigo='118')
+
+                # 2: Adicional Antiguedad (cod 30).
+                importe = salario_bruto * antiguedad_obj.porcentaje / 100.0
+                acum_rem = acum_rem + importe
+                rem_obj = rem_porcentuales.get(codigo='30')
+                rem_obj.nombre = rem_obj.nombre + u' (' + unicode(antiguedad_obj.porcentaje) + u'%)'
+                rem_list.append( (rem_obj, importe) )
+                rem_porcentuales = rem_porcentuales.exclude(codigo='30')
+
+                # 3: Adicional titulo doctorado (cod 51), Adicional titulo maestria (cod 52)
+                rem_posgr = None
+                importe = 0.
                 if has_doctorado:
-                    aumento_posg = 1.15
+                    rem_posgr = rem_porcentuales.get(codigo='51')
                 elif has_master:
-                    aumento_posg = 1.05
-                else:
-                    aumento_posg = 1.
+                    rem_posgr = rem_porcentuales.get(codigo='52')
+                if rem_posgr:
+                    importe = salario_bruto * rem_posgr.porcentage / 100.
+                    rem_list.append( (rem_posgr, importe) )
+                acum_rem = acum_rem + importe
+                rem_porcentuales = rem_porcentuales.exclude(codigo='51')
+                rem_porcentuales = rem_porcentuales.exclude(codigo='52')
 
-                bruto_sep11 = basico_nac * antiguedad
-                neto_basico_sep11 = basico_nac - (basico_nac * descuentos)
-                neto_sep11 = neto_basico_sep11 * antiguedad
-                
-                if mes == "SEP" and anio == "2011":
-                    salario_bruto = bruto_sep11
-                    salario_neto = neto_sep11
+          
+                ## Retenciones NO especiales:
 
-                if mes == "MAR" or mes == "JUN" or (mes == "SEP" and anio == "2012"):
-                    acum_mensual = basico_nac * aumento
-                    salario_basico = basico_unc + acum_mensual + aumento2003
-                   
-                    salario_bruto = salario_basico * antiguedad                    
-                    salario_bruto = salario_bruto * aumento_posg
-                
-                    salario_neto = neto_sep11 + (neto_sep11 * aumento)
-                
+                for ret in ret_porcentuales:
+                    importe = salario_bruto * ret.porcentage / 100.
+                    acum_ret = acum_ret + importe
+                    ret_list.append( (ret, importe) )
+
+                for ret in ret_fijas:
+                    acum_ret = acum_ret + ret.valor
+                    ret_list.append( (ret, ret.valor) )
+
+                for rem in rem_porcentuales:
+                    importe = acum_rem + salario_bruto * rem.porcentaje / 100.
+                    acum_ret = acum_ret + importe
+                    rem_list.append( (rem, importe) )
+
+                for rem in rem_fijas:
+                    acum_ret = acum_ret + rem.valor
+                    rem_list.append( (rem, rem.valor) )
+
+                ###### Salario Neto.
+                salario_neto = salario_bruto - acum_ret + acum_rem
+
                 salario_bruto = round(salario_bruto, 2)
                 salario_neto = round(salario_neto, 2)
-                form_res.update({'Sueldo Bruto':salario_bruto,'Sueldo Neto':salario_neto})                    
+
+                # Calculo los acumulados de los salarios para todos los cargos.
                 total_bruto += salario_bruto
                 total_neto += salario_neto
-                i = i+1
-            
+
+                # Aqui iran los resultados del calculo para este cargo en particular.
+                form_res = {
+                    'cargo': cargo_obj,
+                    'aumento': aumento,
+                    'retenciones': ret_list,
+                    'remuneraciones': rem_list,
+                    'salario_bruto': salario_bruto,
+                    'salario_neto': salario_neto
+                }
+                lista_res.append(form_res)
+
             context['total_bruto']= round(total_bruto, 2)
             context['total_neto'] = round(total_neto, 2)
             context['lista_res'] = lista_res
-            context['mes'] = mes
+            context['aumento'] = aumento_obj
             print context
+
             return render_to_response('salary_calculated.html', context)
 
     else:

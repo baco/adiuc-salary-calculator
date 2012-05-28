@@ -193,5 +193,5 @@ class RemuneracionFija(RemuneracionRetencion):
         help_text=u'El valor fijo que se sumará al salario básico.')
 
     def __unicode__(self):
-        return super(RetencionPorcentual, self).__unicode__() + u" $" + unicode(self.valor)
+        return super(RemuneracionFija, self).__unicode__() + u" $" + unicode(self.valor)
 

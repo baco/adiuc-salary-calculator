@@ -78,18 +78,13 @@ def calculate(request):
                 rem_porcentuales = rem_porcentuales.exclude(codigo='30')
 
                 # 3: Adicional titulo doctorado (cod 51), Adicional titulo maestria (cod 52)
-                rem_posgr = None
-                importe = 0.
                 if has_doctorado:
-                    rem_posgr = rem_porcentuales.get(codigo='51')
+                    rem_porcentuales = rem_porcentuales.exclude(codigo='52')
                 elif has_master:
-                    rem_posgr = rem_porcentuales.get(codigo='52')
-                if rem_posgr:
-                    importe = salario_bruto * rem_posgr.porcentage / 100.
-                    rem_list.append( (rem_posgr, importe) )
-                acum_rem = acum_rem + importe
-                rem_porcentuales = rem_porcentuales.exclude(codigo='51')
-                rem_porcentuales = rem_porcentuales.exclude(codigo='52')
+                    rem_poscentuales = rem_porcentuales.exclude(codigo='51')
+                else:
+                    rem_porcentuales = rem_porcentuales.exclude(codigo='51')
+                    rem_porcentuales = rem_porcentuales.exclude(codigo='52')
 
           
                 ## Retenciones NO especiales:

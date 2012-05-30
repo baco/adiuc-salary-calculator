@@ -16,7 +16,9 @@
 
 	<body>
 
-			<div class = "title"> C&aacute;lculo salarial para  {{ aumento.get_mes_display }} {{ aumento.get_anio_display }} : {{ aumento.porcentaje }}%</div>
+			<div class = "title">
+			    C&aacute;lculo salarial para {{ aumento.get_mes_display }} {{ aumento.get_anio_display }} : {{ aumento.porcentaje }}%
+			</div>
 
             <br>
             <div class="form_cargo">
@@ -37,21 +39,21 @@
                     <tr>
                         <td></td>
                         <td> Aum. {{ aumento.get_mes_display }} {{ aumento.get_anio_display }} ({{ aumento.porcentaje }}% sobre {{ res.cargo.basico_nac }})</td>
-                        <td> {{ res.aumento }} </td>
+                        <td class="adicionales">{{ res.aumento }} </td>
                     </tr>
 
                     {% for obj, importe in res.remuneraciones %}
                      <tr>
                         <td> {{ obj.codigo }} </td>
                         <td> {{ obj.nombre }} {% if obj.porcentage %}({{ obj.porcentage }}%){% endif %} </td>
-                        <td> {{ importe }} </td>
+                        <td class="adicionales">{{ importe }} </td>
                     </tr>
                     {% if obj.codigo == "118" %} <!-- Adicional 2003 8% -->
                     <tr>
                         <td> <b> Bruto: </b></td>
                         <td></td>
                         <td> <b>{{ res.salario_bruto }}</b> </td>
-                    </tr>
+                    </tr><br>
                     {% endif %}
                     {% endfor %}
 
@@ -59,7 +61,7 @@
                      <tr>
                         <td> {{ obj.codigo }} </td>
                         <td> {{ obj.nombre }} ({{ obj.porcentage }}%) </td>
-                        <td> -{{ importe }} </td>
+                        <td class="descuentos">-{{ importe }}</td>
                     </tr>
                     {% endfor %}
                     <tr>

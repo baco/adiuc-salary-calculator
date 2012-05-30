@@ -6,13 +6,13 @@ from django.shortcuts import render_to_response
 from django.forms.formsets import formset_factory
 
 from forms import CargoUnivForm, MesForm
-import models
+#import models
 
-# debugger
-import pdb
+#debugger
+#import pdb
 
 def calculate(request):
-    pdb.set_trace()
+#    pdb.set_trace()
 
     # CargoUnivFormSet: Permite que aparezcan multiples formularios identicos.
     CargoUnivFormSet = formset_factory(CargoUnivForm, extra=1, max_num=5)
@@ -72,10 +72,10 @@ def calculate(request):
                 # 2: Adicional Antiguedad (cod 30).
                 importe = salario_bruto * antiguedad_obj.porcentaje / 100.0
                 acum_rem = acum_rem + importe
-                rem_obj = rem_porcentuales.get(codigo='30')
-                rem_obj.nombre = rem_obj.nombre + u' (' + unicode(antiguedad_obj.porcentaje) + u'%)'
-                rem_list.append( (rem_obj, importe) )
-                rem_porcentuales = rem_porcentuales.exclude(codigo='30')
+                #rem_obj = rem_porcentuales.get(codigo='30')
+                #rem_obj.nombre = rem_obj.nombre + u' (' + unicode(antiguedad_obj.porcentaje) + u'%)'
+                #rem_list.append( (rem_obj, importe) )
+                #rem_porcentuales = rem_porcentuales.exclude(codigo='30')
 
                 # 3: Adicional titulo doctorado (cod 51), Adicional titulo maestria (cod 52)
                 if has_doctorado:
@@ -92,20 +92,20 @@ def calculate(request):
                 for ret in ret_porcentuales:
                     importe = salario_bruto * ret.porcentage / 100.
                     acum_ret = acum_ret + importe
-                    ret_list.append( (ret, importe) )
+                    ret_list.append( (ret, round(importe,2)) )
 
                 for ret in ret_fijas:
                     acum_ret = acum_ret + ret.valor
-                    ret_list.append( (ret, ret.valor) )
+                    ret_list.append( (ret, round(ret.valor,2)) )
 
                 for rem in rem_porcentuales:
                     importe = acum_rem + salario_bruto * rem.porcentaje / 100.
                     acum_ret = acum_ret + importe
-                    rem_list.append( (rem, importe) )
+                    rem_list.append( (rem, round(importe,2)) )
 
                 for rem in rem_fijas:
                     acum_ret = acum_ret + rem.valor
-                    rem_list.append( (rem, rem.valor) )
+                    rem_list.append( (rem, round(ret.valor,2)) )
 
                 ###### Salario Neto.
                 salario_neto = salario_bruto - acum_ret + acum_rem

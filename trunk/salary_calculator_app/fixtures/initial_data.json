@@ -161,14 +161,6 @@
     }
   }, 
   {
-    "pk": "6b79d9ae4caca804920bf55012464adf", 
-    "model": "sessions.session", 
-    "fields": {
-      "expire_date": "2012-06-11T16:40:57.668Z", 
-      "session_data": "ZDQxMmNlZWNmMWJiMzc2ZmJiMDk1ZTdhZWIwNzJjYTY1MWM3ZmY2NTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQRLAXUu\n"
-    }
-  }, 
-  {
     "pk": 1, 
     "model": "salary_calculator_app.tipocargo", 
     "fields": {
@@ -251,17 +243,11 @@
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [
-        1
-      ], 
+      "rem_fijas": [], 
       "dedicacion": "D.E", 
       "tipo": 1, 
       "basico_nac": 6831.76, 
-      "rem_porcentuales": [
-        1, 
-        2, 
-        3
-      ], 
+      "rem_porcentuales": [], 
       "ret_porcentuales": [
         1, 
         2, 
@@ -813,52 +799,32 @@
   }, 
   {
     "pk": 1, 
-    "model": "salary_calculator_app.remuneracionporcentual", 
+    "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional por Antig\u00fcedad", 
-      "codigo": "30", 
-      "porcentage": 0.0
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 8.0
     }
   }, 
   {
     "pk": 2, 
-    "model": "salary_calculator_app.remuneracionporcentual", 
+    "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
       "nombre": "Adicional T\u00edtulo Doctorado", 
       "codigo": "51", 
-      "porcentage": 15.0
+      "valor": 15.0
     }
   }, 
   {
     "pk": 3, 
-    "model": "salary_calculator_app.remuneracionporcentual", 
+    "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
       "nombre": "Adicional T\u00edtulo Maestr\u00eda", 
       "codigo": "52", 
-      "porcentage": 5.0
-    }
-  }, 
-  {
-    "pk": 1, 
-    "model": "salary_calculator_app.remuneracionfija", 
-    "fields": {
-      "aplicacion": "U", 
-      "nombre": "Adic. 8% RHCS 153/03 ", 
-      "codigo": "118", 
-      "valor": 81.08
-    }
-  }, 
-  {
-    "pk": 2, 
-    "model": "salary_calculator_app.remuneracionfija", 
-    "fields": {
-      "aplicacion": "U", 
-      "nombre": "Adic. 8% RHCS 153/03 ", 
-      "codigo": "118", 
-      "valor": 23.62
+      "valor": 5.0
     }
   }, 
   {
@@ -1330,7 +1296,7 @@
       "is_active": true, 
       "is_superuser": true, 
       "is_staff": true, 
-      "last_login": "2012-05-28T16:40:57.543Z", 
+      "last_login": "2012-05-28T14:16:28.812Z", 
       "groups": [], 
       "user_permissions": [], 
       "password": "pbkdf2_sha256$10000$VxuSGKl5CqvG$dCbIsfWEecFaCNPbCXgpBba6KQjcmawvH4VzX8G0jak=", 
@@ -1339,107 +1305,16 @@
     }
   }, 
   {
-    "pk": 63, 
-    "model": "admin.logentry", 
-    "fields": {
-      "action_flag": 2, 
-      "action_time": "2012-05-28T21:41:55.704Z", 
-      "object_repr": "118 Adic. 8% RHCS 153/03  $23.62", 
-      "object_id": "2", 
-      "change_message": "Modifica valor.", 
-      "user": 1, 
-      "content_type": 17
-    }
-  }, 
-  {
-    "pk": 62, 
-    "model": "admin.logentry", 
-    "fields": {
-      "action_flag": 2, 
-      "action_time": "2012-05-28T21:41:41.099Z", 
-      "object_repr": "118 Adic. 8% RHCS 153/03  $81.08", 
-      "object_id": "1", 
-      "change_message": "Modifica valor.", 
-      "user": 1, 
-      "content_type": 17
-    }
-  }, 
-  {
-    "pk": 61, 
-    "model": "admin.logentry", 
-    "fields": {
-      "action_flag": 2, 
-      "action_time": "2012-05-28T17:12:53.908Z", 
-      "object_repr": "5 Profesor Titular D.E", 
-      "object_id": "1", 
-      "change_message": "Modifica rem_porcentuales.", 
-      "user": 1, 
-      "content_type": 9
-    }
-  }, 
-  {
-    "pk": 60, 
-    "model": "admin.logentry", 
-    "fields": {
-      "action_flag": 1, 
-      "action_time": "2012-05-28T17:12:41.471Z", 
-      "object_repr": "52 Adicional T\u00edtulo Maestr\u00eda 5.0%", 
-      "object_id": "3", 
-      "change_message": "", 
-      "user": 1, 
-      "content_type": 16
-    }
-  }, 
-  {
-    "pk": 59, 
-    "model": "admin.logentry", 
-    "fields": {
-      "action_flag": 1, 
-      "action_time": "2012-05-28T17:12:17.004Z", 
-      "object_repr": "51 Adicional T\u00edtulo Doctorado 15.0%", 
-      "object_id": "2", 
-      "change_message": "", 
-      "user": 1, 
-      "content_type": 16
-    }
-  }, 
-  {
-    "pk": 58, 
-    "model": "admin.logentry", 
-    "fields": {
-      "action_flag": 2, 
-      "action_time": "2012-05-28T17:10:31.083Z", 
-      "object_repr": "5 Profesor Titular D.E", 
-      "object_id": "1", 
-      "change_message": "Modifica rem_porcentuales.", 
-      "user": 1, 
-      "content_type": 9
-    }
-  }, 
-  {
-    "pk": 57, 
-    "model": "admin.logentry", 
-    "fields": {
-      "action_flag": 1, 
-      "action_time": "2012-05-28T17:09:23.623Z", 
-      "object_repr": "30 Adicional por Antig\u00fcedad 0.0%", 
-      "object_id": "1", 
-      "change_message": "", 
-      "user": 1, 
-      "content_type": 16
-    }
-  }, 
-  {
     "pk": 56, 
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 2, 
-      "action_time": "2012-05-28T17:05:06.149Z", 
-      "object_repr": "5 Profesor Titular D.E", 
-      "object_id": "1", 
-      "change_message": "Modifica rem_fijas.", 
+      "action_time": "2012-05-30T13:58:10.985Z", 
+      "object_repr": "51 Adicional T\u00edtulo Doctorado $15.0", 
+      "object_id": "2", 
+      "change_message": "No ha modificado ning\u00fan campo.", 
       "user": 1, 
-      "content_type": 9
+      "content_type": 17
     }
   }, 
   {
@@ -1447,9 +1322,9 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-28T16:55:11.364Z", 
-      "object_repr": "118 Adic. 8% RHCS 153/03  $409.91", 
-      "object_id": "2", 
+      "action_time": "2012-05-30T13:58:00.639Z", 
+      "object_repr": "52 Adicional T\u00edtulo Maestr\u00eda $5.0", 
+      "object_id": "3", 
       "change_message": "", 
       "user": 1, 
       "content_type": 17
@@ -1459,11 +1334,11 @@
     "pk": 54, 
     "model": "admin.logentry", 
     "fields": {
-      "action_flag": 2, 
-      "action_time": "2012-05-28T16:54:31.594Z", 
-      "object_repr": "118 Adic. 8% RHCS 153/03  $819.81", 
-      "object_id": "1", 
-      "change_message": "Modifica valor.", 
+      "action_flag": 1, 
+      "action_time": "2012-05-30T13:57:44.577Z", 
+      "object_repr": "51 Adicional T\u00edtulo Doctorado $15.0", 
+      "object_id": "2", 
+      "change_message": "", 
       "user": 1, 
       "content_type": 17
     }
@@ -1473,8 +1348,8 @@
     "model": "admin.logentry", 
     "fields": {
       "action_flag": 1, 
-      "action_time": "2012-05-28T16:49:11.071Z", 
-      "object_repr": "118 Adic. 8% RHCS 153/03  $0.0", 
+      "action_time": "2012-05-30T13:57:17.650Z", 
+      "object_repr": "118 Adicional 2003 $8.0", 
       "object_id": "1", 
       "change_message": "", 
       "user": 1, 

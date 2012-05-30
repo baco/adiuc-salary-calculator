@@ -103,29 +103,6 @@ class CargoPreUniv(Cargo):
         return super(CargoPreUniv, self).__unicode__() + " " + unicode(self.horas) + "hs"
 
 
-class AntiguedadUniv(models.Model):
-    """Una entrada de la tabla de escala de antiguedad para los docentes Universitarios"""
-    anio               = models.SmallIntegerField(u'Años de Antiguedad', unique=True, validators=[validate_isgezero],
-        help_text=u'La cantidad de años correspondiente a la antigüedad. Ej: 0, 1, 2, 5, 7, 9, 24, etc.')
-    porcentaje     = models.FloatField(u'Porcentaje', validators=[validate_isgezero],
-        help_text=u'El porcentaje correspondiente al aumento para la cantidad de años de antigüedad seleccionado. Ej: Para 5 años corresponde un 30%.')
-
-    def __unicode__(self):
-        return unicode(self.anio) + " - " + unicode(self.porcentaje) + "%"
-
-
-class AntiguedadPreUniv(models.Model):
-    """Una entrada de la tabla de escala de antiguedad para los docentes Preuniversitarios"""
-
-    anio = models.SmallIntegerField(u'Años de Antiguedad', unique=True, validators=[validate_isgezero],
-        help_text=u'La cantidad de años correspondiente a la antigüedad. Ej: 0, 1, 2, 5, 7, 9, 24, etc.')
-    porcentaje = models.FloatField(u'Porcentaje', validators=[validate_isgezero],
-        help_text=u'El porcentaje correspondiente al aumento para la cantidad de años de antigüedad seleccionado. Ej: Para 2 años corresponde un 15%.')
-
-    def __unicode__(self):
-        return unicode(self.anio) + " - " + unicode(self.porcentaje) + "%"
-
-
 class Aumento(models.Model):
     """Representa un aumento del salario basico."""
 
@@ -133,11 +110,11 @@ class Aumento(models.Model):
         help_text=u'El mes del aumento.')
     anio = models.CharField(u'Año', max_length=4, choices=YEARS_OPCS, validators=[validate_isdigit],
         help_text=u'El año del aumento.')
-    porcentaje = models.FloatField(u'Porcentaje', validators=[validate_isgezero],
+    porcentage = models.FloatField(u'Porcentaje', validators=[validate_isgezero],
         help_text=u'El porcentage de aumento correspondiente. Ingresar valores entre 0 y 100. Por ejemplo, para Marzo de 2012 hay un aumento del 6%')
 
     def __unicode__(self):
-        return self.mes + " " + self.anio + " - " + unicode(self.porcentaje) + "%"
+        return self.mes + " " + self.anio + " - " + unicode(self.porcentage) + "%"
 
 
 class RemuneracionRetencion(models.Model):
@@ -150,48 +127,70 @@ class RemuneracionRetencion(models.Model):
     aplicacion = models.CharField(u'Aplica a', max_length=1, choices=APP_OPCS,
         help_text=u'A qué tipo de cargo aplica esta remuneración/retención.')
 
-    class Meta:
-        abstract = True
-
     def __unicode__(self):
         return self.codigo + " " + self.nombre
 
 
-class RetencionPorcentual(RemuneracionRetencion):
+class RetencionPorcentual(models.Model):
     """Una retencion que especifica el porcentaje del descuento que debe realizarse."""
 
     porcentage = models.FloatField(u'Porcentaje de Descuento', validators=[validate_isgezero],
         help_text=u'El porcentaje del descuento. Ingresar un valor positivo.')
+    rem_ret = models.ForeignKey('RemuneracionRetencion')
 
     def __unicode__(self):
-        return super(RetencionPorcentual, self).__unicode__() + " " + unicode(self.porcentage ) + "%"
+        return unicode(self.rem_ret) + " " + unicode(self.porcentage ) + "%"
 
 
-class RetencionFija(RemuneracionRetencion):
+class RetencionFija(models.Model):
     """Una retencion que especifica un descuento fijo que debe realizarse."""
 
     valor = models.FloatField(u'Valor de Descuento', validators=[validate_isgezero],
         help_text=u'El valor fijo que debe descontarse.')
+    rem_ret = models.ForeignKey('RemuneracionRetencion')
 
     def __unicode__(self):
-        return super(RetencionFija, self).__unicode__() + u" $" + unicode(self.valor)
+        return unicode(self.ret_rem) + u" $" + unicode(self.valor)
 
 
-class RemuneracionPorcentual(RemuneracionRetencion):
+class RemuneracionPorcentual(models.Model):
     """Una remuneracion que especifica el porcentaje de aumento que debe realizarse."""
+
     porcentage = models.FloatField(u'Porcentaje de Descuento', validators=[validate_isgezero],
         help_text=u'El porcentaje del aumento. Ingresar un valor positivo.')
+    rem_ret = models.ForeignKey('RemuneracionRetencion')
 
     def __unicode__(self):
-        return super(RemuneracionPorcentual, self).__unicode__() + " " + unicode(self.porcentage) + "%"
+        return unicode(self.rem_ret) + " " + unicode(self.porcentage) + "%"
 
 
-class RemuneracionFija(RemuneracionRetencion):
+class RemuneracionFija(models.Model):
     """Una remuneracion que especifica un aumento fijo sobre el salario basico."""
 
     valor = models.FloatField(u'Valor de Descuento', validators=[validate_isgezero],
         help_text=u'El valor fijo que se sumará al salario básico.')
+    rem_ret = models.ForeignKey('RemuneracionRetencion')
 
     def __unicode__(self):
-        return super(RemuneracionFija, self).__unicode__() + u" $" + unicode(self.valor)
+        return unicode(self.rem_ret) + u" $" + unicode(self.valor)
+
+
+class AntiguedadUniv(RemuneracionPorcentual):
+    """Una entrada de la tabla de escala de antiguedad para los docentes Universitarios"""
+
+    anio               = models.SmallIntegerField(u'Años de Antiguedad', unique=True, validators=[validate_isgezero],
+        help_text=u'La cantidad de años correspondiente a la antigüedad. Ej: 0, 1, 2, 5, 7, 9, 24, etc.')
+
+    def __unicode__(self):
+        return super(RemuneracionPorcentual, self).__unicode__() + " " + unicode(self.anio)
+
+
+class AntiguedadPreUniv(RemuneracionPorcentual):
+    """Una entrada de la tabla de escala de antiguedad para los docentes Preuniversitarios"""
+
+    anio = models.SmallIntegerField(u'Años de Antiguedad', unique=True, validators=[validate_isgezero],
+        help_text=u'La cantidad de años correspondiente a la antigüedad. Ej: 0, 1, 2, 5, 7, 9, 24, etc.')
+
+    def __unicode__(self):
+        return super(RemuneracionPorcentual, self).__unicode__() + " " + unicode(self.anio)
 

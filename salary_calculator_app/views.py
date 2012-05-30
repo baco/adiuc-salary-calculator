@@ -6,13 +6,13 @@ from django.shortcuts import render_to_response
 from django.forms.formsets import formset_factory
 
 from forms import CargoUnivForm, MesForm
-#import models
+import models
 
-#debugger
-#import pdb
+# debugger
+import pdb
 
 def calculate(request):
-#    pdb.set_trace()
+    #pdb.set_trace()
 
     # CargoUnivFormSet: Permite que aparezcan multiples formularios identicos.
     CargoUnivFormSet = formset_factory(CargoUnivForm, extra=1, max_num=5)
@@ -47,8 +47,11 @@ def calculate(request):
                 ###### Salario Bruto.
                 basico_unc = cargo_obj.basico_unc
                 basico_nac = cargo_obj.basico_nac
-                adic2003 = cargo_obj.rem_fijas.get(codigo='118').valor # 118: Adicional 8% 2003
+                adic2003 = 0.
+                if cargo_obj.rem_fijas.exists(codigo=u'118'):
+                    adic2003 = cargo_obj.rem_fijas.get(codigo='118').valor # 118: Adicional 8% 2003
                 aumento = basico_nac * aumento_obj.porcentaje / 100.0
+                #
                 salario_bruto = basico_unc + aumento + adic2003
 
                 ###### El Neto se calcula del basico restando las retenciones y sumando las remuneraciones.
@@ -66,12 +69,13 @@ def calculate(request):
                 ## Remuneraciones Especiales:
 
                 # 1: Adicional 8% 2003 (cod 118).
-                rem_list.append( (rem_fijas.get(codigo='118'), adic2003) )
-                rem_fijas = rem_fijas.exclude(codigo='118')
+                if rem_fijas.exists(codigo=u'118'):
+                    rem_list.append( (rem_fijas.get(codigo='118'), adic2003) )
+                    rem_fijas = rem_fijas.exclude(codigo='118')
 
                 # 2: Adicional Antiguedad (cod 30).
-                importe = salario_bruto * antiguedad_obj.porcentaje / 100.0
-                acum_rem = acum_rem + importe
+                #importe = salario_bruto * antiguedad_obj.porcentaje / 100.0
+                #acum_rem = acum_rem + importe
                 #rem_obj = rem_porcentuales.get(codigo='30')
                 #rem_obj.nombre = rem_obj.nombre + u' (' + unicode(antiguedad_obj.porcentaje) + u'%)'
                 #rem_list.append( (rem_obj, importe) )
@@ -92,26 +96,26 @@ def calculate(request):
                 for ret in ret_porcentuales:
                     importe = salario_bruto * ret.porcentage / 100.
                     acum_ret = acum_ret + importe
-                    ret_list.append( (ret, round(importe,2)) )
+                    ret_list.append( (ret, importe) )
 
                 for ret in ret_fijas:
                     acum_ret = acum_ret + ret.valor
-                    ret_list.append( (ret, round(ret.valor,2)) )
+                    ret_list.append( (ret, ret.valor) )
 
                 for rem in rem_porcentuales:
-                    importe = acum_rem + salario_bruto * rem.porcentaje / 100.
+                    importe = salario_bruto * rem.porcentaje / 100.
                     acum_ret = acum_ret + importe
-                    rem_list.append( (rem, round(importe,2)) )
+                    rem_list.append( (rem, importe) )
 
                 for rem in rem_fijas:
                     acum_ret = acum_ret + rem.valor
-                    rem_list.append( (rem, round(ret.valor,2)) )
+                    rem_list.append( (rem, rem.valor) )
 
                 ###### Salario Neto.
                 salario_neto = salario_bruto - acum_ret + acum_rem
 
-                salario_bruto = round(salario_bruto, 2)
-                salario_neto = round(salario_neto, 2)
+                #salario_bruto = round(salario_bruto, 2)
+                #salario_neto = round(salario_neto, 2)
 
                 # Calculo los acumulados de los salarios para todos los cargos.
                 total_bruto += salario_bruto

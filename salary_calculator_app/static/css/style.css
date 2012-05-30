@@ -48,18 +48,3 @@ table#result {
     margin:1px;
     padding:2px;
 }
-
-td.descuentos{
-    color:#550000;
-}
-
-td.adicionales{
-    color:#005500;
-}
-
-div.title {
-    background-color: #004b6a;
-    color: #FFFFFF;
-    text-align: center;
-    font-family: "Arial";
-}

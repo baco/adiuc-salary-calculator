@@ -1,0 +1,50 @@
+div#form_content {
+    width: 500px;
+    margin: 2px;
+    background-color: #cdd9de;
+}
+
+a#nuevo_cargo {
+    color: #000000;
+    font-size:small;
+}
+
+div#form_mes {
+    background-color: #004b6a;
+    color: #FFFFFF;
+    text-align: center;
+    font-family: "Arial";
+}
+
+div.form_cargo {
+    background-color: #ededed;
+    margin: 2px;
+}
+
+a.agregar_quitar {
+    color: #000000;
+    font-size: small;
+}
+
+div#submit {
+    background-color: #fff;
+    margin: 0px;
+    text-align: center;
+}
+
+.centeralign {
+    text-align: center;
+}
+
+.rightalign {
+    text-align: right;  
+}
+div.totales {
+    background-color: #224d8c;
+    text-align: center;
+    font-family: "Arial";
+}
+table#result {
+    margin:1px;
+    padding:2px;
+}

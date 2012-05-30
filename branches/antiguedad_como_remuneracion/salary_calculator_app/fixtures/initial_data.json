@@ -1,0 +1,495 @@
+[
+  {
+    "pk": "fcff8d0e543d7d06c53b877dadc13b76", 
+    "model": "sessions.session", 
+    "fields": {
+      "expire_date": "2012-06-11T14:16:28.899Z", 
+      "session_data": "ZDQxMmNlZWNmMWJiMzc2ZmJiMDk1ZTdhZWIwNzJjYTY1MWM3ZmY2NTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQRLAXUu\n"
+    }
+  }, 
+  {
+    "pk": "6b79d9ae4caca804920bf55012464adf", 
+    "model": "sessions.session", 
+    "fields": {
+      "expire_date": "2012-06-11T16:40:57.668Z", 
+      "session_data": "ZDQxMmNlZWNmMWJiMzc2ZmJiMDk1ZTdhZWIwNzJjYTY1MWM3ZmY2NTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQRLAXUu\n"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "salary_calculator_app.tipocargo", 
+    "fields": {
+      "nombre": "Profesor Titular"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.tipocargo", 
+    "fields": {
+      "nombre": "Profesor Asistente (JTP)"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.tipocargo", 
+    "fields": {
+      "nombre": "Profesor Asociado"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.tipocargo", 
+    "fields": {
+      "nombre": "Profesor Adjunto"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "salary_calculator_app.tipocargo", 
+    "fields": {
+      "nombre": "Profesor Ayudante (Aux.)"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "salary_calculator_app.tipocargo", 
+    "fields": {
+      "nombre": "Profesor Ayudante (Aux) 2\u00ba"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "anio": "2011", 
+      "mes": "MAR", 
+      "valor": 4600.0
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "anio": "2011", 
+      "mes": "MAR", 
+      "valor": 2300.0
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "anio": "2012", 
+      "mes": "MAR", 
+      "valor": 5600.0
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "anio": "2012", 
+      "mes": "MAR", 
+      "valor": 2800.0
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [
+        1
+      ], 
+      "dedicacion": "D.E", 
+      "tipo": 1, 
+      "basico_nac": 6831.76, 
+      "rem_porcentuales": [
+        1, 
+        2, 
+        3
+      ], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "5", 
+      "basico_unc": 6848.33, 
+      "pampa": "101", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S.E", 
+      "tipo": 1, 
+      "basico_nac": 3415.88, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "13", 
+      "basico_unc": 3420.72, 
+      "pampa": "102", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S", 
+      "tipo": 1, 
+      "basico_nac": 1707.94, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "27", 
+      "basico_unc": 1709.47, 
+      "pampa": "103", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.E", 
+      "tipo": 3, 
+      "basico_nac": 6146.54, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "6", 
+      "basico_unc": 6162.16, 
+      "pampa": "105", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S.E", 
+      "tipo": 3, 
+      "basico_nac": 3073.27, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "8", 
+      "basico_unc": 3077.92, 
+      "pampa": "106", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S", 
+      "tipo": 3, 
+      "basico_nac": 1536.63, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "54", 
+      "basico_unc": 1538.07, 
+      "pampa": "107", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.E", 
+      "tipo": 4, 
+      "basico_nac": 5461.32, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "7", 
+      "basico_unc": 5474.84, 
+      "pampa": "109", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S.E", 
+      "tipo": 4, 
+      "basico_nac": 2730.66, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "20", 
+      "basico_unc": 2734.95, 
+      "pampa": "110", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S", 
+      "tipo": 4, 
+      "basico_nac": 1365.33, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "31", 
+      "basico_unc": 1366.62, 
+      "pampa": "111", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.E", 
+      "tipo": 2, 
+      "basico_nac": 4776.1, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "9", 
+      "basico_unc": 4786.34, 
+      "pampa": "113", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S.E", 
+      "tipo": 2, 
+      "basico_nac": 2388.05, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "26", 
+      "basico_unc": 2392.05, 
+      "pampa": "114", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S", 
+      "tipo": 2, 
+      "basico_nac": 1194.02, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "32", 
+      "basico_unc": 1195.18, 
+      "pampa": "115", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.E", 
+      "tipo": 5, 
+      "basico_nac": 4090.87, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "14", 
+      "basico_unc": 4101.53, 
+      "pampa": "117", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S.E", 
+      "tipo": 5,
+      "basico_nac": 2045.44, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "28", 
+      "basico_unc": 2049.21, 
+      "pampa": "118", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S", 
+      "tipo": 6, 
+      "basico_nac": 818.17, 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "36", 
+      "basico_unc": 819.12, 
+      "pampa": "121", 
+      "garantia_salarial": []
+    }
+  },
+  {
+    "pk": 1, 
+    "model": "salary_calculator_app.aumento", 
+    "fields": {
+      "anio": "2012", 
+      "mes": "MAR", 
+      "porcentage": 12.0
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.aumento", 
+    "fields": {
+      "anio": "2012", 
+      "mes": "JUN", 
+      "porcentage": 18.0
+    }
+  }
+]

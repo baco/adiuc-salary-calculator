@@ -161,6 +161,14 @@
     }
   }, 
   {
+    "pk": "d4392e5ae0c58d32a7f298c42c76e253", 
+    "model": "sessions.session", 
+    "fields": {
+      "expire_date": "2012-06-14T21:59:29.447Z", 
+      "session_data": "ZDQxMmNlZWNmMWJiMzc2ZmJiMDk1ZTdhZWIwNzJjYTY1MWM3ZmY2NTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQRLAXUu\n"
+    }
+  }, 
+  {
     "pk": 1, 
     "model": "salary_calculator_app.tipocargo", 
     "fields": {
@@ -208,7 +216,7 @@
     "fields": {
       "anio": "2011", 
       "mes": "MAR", 
-      "valor": 4600.0
+      "valor": 5679.02
     }
   }, 
   {
@@ -217,7 +225,7 @@
     "fields": {
       "anio": "2011", 
       "mes": "MAR", 
-      "valor": 2300.0
+      "valor": 2839.51
     }
   }, 
   {
@@ -226,7 +234,7 @@
     "fields": {
       "anio": "2012", 
       "mes": "MAR", 
-      "valor": 5600.0
+      "valor": 6913.58
     }
   }, 
   {
@@ -235,7 +243,25 @@
     "fields": {
       "anio": "2012", 
       "mes": "MAR", 
-      "valor": 2800.0
+      "valor": 3456.79
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "anio": "2012", 
+      "mes": "JUN", 
+      "valor": 6913.58
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "anio": "2012", 
+      "mes": "JUN", 
+      "valor": 3456.79
     }
   }, 
   {
@@ -1296,12 +1322,116 @@
       "is_active": true, 
       "is_superuser": true, 
       "is_staff": true, 
-      "last_login": "2012-05-28T14:16:28.812Z", 
+      "last_login": "2012-05-31T21:59:29.360Z", 
       "groups": [], 
       "user_permissions": [], 
       "password": "pbkdf2_sha256$10000$VxuSGKl5CqvG$dCbIsfWEecFaCNPbCXgpBba6KQjcmawvH4VzX8G0jak=", 
       "email": "a@a.com", 
       "date_joined": "2012-05-28T14:16:16.479Z"
+    }
+  }, 
+  {
+    "pk": 64, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-05-31T22:03:21.287Z", 
+      "object_repr": "$2839.51 MAR 2011", 
+      "object_id": "2", 
+      "change_message": "Modifica valor.", 
+      "user": 1, 
+      "content_type": 8
+    }
+  }, 
+  {
+    "pk": 63, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-05-31T22:03:10.864Z", 
+      "object_repr": "$5679.02 MAR 2011", 
+      "object_id": "1", 
+      "change_message": "Modifica valor.", 
+      "user": 1, 
+      "content_type": 8
+    }
+  }, 
+  {
+    "pk": 62, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-05-31T22:02:33.345Z", 
+      "object_repr": "$3456.79 JUN 2012", 
+      "object_id": "6", 
+      "change_message": "Modifica valor.", 
+      "user": 1, 
+      "content_type": 8
+    }
+  }, 
+  {
+    "pk": 61, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-05-31T22:02:21.188Z", 
+      "object_repr": "$6913.58 JUN 2012", 
+      "object_id": "5", 
+      "change_message": "Modifica valor.", 
+      "user": 1, 
+      "content_type": 8
+    }
+  }, 
+  {
+    "pk": 60, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-05-31T22:02:05.046Z", 
+      "object_repr": "$3456.79 MAR 2012", 
+      "object_id": "4", 
+      "change_message": "Modifica valor.", 
+      "user": 1, 
+      "content_type": 8
+    }
+  }, 
+  {
+    "pk": 59, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-05-31T22:01:45.567Z", 
+      "object_repr": "$6913.58 MAR 2012", 
+      "object_id": "3", 
+      "change_message": "Modifica valor.", 
+      "user": 1, 
+      "content_type": 8
+    }
+  }, 
+  {
+    "pk": 58, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-31T21:59:54.909Z", 
+      "object_repr": "$2800.0 JUN 2012", 
+      "object_id": "6", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 8
+    }
+  }, 
+  {
+    "pk": 57, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-05-31T21:59:45.166Z", 
+      "object_repr": "$5600.0 JUN 2012", 
+      "object_id": "5", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 8
     }
   }, 
   {

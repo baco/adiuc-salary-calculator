@@ -16,84 +16,115 @@
 
             <!-- Requerido para contabilizar cuantos forms tiene el formset -->
             {{ univformset.management_form }}
+            {{ preunivformset.management_form }}
+            <table><tr>
+            <td>
+			    <div id="form_content">
 
-			<div id="form_content">
+				    <div id="form_mes">
+					    {{ mform.aumento}}
+				    </div>
 
-				<div id="form_mes">
-					{{ mform.aumento}}
-				</div>
+                    {% for univform in univformset %}
+                    {{ univform.id }} <!-- Necesario para el formset -->
 
-                {% for univform in univformset %}
-                {{ univform.id }} <!-- Necesario para el formset -->
+				    <div class="form_cargo">
+					    <table>
+						    <tr>
 
-				<div class="form_cargo">
-					<table>
-						<tr>
+							    <td> {{ univform.cargo.label_tag }}: </td>
+							    <td> {{ univform.cargo }} </td>
 
-							<td> {{ univform.cargo.label_tag }}: </td>
-							<td> {{ univform.cargo }} </td>
+						    </tr>
+						    <tr>
 
-						</tr>
-						<tr>
+							    <td> {{ univform.antiguedad.label_tag }}:</td>
+							    <td> {{ univform.antiguedad }} </td>
 
-							<td> {{ univform.antiguedad.label_tag }}:</td>
-							<td> {{ univform.antiguedad }} </td>
+						    </tr>
+						    <tr>
+							    <td>T&iacute;tulos adicionales:</td>
+						    </tr>
+						    <tr colspand=2>
+							    <td><blockquote>
 
-						</tr>
-						<tr>
-							<td>T&iacute;tulos adicionales:</td>
-						</tr>
-						<tr colspand=2>
-							<td><blockquote>
+								    {{ univform.master }} {{ univform.master.label_tag }} 
 
-								{{ univform.master }} {{ univform.master.label_tag }} 
+								    <br>
 
-								<br>
+								    {{ univform.doctorado }} {{ univform.doctorado.label_tag }}
 
-								{{ univform.doctorado }} {{ univform.doctorado.label_tag }}
+								    </blockquote>
+							    </td>
+						    </tr>
+					    </table>
+                        <p class="agregar_quitar rightalign"><a href="javascript:null" onclick="hide_father(this,univPrefix)">Quitar</a></p>
+                        <!-- Necesario para django, marca que forms estan marcados para borrar del formset -->
+                        <div style="display:none">
+                            {{ univform.DELETE }}
+                        </div>
+				    </div>
 
-								</blockquote>
-							</td>
-						</tr>
-					</table>
-                    <p class="agregar_quitar rightalign"><a href="javascript:null" onclick="hide_father(this,univPrefix)">Quitar</a></p>
-                    <!-- Necesario para django, marca que forms estan marcados para borrar del formset -->
-                    <div style="display:none">
-                        {{ univform.DELETE }}
-                    </div>
-				</div>
+                    {% endfor %}
 
+				    <a id="nuevo_cargo" class="agregar_quitar" href="javascript:null" onclick="show_new_form_HTML('form_content', univDivAttrs,
+                    '<table>\
+                            <tr>\
+                                <td> {{ univformset.empty_form.cargo.label_tag|escapejs }}: </td>\
+                                <td> {{ univformset.empty_form.cargo|escapejs }} </td>\
+						    </tr>\
+						    <tr>\
+							    <td> {{ univformset.empty_form.antiguedad.label_tag|escapejs }}:</td>\
+							    <td> {{ univformset.empty_form.antiguedad|escapejs }} </td>\
+						    </tr>\
+						    <tr>\
+							    <td>T&iacute;tulos adicionales:</td>\
+						    </tr>\
+						    <tr colspand=2>\
+							    <td><blockquote>\
+								    {{ univformset.empty_form.master|escapejs }} {{ univformset.empty_form.master.label_tag|escapejs }}\
+								    <br>\
+								    {{ univformset.empty_form.doctorado|escapejs }} {{ univformset.empty_form.doctorado.label_tag|escapejs }}\
+								    </blockquote>\
+							    </td>\
+						    </tr>\
+					    </table>\
+                        <p class=\'agregar_quitar rightalign\'><a href=\'javascript:null\' onclick=\'hide_father(this, univPrefix)\'>Quitar</a></p>\
+                        <div style=\'display:none\'>\
+                            {{ univformset.empty_form.DELETE|escapejs }}\
+                        </div>',
+                    univPrefix, 'nuevo_cargo')">[+] A&ntilde;adir nuevo cargo</a>
+				    <div id="submit"><input type="submit" value="Calcular" /></div>
+			    </div>
+			</td>
+			
+			<!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+			
+			<td><!-- ACÁ COMIENZA EL OTRO FORM -->
+			
+			<!--NOTA: PUSE NOMBRES TENTATIVOS, PARA QUE LUEGO COINCIDAN SIMILARMENTE COMO ANTES -->
+                {% for preunivform in preunivformset %}
+                <div class="form_cargo">
+					    <table>
+						    <tr>
+
+							    <td> {{ preunivform.cargo.label_tag }}: </td>
+							    <td> {{ preunivform.cargo }} </td>
+
+						    </tr>
+						    <tr>
+
+							    <td> {{ preunivform.antiguedad.label_tag }}:</td>
+							    <td> {{ preunivform.antiguedad }} </td>
+
+						    </tr>
+					
+					    </table>
+                </div>
                 {% endfor %}
-
-				<a id="nuevo_cargo" class="agregar_quitar" href="javascript:null" onclick="show_new_form_HTML('form_content', univDivAttrs,
-                '<table>\
-                        <tr>\
-                            <td> {{ univformset.empty_form.cargo.label_tag|escapejs }}: </td>\
-                            <td> {{ univformset.empty_form.cargo|escapejs }} </td>\
-						</tr>\
-						<tr>\
-							<td> {{ univformset.empty_form.antiguedad.label_tag|escapejs }}:</td>\
-							<td> {{ univformset.empty_form.antiguedad|escapejs }} </td>\
-						</tr>\
-						<tr>\
-							<td>T&iacute;tulos adicionales:</td>\
-						</tr>\
-						<tr colspand=2>\
-							<td><blockquote>\
-								{{ univformset.empty_form.master|escapejs }} {{ univformset.empty_form.master.label_tag|escapejs }}\
-								<br>\
-								{{ univformset.empty_form.doctorado|escapejs }} {{ univformset.empty_form.doctorado.label_tag|escapejs }}\
-								</blockquote>\
-							</td>\
-						</tr>\
-					</table>\
-                    <p class=\'agregar_quitar rightalign\'><a href=\'javascript:null\' onclick=\'hide_father(this, univPrefix)\'>Quitar</a></p>\
-                    <div style=\'display:none\'>\
-                        {{ univformset.empty_form.DELETE|escapejs }}\
-                    </div>',
-                univPrefix, 'nuevo_cargo')">[+] A&ntilde;adir nuevo cargo</a>
-				<div id="submit"><input type="submit" value="Calcular" /></div>
-			</div>
+			</td>
+			</tr>
+			</table>
 		</form>
     
         <!-- Script para setear valores iniciales de variables luego de cargar el body -->

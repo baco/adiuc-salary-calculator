@@ -22,4 +22,14 @@ class CargoUnivForm(forms.Form):
     doctorado = forms.BooleanField(label=u'Doctorado', required=False)
 
 
-#class CargoPreUnivForm(forms.Form):
+class CargoPreUnivForm(forms.Form):
+    """Formulario de calculo de salario docente para docentes Pre-universitarios."""
+    
+    cargo = forms.ModelChoiceField(label=u'Cargo', queryset=CargoPreUniv.objects.all(), empty_label=None,
+        help_text=u'Ingrese el nombre del cargo.')
+    antiguedad = forms.ModelChoiceField(label=u'Años de Antigüedad', queryset=AntiguedadUniv.objects.all(), empty_label=None,
+        help_text=u'Ingrese su antigüedad para el cargo.')
+    horas = forms.IntegerField(label=u'Cantidad de Horas',min_value="1",max_value="99",
+        help_text=u'Ingrese la cantidad de horas asociadas al cargo.')
+
+

@@ -102,7 +102,6 @@ class CargoPreUniv(Cargo):
     )
     horas = models.SmallIntegerField(u'Cantidad de Horas Cátedra', validators=[validate_isgezero],
         help_text=u'La cantidad de horas para el cargo como figuran en la planilla de la UNC. Ej: Al cargo "Vice Director de 1°" le corresponden 25 horas.')
-    tipo_horas = models.CharField(max_length)
 
     def __unicode__(self):
         return super(CargoPreUniv, self).__unicode__() + " " + unicode(self.horas) + "hs"

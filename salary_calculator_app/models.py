@@ -86,7 +86,7 @@ class CargoUniv(Cargo):
         ('D.S.E', u'Dedicación Semi Exclusiva'),
         ('D.S', u'Dedicación Simple')
     )
-    dedicacion = models.CharField(max_length=5, choices=DEDICACION_OPCS,
+    dedicacion = models.CharField(u'Dedicación', max_length=5, choices=DEDICACION_OPCS,
         help_text=u'El tipo de dedicación para el cargo. Pueden ser dedicación exclusiva, semi-exclusiva o simple.')
 
     def __unicode__(self):
@@ -96,12 +96,14 @@ class CargoUniv(Cargo):
 class CargoPreUniv(Cargo):
     """Cargo de docente Preuniversitario."""
 
-    TIPOHORAS_OPC = (
+    TIPOHORAS_OPCS = (
         ('C', u'Cátedra'),
         ('R', u'Relog')
     )
     horas = models.SmallIntegerField(u'Cantidad de Horas Cátedra', validators=[validate_isgezero],
         help_text=u'La cantidad de horas para el cargo como figuran en la planilla de la UNC. Ej: Al cargo "Vice Director de 1°" le corresponden 25 horas.')
+    tipo_horas = models.CharField(u'Tipo de Horas', max_length=1, choices=TIPOHORAS_OPCS,
+        help_text=u'El tipo de horas del cargo.')
 
     def __unicode__(self):
         return super(CargoPreUniv, self).__unicode__() + " " + unicode(self.horas) + "hs"
@@ -183,7 +185,7 @@ class RetencionFija(RemuneracionRetencion):
 
 class RemuneracionPorcentual(RemuneracionRetencion):
     """Una remuneracion que especifica el porcentaje de aumento que debe realizarse."""
-    porcentaje = models.FloatField(u'Porcentaje de Descuento', validators=[validate_isgezero],
+    porcentaje = models.FloatField(u'Porcentaje de Aumento', validators=[validate_isgezero],
         help_text=u'El porcentaje del aumento. Ingresar un valor positivo.')
 
     def __unicode__(self):
@@ -193,7 +195,7 @@ class RemuneracionPorcentual(RemuneracionRetencion):
 class RemuneracionFija(RemuneracionRetencion):
     """Una remuneracion que especifica un aumento fijo sobre el salario basico."""
 
-    valor = models.FloatField(u'Valor de Descuento', validators=[validate_isgezero],
+    valor = models.FloatField(u'Valor del Aumento', validators=[validate_isgezero],
         help_text=u'El valor fijo que se sumará al salario básico.')
 
     def __unicode__(self):

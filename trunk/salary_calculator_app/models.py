@@ -96,8 +96,13 @@ class CargoUniv(Cargo):
 class CargoPreUniv(Cargo):
     """Cargo de docente Preuniversitario."""
 
+    TIPOHORAS_OPC = (
+        ('C', u'Cátedra'),
+        ('R', u'Relog')
+    )
     horas = models.SmallIntegerField(u'Cantidad de Horas Cátedra', validators=[validate_isgezero],
-        help_text=u'La cantidad de horas cátedra para el cargo como figuran en la planilla de la UNC. Ej: Al cargo "Vice Director de 1°" le corresponden 25 horas.')
+        help_text=u'La cantidad de horas para el cargo como figuran en la planilla de la UNC. Ej: Al cargo "Vice Director de 1°" le corresponden 25 horas.')
+    tipo_horas = models.CharField(max_length)
 
     def __unicode__(self):
         return super(CargoPreUniv, self).__unicode__() + " " + unicode(self.horas) + "hs"

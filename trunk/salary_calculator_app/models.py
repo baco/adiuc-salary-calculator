@@ -134,7 +134,7 @@ class Aumento(models.Model):
     anio = models.CharField(u'Año', max_length=4, choices=YEARS_OPCS, validators=[validate_isdigit],
         help_text=u'El año del aumento.')
     porcentaje = models.FloatField(u'Porcentaje', validators=[validate_isgezero],
-        help_text=u'El porcentage de aumento correspondiente. Ingresar valores entre 0 y 100. Por ejemplo, para Marzo de 2012 hay un aumento del 6%')
+        help_text=u'El porcentaje de aumento correspondiente. Ingresar valores entre 0 y 100. Por ejemplo, para Marzo de 2012 hay un aumento del 6%')
 
     def __unicode__(self):
         return self.mes + " " + self.anio + " - " + unicode(self.porcentaje) + "%"
@@ -160,11 +160,11 @@ class RemuneracionRetencion(models.Model):
 class RetencionPorcentual(RemuneracionRetencion):
     """Una retencion que especifica el porcentaje del descuento que debe realizarse."""
 
-    porcentage = models.FloatField(u'Porcentaje de Descuento', validators=[validate_isgezero],
+    porcentaje = models.FloatField(u'Porcentaje de Descuento', validators=[validate_isgezero],
         help_text=u'El porcentaje del descuento. Ingresar un valor positivo.')
 
     def __unicode__(self):
-        return super(RetencionPorcentual, self).__unicode__() + " " + unicode(self.porcentage ) + "%"
+        return super(RetencionPorcentual, self).__unicode__() + " " + unicode(self.porcentaje ) + "%"
 
 
 class RetencionFija(RemuneracionRetencion):
@@ -179,11 +179,11 @@ class RetencionFija(RemuneracionRetencion):
 
 class RemuneracionPorcentual(RemuneracionRetencion):
     """Una remuneracion que especifica el porcentaje de aumento que debe realizarse."""
-    porcentage = models.FloatField(u'Porcentaje de Descuento', validators=[validate_isgezero],
+    porcentaje = models.FloatField(u'Porcentaje de Descuento', validators=[validate_isgezero],
         help_text=u'El porcentaje del aumento. Ingresar un valor positivo.')
 
     def __unicode__(self):
-        return super(RemuneracionPorcentual, self).__unicode__() + " " + unicode(self.porcentage) + "%"
+        return super(RemuneracionPorcentual, self).__unicode__() + " " + unicode(self.porcentaje) + "%"
 
 
 class RemuneracionFija(RemuneracionRetencion):

@@ -22,24 +22,25 @@ master_code = '52'
 def calculate(request):
     """Vista principal"""
 
-#    pdb.set_trace()
-
-    # CargoUnivFormSet: Permite que aparezcan multiples formularios identicos.
-    CargoUnivFormSet = formset_factory(CargoUnivForm, extra=1, max_num=5, can_delete=True)
+    # Permite que aparezcan multiples formularios identicos.
+    CargoUnivFormSet = formset_factory(CargoUnivForm, extra=0, max_num=5, can_delete=True)
+    CargoPreUnivFormSet = formset_factory(CargoPreUnivForm, extra=0, max_num=5, can_delete=True)
 
     context = {}
     if request.method == 'POST':
 
         # Sacamos la info del POST y bindeamos los forms.
         univformset = CargoUnivFormSet(request.POST, prefix='univcargo')
+        preunivformset = CargoPreUnivFormSet(request.POST, prefix='preunivcargo')
         mform = MesForm(request.POST)
 
-        if univformset.is_valid() and mform.is_valid():
+        if univformset.is_valid() and preunivformset.is_valid() and mform.is_valid():
 
             aumento_obj = mform.cleaned_data['aumento']
 
             # Calculo para salarios de cargos universitarios.
             context.update(processUnivFormSet(aumento_obj, univformset))
+            #context.update(processPreUnivFormSet(aumento_obj, preunivformset)) #TODO: Implementar la funcion
             context['aumento'] = aumento_obj
 
             return render_to_response('salary_calculated.html', context)
@@ -48,8 +49,10 @@ def calculate(request):
 
         # Creamos formularios vacios (sin bindear) y los mandamos.
         univformset = CargoUnivFormSet(prefix='univcargo')
+        preunivformset = CargoPreUnivFormSet(prefix='preunivcargo')
         mform = MesForm()
         context['univformset'] = univformset
+        context['preunivformset'] = preunivformset
         context['mform'] = mform
 
     return render_to_response('calculate.html', context)
@@ -66,9 +69,14 @@ def processUnivFormSet(aumento_obj, univformset):
 
     # Itero sobre todos los cargos.
     total_bruto = 0.0
-    total_neto = 0.0 
+    total_neto = 0.0
+
+    #pdb.set_trace()
 
     for univform in univformset:
+
+        if univform in univformset.deleted_forms:
+            continue
 
         cargo_obj = univform.cleaned_data['cargo']
         has_doctorado = univform.cleaned_data['doctorado']
@@ -126,7 +134,7 @@ def processUnivFormSet(aumento_obj, univformset):
         ## Retenciones NO especiales:
 
         for ret in ret_porcentuales:
-            importe = salario_bruto * ret.porcentage / 100.
+            importe = salario_bruto * ret.porcentaje / 100.
             acum_ret = acum_ret + importe
             ret_list.append( (ret, importe) )
 

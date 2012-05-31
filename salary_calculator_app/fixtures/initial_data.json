@@ -734,7 +734,7 @@
       "aplicacion": "U", 
       "nombre": "Aporte Fondo Adic. Universitario", 
       "codigo": "203", 
-      "porcentage": 2.0
+      "porcentaje": 2.0
     }
   }, 
   {
@@ -744,7 +744,7 @@
       "aplicacion": "U", 
       "nombre": "Jubilaci\u00f3n R\u00e9gimen Especial", 
       "codigo": "209", 
-      "porcentage": 11.0
+      "porcentaje": 11.0
     }
   }, 
   {
@@ -754,7 +754,7 @@
       "aplicacion": "U", 
       "nombre": "Caja Complementaria de Jub.", 
       "codigo": "210", 
-      "porcentage": 4.5
+      "porcentaje": 4.5
     }
   }, 
   {
@@ -764,7 +764,7 @@
       "aplicacion": "U", 
       "nombre": "Ley 19032 Obra Soc. Jub.", 
       "codigo": "220", 
-      "porcentage": 3.0
+      "porcentaje": 3.0
     }
   }, 
   {
@@ -774,7 +774,7 @@
       "aplicacion": "U", 
       "nombre": "DASPU", 
       "codigo": "400", 
-      "porcentage": 3.0
+      "porcentaje": 3.0
     }
   }, 
   {
@@ -784,7 +784,7 @@
       "aplicacion": "U", 
       "nombre": "ADIUC - Afiliaci\u00f3n", 
       "codigo": "640", 
-      "porcentage": 1.5
+      "porcentaje": 1.5
     }
   }, 
   {
@@ -794,7 +794,7 @@
       "aplicacion": "U", 
       "nombre": "Fondo de Becas", 
       "codigo": "770", 
-      "porcentage": 3.8
+      "porcentaje": 3.8
     }
   }, 
   {

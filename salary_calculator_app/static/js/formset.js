@@ -1,7 +1,9 @@
 function formset_init(formsetPrefix)
 {
     var totalformsObj = document.getElementById("id_" + formsetPrefix + "-TOTAL_FORMS");
-    totalformsObj.value = "1";
+    totalformsObj.value = "0";
+    // variable global
+    total_hidden_forms = 0;
 }
 
 function show_new_form_HTML(father_id, divAttrs, divContent, formsetPrefix, addbeforeobj_id)
@@ -10,7 +12,7 @@ function show_new_form_HTML(father_id, divAttrs, divContent, formsetPrefix, addb
 	var newdiv = document.createElement("div");
     var addbeforeObj = document.getElementById(addbeforeobj_id);
 
-    if (get_total_forms(formsetPrefix) < get_max_forms(formsetPrefix))
+    if (get_total_forms(formsetPrefix) - total_hidden_forms < get_max_forms(formsetPrefix))
     {
 	    divContent = divContent.replace(/__prefix__/g, get_total_forms(formsetPrefix) + "");
 	    newdiv.innerHTML = divContent;
@@ -28,6 +30,7 @@ function show_new_form_HTML(father_id, divAttrs, divContent, formsetPrefix, addb
 function hide_father(node, formsetPrefix)
 {
     //decrease_total_forms(formsetPrefix, 1);
+    total_hidden_forms++;
     var grandfather = node.parentElement.parentElement;
 	$(grandfather).slideUp("slow");
     //grandfather.parentElement.removeChild(grandfather);

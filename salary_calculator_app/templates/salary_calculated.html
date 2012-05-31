@@ -34,25 +34,25 @@
                     <tr>
                         <td> 10 </td>
                         <td> Sueldo B&aacute;sico </td>
-                        <td> {{ res.cargo.basico_unc }} </td>
+                        <td> {{ res.cargo.basico_unc|floatformat:-2 }} </td>
                     </tr>
                     <tr>
                         <td></td>
                         <td> Aum. {{ aumento.get_mes_display }} {{ aumento.get_anio_display }} ({{ aumento.porcentaje }}% sobre {{ res.cargo.basico_nac }})</td>
-                        <td class="adicionales">{{ res.aumento }} </td>
+                        <td class="adicionales">{{ res.aumento|floatformat:-2 }} </td>
                     </tr>
 
                     {% for obj, importe in res.remuneraciones %}
                      <tr>
                         <td> {{ obj.codigo }} </td>
                         <td> {{ obj.nombre }} {% if obj.porcentage %}({{ obj.porcentage }}%){% endif %} </td>
-                        <td class="adicionales">{{ importe }} </td>
+                        <td class="adicionales">{{ importe|floatformat:-2 }} </td>
                     </tr>
                     {% if obj.codigo == "118" %} <!-- Adicional 2003 8% -->
                     <tr>
                         <td> <b> Bruto: </b></td>
                         <td></td>
-                        <td> <b>{{ res.salario_bruto }}</b> </td>
+                        <td> <b>{{ res.salario_bruto|floatformat:-2 }}</b> </td>
                     </tr><br>
                     {% endif %}
                     {% endfor %}
@@ -60,14 +60,14 @@
                     {% for obj, importe in res.retenciones %}
                      <tr>
                         <td> {{ obj.codigo }} </td>
-                        <td> {{ obj.nombre }} ({{ obj.porcentage }}%) </td>
-                        <td class="descuentos">-{{ importe }}</td>
+                        <td> {{ obj.nombre }} (-{{ obj.porcentage }}%) </td>
+                        <td class="descuentos">-{{ importe|floatformat:-2 }}</td>
                     </tr>
                     {% endfor %}
                     <tr>
                         <td> <b> Neto: </b></td>
                         <td></td>
-                        <td> <b>{{ res.salario_neto }}</b> </td>
+                        <td> <b>{{ res.salario_neto|floatformat:-2 }}</b> </td>
                     </tr>
                 </table>
                 <hr />
@@ -79,11 +79,11 @@
                 <table>
                     <tr>
                         <td><b>Total Bruto: </b></td>
-                        <td><b>{{ total_bruto }}</b></td>
+                        <td><b>{{ total_bruto|floatformat:-2 }}</b></td>
                     </tr>
                     <tr>
                         <td><b>Total Neto: </b></td>
-                        <td><b>{{ total_neto }}</b></td>
+                        <td><b>{{ total_neto|floatformat:-2 }}</b></td>
                     </tr>
                 </table>
             </div>

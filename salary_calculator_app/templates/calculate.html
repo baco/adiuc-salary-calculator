@@ -24,6 +24,7 @@
 				</div>
 
                 {% for univform in univformset %}
+                {{ univform.id }} <!-- Necesario para el formset -->
 
 				<div class="form_cargo">
 					<table>
@@ -56,6 +57,10 @@
 						</tr>
 					</table>
                     <p class="agregar_quitar rightalign"><a href="javascript:null" onclick="hide_father(this,univPrefix)">Quitar</a></p>
+                    <!-- Necesario para django, marca que forms estan marcados para borrar del formset -->
+                    <div style="display:none">
+                        {{ univform.DELETE }}
+                    </div>
 				</div>
 
                 {% endfor %}
@@ -82,7 +87,10 @@
 							</td>\
 						</tr>\
 					</table>\
-                    <p class=\'agregar_quitar rightalign\'><a href=\'javascript:null\' onclick=\'hide_father(this, univPrefix)\'>Quitar</a></p>',
+                    <p class=\'agregar_quitar rightalign\'><a href=\'javascript:null\' onclick=\'hide_father(this, univPrefix)\'>Quitar</a></p>\
+                    <div style=\'display:none\'>\
+                        {{ univformset.empty_form.DELETE|escapejs }}\
+                    </div>',
                 univPrefix, 'nuevo_cargo')">[+] A&ntilde;adir nuevo cargo</a>
 				<div id="submit"><input type="submit" value="Calcular" /></div>
 			</div>

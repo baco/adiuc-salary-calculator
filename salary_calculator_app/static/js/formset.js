@@ -27,11 +27,12 @@ function show_new_form_HTML(father_id, divAttrs, divContent, formsetPrefix, addb
 
 function hide_father(node, formsetPrefix)
 {
-    decrease_total_forms(formsetPrefix, 1);
+    //decrease_total_forms(formsetPrefix, 1);
     var grandfather = node.parentElement.parentElement;
 	$(grandfather).slideUp("slow");
     //grandfather.parentElement.removeChild(grandfather);
-	//delcheckObj.checked = true; // Necesario para el django FORMSET.
+    var delcheckObj = node.parentElement.parentElement.lastElementChild.children[0];
+	delcheckObj.checked = true; // Necesario para el django FORMSET.
 }
 
 function get_total_forms(formsetPrefix)

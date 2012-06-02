@@ -27,9 +27,11 @@ class CargoPreUnivForm(forms.Form):
     
     cargo = forms.ModelChoiceField(label=u'Cargo', queryset=CargoPreUniv.objects.all(), empty_label=None,
         help_text=u'Ingrese el nombre del cargo.')
-    antiguedad = forms.ModelChoiceField(label=u'Años de Antigüedad', queryset=AntiguedadUniv.objects.all(), empty_label=None,
+    antiguedad = forms.ModelChoiceField(label=u'Años de Antigüedad', queryset=AntiguedadPreUniv.objects.all(), empty_label=None,
         help_text=u'Ingrese su antigüedad para el cargo.')
-    horas = forms.IntegerField(label=u'Cantidad de Horas',min_value="1",max_value="99",
+    master = forms.BooleanField(label=u'Master', required=False)
+    doctorado = forms.BooleanField(label=u'Doctorado', required=False)
+    horas = forms.IntegerField(label=u'Cantidad de Horas', min_value=1, max_value=99,
         help_text=u'Ingrese la cantidad de horas asociadas al cargo.')
 
 

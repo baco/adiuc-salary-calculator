@@ -1,12 +1,7 @@
-div#form_content {
+div.form_content {
     width: 500px;
     margin: 2px;
     background-color: #cdd9de;
-}
-
-a#nuevo_cargo {
-    color: #000000;
-    font-size:small;
 }
 
 div#form_mes {
@@ -55,6 +50,10 @@ td.descuentos{
 
 td.adicionales{
     color:#005500;
+}
+
+.bold{
+    font-weight: bold;
 }
 
 div.title {

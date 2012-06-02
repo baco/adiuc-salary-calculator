@@ -17,14 +17,13 @@
             <!-- Requerido para contabilizar cuantos forms tiene el formset -->
             {{ univformset.management_form }}
             {{ preunivformset.management_form }}
-            <table><tr>
+            <div id="form_mes"> {{ mform.aumento}} </div>
+            <table>
+            <tr>
             <td>
-			    <div id="form_content">
+			    <div id="univformset_content" class="form_content">
 
-				    <div id="form_mes">
-					    {{ mform.aumento}}
-				    </div>
-
+                    <!-- FORMULARIO UNIVFORM -->
                     {% for univform in univformset %}
                     {{ univform.id }} <!-- Necesario para el formset -->
 
@@ -67,7 +66,7 @@
 
                     {% endfor %}
 
-				    <a id="nuevo_cargo" class="agregar_quitar" href="javascript:null" onclick="show_new_form_HTML('form_content', univDivAttrs,
+				    <a id="nuevo_cargo_univ" class="agregar_quitar" href="javascript:null" onclick="show_new_form_HTML('univformset_content', univDivAttrs,
                     '<table>\
                             <tr>\
                                 <td> {{ univformset.empty_form.cargo.label_tag|escapejs }}: </td>\
@@ -93,8 +92,7 @@
                         <div style=\'display:none\'>\
                             {{ univformset.empty_form.DELETE|escapejs }}\
                         </div>',
-                    univPrefix, 'nuevo_cargo')">[+] A&ntilde;adir nuevo cargo Universitario</a>
-				    <div id="submit"><input type="submit" value="Calcular" /></div>
+                    univPrefix, 'nuevo_cargo_univ')">[+] A&ntilde;adir Cargo Universitario</a>
 			    </div>
 			</td>
 			
@@ -102,10 +100,11 @@
 			
 			<td><!-- ACÁ COMIENZA EL OTRO FORM -->
 			
-			<!--NOTA: PUSE NOMBRES TENTATIVOS, PARA QUE LUEGO COINCIDAN SIMILARMENTE COMO ANTES -->
+                <div id="preunivformset_content" class="form_content">
+    			<!--NOTA: PUSE NOMBRES TENTATIVOS, PARA QUE LUEGO COINCIDAN SIMILARMENTE COMO ANTES -->
                 {% for preunivform in preunivformset %}
                 <div class="form_cargo">
-					    <table>
+					       <table>
 						    <tr>
 
 							    <td> {{ preunivform.cargo.label_tag }}: </td>
@@ -114,25 +113,80 @@
 						    </tr>
 						    <tr>
 
+							    <td> {{ preunivform.horas.label_tag }}: </td>
+							    <td> {{ preunivform.horas }} </td>
+
+						    </tr>
+						    <tr>
+
 							    <td> {{ preunivform.antiguedad.label_tag }}:</td>
 							    <td> {{ preunivform.antiguedad }} </td>
 
 						    </tr>
-					
+						    <tr>
+							    <td>T&iacute;tulos adicionales:</td>
+						    </tr>
+						    <tr colspand=2>
+							    <td><blockquote>
+
+								    {{ preunivform.master }} {{ preunivform.master.label_tag }} 
+
+								    <br>
+
+								    {{ preunivform.doctorado }} {{ preunivform.doctorado.label_tag }}
+
+								    </blockquote>
+							    </td>
+						    </tr>
 					    </table>
                 </div>
                 {% endfor %}
+                <a id="nuevo_cargo_pre" class="agregar_quitar" href="javascript:null" onclick="show_new_form_HTML('preunivformset_content', univDivAttrs,
+                    '<table>\
+                            <tr>\
+                                <td> {{ preunivformset.empty_form.cargo.label_tag|escapejs }}: </td>\
+                                <td> {{ preunivformset.empty_form.cargo|escapejs }} </td>\
+						    </tr>\
+						    <tr>\
+							    <td> {{ preunivformset.empty_form.horas.label_tag|escapejs }}: </td>\
+							    <td> {{ preunivformset.empty_form.horas|escapejs }} </td>\
+						    </tr>\
+						    <tr>\
+							    <td> {{ preunivformset.empty_form.antiguedad.label_tag|escapejs }}:</td>\
+							    <td> {{ preunivformset.empty_form.antiguedad|escapejs }} </td>\
+						    </tr>\
+						    <tr>\
+							    <td>T&iacute;tulos adicionales:</td>\
+						    </tr>\
+						    <tr colspand=2>\
+							    <td><blockquote>\
+								    {{ preunivformset.empty_form.master|escapejs }} {{ preunivformset.empty_form.master.label_tag|escapejs }}\
+								    <br>\
+								    {{ preunivformset.empty_form.doctorado|escapejs }} {{ preunivformset.empty_form.doctorado.label_tag|escapejs }}\
+								    </blockquote>\
+							    </td>\
+						    </tr>\
+					    </table>\
+                        <p class=\'agregar_quitar rightalign\'><a href=\'javascript:null\' onclick=\'hide_father(this, preunivPrefix)\'>Quitar</a></p>\
+                        <div style=\'display:none\'>\
+                            {{ preunivformset.empty_form.DELETE|escapejs }}\
+                        </div>',
+                    preunivPrefix, 'nuevo_cargo_pre')">[+] A&ntilde;adir Cargo Nivel Medio</a>
+            </div>
 			</td>
 			</tr>
 			</table>
+            <div id="submit"><input type="submit" value="Calcular" /></div>
 		</form>
     
         <!-- Script para setear valores iniciales de variables luego de cargar el body -->
         <script type="text/javascript">
             univPrefix = "univcargo";
+            preunivPrefix = "preunivcargo"
             univDivAttrs = {};
             univDivAttrs['class'] = 'form_cargo';
             formset_init(univPrefix);
+            formset_init(preunivPrefix);
         </script>
 
 	</body>

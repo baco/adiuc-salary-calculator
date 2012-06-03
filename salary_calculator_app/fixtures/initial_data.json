@@ -169,6 +169,14 @@
     }
   }, 
   {
+    "pk": "9d30a25dcf4f603c086d2f79bac984db", 
+    "model": "sessions.session", 
+    "fields": {
+      "expire_date": "2012-06-16T18:30:35.543Z", 
+      "session_data": "ZDQxMmNlZWNmMWJiMzc2ZmJiMDk1ZTdhZWIwNzJjYTY1MWM3ZmY2NTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQRLAXUu\n"
+    }
+  }, 
+  {
     "pk": 1, 
     "model": "salary_calculator_app.tipocargo", 
     "fields": {
@@ -208,6 +216,13 @@
     "model": "salary_calculator_app.tipocargo", 
     "fields": {
       "nombre": "Profesor Ayudante (Aux) 2\u00ba"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "salary_calculator_app.tipocargo", 
+    "fields": {
+      "nombre": "Vice Director de 1\u00ba"
     }
   }, 
   {
@@ -262,6 +277,15 @@
       "anio": "2012", 
       "mes": "JUN", 
       "valor": 3456.79
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "anio": "2012", 
+      "mes": "MAR", 
+      "valor": 5600.0
     }
   }, 
   {
@@ -641,6 +665,31 @@
   }, 
   {
     "pk": 1, 
+    "model": "salary_calculator_app.cargopreuniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "tipo": 7, 
+      "basico_nac": 5079.6, 
+      "tipo_horas": "R", 
+      "ret_porcentuales": [
+        2, 
+        3, 
+        4, 
+        6
+      ], 
+      "lu": "1", 
+      "rem_porcentuales": [], 
+      "basico_unc": 5079.6, 
+      "horas": 25, 
+      "pampa": "201", 
+      "garantia_salarial": [
+        7
+      ]
+    }
+  }, 
+  {
+    "pk": 1, 
     "model": "salary_calculator_app.antiguedaduniv", 
     "fields": {
       "anio": 0, 
@@ -733,6 +782,30 @@
     "fields": {
       "anio": 24, 
       "porcentaje": 120.0
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "salary_calculator_app.antiguedadpreuniv", 
+    "fields": {
+      "anio": 1, 
+      "porcentaje": 10.0
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.antiguedadpreuniv", 
+    "fields": {
+      "anio": 2, 
+      "porcentaje": 15.0
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.antiguedadpreuniv", 
+    "fields": {
+      "anio": 5, 
+      "porcentaje": 30.0
     }
   }, 
   {
@@ -1322,12 +1395,90 @@
       "is_active": true, 
       "is_superuser": true, 
       "is_staff": true, 
-      "last_login": "2012-05-31T21:59:29.360Z", 
+      "last_login": "2012-06-02T18:30:35.386Z", 
       "groups": [], 
       "user_permissions": [], 
       "password": "pbkdf2_sha256$10000$VxuSGKl5CqvG$dCbIsfWEecFaCNPbCXgpBba6KQjcmawvH4VzX8G0jak=", 
       "email": "a@a.com", 
       "date_joined": "2012-05-28T14:16:16.479Z"
+    }
+  }, 
+  {
+    "pk": 70, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-02T18:34:09.414Z", 
+      "object_repr": "5 - 30.0%", 
+      "object_id": "3", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 12
+    }
+  }, 
+  {
+    "pk": 69, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-02T18:34:05.109Z", 
+      "object_repr": "2 - 15.0%", 
+      "object_id": "2", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 12
+    }
+  }, 
+  {
+    "pk": 68, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-02T18:33:38.758Z", 
+      "object_repr": "1 - 10.0%", 
+      "object_id": "1", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 12
+    }
+  }, 
+  {
+    "pk": 67, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-02T18:33:06.803Z", 
+      "object_repr": "1 Vice Director de 1\u00ba 25hs", 
+      "object_id": "1", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 10
+    }
+  }, 
+  {
+    "pk": 66, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-02T18:32:10.898Z", 
+      "object_repr": "$5600.0 MAR 2012", 
+      "object_id": "7", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 8
+    }
+  }, 
+  {
+    "pk": 65, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-02T18:31:04.867Z", 
+      "object_repr": "Vice Director de 1\u00ba", 
+      "object_id": "7", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 7
     }
   }, 
   {

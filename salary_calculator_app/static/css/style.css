@@ -1,10 +1,10 @@
 div.form_content {
-    width: 500px;
-    margin: 2px;
+	width:420px;
+    margin: 0px;
     background-color: #cdd9de;
 }
 
-div#form_mes {
+#form_mes {
     background-color: #004b6a;
     color: #FFFFFF;
     text-align: center;
@@ -13,7 +13,8 @@ div#form_mes {
 
 div.form_cargo {
     background-color: #ededed;
-    margin: 2px;
+    margin: 0px;
+    height:200px;
 }
 
 a.agregar_quitar {
@@ -21,10 +22,13 @@ a.agregar_quitar {
     font-size: small;
 }
 
-div#submit {
-    background-color: #fff;
+#submit {
+	width:840px;
     margin: 0px;
     text-align: center;
+}
+#calculate{
+	width:840px;
 }
 
 .centeralign {
@@ -39,7 +43,7 @@ div.totales {
     text-align: center;
     font-family: "Arial";
 }
-table#result {
+#result {
     margin:1px;
     padding:2px;
 }
@@ -61,4 +65,20 @@ div.title {
     color: #FFFFFF;
     text-align: center;
     font-family: "Arial";
+}
+
+#forms_table {
+	width: 840px;
+	margin: auto;
+}
+
+
+#univformset_content{
+	float:left;
+	width:420px;
+}
+
+#preunivformset_content{
+	float:right;
+	width:420px;
 }

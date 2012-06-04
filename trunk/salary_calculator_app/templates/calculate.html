@@ -19,13 +19,12 @@
             {{ preunivformset.management_form }}
 
             <div id="form_mes"> {{ mform.aumento}} </div>
-            <table>
-            <tr>
-            <td>
-			    <div id="univformset_content" class="form_content">
-                    <!-- FORMULARIO UNIVFORM -->
+
+			<div id="forms_table"> <!-- div principal, contiene los formularios -->
+				<div id="univformset_content" class="form_content">
                     {% for univform in univformset %}
-                    {{ univform.id }} <!-- Necesario para el formset -->
+                    {{ univform.id }}
+                    
 				    <div class="form_cargo">
 					    <table>
 						    <tr>
@@ -44,7 +43,7 @@
 								    {{ univform.master }} {{ univform.master.label_tag }} 
 								    <br>
 								    {{ univform.doctorado }} {{ univform.doctorado.label_tag }}
-								    </blockquote>
+								    </blockquote><br>
 							    </td>
 						    </tr>
 					    </table>
@@ -55,8 +54,7 @@
                         <div style="display:none">
                             {{ univform.DELETE }}
                         </div>
-				    </div> 
-				    <!-- fin div 'form_cargo'-->
+				    </div> <!--form_cargo-->
                     {% endfor %}
 
 				    <a id="nuevo_cargo_univ" class="agregar_quitar" href="javascript:null" onclick="show_new_form_HTML('univformset_content', univDivAttrs,
@@ -78,6 +76,7 @@
 								    <br>\
 								    {{ univformset.empty_form.doctorado|escapejs }} {{ univformset.empty_form.doctorado.label_tag|escapejs }}\
 								    </blockquote>\
+								    <br>\
 							    </td>\
 						    </tr>\
 					    </table>\
@@ -86,14 +85,11 @@
                             {{ univformset.empty_form.DELETE|escapejs }}\
                         </div>',
                     univPrefix, 'nuevo_cargo_univ');enable_disable('calculate',univPrefix,preunivpPrefix);">[+] A&ntilde;adir Cargo Universitario</a>
-			    </div>
-			    <!--fin div form_content-->
-			</td>
-			<!--FIN Primer columna: cargos universitarios-->
+			    </div> <!-- univformset_content -->
 			
-			<!--COMIENZO Segunda columna: cargos pre-universitarios-->
-			<td>
-                <div id="preunivformset_content" class="form_content">
+			<!--mbio form-->
+			
+			<div id="preunivformset_content" class="form_content">
                 {% for preunivform in preunivformset %}
                 <div class="form_cargo">
 				    <table>
@@ -121,10 +117,11 @@
 						    </td>
 					    </tr>
 					</table>
-                </div>
-                <!--FIN form_cargo-->
+                </div> <!-- form_cargo-->
+                
                 {% endfor %}
-                <a id="nuevo_cargo_pre" class="agregar_quitar" href="javascript:null" onclick="show_new_form_HTML('preunivformset_content', univDivAttrs,
+                <a id="nuevo_cargo_pre" class="agregar_quitar" href="javascript:null"
+                onclick="show_new_form_HTML('preunivformset_content', univDivAttrs,
                     '<table>\
                             <tr>\
                                 <td> {{ preunivformset.empty_form.cargo.label_tag|escapejs }}: </td>\
@@ -155,15 +152,12 @@
                             {{ preunivformset.empty_form.DELETE|escapejs }}\
                         </div>',
                     preunivPrefix, 'nuevo_cargo_pre');enable_disable('calculate',univPrefix,preunivpPrefix);">[+] A&ntilde;adir Cargo Nivel Medio</a>
-            </div><!--FIN form content-->
-			</td>
-			</tr>
-			</table>
-			<!--fin tabla de formularios-->
-			<div align=center><input id="calculate" type="submit" value="Calcular" /></div>
+            </div><!-- form content-->
+					<div ><input id="calculate" type="submit" value="Calcular" /></div>
+			</div><!-- forms_table-->
 
-		</form>
-    
+
+		</form>    
         <!-- Script para setear valores iniciales de variables luego de cargar el body -->
         <script type="text/javascript">
             univPrefix = "univcargo";

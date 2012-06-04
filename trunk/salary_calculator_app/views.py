@@ -9,7 +9,7 @@ from forms import CargoUnivForm, MesForm, CargoPreUnivForm
 from models import *
 
 #debugger
-import pdb
+#import pdb
 
 ##### Hardcoded
 adic2003_code = '118'
@@ -32,7 +32,7 @@ def calculate(request):
     CargoUnivFormSet = formset_factory(CargoUnivForm, extra=0, max_num=5, can_delete=True)
     CargoPreUnivFormSet = formset_factory(CargoPreUnivForm, extra=0, max_num=5, can_delete=True)
 
-    pdb.set_trace()
+#    pdb.set_trace()
     context = {}
     if request.method == 'POST':
 

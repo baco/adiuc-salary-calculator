@@ -63,3 +63,21 @@ function decrease_total_forms(formsetPrefix, value)
     var totalformsObj = document.getElementById("id_" + formsetPrefix + "-TOTAL_FORMS");
     totalformsObj.value = get_total_forms(formsetPrefix) - value + ""; // Asi lo convierto a String.
 }
+
+//Habilita el elemento siempre y cuando haya algun formulario.
+function enable_disable(element_id,formSetPrefix1,formSetPrefix2)
+{
+	var cant1 = get_total_forms(formSetPrefix1);
+	var cant2 = get_total_forms(formSetPrefix2);
+	var cant = cant1 + cant2;
+	
+	element = document.getElementById(element_id);
+	if (cant > 0)
+	{ 
+		element.disabled = 'False';
+	}
+	else
+	{
+		element.disabled = 'True';
+	}
+}

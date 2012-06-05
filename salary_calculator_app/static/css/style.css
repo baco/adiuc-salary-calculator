@@ -82,3 +82,7 @@ div.title {
 	float:right;
 	width:420px;
 }
+
+div.results_cargo {
+    background-color: #ededed;
+}

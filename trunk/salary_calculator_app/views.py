@@ -9,7 +9,7 @@ from forms import CargoUnivForm, MesForm, CargoPreUnivForm
 from models import *
 
 #debugger
-#import pdb
+import pdb
 
 ##### Hardcoded
 adic2003_code = '118'
@@ -32,7 +32,6 @@ def calculate(request):
     CargoUnivFormSet = formset_factory(CargoUnivForm, extra=0, max_num=5, can_delete=True)
     CargoPreUnivFormSet = formset_factory(CargoPreUnivForm, extra=0, max_num=5, can_delete=True)
 
-#    pdb.set_trace()
     context = {}
     if request.method == 'POST':
 
@@ -57,6 +56,12 @@ def calculate(request):
             context['aumento'] = aumento_obj
 
             return render_to_response('salary_calculated.html', context)
+
+        else:
+            #pdb.set_trace()
+            context['univformset'] = univformset
+            context['preunivformset'] = preunivformset
+            context['mform'] = mform
 
     else:
 
@@ -99,8 +104,8 @@ def processUnivFormSet(aumento_obj, univformset):
         basico_unc = cargo_obj.basico_unc
         basico_nac = cargo_obj.basico_nac
         adic2003_obj = RemuneracionFija(nombre=adic2003_name, codigo=adic2003_code, valor=0.)
-        if cargo_obj.rem_fijas.filter(codigo=adic2003_code).exists():
-            adic2003_obj = cargo_obj.rem_fijas.get(codigo=adic2003_code) # 118: Adicional 8% 2003
+        if cargo_obj.adic2003:
+            adic2003_obj.valor = cargo_obj.adic2003 # 118: Adicional 8% 2003
         aumento = basico_nac * aumento_obj.porcentaje / 100.0
         ##
         salario_bruto = basico_unc + aumento + adic2003_obj.valor
@@ -187,6 +192,8 @@ def processUnivFormSet(aumento_obj, univformset):
             'aumento': aumento,
             'retenciones': ret_list,
             'remuneraciones': rem_list,
+            'acum_ret': acum_ret,
+            'acum_rem': acum_rem,
             'salario_bruto': salario_bruto,
             'salario_neto': salario_neto
         }

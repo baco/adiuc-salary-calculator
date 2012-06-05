@@ -1,9 +1,23 @@
-function formset_init(formsetPrefix)
+// global
+total_hidden_forms = {};
+
+function formset_init(formsetPrefix, containerId)
 {
     var totalformsObj = document.getElementById("id_" + formsetPrefix + "-TOTAL_FORMS");
     totalformsObj.value = "0";
-    // variable global
-    total_hidden_forms = 0;
+    var containerObj = document.getElementById(containerId);
+
+    total_hidden_forms[formsetPrefix] = 0;
+
+    for (var i=0; i<containerObj.children.length; i++)
+    {
+        child = containerObj.children[i];
+        if (child.tagName == "DIV" && child.className == "form_cargo") {
+            increase_total_forms(formsetPrefix, 1);
+            if (child.style.display == "none")
+                total_hidden_forms[formsetPrefix] = total_hidden_forms[formsetPrefix] + 1;
+        }
+    }
 }
 
 function show_new_form_HTML(father_id, divAttrs, divContent, formsetPrefix, addbeforeobj_id)
@@ -12,7 +26,7 @@ function show_new_form_HTML(father_id, divAttrs, divContent, formsetPrefix, addb
 	var newdiv = document.createElement("div");
     var addbeforeObj = document.getElementById(addbeforeobj_id);
 
-    if (get_total_forms(formsetPrefix) - total_hidden_forms < get_max_forms(formsetPrefix))
+    if (get_total_forms(formsetPrefix) - total_hidden_forms[formsetPrefix] < get_max_forms(formsetPrefix))
     {
 	    divContent = divContent.replace(/__prefix__/g, get_total_forms(formsetPrefix) + "");
 	    newdiv.innerHTML = divContent;
@@ -30,7 +44,7 @@ function show_new_form_HTML(father_id, divAttrs, divContent, formsetPrefix, addb
 function hide_father(node, formsetPrefix)
 {
     //decrease_total_forms(formsetPrefix, 1);
-    total_hidden_forms++;
+    total_hidden_forms[formsetPrefix] = total_hidden_forms[formsetPrefix] + 1;
     var grandfather = node.parentElement.parentElement;
 	$(grandfather).slideUp("slow");
     //grandfather.parentElement.removeChild(grandfather);
@@ -67,17 +81,17 @@ function decrease_total_forms(formsetPrefix, value)
 //Habilita el elemento siempre y cuando haya algun formulario.
 function enable_disable(element_id,formSetPrefix1,formSetPrefix2)
 {
-	var cant1 = get_total_forms(formSetPrefix1);
-	var cant2 = get_total_forms(formSetPrefix2);
+	var cant1 = get_total_forms(formSetPrefix1) - total_hidden_forms[formSetPrefix1];
+	var cant2 = get_total_forms(formSetPrefix2) - total_hidden_forms[formSetPrefix2];
 	var cant = cant1 + cant2;
 	
 	element = document.getElementById(element_id);
 	if (cant > 0)
 	{ 
-		element.disabled = 'False';
+		element.disabled = false;
 	}
 	else
 	{
-		element.disabled = 'True';
+		element.disabled = true;
 	}
 }

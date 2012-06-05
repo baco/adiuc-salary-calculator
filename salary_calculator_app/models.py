@@ -88,6 +88,8 @@ class CargoUniv(Cargo):
     )
     dedicacion = models.CharField(u'Dedicación', max_length=5, choices=DEDICACION_OPCS,
         help_text=u'El tipo de dedicación para el cargo. Pueden ser dedicación exclusiva, semi-exclusiva o simple.')
+    adic2003 = models.FloatField(u'Adic. 8% RHCS 153/03', blank=True, null=True,	
+        help_text=u'Es el adicional del 8% del salario básico del año 2003 que le corresponde a este cargo.')
 
     def __unicode__(self):
         return super(CargoUniv, self).__unicode__() + " " + self.dedicacion

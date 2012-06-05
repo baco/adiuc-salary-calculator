@@ -24,16 +24,28 @@
 				<div id="univformset_content" class="form_content">
                     {% for univform in univformset %}
                     {{ univform.id }}
-                    
+
+                    {% if univform in univformset.deleted_forms %}
+                    <div class="form_cargo" style="display:none">
+                    {% else %}
 				    <div class="form_cargo">
+                    {% endif %}
+                        <!-- Errores del formulario que no se relacionan con ningun campo en particular -->
+                        {{ univform.non_field_errors }}
 					    <table>
 						    <tr>
 							    <td> {{ univform.cargo.label_tag }}: </td>
 							    <td> {{ univform.cargo }} </td>
+                                {% if univform.cargo.errors %}
+                                <td> {{ univform.cargo.errors }} </td>
+                                {% endif %}
 						    </tr>
 						    <tr>
 							    <td> {{ univform.antiguedad.label_tag }}:</td>
 							    <td> {{ univform.antiguedad }} </td>
+                                {% if univform.antiguedad.errors %}
+                                <td> {{ univform.antiguedad.errors }} </td>
+                                {% endif %}
 						    </tr>
 						    <tr>
 							    <td>T&iacute;tulos adicionales:</td>
@@ -48,7 +60,7 @@
 						    </tr>
 					    </table>
                         <p class="agregar_quitar rightalign">
-                        	<a href="javascript:null" onclick="hide_father(this,univPrefix);enable_disable('calculate',univPrefix,preunivpPrefix);">Quitar</a>
+                        	<a href="javascript:null" onclick="hide_father(this,univPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);">Quitar</a>
                         </p>
                         <!-- Necesario para django, marca que forms estan marcados para borrar del formset -->
                         <div style="display:none">
@@ -80,30 +92,43 @@
 							    </td>\
 						    </tr>\
 					    </table>\
-                        <p class=\'agregar_quitar rightalign\'><a href=\'javascript:null\' onclick=\'hide_father(this, univPrefix)\';enable_disable(\'calculate\',univPrefix,preunivpPrefix);>Quitar</a></p>\
+                        <p class=\'agregar_quitar rightalign\'><a href=\'javascript:null\' onclick=\'hide_father(this, univPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);\'>Quitar</a></p>\
                         <div style=\'display:none\'>\
                             {{ univformset.empty_form.DELETE|escapejs }}\
                         </div>',
-                    univPrefix, 'nuevo_cargo_univ');enable_disable('calculate',univPrefix,preunivpPrefix);">[+] A&ntilde;adir Cargo Universitario</a>
+                    univPrefix, 'nuevo_cargo_univ');enable_disable(calculateButtonId,univPrefix,preunivPrefix);">[+] A&ntilde;adir Cargo Universitario</a>
 			    </div> <!-- univformset_content -->
 			
 			<!--mbio form-->
 			
 			<div id="preunivformset_content" class="form_content">
                 {% for preunivform in preunivformset %}
+                {% if preunivform in preunivformset.deleted_forms %}
+                <div class="form_cargo" style="display:none">
+                {% else %}
                 <div class="form_cargo">
+                {% endif %}
 				    <table>
 						<tr>
 							<td> {{ preunivform.cargo.label_tag }}: </td>
 							<td> {{ preunivform.cargo }} </td>
+                            {% if preunivform.cargo.errors %}
+                            <td> {{ preunivform.cargo.errors }} </td>
+                            {% endif %}
 						</tr>
 						<tr>
 							<td> {{ preunivform.horas.label_tag }}: </td>
 							<td> {{ preunivform.horas }} </td>
+                            {% if preunivform.horas.errors %}
+                            <td> {{ preunivform.horas.errors }} </td>
+                            {% endif %}
 						</tr>
 						<tr>
 							<td> {{ preunivform.antiguedad.label_tag }}:</td>
 							<td> {{ preunivform.antiguedad }} </td>
+                            {% if preunivform.antiguedad.errors %}
+                            <td> {{ preunivform.antiguedad.errors }} </td>
+                            {% endif %}
 						</tr>
 				    	<tr>
 						    <td>T&iacute;tulos adicionales:</td>
@@ -117,9 +142,16 @@
 						    </td>
 					    </tr>
 					</table>
+                    <p class="agregar_quitar rightalign">
+                        <a href="javascript:null" onclick="hide_father(this,preunivPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);">Quitar</a>
+                    </p>
+                    <!-- Necesario para django, marca que forms estan marcados para borrar del formset -->
+                    <div style="display:none">
+                        {{ preunivform.DELETE }}
+                    </div>
                 </div> <!-- form_cargo-->
-                
                 {% endfor %}
+
                 <a id="nuevo_cargo_pre" class="agregar_quitar" href="javascript:null"
                 onclick="show_new_form_HTML('preunivformset_content', univDivAttrs,
                     '<table>\
@@ -147,11 +179,11 @@
 							    </td>\
 						    </tr>\
 					    </table>\
-                        <p class=\'agregar_quitar rightalign\'><a href=\'javascript:null\' onclick=\'hide_father(this, preunivPrefix)\';enable_disable(\'calculate\',univPrefix,preunivpPrefix);>Quitar</a></p>\
+                        <p class=\'agregar_quitar rightalign\'><a href=\'javascript:null\' onclick=\'hide_father(this, preunivPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);\'>Quitar</a></p>\
                         <div style=\'display:none\'>\
                             {{ preunivformset.empty_form.DELETE|escapejs }}\
                         </div>',
-                    preunivPrefix, 'nuevo_cargo_pre');enable_disable('calculate',univPrefix,preunivpPrefix);">[+] A&ntilde;adir Cargo Nivel Medio</a>
+                    preunivPrefix, 'nuevo_cargo_pre');enable_disable(calculateButtonId,univPrefix,preunivPrefix);">[+] A&ntilde;adir Cargo Nivel Medio</a>
             </div><!-- form content-->
 					<div ><input id="calculate" type="submit" value="Calcular" /></div>
 			</div><!-- forms_table-->
@@ -161,12 +193,13 @@
         <!-- Script para setear valores iniciales de variables luego de cargar el body -->
         <script type="text/javascript">
             univPrefix = "univcargo";
-            preunivPrefix = "preunivcargo"
+            preunivPrefix = "preunivcargo";
             univDivAttrs = {};
             univDivAttrs['class'] = 'form_cargo';
-            formset_init(univPrefix);
-            formset_init(preunivPrefix);
-
+            formset_init(univPrefix, "univformset_content");
+            formset_init(preunivPrefix, "preunivformset_content");
+            calculateButtonId = "calculate";
+            enable_disable(calculateButtonId, univPrefix, preunivPrefix);
         </script>
 
 	</body>

@@ -226,6 +226,34 @@
     }
   }, 
   {
+    "pk": 8, 
+    "model": "salary_calculator_app.tipocargo", 
+    "fields": {
+      "nombre": "Regente de 1\u00b0"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "salary_calculator_app.tipocargo", 
+    "fields": {
+      "nombre": "Jefe Gral Ens.Pr\u00e1ctica"
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "salary_calculator_app.tipocargo", 
+    "fields": {
+      "nombre": "Profesor TC"
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "salary_calculator_app.tipocargo", 
+    "fields": {
+      "nombre": "Profesor Ayudante (Aux.) 1\u00b0"
+    }
+  }, 
+  {
     "pk": 1, 
     "model": "salary_calculator_app.garantiasalarial", 
     "fields": {
@@ -289,6 +317,33 @@
     }
   }, 
   {
+    "pk": 8, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "anio": "2012", 
+      "mes": "JUN", 
+      "valor": 5600.0
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "anio": "2012", 
+      "mes": "JUN", 
+      "valor": 2464.76
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "anio": "2012", 
+      "mes": "MAR", 
+      "valor": 2464.76
+    }
+  }, 
+  {
     "pk": 1, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
@@ -297,7 +352,10 @@
       "dedicacion": "D.E", 
       "tipo": 1, 
       "basico_nac": 6831.76, 
-      "rem_porcentuales": [], 
+      "rem_porcentuales": [
+        1, 
+        2
+      ], 
       "ret_porcentuales": [
         1, 
         2, 
@@ -309,8 +367,11 @@
       ], 
       "lu": "5", 
       "basico_unc": 6848.33, 
+      "adic2003": 81.08, 
       "pampa": "101", 
-      "garantia_salarial": []
+      "garantia_salarial": [
+        3
+      ]
     }
   }, 
   {
@@ -322,7 +383,10 @@
       "dedicacion": "D.S.E", 
       "tipo": 1, 
       "basico_nac": 3415.88, 
-      "rem_porcentuales": [], 
+      "rem_porcentuales": [
+        1, 
+        2
+      ], 
       "ret_porcentuales": [
         1, 
         2, 
@@ -334,8 +398,11 @@
       ], 
       "lu": "13", 
       "basico_unc": 3420.72, 
+      "adic2003": 23.62, 
       "pampa": "102", 
-      "garantia_salarial": []
+      "garantia_salarial": [
+        4
+      ]
     }
   }, 
   {
@@ -347,7 +414,10 @@
       "dedicacion": "D.S", 
       "tipo": 1, 
       "basico_nac": 1707.94, 
-      "rem_porcentuales": [], 
+      "rem_porcentuales": [
+        1, 
+        2
+      ], 
       "ret_porcentuales": [
         1, 
         2, 
@@ -359,6 +429,7 @@
       ], 
       "lu": "27", 
       "basico_unc": 1709.47, 
+      "adic2003": 7.51, 
       "pampa": "103", 
       "garantia_salarial": []
     }
@@ -372,7 +443,10 @@
       "dedicacion": "D.E", 
       "tipo": 3, 
       "basico_nac": 6146.54, 
-      "rem_porcentuales": [], 
+      "rem_porcentuales": [
+        1, 
+        2
+      ], 
       "ret_porcentuales": [
         1, 
         2, 
@@ -384,8 +458,11 @@
       ], 
       "lu": "6", 
       "basico_unc": 6162.16, 
+      "adic2003": 76.41, 
       "pampa": "105", 
-      "garantia_salarial": []
+      "garantia_salarial": [
+        3
+      ]
     }
   }, 
   {
@@ -397,7 +474,10 @@
       "dedicacion": "D.S.E", 
       "tipo": 3, 
       "basico_nac": 3073.27, 
-      "rem_porcentuales": [], 
+      "rem_porcentuales": [
+        1, 
+        2
+      ], 
       "ret_porcentuales": [
         1, 
         2, 
@@ -409,8 +489,11 @@
       ], 
       "lu": "8", 
       "basico_unc": 3077.92, 
+      "adic2003": 22.77, 
       "pampa": "106", 
-      "garantia_salarial": []
+      "garantia_salarial": [
+        4
+      ]
     }
   }, 
   {
@@ -422,7 +505,10 @@
       "dedicacion": "D.S", 
       "tipo": 3, 
       "basico_nac": 1536.63, 
-      "rem_porcentuales": [], 
+      "rem_porcentuales": [
+        1, 
+        2
+      ], 
       "ret_porcentuales": [
         1, 
         2, 
@@ -434,6 +520,7 @@
       ], 
       "lu": "54", 
       "basico_unc": 1538.07, 
+      "adic2003": 7.18, 
       "pampa": "107", 
       "garantia_salarial": []
     }
@@ -447,7 +534,10 @@
       "dedicacion": "D.E", 
       "tipo": 4, 
       "basico_nac": 5461.32, 
-      "rem_porcentuales": [], 
+      "rem_porcentuales": [
+        1, 
+        2
+      ], 
       "ret_porcentuales": [
         1, 
         2, 
@@ -459,8 +549,11 @@
       ], 
       "lu": "7", 
       "basico_unc": 5474.84, 
+      "adic2003": 66.23, 
       "pampa": "109", 
-      "garantia_salarial": []
+      "garantia_salarial": [
+        3
+      ]
     }
   }, 
   {
@@ -472,7 +565,10 @@
       "dedicacion": "D.S.E", 
       "tipo": 4, 
       "basico_nac": 2730.66, 
-      "rem_porcentuales": [], 
+      "rem_porcentuales": [
+        1, 
+        2
+      ], 
       "ret_porcentuales": [
         1, 
         2, 
@@ -484,8 +580,11 @@
       ], 
       "lu": "20", 
       "basico_unc": 2734.95, 
+      "adic2003": 21.0, 
       "pampa": "110", 
-      "garantia_salarial": []
+      "garantia_salarial": [
+        4
+      ]
     }
   }, 
   {
@@ -497,7 +596,10 @@
       "dedicacion": "D.S", 
       "tipo": 4, 
       "basico_nac": 1365.33, 
-      "rem_porcentuales": [], 
+      "rem_porcentuales": [
+        1, 
+        2
+      ], 
       "ret_porcentuales": [
         1, 
         2, 
@@ -509,6 +611,7 @@
       ], 
       "lu": "31", 
       "basico_unc": 1366.62, 
+      "adic2003": 6.4, 
       "pampa": "111", 
       "garantia_salarial": []
     }
@@ -522,7 +625,10 @@
       "dedicacion": "D.E", 
       "tipo": 2, 
       "basico_nac": 4776.1, 
-      "rem_porcentuales": [], 
+      "rem_porcentuales": [
+        1, 
+        2
+      ], 
       "ret_porcentuales": [
         1, 
         2, 
@@ -534,8 +640,11 @@
       ], 
       "lu": "9", 
       "basico_unc": 4786.34, 
+      "adic2003": 58.03, 
       "pampa": "113", 
-      "garantia_salarial": []
+      "garantia_salarial": [
+        3
+      ]
     }
   }, 
   {
@@ -547,7 +656,10 @@
       "dedicacion": "D.S.E", 
       "tipo": 2, 
       "basico_nac": 2388.05, 
-      "rem_porcentuales": [], 
+      "rem_porcentuales": [
+        1, 
+        2
+      ], 
       "ret_porcentuales": [
         1, 
         2, 
@@ -559,8 +671,11 @@
       ], 
       "lu": "26", 
       "basico_unc": 2392.05, 
+      "adic2003": 19.52, 
       "pampa": "114", 
-      "garantia_salarial": []
+      "garantia_salarial": [
+        4
+      ]
     }
   }, 
   {
@@ -572,7 +687,10 @@
       "dedicacion": "D.S", 
       "tipo": 2, 
       "basico_nac": 1194.02, 
-      "rem_porcentuales": [], 
+      "rem_porcentuales": [
+        1, 
+        2
+      ], 
       "ret_porcentuales": [
         1, 
         2, 
@@ -584,6 +702,7 @@
       ], 
       "lu": "32", 
       "basico_unc": 1195.18, 
+      "adic2003": 5.73, 
       "pampa": "115", 
       "garantia_salarial": []
     }
@@ -597,7 +716,10 @@
       "dedicacion": "D.E", 
       "tipo": 5, 
       "basico_nac": 4090.87, 
-      "rem_porcentuales": [], 
+      "rem_porcentuales": [
+        1, 
+        2
+      ], 
       "ret_porcentuales": [
         1, 
         2, 
@@ -609,8 +731,11 @@
       ], 
       "lu": "14", 
       "basico_unc": 4101.53, 
+      "adic2003": 52.23, 
       "pampa": "117", 
-      "garantia_salarial": []
+      "garantia_salarial": [
+        3
+      ]
     }
   }, 
   {
@@ -622,7 +747,10 @@
       "dedicacion": "D.S.E", 
       "tipo": 5, 
       "basico_nac": 2045.44, 
-      "rem_porcentuales": [], 
+      "rem_porcentuales": [
+        1, 
+        2
+      ], 
       "ret_porcentuales": [
         1, 
         2, 
@@ -634,8 +762,11 @@
       ], 
       "lu": "28", 
       "basico_unc": 2049.21, 
+      "adic2003": 18.49, 
       "pampa": "118", 
-      "garantia_salarial": []
+      "garantia_salarial": [
+        4
+      ]
     }
   }, 
   {
@@ -647,7 +778,10 @@
       "dedicacion": "D.S", 
       "tipo": 6, 
       "basico_nac": 818.17, 
-      "rem_porcentuales": [], 
+      "rem_porcentuales": [
+        1, 
+        2
+      ], 
       "ret_porcentuales": [
         1, 
         2, 
@@ -659,7 +793,37 @@
       ], 
       "lu": "36", 
       "basico_unc": 819.12, 
+      "adic2003": 4.81, 
       "pampa": "121", 
+      "garantia_salarial": []
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "salary_calculator_app.cargouniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "dedicacion": "D.S", 
+      "tipo": 11, 
+      "basico_nac": 1022.72, 
+      "rem_porcentuales": [
+        1, 
+        2
+      ], 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7
+      ], 
+      "lu": "34", 
+      "basico_unc": 1023.8, 
+      "adic2003": 5.27, 
+      "pampa": "119", 
       "garantia_salarial": []
     }
   }, 
@@ -669,8 +833,8 @@
     "fields": {
       "ret_fijas": [], 
       "rem_fijas": [], 
-      "tipo": 7, 
-      "basico_nac": 5079.6, 
+      "tipo": 8, 
+      "basico_nac": 4830.763, 
       "tipo_horas": "R", 
       "ret_porcentuales": [
         2, 
@@ -678,13 +842,65 @@
         4, 
         6
       ], 
-      "lu": "1", 
+      "lu": "2", 
       "rem_porcentuales": [], 
-      "basico_unc": 5079.6, 
+      "basico_unc": 4830.763, 
       "horas": 25, 
-      "pampa": "201", 
+      "pampa": "202", 
       "garantia_salarial": [
-        7
+        7, 
+        8
+      ]
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.cargopreuniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "tipo": 9, 
+      "basico_nac": 4442.5, 
+      "tipo_horas": "R", 
+      "ret_porcentuales": [
+        2, 
+        3, 
+        4
+      ], 
+      "lu": "3", 
+      "rem_porcentuales": [], 
+      "basico_unc": 4442.5, 
+      "horas": 25, 
+      "pampa": "203", 
+      "garantia_salarial": [
+        9, 
+        10
+      ]
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.cargopreuniv", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "tipo": 10, 
+      "basico_nac": 6092.64, 
+      "tipo_horas": "C", 
+      "ret_porcentuales": [
+        1, 
+        2, 
+        3, 
+        4
+      ], 
+      "lu": "4", 
+      "rem_porcentuales": [], 
+      "basico_unc": 6092.64, 
+      "horas": 36, 
+      "pampa": "204", 
+      "garantia_salarial": [
+        7, 
+        8
       ]
     }
   }, 
@@ -809,6 +1025,78 @@
     }
   }, 
   {
+    "pk": 4, 
+    "model": "salary_calculator_app.antiguedadpreuniv", 
+    "fields": {
+      "anio": 0, 
+      "porcentaje": 0.0
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "salary_calculator_app.antiguedadpreuniv", 
+    "fields": {
+      "anio": 7, 
+      "porcentaje": 40.0
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "salary_calculator_app.antiguedadpreuniv", 
+    "fields": {
+      "anio": 10, 
+      "porcentaje": 50.0
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "salary_calculator_app.antiguedadpreuniv", 
+    "fields": {
+      "anio": 12, 
+      "porcentaje": 60.0
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "salary_calculator_app.antiguedadpreuniv", 
+    "fields": {
+      "anio": 15, 
+      "porcentaje": 70.0
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "salary_calculator_app.antiguedadpreuniv", 
+    "fields": {
+      "anio": 17, 
+      "porcentaje": 80.0
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "salary_calculator_app.antiguedadpreuniv", 
+    "fields": {
+      "anio": 20, 
+      "porcentaje": 100.0
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "salary_calculator_app.antiguedadpreuniv", 
+    "fields": {
+      "anio": 22, 
+      "porcentaje": 110.0
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "salary_calculator_app.antiguedadpreuniv", 
+    "fields": {
+      "anio": 24, 
+      "porcentaje": 120.0
+    }
+  }, 
+  {
     "pk": 1, 
     "model": "salary_calculator_app.aumento", 
     "fields": {
@@ -898,32 +1186,22 @@
   }, 
   {
     "pk": 1, 
-    "model": "salary_calculator_app.remuneracionfija", 
-    "fields": {
-      "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
-      "codigo": "118", 
-      "valor": 8.0
-    }
-  }, 
-  {
-    "pk": 2, 
-    "model": "salary_calculator_app.remuneracionfija", 
+    "model": "salary_calculator_app.remuneracionporcentual", 
     "fields": {
       "aplicacion": "U", 
       "nombre": "Adicional T\u00edtulo Doctorado", 
       "codigo": "51", 
-      "valor": 15.0
+      "porcentaje": 15.0
     }
   }, 
   {
-    "pk": 3, 
-    "model": "salary_calculator_app.remuneracionfija", 
+    "pk": 2, 
+    "model": "salary_calculator_app.remuneracionporcentual", 
     "fields": {
       "aplicacion": "U", 
       "nombre": "Adicional T\u00edtulo Maestr\u00eda", 
       "codigo": "52", 
-      "valor": 5.0
+      "porcentaje": 5.0
     }
   }, 
   {
@@ -1401,6 +1679,617 @@
       "password": "pbkdf2_sha256$10000$VxuSGKl5CqvG$dCbIsfWEecFaCNPbCXgpBba6KQjcmawvH4VzX8G0jak=", 
       "email": "a@a.com", 
       "date_joined": "2012-05-28T14:16:16.479Z"
+    }
+  }, 
+  {
+    "pk": 117, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:50:18.588Z", 
+      "object_repr": "6 Profesor Asociado D.E", 
+      "object_id": "4", 
+      "change_message": "Modifica rem_porcentuales.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 116, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:50:10.727Z", 
+      "object_repr": "27 Profesor Titular D.S", 
+      "object_id": "3", 
+      "change_message": "Modifica rem_porcentuales.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 115, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:50:02.486Z", 
+      "object_repr": "13 Profesor Titular D.S.E", 
+      "object_id": "2", 
+      "change_message": "Modifica rem_porcentuales.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 114, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:49:51.327Z", 
+      "object_repr": "5 Profesor Titular D.E", 
+      "object_id": "1", 
+      "change_message": "Modifica rem_porcentuales.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 113, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T22:49:44.621Z", 
+      "object_repr": "52 Adicional T\u00edtulo Maestr\u00eda 5.0%", 
+      "object_id": "2", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 16
+    }
+  }, 
+  {
+    "pk": 112, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T22:48:58.068Z", 
+      "object_repr": "51 Adicional T\u00edtulo Doctorado 15.0%", 
+      "object_id": "1", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 16
+    }
+  }, 
+  {
+    "pk": 111, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:36:44.793Z", 
+      "object_repr": "Profesor Ayudante (Aux.) 1\u00b0", 
+      "object_id": "11", 
+      "change_message": "Modifica nombre.", 
+      "user": 1, 
+      "content_type": 7
+    }
+  }, 
+  {
+    "pk": 110, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T22:36:30.498Z", 
+      "object_repr": "34 Prof. Ayudante (Aux.) 1\u00b0 D.S", 
+      "object_id": "16", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 109, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T22:35:29.799Z", 
+      "object_repr": "Prof. Ayudante (Aux.) 1\u00b0", 
+      "object_id": "11", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 7
+    }
+  }, 
+  {
+    "pk": 108, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:26:22.076Z", 
+      "object_repr": "36 Profesor Ayudante (Aux) 2\u00ba D.S", 
+      "object_id": "15", 
+      "change_message": "Modifica adic2003.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 107, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:25:18.928Z", 
+      "object_repr": "32 Profesor Asistente (JTP) D.S", 
+      "object_id": "12", 
+      "change_message": "Modifica adic2003.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 106, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:25:05.497Z", 
+      "object_repr": "31 Profesor Adjunto D.S", 
+      "object_id": "9", 
+      "change_message": "Modifica adic2003.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 105, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:24:49.715Z", 
+      "object_repr": "54 Profesor Asociado D.S", 
+      "object_id": "6", 
+      "change_message": "Modifica adic2003.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 104, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:24:32.576Z", 
+      "object_repr": "27 Profesor Titular D.S", 
+      "object_id": "3", 
+      "change_message": "Modifica adic2003.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 103, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:24:02.587Z", 
+      "object_repr": "28 Profesor Ayudante (Aux.) D.S.E", 
+      "object_id": "14", 
+      "change_message": "Modifica garantia_salarial y adic2003.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 102, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:23:02.431Z", 
+      "object_repr": "26 Profesor Asistente (JTP) D.S.E", 
+      "object_id": "11", 
+      "change_message": "Modifica garantia_salarial y adic2003.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 101, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:22:22.117Z", 
+      "object_repr": "20 Profesor Adjunto D.S.E", 
+      "object_id": "8", 
+      "change_message": "Modifica garantia_salarial y adic2003.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 100, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:21:48.158Z", 
+      "object_repr": "8 Profesor Asociado D.S.E", 
+      "object_id": "5", 
+      "change_message": "Modifica garantia_salarial y adic2003.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 99, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:20:54.782Z", 
+      "object_repr": "13 Profesor Titular D.S.E", 
+      "object_id": "2", 
+      "change_message": "Modifica garantia_salarial y adic2003.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 98, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:19:51.285Z", 
+      "object_repr": "14 Profesor Ayudante (Aux.) D.E", 
+      "object_id": "13", 
+      "change_message": "Modifica garantia_salarial y adic2003.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 97, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:19:11.690Z", 
+      "object_repr": "9 Profesor Asistente (JTP) D.E", 
+      "object_id": "10", 
+      "change_message": "Modifica garantia_salarial y adic2003.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 96, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:17:39.587Z", 
+      "object_repr": "7 Profesor Adjunto D.E", 
+      "object_id": "7", 
+      "change_message": "Modifica garantia_salarial y adic2003.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 95, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:17:07.591Z", 
+      "object_repr": "6 Profesor Asociado D.E", 
+      "object_id": "4", 
+      "change_message": "Modifica garantia_salarial y adic2003.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 94, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T22:15:26.521Z", 
+      "object_repr": "5 Profesor Titular D.E", 
+      "object_id": "1", 
+      "change_message": "Modifica garantia_salarial y adic2003.", 
+      "user": 1, 
+      "content_type": 9
+    }
+  }, 
+  {
+    "pk": 93, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 3, 
+      "action_time": "2012-06-05T21:56:26.706Z", 
+      "object_repr": "118 Adicional 2003 $8.0", 
+      "object_id": "1", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 17
+    }
+  }, 
+  {
+    "pk": 92, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 3, 
+      "action_time": "2012-06-05T21:54:45.618Z", 
+      "object_repr": "52 Adicional T\u00edtulo Maestr\u00eda $5.0", 
+      "object_id": "3", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 17
+    }
+  }, 
+  {
+    "pk": 91, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 3, 
+      "action_time": "2012-06-05T21:54:45.444Z", 
+      "object_repr": "51 Adicional T\u00edtulo Doctorado $15.0", 
+      "object_id": "2", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 17
+    }
+  }, 
+  {
+    "pk": 90, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T21:54:08.047Z", 
+      "object_repr": "3 Jefe Gral Ens.Pr\u00e1ctica 25hs", 
+      "object_id": "2", 
+      "change_message": "Modifica tipo_horas.", 
+      "user": 1, 
+      "content_type": 10
+    }
+  }, 
+  {
+    "pk": 89, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T21:53:59.896Z", 
+      "object_repr": "4 Profesor TC 36hs", 
+      "object_id": "3", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 10
+    }
+  }, 
+  {
+    "pk": 88, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T21:51:51.378Z", 
+      "object_repr": "Profesor TC", 
+      "object_id": "10", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 7
+    }
+  }, 
+  {
+    "pk": 87, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T21:51:26.898Z", 
+      "object_repr": "2 Regente de 1\u00b0 25hs", 
+      "object_id": "1", 
+      "change_message": "Modifica lu y pampa.", 
+      "user": 1, 
+      "content_type": 10
+    }
+  }, 
+  {
+    "pk": 86, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T21:51:03.668Z", 
+      "object_repr": "3 Jefe Gral Ens.Pr\u00e1ctica 25hs", 
+      "object_id": "2", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 10
+    }
+  }, 
+  {
+    "pk": 85, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T21:46:35.933Z", 
+      "object_repr": "$2464.76 MAR 2012", 
+      "object_id": "10", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 8
+    }
+  }, 
+  {
+    "pk": 84, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T21:46:12.714Z", 
+      "object_repr": "$2464.76 JUN 2012", 
+      "object_id": "9", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 8
+    }
+  }, 
+  {
+    "pk": 83, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T21:44:57.648Z", 
+      "object_repr": "Jefe Gral Ens.Pr\u00e1ctica", 
+      "object_id": "9", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 7
+    }
+  }, 
+  {
+    "pk": 82, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 2, 
+      "action_time": "2012-06-05T21:44:37.705Z", 
+      "object_repr": "1 Regente de 1\u00b0 25hs", 
+      "object_id": "1", 
+      "change_message": "Modifica tipo, basico_unc, basico_nac y garantia_salarial.", 
+      "user": 1, 
+      "content_type": 10
+    }
+  }, 
+  {
+    "pk": 81, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T21:43:29.644Z", 
+      "object_repr": "$5600.0 JUN 2012", 
+      "object_id": "8", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 8
+    }
+  }, 
+  {
+    "pk": 80, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T21:42:37.115Z", 
+      "object_repr": "Regente de 1\u00b0", 
+      "object_id": "8", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 7
+    }
+  }, 
+  {
+    "pk": 79, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T21:35:54.057Z", 
+      "object_repr": "24 - 120.0%", 
+      "object_id": "12", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 12
+    }
+  }, 
+  {
+    "pk": 78, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T21:35:46.301Z", 
+      "object_repr": "22 - 110.0%", 
+      "object_id": "11", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 12
+    }
+  }, 
+  {
+    "pk": 77, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T21:35:37.582Z", 
+      "object_repr": "20 - 100.0%", 
+      "object_id": "10", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 12
+    }
+  }, 
+  {
+    "pk": 76, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T21:35:31.581Z", 
+      "object_repr": "17 - 80.0%", 
+      "object_id": "9", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 12
+    }
+  }, 
+  {
+    "pk": 75, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T21:35:25.191Z", 
+      "object_repr": "15 - 70.0%", 
+      "object_id": "8", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 12
+    }
+  }, 
+  {
+    "pk": 74, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T21:35:18.603Z", 
+      "object_repr": "12 - 60.0%", 
+      "object_id": "7", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 12
+    }
+  }, 
+  {
+    "pk": 73, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T21:35:13.004Z", 
+      "object_repr": "10 - 50.0%", 
+      "object_id": "6", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 12
+    }
+  }, 
+  {
+    "pk": 72, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T21:35:06.697Z", 
+      "object_repr": "7 - 40.0%", 
+      "object_id": "5", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 12
+    }
+  }, 
+  {
+    "pk": 71, 
+    "model": "admin.logentry", 
+    "fields": {
+      "action_flag": 1, 
+      "action_time": "2012-06-05T21:34:58.449Z", 
+      "object_repr": "0 - 0.0%", 
+      "object_id": "4", 
+      "change_message": "", 
+      "user": 1, 
+      "content_type": 12
     }
   }, 
   {

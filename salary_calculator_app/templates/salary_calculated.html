@@ -6,12 +6,6 @@
 	<head>
 		<title>C&aacute;lculo Salarial</title>
     	<link rel="stylesheet" href="{% get_static_prefix %}css/style.css" type="text/css" />
-    	
-    	<script type="text/javascript">
-            function goBack(){
-                  window.history.back()
-            }
-        </script>
 	</head>
 
 	<body>
@@ -29,8 +23,8 @@
                         <td> Cargo: </td>
                         <td>{{ res.cargo.tipo }} {% if res.cargo.dedicacion %}, {{ res.cargo.get_dedicacion_display }}{% endif %}</td>
                     </tr>
-                    <tr> <td> LU: </td> <td> {{ res.cargo.lu }} </td> </tr>
-                    <tr ><td> PAMPA: </td> <td> {{ res.cargo.pampa }} </td> </tr>
+                    <tr> <td> C&oacute;digo LU: </td> <td> {{ res.cargo.lu }} </td> </tr>
+                    <tr ><td> C&oacute;digo PAMPA: </td> <td> {{ res.cargo.pampa }} </td> </tr>
                 </table>
                 <table class="result">
                     <tr>
@@ -51,17 +45,22 @@
 
                     {% for obj, importe in res.remuneraciones %}
                     {% if obj.codigo == "118" %} <!-- Adicional 2003 8% -->
-                     <tr>
-                        <td> {{ obj.codigo }} </td>
-                        <td> {{ obj.nombre }} {% if obj.porcentaje %}({{ obj.porcentaje }}%){% endif %} </td>
-                        <td class="adicionales">{{ importe|floatformat:-2 }} </td>
-                    </tr>
-                    <tr>
+                         <tr>
+                            <td> {{ obj.codigo }} </td>
+                            <td> {{ obj.nombre }} {% if obj.porcentaje %}({{ obj.porcentaje }}%){% endif %} </td>
+                            <td class="adicionales">{{ importe|floatformat:-2 }} </td>
+                        </tr>
+                    {% endif %}
+                    {% endfor %}
+
+                    <tr class="bold">
                         <td></td>
-                        <td class="bold">Salario Bruto:</td>
-                        <td> <b>{{ res.salario_bruto|floatformat:-2 }}</b> </td>
-                    </tr><br>
-                    {% else %}
+                        <td>Salario Bruto:</td>
+                        <td>{{ res.salario_bruto|floatformat:-2 }} </td>
+                    </tr>
+
+                    {% for obj, importe in res.remuneraciones %}
+                    {% if obj.codigo != "118" %}
                      <tr>
                         <td> {{ obj.codigo }} </td>
                         <td> {{ obj.nombre }} {% if obj.porcentaje %}({{ obj.porcentaje }}%){% endif %} </td>
@@ -77,10 +76,20 @@
                         <td class="descuentos">-{{ importe|floatformat:-2 }}</td>
                     </tr>
                     {% endfor %}
-                    <tr>
+                    <tr class="bold">
                         <td></td>
-                        <td class="bold"> Salario Neto: </td>
-                        <td> <b>{{ res.salario_neto|floatformat:-2 }}</b> </td>
+                        <td> Salario Neto: </td>
+                        <td> {{ res.salario_neto|floatformat:-2 }} </td>
+                    </tr>
+                    <tr class="bold">
+                        <td></td>
+                        <td> Adicionales: </td>
+                        <td> {{ res.acum_rem|floatformat:-2 }} </td>
+                    </tr>
+                    <tr class="bold">
+                        <td></td>
+                        <td> Descuentos: </td>
+                        <td> {{ res.acum_ret|floatformat:-2 }} </td>
                     </tr>
                 </table>
                 <hr />
@@ -88,15 +97,15 @@
 
             </div>
 
-            <div class="totales">
+            <div class="totales bold">
                 <table>
                     <tr>
-                        <td><b>Total Bruto: </b></td>
-                        <td><b>{{ total_bruto|floatformat:-2 }}</b></td>
+                        <td> Total Bruto: </td>
+                        <td> {{ total_bruto|floatformat:-2 }} </td>
                     </tr>
                     <tr>
-                        <td><b>Total Neto: </b></td>
-                        <td><b>{{ total_neto|floatformat:-2 }}</b></td>
+                        <td> Total Neto: </td>
+                        <td> {{ total_neto|floatformat:-2 }} </td>
                     </tr>
                 </table>
             </div>

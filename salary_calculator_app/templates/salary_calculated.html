@@ -16,7 +16,6 @@
 
             <br>
             <div class="results_cargo">
-
                 {% for res in lista_res %}
                 <table> 
                     <tr>
@@ -32,7 +31,7 @@
                         <th> Detalle </th>
                         <th> Importe </th>
                     </tr>
-                    <tr>
+                    <tr class="dark">
                         <td> 10 </td>
                         <td> Sueldo B&aacute;sico </td>
                         <td> {{ res.cargo.basico_unc|floatformat:-2 }} </td>
@@ -42,10 +41,9 @@
                         <td> Aum. {{ aumento.get_mes_display }} {{ aumento.get_anio_display }} ({{ aumento.porcentaje }}% sobre {{ res.cargo.basico_nac }})</td>
                         <td class="adicionales">{{ res.aumento|floatformat:-2 }} </td>
                     </tr>
-
                     {% for obj, importe in res.remuneraciones %}
                     {% if obj.codigo == "118" %} <!-- Adicional 2003 8% -->
-                         <tr>
+						<tr class="{% cycle 'dark' '' %}">
                             <td> {{ obj.codigo }} </td>
                             <td> {{ obj.nombre }} {% if obj.porcentaje %}({{ obj.porcentaje }}%){% endif %} </td>
                             <td class="adicionales">{{ importe|floatformat:-2 }} </td>
@@ -61,7 +59,7 @@
 
                     {% for obj, importe in res.remuneraciones %}
                     {% if obj.codigo != "118" %}
-                     <tr>
+                     <tr class = "{% cycle 'dark' '' %}">
                         <td> {{ obj.codigo }} </td>
                         <td> {{ obj.nombre }} {% if obj.porcentaje %}({{ obj.porcentaje }}%){% endif %} </td>
                         <td class="adicionales">{{ importe|floatformat:-2 }} </td>
@@ -70,7 +68,7 @@
                     {% endfor %}
 
                     {% for obj, importe in res.retenciones %}
-                     <tr>
+                     <tr class="{% cycle 'dark' '' %}">
                         <td> {{ obj.codigo }} </td>
                         <td> {{ obj.nombre }} (-{{ obj.porcentaje }}%) </td>
                         <td class="descuentos">-{{ importe|floatformat:-2 }}</td>

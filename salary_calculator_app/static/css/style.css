@@ -86,3 +86,8 @@ div.title {
 div.results_cargo {
     background-color: #ededed;
 }
+
+tr.dark{
+    background-color: #cdcdcd;
+}
+

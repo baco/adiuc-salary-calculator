@@ -42,10 +42,12 @@ div.totales {
     background-color: #224d8c;
     text-align: center;
     font-family: "Arial";
+    width:450px;
 }
 #result {
     margin:1px;
     padding:2px;
+    width:500px;
 }
 
 td.descuentos{
@@ -65,6 +67,8 @@ div.title {
     color: #FFFFFF;
     text-align: center;
     font-family: "Arial";
+    width:450px;
+
 }
 
 #forms_table {
@@ -85,9 +89,12 @@ div.title {
 
 div.results_cargo {
     background-color: #ededed;
+    width:450px;
 }
 
 tr.dark{
     background-color: #cdcdcd;
 }
-
+hr{
+	border: 1px #cdcdcd dotted;
+}

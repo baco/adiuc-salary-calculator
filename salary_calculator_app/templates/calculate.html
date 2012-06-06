@@ -36,22 +36,22 @@
 						    <tr>
 							    <td> {{ univform.cargo.label_tag }}: </td>
 							    <td> {{ univform.cargo }} </td>
-                                {% if univform.cargo.errors %}
-                                <td> {{ univform.cargo.errors }} </td>
-                                {% endif %}
 						    </tr>
+						    {% if univform.cargo.errors %}
+                            <tr class="error"> <td colspan="2"> {{ univform.cargo.errors }} </td></tr>
+                            {% endif %}
 						    <tr>
 							    <td> {{ univform.antiguedad.label_tag }}:</td>
 							    <td> {{ univform.antiguedad }} </td>
-                                {% if univform.antiguedad.errors %}
-                                <td> {{ univform.antiguedad.errors }} </td>
-                                {% endif %}
 						    </tr>
+						    {% if univform.antiguedad.errors %}
+                            <tr class="error"> <td colspan="2"> {{ univform.antiguedad.errors }} </td></tr>
+                            {% endif %}
 						    <tr>
 							    <td>T&iacute;tulos adicionales:</td>
 						    </tr>
-						    <tr colspand=2>
-							    <td><blockquote>
+						    <tr >
+							    <td colspand=2><blockquote>
 								    {{ univform.master }} {{ univform.master.label_tag }} 
 								    <br>
 								    {{ univform.doctorado }} {{ univform.doctorado.label_tag }}
@@ -82,8 +82,8 @@
 						    <tr>\
 							    <td>T&iacute;tulos adicionales:</td>\
 						    </tr>\
-						    <tr colspand=2>\
-							    <td><blockquote>\
+						    <tr>\
+							    <td colspand=2><blockquote>\
 								    {{ univformset.empty_form.master|escapejs }} {{ univformset.empty_form.master.label_tag|escapejs }}\
 								    <br>\
 								    {{ univformset.empty_form.doctorado|escapejs }} {{ univformset.empty_form.doctorado.label_tag|escapejs }}\
@@ -112,29 +112,29 @@
 						<tr>
 							<td> {{ preunivform.cargo.label_tag }}: </td>
 							<td> {{ preunivform.cargo }} </td>
-                            {% if preunivform.cargo.errors %}
-                            <td> {{ preunivform.cargo.errors }} </td>
-                            {% endif %}
 						</tr>
+					    {% if preunivform.cargo.errors %}
+	                    <tr class="error"> <td  colspan="2" > {{ preunivform.cargo.errors }} </td></tr>
+                        {% endif %}
 						<tr>
 							<td> {{ preunivform.horas.label_tag }}: </td>
 							<td> {{ preunivform.horas }} </td>
-                            {% if preunivform.horas.errors %}
-                            <td> {{ preunivform.horas.errors }} </td>
-                            {% endif %}
 						</tr>
+					    {% if preunivform.horas.errors %}
+	                    <tr class="error"> <td  colspan="2" > {{ preunivform.horas.errors }} </td></tr>
+                        {% endif %}
 						<tr>
 							<td> {{ preunivform.antiguedad.label_tag }}:</td>
 							<td> {{ preunivform.antiguedad }} </td>
-                            {% if preunivform.antiguedad.errors %}
-                            <td> {{ preunivform.antiguedad.errors }} </td>
-                            {% endif %}
 						</tr>
+					    {% if preunivform.antiguedad.errors %}
+	                    <tr class="error"> <td  colspan="2" > {{ preunivform.antiguedad.errors }} </td></tr>
+                        {% endif %}
 				    	<tr>
 						    <td>T&iacute;tulos adicionales:</td>
 				    	</tr>
-				    	<tr colspand=2>
-						    <td><blockquote>
+				    	<tr>
+						    <td colspand=2><blockquote>
 						    {{ preunivform.master }} {{ preunivform.master.label_tag }} 
 						    <br>
 						    {{ preunivform.doctorado }} {{ preunivform.doctorado.label_tag }}
@@ -170,8 +170,8 @@
 						    <tr>\
 							    <td>T&iacute;tulos adicionales:</td>\
 						    </tr>\
-						    <tr colspand=2>\
-							    <td><blockquote>\
+						    <tr>\
+							    <td colspand=2><blockquote>\
 								    {{ preunivformset.empty_form.master|escapejs }} {{ preunivformset.empty_form.master.label_tag|escapejs }}\
 								    <br>\
 								    {{ preunivformset.empty_form.doctorado|escapejs }} {{ preunivformset.empty_form.doctorado.label_tag|escapejs }}\

@@ -40,6 +40,8 @@ def calculate(request):
         preunivformset = CargoPreUnivFormSet(request.POST, prefix='preunivcargo')
         mform = MesForm(request.POST)
 
+        pdb.set_trace()
+
         if univformset.is_valid() and preunivformset.is_valid() and mform.is_valid():
 
             aumento_obj = mform.cleaned_data['aumento']
@@ -49,6 +51,8 @@ def calculate(request):
             context_preuniv = processPreUnivFormSet(aumento_obj, preunivformset)
 
             # Hago el merge de los dos contexts.
+            context['total_rem'] = context_univ['total_rem'] + context_preuniv['total_rem']
+            context['total_ret'] = context_univ['total_ret'] + context_preuniv['total_ret']
             context['total_bruto'] = context_univ['total_bruto'] + context_preuniv['total_bruto']
             context['total_neto'] = context_univ['total_neto'] + context_preuniv['total_neto']
             context['lista_res'] = context_univ['lista_res']
@@ -58,7 +62,6 @@ def calculate(request):
             return render_to_response('salary_calculated.html', context)
 
         else:
-            #pdb.set_trace()
             context['univformset'] = univformset
             context['preunivformset'] = preunivformset
             context['mform'] = mform
@@ -86,6 +89,8 @@ def processUnivFormSet(aumento_obj, univformset):
     lista_res = list()
 
     # Itero sobre todos los cargos.
+    total_rem = 0.0
+    total_ret = 0.0
     total_bruto = 0.0
     total_neto = 0.0
 
@@ -130,7 +135,7 @@ def processUnivFormSet(aumento_obj, univformset):
 
         # 2: Adicional Antiguedad (cod 30).
         importe = salario_bruto * antiguedad_obj.porcentaje / 100.0
-        acum_rem = acum_rem + importe
+        acum_rem += importe
         rem_obj = RemuneracionPorcentual(nombre=antiguedad_name, codigo=antiguedad_code)
         if rem_porcentuales.filter(codigo=antiguedad_code).exists():
             rem_obj = rem_porcentuales.get(codigo=antiguedad_code)
@@ -152,21 +157,21 @@ def processUnivFormSet(aumento_obj, univformset):
 
         for ret in ret_porcentuales:
             importe = salario_bruto * ret.porcentaje / 100.
-            acum_ret = acum_ret + importe
+            acum_ret += importe
             ret_list.append( (ret, importe) )
 
         for ret in ret_fijas:
-            acum_ret = acum_ret + ret.valor
+            acum_ret += ret.valor
             ret_list.append( (ret, ret.valor) )
 
         for rem in rem_porcentuales:
             importe = acum_rem + salario_bruto * rem.porcentaje / 100.
-            acum_ret = acum_ret + importe
+            acum_rem += importe
             rem_list.append( (rem, importe) )
 
         for rem in rem_fijas:
-            acum_ret = acum_ret + rem.valor
-            rem_list.append( (rem, ret.valor) )
+            acum_rem += rem.valor
+            rem_list.append( (rem, rem.valor) )
 
         ###### Salario Neto.
         salario_neto = salario_bruto - acum_ret + acum_rem
@@ -175,14 +180,18 @@ def processUnivFormSet(aumento_obj, univformset):
         if cargo_obj.garantia_salarial.filter(mes=aumento_obj.mes, anio=aumento_obj.anio).exists():
             garantia_obj = cargo_obj.garantia_salarial.get(mes=aumento_obj.mes, anio=aumento_obj.anio)
             if salario_neto < garantia_obj.valor:
-                aumento = garantia_obj.valor - salario_neto
+                garantia = garantia_obj.valor - salario_neto
                 rem_obj = RemuneracionFija( codigo=garantia_code,
                                                             nombre= garantia_name + ' (' + unicode(garantia_obj) + ')',
-                                                            aplicacion='U', valor=aumento)
-                rem_list.append( (rem_obj, aumento) )
-                salario_neto = salario_neto + aumento
+                                                            aplicacion='U', valor=garantia)
+                rem_list.append( (rem_obj, garantia) )
+                acum_rem += garantia
+                salario_neto += garantia
 
         # Calculo los acumulados de los salarios para todos los cargos.
+        # y tambien los acumulados de las remuneraciones y retenciones.
+        total_rem += acum_rem
+        total_ret += acum_ret
         total_bruto += salario_bruto
         total_neto += salario_neto
 
@@ -199,7 +208,9 @@ def processUnivFormSet(aumento_obj, univformset):
         }
         lista_res.append(form_res)
 
-    context['total_bruto']= total_bruto
+    context['total_rem'] = total_rem
+    context['total_ret'] = total_ret
+    context['total_bruto'] = total_bruto
     context['total_neto'] = total_neto
     context['lista_res'] = lista_res
     print context
@@ -218,6 +229,8 @@ def processPreUnivFormSet(aumento_obj, preunivformset):
     lista_res = list()
 
     # Itero sobre todos los cargos.
+    total_rem = 0.0
+    total_ret = 0.0
     total_bruto = 0.0
     total_neto = 0.0
 
@@ -287,12 +300,12 @@ def processPreUnivFormSet(aumento_obj, preunivformset):
 
         for rem in rem_porcentuales:
             importe = acum_rem + salario_bruto * rem.porcentaje / 100.
-            acum_ret = acum_ret + importe
+            acum_rem = acum_rem + importe
             rem_list.append( (rem, importe) )
 
         for rem in rem_fijas:
-            acum_ret = acum_ret + rem.valor
-            rem_list.append( (rem, ret.valor) )
+            acum_rem = acum_rem + rem.valor
+            rem_list.append( (rem, rem.valor) )
 
         ###### Salario Neto.
         salario_neto = salario_bruto - acum_ret + acum_rem
@@ -302,14 +315,18 @@ def processPreUnivFormSet(aumento_obj, preunivformset):
         if cargo_obj.garantia_salarial.filter(mes=aumento_obj.mes, anio=aumento_obj.anio).exists():
             garantia_obj = cargo_obj.garantia_salarial.get(mes=aumento_obj.mes, anio=aumento_obj.anio)
             if salario_neto < garantia_obj.valor:
-                aumento = garantia_obj.valor - salario_neto
+                garantia = garantia_obj.valor - salario_neto
                 rem_obj = RemuneracionFija( codigo=garantia_preuniv_code,
                                                             nombre=garantia_preuniv_name + ' (' + unicode(garantia_obj) + ')',
-                                                            aplicacion='P', valor=aumento)
-                rem_list.append( (rem_obj, aumento) )
-                salario_neto = salario_neto + aumento
+                                                            aplicacion='P', valor=garantia)
+                rem_list.append( (rem_obj, garantia) )
+                acum_rem += garantia
+                salario_neto += garantia
 
         # Calculo los acumulados de los salarios para todos los cargos.
+        # y tambien los acumulados de las remuneraciones y retenciones.
+        total_rem += acum_rem
+        total_ret += acum_ret
         total_bruto += salario_bruto
         total_neto += salario_neto
 
@@ -319,16 +336,18 @@ def processPreUnivFormSet(aumento_obj, preunivformset):
             'aumento': aumento,
             'retenciones': ret_list,
             'remuneraciones': rem_list,
+            'acum_ret': acum_ret,
+            'acum_rem': acum_rem,
             'salario_bruto': salario_bruto,
             'salario_neto': salario_neto
         }
         lista_res.append(form_res)
 
+    context['total_rem'] = total_rem
+    context['total_ret'] = total_ret
     context['total_bruto']= total_bruto
     context['total_neto'] = total_neto
     context['lista_res'] = lista_res
     print context
 
     return context
-
-

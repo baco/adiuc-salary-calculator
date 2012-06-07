@@ -7,7 +7,8 @@ from salary_calculator_app.validators import *
 # Tuplas de opciones.
 APP_OPCS = (
     ('U', u'Cargos Universitarios'),
-    ('P', u'Cargos Preuniversitarios')
+    ('P', u'Cargos Preuniversitarios'),
+    ('T', u'Todos los cargos')
 )
 MONTHS_OPCS=(
         ('ENE', u'Enero'),

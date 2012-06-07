@@ -25,7 +25,7 @@
                     {% for univform in univformset %}
                     {{ univform.id }}
 
-                    {% if univform in univformset.deleted_forms %}
+                    {% if univform in univformset.deleted_forms or univform.DELETE.value == "on" %}
                     <div class="form_cargo" style="display:none">
                     {% else %}
 				    <div class="form_cargo">
@@ -103,7 +103,10 @@
 			
 			<div id="preunivformset_content" class="form_content">
                 {% for preunivform in preunivformset %}
-                {% if preunivform in preunivformset.deleted_forms %}
+                
+                {{ preunivform.id }}
+
+                {% if preunivform in preunivformset.deleted_forms or preunivform.DELETE.value == "on" %}
                 <div class="form_cargo" style="display:none">
                 {% else %}
                 <div class="form_cargo">

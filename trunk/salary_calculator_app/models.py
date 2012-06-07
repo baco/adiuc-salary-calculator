@@ -30,7 +30,7 @@ YEARS_OPCS=tuple([(unicode(i), unicode(i)) for i in range(2000, 2020)])
 class Cargo(models.Model):
     """Modelo abstracto que representa un Cargo, ya sea pre o universitario."""
 
-    lu = models.CharField(u'Código LU', max_length=2, unique=True, validators=[validate_isdigit],
+    lu = models.CharField(u'Código LU', max_length=2, validators=[validate_isdigit],
         help_text=u'El código L.U. del cargo que figura en la planilla de la UNC.')
     pampa = models.CharField(u'Código PAMPA', max_length=3, unique=True, validators=[validate_isdigit],
         help_text=u'El código PAMPA del cargo que figura en la planilla de la UNC.')
@@ -107,6 +107,8 @@ class CargoPreUniv(Cargo):
         help_text=u'La cantidad de horas para el cargo como figuran en la planilla de la UNC. Ej: Al cargo "Vice Director de 1°" le corresponden 25 horas.')
     tipo_horas = models.CharField(u'Tipo de Horas', max_length=1, choices=TIPOHORAS_OPCS,
         help_text=u'El tipo de horas del cargo.')
+    pago_por_hora=models.BooleanField(u'Pago por hora?', 
+        help_text=u'Poner "Sí" si este cargo se paga por cantidad de horas. Poner "No" en caso contrario.')
 
     def __unicode__(self):
         return super(CargoPreUniv, self).__unicode__() + " " + unicode(self.horas) + "hs"

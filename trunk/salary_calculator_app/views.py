@@ -9,7 +9,7 @@ from forms import CargoUnivForm, MesForm, CargoPreUnivForm
 from models import *
 
 #debugger
-import pdb
+#import pdb
 
 ##### Hardcoded
 adic2003_code = '118'
@@ -40,7 +40,7 @@ def calculate(request):
         preunivformset = CargoPreUnivFormSet(request.POST, prefix='preunivcargo')
         mform = MesForm(request.POST)
 
-        pdb.set_trace()
+#        pdb.set_trace()
 
         if univformset.is_valid() and preunivformset.is_valid() and mform.is_valid():
 
@@ -239,7 +239,7 @@ def processPreUnivFormSet(aumento_obj, preunivformset):
 
         if preunivform in preunivformset.deleted_forms:
             continue
-
+		
         cargo_obj = preunivform.cleaned_data['cargo']
         has_doctorado = preunivform.cleaned_data['doctorado']
         has_master = preunivform.cleaned_data['master']

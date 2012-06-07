@@ -351,13 +351,13 @@ add_garantia_preuniv(
 )
 ###############
 c = add_cargo_preuniv(
-    nombre = u'', 
-    lu = u'', 
-    pampa = u'', 
-    basico_unc = , 
-    basico_nac = , 
-    horas = , 
-    tipo_horas = ''
+    nombre = u'Director de 3o Categoría', 
+    lu = u'21', 
+    pampa = u'213', 
+    basico_unc = 1994.97, 
+    basico_nac = 1994.97, 
+    horas = 35, 
+    tipo_horas = 'R'
 )
 add_garantia_preuniv(
     cargo = c,
@@ -373,13 +373,13 @@ add_garantia_preuniv(
 )
 ###############
 c = add_cargo_preuniv(
-    nombre = u'', 
-    lu = u'', 
-    pampa = u'', 
-    basico_unc = , 
-    basico_nac = , 
-    horas = , 
-    tipo_horas = ''
+    nombre = u'Prosecretario 1° (Esc.Com.)', 
+    lu = u'22', 
+    pampa = u'240', 
+    basico_unc = 3300.25, 
+    basico_nac = 3300.25, 
+    horas = 25, 
+    tipo_horas = 'R'
 )
 add_garantia_preuniv(
     cargo = c,
@@ -395,13 +395,13 @@ add_garantia_preuniv(
 )
 ###############
 c = add_cargo_preuniv(
-    nombre = u'', 
-    lu = u'', 
-    pampa = u'', 
-    basico_unc = , 
-    basico_nac = , 
-    horas = , 
-    tipo_horas = ''
+    nombre = u'Regente de Esc.Superior', 
+    lu = u'23', 
+    pampa = u'214', 
+    basico_unc = 3290.75, 
+    basico_nac = 3290.75, 
+    horas = 25, 
+    tipo_horas = 'R'
 )
 add_garantia_preuniv(
     cargo = c,
@@ -415,4 +415,245 @@ add_garantia_preuniv(
     mes = 'JUN',
     anio = '2012'
 )
-
+###############
+c = add_cargo_preuniv(
+    nombre = u'Regente de 1o Esc.Superior', 
+    lu = u'24', 
+    pampa = u'215', 
+    basico_unc = 2219.31, 
+    basico_nac = 2219.31, 
+    horas = 35, 
+    tipo_horas = 'R'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'MAR',
+    anio = '2012'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'JUN',
+    anio = '2012'
+)
+###############
+c = add_cargo_preuniv(
+    nombre = u'Secret. de 1o Categoría', 
+    lu = u'25', 
+    pampa = u'216', 
+    basico_unc = 1786.14, 
+    basico_nac = 1786.14, 
+    horas = 35, 
+    tipo_horas = 'R'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'MAR',
+    anio = '2012'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'JUN',
+    anio = '2012'
+)
+###############
+c = add_cargo_preuniv(
+    nombre = u'Secretario Esc.Superior', 
+    lu = u'29', 
+    pampa = u'217', 
+    basico_unc = 3617.5, 
+    basico_nac = 3617.5, 
+    horas = 25, 
+    tipo_horas = 'R'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'MAR',
+    anio = '2012'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'JUN',
+    anio = '2012'
+)
+###############
+c = add_cargo_preuniv(
+    nombre = u'Prof. Jefe Trab.Prácticos', 
+    lu = u'30', 
+    pampa = u'218', 
+    basico_unc = 1769.2, 
+    basico_nac = 1769.2, 
+    horas = 21, 
+    tipo_horas = 'R'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'MAR',
+    anio = '2012'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'JUN',
+    anio = '2012'
+)
+###############
+c = add_cargo_preuniv(
+    nombre = u'Bibliot. Ley 22.416', 
+    lu = u'33', 
+    pampa = u'219', 
+    basico_unc = 2430.973, 
+    basico_nac = 2430.973, 
+    horas = 25, 
+    tipo_horas = 'R'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'MAR',
+    anio = '2012'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'JUN',
+    anio = '2012'
+)
+###############
+c = add_cargo_preuniv(
+    nombre = u'Prof. Jefe Trab.Prácticos', 
+    lu = u'35', 
+    pampa = u'220', 
+    basico_unc = 1769.2, 
+    basico_nac = 1769.2, 
+    horas = 21, 
+    tipo_horas = 'R'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'MAR',
+    anio = '2012'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'JUN',
+    anio = '2012'
+)
+###############
+c = add_cargo_preuniv(
+    nombre = u'Prof. Centro Deportivo', 
+    lu = u'37', 
+    pampa = u'221', 
+    basico_unc = 1621.95, 
+    basico_nac = 1621.95, 
+    horas = 17, 
+    tipo_horas = 'R'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'MAR',
+    anio = '2012'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'JUN',
+    anio = '2012'
+)
+###############
+c = add_cargo_preuniv(
+    nombre = u'Maestro Ayud.Ens.Práctico', 
+    lu = u'38', 
+    pampa = u'222', 
+    basico_unc = 1497.01, 
+    basico_nac = 1497.01, 
+    horas = 18, 
+    tipo_horas = 'R'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'MAR',
+    anio = '2012'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'JUN',
+    anio = '2012'
+)
+###############
+c = add_cargo_preuniv(
+    nombre = u'Jefe Preceptores de 1°', 
+    lu = u'39', 
+    pampa = u'223', 
+    basico_unc = 2741.75, 
+    basico_nac = 2741.75, 
+    horas = 25, 
+    tipo_horas = 'R'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'MAR',
+    anio = '2012'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'JUN',1749.7
+    anio = '2012'
+)
+###############
+c = add_cargo_preuniv(
+    nombre = u'Ayudante Trab.Prácticos', 
+    lu = u'40', 
+    pampa = u'224', 
+    basico_unc = 1749.7, 
+    basico_nac = 1749.7, 
+    horas = 21, 
+    tipo_horas = 'R'
+)
+add_garantia_preuniv(
+    cargo = c,Vice Rector Escuela Artes
+    valor = ,
+    mes = 'MAR',
+    anio = '2012'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'JUN',
+    anio = '2012'
+)
+###############
+c = add_cargo_preuniv(
+    nombre = u'Vice Rector Escuela Artes', 
+    lu = u'41', 
+    pampa = u'225', 
+    basico_unc = 2306.97, 
+    basico_nac = 2306.97, 
+    horas = 25, 
+    tipo_horas = 'R'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'MAR',
+    anio = '2012'
+)
+add_garantia_preuniv(
+    cargo = c,
+    valor = ,
+    mes = 'JUN',
+    anio = '2012'
+)

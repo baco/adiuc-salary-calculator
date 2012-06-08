@@ -46,10 +46,10 @@ class Cargo(models.Model):
     rem_porcentuales = models.ManyToManyField('RemuneracionPorcentual',blank=True )
     ret_fijas = models.ManyToManyField('RetencionFija',blank=True )
     ret_porcentuales = models.ManyToManyField('RetencionPorcentual',blank=True )
-    
-    
+
     class Meta:
         abstract = True
+        ordering = ['tipo']
 
     def __unicode__(self):
         return self.lu + " " + unicode(self.tipo)
@@ -60,6 +60,9 @@ class TipoCargo(models.Model):
 
     nombre = models.CharField(u'Tipo de Cargo', max_length=50,
         help_text=u'El nombre de un tipo de cargo como figura en la planilla de la UNC. Ej: Profesor Titular, Profesor Asociado, etc')
+    
+    class Meta:
+        ordering = ['nombre']
 
     def __unicode__(self):
         return self.nombre
@@ -74,6 +77,9 @@ class GarantiaSalarial(models.Model):
         help_text=u'El mes en que se definió la garantía.')
     anio = models.CharField(u'Año', max_length=4, choices=YEARS_OPCS, validators=[validate_isdigit],
         help_text=u'El año en que se definió la garantía.')
+
+    class Meta:
+        ordering = ['anio', 'mes', 'valor']
 
     def __unicode__(self):
         return "$" + unicode(self.valor) + " " + self.mes + " " + self.anio
@@ -103,7 +109,7 @@ class CargoPreUniv(Cargo):
         ('C', u'Cátedra'),
         ('R', u'Relog')
     )
-    horas = models.SmallIntegerField(u'Cantidad de Horas Cátedra', validators=[validate_isgezero],
+    horas = models.FloatField(u'Cantidad de Horas Cátedra', validators=[validate_isgezero],
         help_text=u'La cantidad de horas para el cargo como figuran en la planilla de la UNC. Ej: Al cargo "Vice Director de 1°" le corresponden 25 horas.')
     tipo_horas = models.CharField(u'Tipo de Horas', max_length=1, choices=TIPOHORAS_OPCS,
         help_text=u'El tipo de horas del cargo.')
@@ -111,6 +117,8 @@ class CargoPreUniv(Cargo):
         help_text=u'Poner "Sí" si este cargo se paga por cantidad de horas. Poner "No" en caso contrario.')
 
     def __unicode__(self):
+        if self.pago_por_hora or self.horas <= 0.:
+            return super(CargoPreUniv, self).__unicode__()
         return super(CargoPreUniv, self).__unicode__() + " " + unicode(self.horas) + "hs"
 
 
@@ -120,6 +128,9 @@ class AntiguedadUniv(models.Model):
         help_text=u'La cantidad de años correspondiente a la antigüedad. Ej: 0, 1, 2, 5, 7, 9, 24, etc.')
     porcentaje     = models.FloatField(u'Porcentaje', validators=[validate_isgezero],
         help_text=u'El porcentaje correspondiente al aumento para la cantidad de años de antigüedad seleccionado. Ej: Para 5 años corresponde un 30%.')
+
+    class Meta:
+        ordering = ['anio']
 
     def __unicode__(self):
         return unicode(self.anio) + " - " + unicode(self.porcentaje) + "%"
@@ -132,6 +143,9 @@ class AntiguedadPreUniv(models.Model):
         help_text=u'La cantidad de años correspondiente a la antigüedad. Ej: 0, 1, 2, 5, 7, 9, 24, etc.')
     porcentaje = models.FloatField(u'Porcentaje', validators=[validate_isgezero],
         help_text=u'El porcentaje correspondiente al aumento para la cantidad de años de antigüedad seleccionado. Ej: Para 2 años corresponde un 15%.')
+
+    class Meta:
+        ordering = ['anio']
 
     def __unicode__(self):
         return unicode(self.anio) + " - " + unicode(self.porcentaje) + "%"
@@ -146,6 +160,9 @@ class Aumento(models.Model):
         help_text=u'El año del aumento.')
     porcentaje = models.FloatField(u'Porcentaje', validators=[validate_isgezero],
         help_text=u'El porcentaje de aumento correspondiente. Ingresar valores entre 0 y 100. Por ejemplo, para Marzo de 2012 hay un aumento del 6%')
+
+    class Meta:
+        ordering = ['anio', 'mes', 'porcentaje']
 
     def __unicode__(self):
         return self.mes + " " + self.anio + " - " + unicode(self.porcentaje) + "%"
@@ -163,6 +180,7 @@ class RemuneracionRetencion(models.Model):
 
     class Meta:
         abstract = True
+        ordering = ['codigo', 'nombre', 'aplicacion']
 
     def __unicode__(self):
         return self.codigo + " " + self.nombre

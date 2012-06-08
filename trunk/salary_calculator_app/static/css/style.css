@@ -1,5 +1,5 @@
 div.form_content {
-	width:auto;
+	width:420px;
     margin: 0px;
     background-color: #cdd9de;
 }
@@ -23,11 +23,12 @@ a.agregar_quitar {
 }
 
 #submit {
+	width:860px;
     margin: 0px;
     text-align: center;
 }
 #calculate{
-	width:840px;
+	width:900px;
 }
 
 .centeralign {
@@ -35,7 +36,7 @@ a.agregar_quitar {
 }
 
 .rightalign {
-    text-align:right;  
+    text-align: right;  
 }
 div.totales {
     background-color: #224d8c;
@@ -74,19 +75,19 @@ div.title {
 }
 
 #forms_table {
-	width: 840px;
+	width: 900px;
 	margin: auto;
 }
 
 
 #univformset_content{
 	float:left;
-	width:420px;
+	width:450px;
 }
 
 #preunivformset_content{
 	float:right;
-	width:420px;
+	width:450px;
 }
 
 div.results_cargo {

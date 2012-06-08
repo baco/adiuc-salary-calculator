@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="{% get_static_prefix %}css/style.css" type="text/css" />
         <script type="text/javascript" src="{% get_static_prefix %}js/jquery.js"></script>
         <script type="text/javascript" src="{% get_static_prefix %}js/formset.js"></script>
+        <script type="text/javascript" src="{% get_static_prefix %}js/hide_horas_field.js"></script>
 		<title>Simulador Salarial ADIUC</title>
 	</head>
 	
@@ -129,6 +130,10 @@
 							<td> {{ preunivform.horas.label_tag }}: </td>
 							<td> {{ preunivform.horas }} </td>
 						</tr>
+                        <!-- El siguiente widget nos dice que cargo es "pago por hora" y cual no -->
+                         <tr style="display:none">
+							<td> {{ preunivform.pago_por_horas_info }} </td>
+						</tr>
 
 					    {% if preunivform.horas.errors %}			        
 	                    <tr class="error">
@@ -185,6 +190,9 @@
 						    <tr>\
 							    <td> {{ preunivformset.empty_form.horas.label_tag|escapejs }}: </td>\
 							    <td> {{ preunivformset.empty_form.horas|escapejs }} </td>\
+						    </tr>\
+                            <tr>\
+							    <td> {{ preunivformset.empty_form.pago_por_horas_info|escapejs }} </td>\
 						    </tr>\
 						    <tr>\
 							    <td> {{ preunivformset.empty_form.antiguedad.label_tag|escapejs }}:</td>\

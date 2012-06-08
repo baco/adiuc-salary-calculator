@@ -20,28 +20,20 @@ from salary_calculator_app.models import *
 
 
 #=============================================#
-#						CARGOS UNIVERSITARIOS												  #
-#=============================================#
-#c = Cargo(lu='5', pampa='101', tipo='Profesor Titular D.E', basico=6831.76)
-#c.save()
-#c = Cargo(lu='13', pampa='102', tipo='Profesor Titular D.S.E', basico=3415.88)
-#c.save()
-#c = Cargo(lu='27', pampa='103', tipo='Profesor Titular D.S', basico=1707.94)
-#c.save()
-#c = Cargo(lu='6', pampa='105', tipo='Profesor Asociado D.E', basico=6146.54)
-#c.save()
-#c = Cargo(lu='8', pampa='106', tipo='Profesor Asociado D.S.E', basico=3073.27)
-#c.save()
-
-# TODO: Complete with the rest of the teaching positions
-
-#=============================================#
 #						CARGOS PREUNIVERSITARIOS											   #
 #=============================================#
+
 def add_cargo_preuniv(nombre, lu, pampa, basico_unc, basico_nac, horas, tipo_horas, pago_por_hora):
-    t = TipoCargo(nombre=nombre)
-    t.save()
-    c = CargoPreUniv(
+    """Agrega un cargo pre univ a la BD."""
+
+    if TipoCargo.objects.filter(nombre=nombre).exists():
+        t = TipoCargo.objects.get(nombre=nombre)
+    else:
+        t = TipoCargo(nombre=nombre)
+        t.save()
+    
+    c = None
+    if CargoPreUniv.objects.filter(
         lu=lu,
         pampa=pampa,
         tipo=t,
@@ -50,50 +42,78 @@ def add_cargo_preuniv(nombre, lu, pampa, basico_unc, basico_nac, horas, tipo_hor
         horas=horas,
         tipo_horas=tipo_horas,
         pago_por_hora=pago_por_hora
-    )
-    c.save()
-    for rem in RemuneracionPorcentual.objects.filter(aplicacion='P'):
-        c.rem_porcentuales.add(rem)
-    for rem in RemuneracionPorcentual.objects.filter(aplicacion='T'):
-        c.rem_porcentuales.add(rem)
-    for ret in RetencionPorcentual.objects.filter(aplicacion='P'):
-        c.ret_porcentuales.add(ret)
-    for ret in RetencionPorcentual.objects.filter(aplicacion='T'):
-        c.ret_porcentuales.add(ret)
+    ).exists():
+        c = CargoPreUniv.objects.get(
+            lu=lu,
+            pampa=pampa,
+            tipo=t,
+            basico_unc=basico_unc,
+            basico_nac=basico_nac,
+            horas=horas,
+            tipo_horas=tipo_horas,
+            pago_por_hora=pago_por_hora
+        )
+    else:
+        c = CargoPreUniv(
+            lu=lu,
+            pampa=pampa,
+            tipo=t,
+            basico_unc=basico_unc,
+            basico_nac=basico_nac,
+            horas=horas,
+            tipo_horas=tipo_horas,
+            pago_por_hora=pago_por_hora
+        )
+        c.save()
+
+    if c:
+        for rem in RemuneracionPorcentual.objects.filter(aplicacion='P'):
+            c.rem_porcentuales.add(rem)
+        for rem in RemuneracionPorcentual.objects.filter(aplicacion='T'):
+            c.rem_porcentuales.add(rem)
+        for ret in RetencionPorcentual.objects.filter(aplicacion='P'):
+            c.ret_porcentuales.add(ret)
+        for ret in RetencionPorcentual.objects.filter(aplicacion='T'):
+            c.ret_porcentuales.add(ret)
+
     return c
 
+
 def add_garantia_preuniv(cargo, valor, mes, anio):
-    g = GarantiaSalarial(valor=valor, mes=mes, anio=anio)
-    g.save()
+    """Crea una garantia salarial nueva si no existia ya en la BD con los 
+    valores dados y la asocia al cargo que toma por parametro."""
+    if GarantiaSalarial.objects.filter(valor=valor, mes=mes, anio=anio).exists():
+        g = GarantiaSalarial.objects.get(valor=valor, mes=mes, anio=anio)
+    else:
+        g = GarantiaSalarial(valor=valor, mes=mes, anio=anio)
+        g.save()
     cargo.garantia_salarial.add(g)
 
 
 # Base: Copiar y pegar este
 ###############
-c = add_cargo_preuniv(
-    nombre = u'', 
-    lu = u'', 
-    pampa = u'', 
-    basico_unc = , 
-    basico_nac = , 
-    horas = , 
-    tipo_horas = ''
-)
-add_garantia_preuniv(
-    cargo = c,
-    valor = ,
-    mes = 'MAR',
-    anio = '2012'
-)
-add_garantia_preuniv(
-    cargo = c,
-    valor = ,
-    mes = 'JUN',
-    anio = '2012'
-)
-
-
-pdb.set_trace()
+#c = add_cargo_preuniv(
+#    nombre = u'', 
+#    lu = u'', 
+#    pampa = u'', 
+#    basico_unc = , 
+#    basico_nac = , 
+#    horas = , 
+#    tipo_horas = '',
+#    pago_por_hora = False
+#)
+#add_garantia_preuniv(
+#    cargo = c,
+#    valor = ,
+#    mes = 'MAR',
+#    anio = '2012'
+#)
+#add_garantia_preuniv(
+#    cargo = c,
+#    valor = ,
+#    mes = 'JUN',
+#    anio = '2012'
+#)
 
 c = add_cargo_preuniv(
     nombre = u'Vice Director de 1°', 
@@ -103,7 +123,6 @@ c = add_cargo_preuniv(
     basico_nac = 5079.6, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False,
 	pago_por_hora = False
 )
 add_garantia_preuniv(
@@ -127,7 +146,6 @@ c = add_cargo_preuniv(
     basico_nac = 4830.76, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False,
 	pago_por_hora = False
 )
 add_garantia_preuniv(
@@ -151,7 +169,6 @@ c = add_cargo_preuniv(
     basico_nac = 4442.50, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False,
 	pago_por_hora = False
 )
 add_garantia_preuniv(
@@ -221,7 +238,6 @@ c = add_cargo_preuniv(
     basico_nac = 3427, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False,
 	pago_por_hora = False
 )
 add_garantia_preuniv(
@@ -268,7 +284,6 @@ c = add_cargo_preuniv(
     basico_nac = 2445.48, 
     horas = 35, 
     tipo_horas = 'R',
-	pago_por_hora = False,
 	pago_por_hora = False
 )
 add_garantia_preuniv(
@@ -292,7 +307,6 @@ c = add_cargo_preuniv(
     basico_nac = 1988.915, 
     horas = 12, 
     tipo_horas = 'R',
-	pago_por_hora = False,
 	pago_por_hora = False
 )
 add_garantia_preuniv(
@@ -316,7 +330,6 @@ c = add_cargo_preuniv(
     basico_nac = 2306.97, 
     horas = 35, 
     tipo_horas = 'R',
-	pago_por_hora = False,
 	pago_por_hora = False
 )
 add_garantia_preuniv(
@@ -340,7 +353,6 @@ c = add_cargo_preuniv(
     basico_nac = 5394.5, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False,
 	pago_por_hora = False
 )
 add_garantia_preuniv(
@@ -364,7 +376,6 @@ c = add_cargo_preuniv(
     basico_nac = 1749.7, 
     horas = 21, 
     tipo_horas = 'R',
-	pago_por_hora = False,
 	pago_por_hora = False
 )
 add_garantia_preuniv(
@@ -381,14 +392,13 @@ add_garantia_preuniv(
 )
 ###############
 c = add_cargo_preuniv(
-    nombre = u'Director de 3o Categoría', 
+    nombre = u'Director de 3° Categoría', 
     lu = u'21', 
     pampa = u'213', 
     basico_unc = 1994.97, 
     basico_nac = 1994.97, 
     horas = 35, 
     tipo_horas = 'R',
-	pago_por_hora = False,
 	pago_por_hora = False
 )
 add_garantia_preuniv(
@@ -412,7 +422,6 @@ c = add_cargo_preuniv(
     basico_nac = 3300.25, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False,
 	pago_por_hora = False
 )
 add_garantia_preuniv(
@@ -436,31 +445,29 @@ c = add_cargo_preuniv(
     basico_nac = 3290.75, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False,
 	pago_por_hora = False
 )
 add_garantia_preuniv(
     cargo = c,
-    valor = ,
+    valor = 2800,
     mes = 'MAR',
     anio = '2012'
 )
 add_garantia_preuniv(
     cargo = c,
-    valor = ,
+    valor = 2800,
     mes = 'JUN',
     anio = '2012'
 )
 ###############
 c = add_cargo_preuniv(
-    nombre = u'Regente de 1o Esc.Superior', 
+    nombre = u'Regente de 1° Esc.Superior', 
     lu = u'24', 
     pampa = u'215', 
     basico_unc = 2219.31, 
     basico_nac = 2219.31, 
     horas = 35, 
     tipo_horas = 'R',
-	pago_por_hora = False,
 	pago_por_hora = False
 )
 add_garantia_preuniv(
@@ -477,14 +484,13 @@ add_garantia_preuniv(
 )
 ###############
 c = add_cargo_preuniv(
-    nombre = u'Secret. de 1o Categoría', 
+    nombre = u'Secret. de 1° Categoría', 
     lu = u'25', 
     pampa = u'216', 
     basico_unc = 1786.14, 
     basico_nac = 1786.14, 
     horas = 35, 
     tipo_horas = 'R',
-	pago_por_hora = False,
 	pago_por_hora = False
 )
 add_garantia_preuniv(
@@ -657,7 +663,7 @@ add_garantia_preuniv(
 add_garantia_preuniv(
     cargo = c,
     valor = 2800,
-    mes = 'JUN',1749.7
+    mes = 'JUN',
     anio = '2012'
 )
 ###############
@@ -672,7 +678,7 @@ c = add_cargo_preuniv(
 	pago_por_hora = False
 )
 add_garantia_preuniv(
-    cargo = c,Vice Rector Escuela Artes
+    cargo = c,
     valor = 0,
     mes = 'MAR',
     anio = '2012'
@@ -714,7 +720,8 @@ c = add_cargo_preuniv(
     basico_unc = 2446.415, 
     basico_nac = 2446.415, 
     horas = 25, 
-    tipo_horas = 'R'
+    tipo_horas = 'R',
+	pago_por_hora = False
 )
 add_garantia_preuniv(
     cargo = c,
@@ -736,7 +743,8 @@ c = add_cargo_preuniv(
     basico_unc = 2549.53, 
     basico_nac = 2549.53, 
     horas = 25, 
-    tipo_horas = 'R'
+    tipo_horas = 'R',
+	pago_por_hora = False
 )
 add_garantia_preuniv(
     cargo = c,
@@ -758,7 +766,8 @@ c = add_cargo_preuniv(
     basico_unc = 211.55, 
     basico_nac = 211.55, 
     horas = 1, 
-    tipo_horas = 'C'
+    tipo_horas = 'C',
+	pago_por_hora = True
 )
 add_garantia_preuniv(
     cargo = c,
@@ -780,7 +789,8 @@ c = add_cargo_preuniv(
     basico_unc = 169.24, 
     basico_nac = 169.24, 
     horas = 1, 
-    tipo_horas = 'C'
+    tipo_horas = 'C',
+	pago_por_hora = True
 )
 add_garantia_preuniv(
     cargo = c,
@@ -796,13 +806,14 @@ add_garantia_preuniv(
 )
 ###############
 c = add_cargo_preuniv(
-    nombre = u'Hs.Cát.Inherentes a cargos *', 
+    nombre = u'Hs. Cát. Inherentes a cargos', 
     lu = u'46', 
     pampa = u'230', 
     basico_unc = 2030.88, 
     basico_nac = 2030.88, 
     horas = 12, 
-    tipo_horas = 'C'
+    tipo_horas = 'C',
+	pago_por_hora = False
 )
 add_garantia_preuniv(
     cargo = c,
@@ -814,7 +825,7 @@ add_garantia_preuniv(
     cargo = c,
     valor = 0,
     mes = 'JUN',
-    anio = '2012'2092.085
+    anio = '2012'
 )
 ###############
 c = add_cargo_preuniv(
@@ -824,7 +835,8 @@ c = add_cargo_preuniv(
     basico_unc = 2198.41, 
     basico_nac = 2198.41, 
     horas = 12, 
-    tipo_horas = 'R'
+    tipo_horas = 'R',
+	pago_por_hora = False
 )
 add_garantia_preuniv(
     cargo = c,
@@ -846,7 +858,8 @@ c = add_cargo_preuniv(
     basico_unc = 2092.085, 
     basico_nac = 2092.085, 
     horas = 12, 
-    tipo_horas = 'C'
+    tipo_horas = 'C',
+	pago_por_hora = False
 )
 add_garantia_preuniv(
     cargo = c,
@@ -868,7 +881,8 @@ c = add_cargo_preuniv(
     basico_unc = 3618.6, 
     basico_nac = 3618.6, 
     horas = 25, 
-    tipo_horas = 'R'
+    tipo_horas = 'R',
+	pago_por_hora = False
 )
 add_garantia_preuniv(
     cargo = c,
@@ -890,7 +904,8 @@ c = add_cargo_preuniv(
     basico_unc = 4511.53,
     basico_nac = 4511.53,
     horas = 25, 
-    tipo_horas = 'R'
+    tipo_horas = 'R',
+	pago_por_hora = False
 )
 add_garantia_preuniv(
     cargo = c,
@@ -912,7 +927,8 @@ c = add_cargo_preuniv(
     basico_unc = 1786.135,
     basico_nac = 1786.135,
     horas = 0, 
-    tipo_horas = 'R'
+    tipo_horas = 'R',
+	pago_por_hora = False
 )
 add_garantia_preuniv(
     cargo = c,
@@ -934,7 +950,8 @@ c = add_cargo_preuniv(
     basico_unc = 2220.15,
     basico_nac = 2220.15,
     horas = 15, 
-    tipo_horas = 'R'
+    tipo_horas = 'R',
+	pago_por_hora = False
 )
 add_garantia_preuniv(
     cargo = c,
@@ -952,11 +969,12 @@ add_garantia_preuniv(
 c = add_cargo_preuniv(
     nombre = u'Prof. T.P (1)', 
     lu = u'57', 
-    pampa = u'235',
+    pampa = u'236',
     basico_unc = 5077.2,
     basico_nac = 5077.2,
     horas = 30, 
-    tipo_horas = 'C'
+    tipo_horas = 'C',
+	pago_por_hora = False
 )
 add_garantia_preuniv(
     cargo = c,
@@ -975,10 +993,11 @@ c = add_cargo_preuniv(
     nombre = u'Prof. T.P (2)', 
     lu = u'58', 
     pampa = u'237',
-    basico_unc = 4,061.76,
-    basico_nac = 4,061.76,
+    basico_unc = 4061.76,
+    basico_nac = 4061.76,
     horas = 24, 
-    tipo_horas = 'C'
+    tipo_horas = 'C',
+	pago_por_hora = False
 )
 add_garantia_preuniv(
     cargo = c,
@@ -1000,7 +1019,8 @@ c = add_cargo_preuniv(
     basico_unc = 3046.32,
     basico_nac = 3046.32,
     horas = 18, 
-    tipo_horas = 'C'
+    tipo_horas = 'C',
+	pago_por_hora = False
 )
 add_garantia_preuniv(
     cargo = c,
@@ -1022,7 +1042,8 @@ c = add_cargo_preuniv(
     basico_unc = 2856,
     basico_nac = 2856,
     horas = 25, 
-    tipo_horas = 'R'
+    tipo_horas = 'R',
+	pago_por_hora = False
 )
 add_garantia_preuniv(
     cargo = c,
@@ -1044,7 +1065,8 @@ c = add_cargo_preuniv(
     basico_unc = 8568,
     basico_nac = 8568,
     horas = 45, 
-    tipo_horas = 'R'
+    tipo_horas = 'R',
+	pago_por_hora = False
 )
 add_garantia_preuniv(
     cargo = c,
@@ -1060,13 +1082,14 @@ add_garantia_preuniv(
 )
 ###############
 c = add_cargo_preuniv(
-    nombre = u'Regente de 1o D.E', 
+    nombre = u'Regente de 1° D.E', 
     lu = u'83', 
     pampa = u'303',
     basico_unc = 3039.92,
     basico_nac = 3039.92,
     horas = 45, 
-    tipo_horas = 'R'
+    tipo_horas = 'R',
+	pago_por_hora = False
 )
 add_garantia_preuniv(
     cargo = c,
@@ -1083,30 +1106,7 @@ add_garantia_preuniv(
 
 ###############
 c = add_cargo_preuniv(
-    nombre = u'Regente de 1o D.E', 
-    lu = u'83', 
-    pampa = u'303',
-    basico_unc = 3039.92,
-    basico_nac = 3039.92,
-    horas = 45, 
-    tipo_horas = 'R'
-)
-add_garantia_preuniv(
-    cargo = c,
-    valor = 0,
-    mes = 'MAR',
-    anio = '2012'
-)
-add_garantia_preuniv(
-    cargo = c,
-    valor = 0,
-    mes = 'JUN',
-    anio = '2012'
-)
-
-###############
-c = add_cargo_preuniv(
-    nombre = u'Sub Regente de 1° Cat.D.E', 
+    nombre = u'Sub Regente de 1° Cat. D.E', 
     lu = u'84', 
     pampa = u'304', 
     basico_unc = 5428.8, 
@@ -1435,7 +1435,7 @@ c = add_cargo_preuniv(
     basico_nac = 169.24, 
     horas = 0, 
     tipo_horas = 'C',
-	pago_por_hora = False
+	pago_por_hora = True
 )
 add_garantia_preuniv(
     cargo = c,

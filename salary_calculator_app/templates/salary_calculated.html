@@ -34,11 +34,11 @@
                     <tr class="dark">
                         <td> 10 </td>
                         <td> Sueldo B&aacute;sico </td>
-                        <td> {{ res.cargo.basico_unc|floatformat:-2 }} </td>
+                        <td> {{ res.basico_unc|floatformat:-2 }} </td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td> Aum. {{ aumento.get_mes_display }} {{ aumento.get_anio_display }} ({{ aumento.porcentaje }}% sobre {{ res.cargo.basico_nac }})</td>
+                        <td> Aum. {{ aumento.get_mes_display }} {{ aumento.get_anio_display }} ({{ aumento.porcentaje }}% sobre {{ res.basico_nac }})</td>
                         <td class="adicionales">{{ res.aumento|floatformat:-2 }} </td>
                     </tr>
                     {% for obj, importe in res.remuneraciones %}

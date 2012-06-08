@@ -9,7 +9,7 @@ from forms import CargoUnivForm, MesForm, CargoPreUnivForm
 from models import *
 
 #debugger
-#import pdb
+import pdb
 
 ##### Hardcoded
 adic2003_code = '118'
@@ -39,8 +39,6 @@ def calculate(request):
         univformset = CargoUnivFormSet(request.POST, prefix='univcargo')
         preunivformset = CargoPreUnivFormSet(request.POST, prefix='preunivcargo')
         mform = MesForm(request.POST)
-
-#        pdb.set_trace()
 
         if univformset.is_valid() and preunivformset.is_valid() and mform.is_valid():
 
@@ -198,6 +196,8 @@ def processUnivFormSet(aumento_obj, univformset):
         # Aqui iran los resultados del calculo para este cargo en particular.
         form_res = {
             'cargo': cargo_obj,
+            'basico_unc': basico_unc,
+            'basico_nac': basico_nac,
             'aumento': aumento,
             'retenciones': ret_list,
             'remuneraciones': rem_list,
@@ -249,6 +249,9 @@ def processPreUnivFormSet(aumento_obj, preunivformset):
         ###### Salario Bruto.
         basico_unc = cargo_obj.basico_unc
         basico_nac = cargo_obj.basico_nac
+        if cargo_obj.pago_por_hora:
+            basico_unc *= horas
+            basico_nac *= horas
         aumento = basico_nac * aumento_obj.porcentaje / 100.0
         ##
         salario_bruto = basico_unc + aumento
@@ -311,11 +314,13 @@ def processPreUnivFormSet(aumento_obj, preunivformset):
         salario_neto = salario_bruto - acum_ret + acum_rem
 
         ## Garantia salarial.
-        #pdb.set_trace()
         if cargo_obj.garantia_salarial.filter(mes=aumento_obj.mes, anio=aumento_obj.anio).exists():
             garantia_obj = cargo_obj.garantia_salarial.get(mes=aumento_obj.mes, anio=aumento_obj.anio)
-            if salario_neto < garantia_obj.valor:
-                garantia = garantia_obj.valor - salario_neto
+            garantia_valor = garantia_obj.valor
+            if cargo_obj.pago_por_hora:
+                garantia_valor *= horas
+            if salario_neto < garantia_valor:
+                garantia = garantia_valor - salario_neto
                 rem_obj = RemuneracionFija( codigo=garantia_preuniv_code,
                                                             nombre=garantia_preuniv_name + ' (' + unicode(garantia_obj) + ')',
                                                             aplicacion='P', valor=garantia)
@@ -333,6 +338,8 @@ def processPreUnivFormSet(aumento_obj, preunivformset):
         # Aqui iran los resultados del calculo para este cargo en particular.
         form_res = {
             'cargo': cargo_obj,
+            'basico_unc': basico_unc,
+            'basico_nac': basico_nac,
             'aumento': aumento,
             'retenciones': ret_list,
             'remuneraciones': rem_list,

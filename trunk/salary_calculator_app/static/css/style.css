@@ -1,5 +1,5 @@
 div.form_content {
-	width:420px;
+	width:auto;
     margin: 0px;
     background-color: #cdd9de;
 }
@@ -23,7 +23,6 @@ a.agregar_quitar {
 }
 
 #submit {
-	width:840px;
     margin: 0px;
     text-align: center;
 }
@@ -36,7 +35,7 @@ a.agregar_quitar {
 }
 
 .rightalign {
-    text-align: right;  
+    text-align:right;  
 }
 div.totales {
     background-color: #224d8c;

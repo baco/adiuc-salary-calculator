@@ -9,7 +9,7 @@
 	</head>
 
 	<body>
-	<div align=center>
+	<div style="background-image: url('{% get_static_prefix %}images/bg.png');" align=center>
 			<div class = "title">
 			    C&aacute;lculo salarial para el periodo: {{ aumento.get_mes_display }} {{ aumento.get_anio_display }} ({{ aumento.porcentaje }}%)
 			</div>
@@ -96,18 +96,18 @@
             </div>
 
             <div class="totales bold">
-                <table>
+                <table id="table_totales">
                     <tr>
                         <td> Total Bruto: </td>
-                        <td> {{ total_bruto|floatformat:-2 }} </td>
+                        <td > {{ total_bruto|floatformat:-2 }} </td>
                     </tr>
                     <tr>
                         <td> Total Adicionales: </td>
-                        <td class="adicionales"> {{ total_rem|floatformat:-2 }} </td>
+                        <td> <font color="#00bb00"> {{ total_rem|floatformat:-2 }} </td>
                     </tr>
                     <tr>
                         <td> Total Descuentos: </td>
-                        <td class="descuentos"> -{{ total_ret|floatformat:-2 }} </td>
+                        <td> <font color="#660000"> -{{ total_ret|floatformat:-2 }} </fonts></td>
                     </tr>
                     <tr>
                         <td> Total Neto: </td>

@@ -13,12 +13,13 @@ function showHoras(cargoObj)
         var optObj = cargoPorHoraObj.options[i];
         if (optObj.getAttribute("value") == selectedCargo && optObj.innerText == "True")
             cargo_por_hora = true;
+            break;
     }
 
     if (cargo_por_hora)
-        cantHorasRowObj.style.display = "none";
-    else
         cantHorasRowObj.style.display = "table-row";
+    else
+        cantHorasRowObj.style.display = "none";
 
 
 }

@@ -40,8 +40,11 @@ a.agregar_quitar {
 }
 div.totales {
     background-color: #224d8c;
-    text-align: center;
+    text-align: left;
     font-family: "Arial";
+    width:450px;
+}
+#table_totales {
     width:450px;
 }
 #result {
@@ -88,12 +91,12 @@ div.title {
 }
 
 div.results_cargo {
-    background-color: #ededed;
+    background-color: #cdcdcd;
     width:450px;
 }
 
 tr.dark{
-    background-color: #cdcdcd;
+    background-color: #ededed;
 }
 hr{
 	border: 1px #cdcdcd dotted;
@@ -103,4 +106,6 @@ tr.error{
 	    background-color: #E00000 ;
 	    color: yellow;
 	    font-size:small;
+	    padding: 0px;
+	    margin: 0px;
 }

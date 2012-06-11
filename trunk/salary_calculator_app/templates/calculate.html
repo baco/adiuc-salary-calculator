@@ -25,7 +25,7 @@
 				<div id="univformset_content" class="form_content">
                     {% for univform in univformset %}
                     {{ univform.id }}
-
+            
                     {% if univform in univformset.deleted_forms or univform.DELETE.value == "on" %}
                     <div class="form_cargo" style="display:none">
                     {% else %}
@@ -35,14 +35,14 @@
                         {{ univform.non_field_errors }}
 					    <table>
 						    <tr>
-							    <td> {{ univform.cargo.label_tag }}: </td>
+							    <td> {{ univform.cargo.label }}: </td>
 							    <td> {{ univform.cargo }} </td>
 						    </tr>
 						    {% if univform.cargo.errors %}
                             <tr class="error"> <td colspan="2"> {{ univform.cargo.errors }} </td></tr>
                             {% endif %}
 						    <tr>
-							    <td> {{ univform.antiguedad.label_tag }}:</td>
+							    <td> {{ univform.antiguedad.label }}:</td>
 							    <td> {{ univform.antiguedad }} </td>
 						    </tr>
 						    {% if univform.antiguedad.errors %}
@@ -53,9 +53,9 @@
 						    </tr>
 						    <tr >
 							    <td colspand=2><blockquote>
-								    {{ univform.master }} {{ univform.master.label_tag }} 
+								    {{ univform.master }} {{ univform.master.label }} 
 								    <br>
-								    {{ univform.doctorado }} {{ univform.doctorado.label_tag }}
+								    {{ univform.doctorado }} {{ univform.doctorado.label }}
 								    </blockquote><br>
 							    </td>
 						    </tr>
@@ -73,11 +73,11 @@
 				    <a id="nuevo_cargo_univ" class="agregar_quitar" href="#" onclick="show_new_form_HTML('univformset_content', univDivAttrs,
                     '<table>\
                             <tr>\
-                                <td> {{ univformset.empty_form.cargo.label_tag|escapejs }}: </td>\
+                                <td> {{ univformset.empty_form.cargo.label|escapejs }}: </td>\
                                 <td> {{ univformset.empty_form.cargo|escapejs }} </td>\
 						    </tr>\
 						    <tr>\
-							    <td> {{ univformset.empty_form.antiguedad.label_tag|escapejs }}:</td>\
+							    <td> {{ univformset.empty_form.antiguedad.label|escapejs }}:</td>\
 							    <td> {{ univformset.empty_form.antiguedad|escapejs }} </td>\
 						    </tr>\
 						    <tr>\
@@ -85,9 +85,9 @@
 						    </tr>\
 						    <tr>\
 							    <td colspand=2><blockquote>\
-								    {{ univformset.empty_form.master|escapejs }} {{ univformset.empty_form.master.label_tag|escapejs }}\
+								    {{ univformset.empty_form.master|escapejs }} {{ univformset.empty_form.master.label|escapejs }}\
 								    <br>\
-								    {{ univformset.empty_form.doctorado|escapejs }} {{ univformset.empty_form.doctorado.label_tag|escapejs }}\
+								    {{ univformset.empty_form.doctorado|escapejs }} {{ univformset.empty_form.doctorado.label|escapejs }}\
 								    </blockquote>\
 								    <br>\
 							    </td>\
@@ -114,7 +114,7 @@
                 {% endif %}
 				    <table>
 						<tr>
-							<td> {{ preunivform.cargo.label_tag }}: </td>
+							<td> {{ preunivform.cargo.label }}: </td>
 							<td> {{ preunivform.cargo }} </td>
 						</tr>
 					    {% if preunivform.cargo.errors %}
@@ -127,7 +127,7 @@
                         {% endif %}
 
 						<tr>
-							<td> {{ preunivform.horas.label_tag }}: </td>
+							<td> {{ preunivform.horas.label }}: </td>
 							<td> {{ preunivform.horas }} </td>
 						</tr>
                         <!-- El siguiente widget nos dice que cargo es "pago por hora" y cual no -->
@@ -145,7 +145,7 @@
                         {% endif %}
 
 						<tr>
-							<td> {{ preunivform.antiguedad.label_tag }}:</td>
+							<td> {{ preunivform.antiguedad.label }}:</td>
 							<td> {{ preunivform.antiguedad }} </td>
 						</tr>
 
@@ -184,18 +184,18 @@
                 onclick="show_new_form_HTML('preunivformset_content', univDivAttrs,
                     '<table>\
                             <tr>\
-                                <td> {{ preunivformset.empty_form.cargo.label_tag|escapejs }}: </td>\
+                                <td> {{ preunivformset.empty_form.cargo.label|escapejs }}: </td>\
                                 <td> {{ preunivformset.empty_form.cargo|escapejs }} </td>\
 						    </tr>\
 						    <tr>\
-							    <td> {{ preunivformset.empty_form.horas.label_tag|escapejs }}: </td>\
+							    <td> {{ preunivformset.empty_form.horas.label|escapejs }}: </td>\
 							    <td> {{ preunivformset.empty_form.horas|escapejs }} </td>\
 						    </tr>\
                             <tr>\
 							    <td> {{ preunivformset.empty_form.pago_por_horas_info|escapejs }} </td>\
 						    </tr>\
 						    <tr>\
-							    <td> {{ preunivformset.empty_form.antiguedad.label_tag|escapejs }}:</td>\
+							    <td> {{ preunivformset.empty_form.antiguedad.label|escapejs }}:</td>\
 							    <td> {{ preunivformset.empty_form.antiguedad|escapejs }} </td>\
 						    </tr>\
 						    <tr>\
@@ -203,9 +203,9 @@
 						    </tr>\
 						    <tr>\
 							    <td colspand=2><blockquote>\
-								    {{ preunivformset.empty_form.master|escapejs }} {{ preunivformset.empty_form.master.label_tag|escapejs }}\
+								    {{ preunivformset.empty_form.master|escapejs }} {{ preunivformset.empty_form.master.label|escapejs }}\
 								    <br>\
-								    {{ preunivformset.empty_form.doctorado|escapejs }} {{ preunivformset.empty_form.doctorado.label_tag|escapejs }}\
+								    {{ preunivformset.empty_form.doctorado|escapejs }} {{ preunivformset.empty_form.doctorado.label|escapejs }}\
 								    </blockquote>\
 							    </td>\
 						    </tr>\

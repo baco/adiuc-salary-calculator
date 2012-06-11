@@ -14,7 +14,7 @@ div.form_content {
 div.form_cargo {
     background-color: #ededed;
     margin: 0px;
-    height:250px;
+    height:auto;
 }
 
 a.agregar_quitar {

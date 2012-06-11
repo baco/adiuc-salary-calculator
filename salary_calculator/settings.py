@@ -7,8 +7,7 @@ TEMPLATE_DEBUG = DEBUG
 DEVEL = True
 
 ADMINS = (
-    ('Matias', 'saitam.m@gmail.com'),
-	('David', 'david.racca@gmail.com')
+    ('Admin', 'admin@adiuc.org.ar'),
 )
 
 MANAGERS = ADMINS
@@ -30,10 +29,10 @@ else:
 
 	DATABASES = {
 		'default': {
-			'ENGINE': 'django.db.backends',			# Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-			'NAME': '',											# Or path to database file if using sqlite3.
-			'USER': '',											# Not used with sqlite3.
-			'PASSWORD': '',									# Not used with sqlite3.
+			'ENGINE': 'django.db.backends.mysql',			# Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+			'NAME': 'mleec_consulta',											# Or path to database file if using sqlite3.
+			'USER': 'mleec_consulta',											# Not used with sqlite3.
+			'PASSWORD': 'f1bc6df1',									# Not used with sqlite3.
 			'HOST': '',											# Set to empty string for localhost. Not used with sqlite3.
 			'PORT': '',											# Set to empty string for default. Not used with sqlite3.
 		}
@@ -77,11 +76,19 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+if DEVEL:
+    STATIC_ROOT = ''
+else:
+    STATIC_ROOT = '/home/mleec/webapps/adiuc_static'
+
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+if DEVEL:
+    STATIC_URL = '/static/'
+else:
+    STATIC_URL = 'http://consultas.adiuc.org.ar/static/'
+
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -96,7 +103,10 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'owu4hx62rtuy!&amp;7w!h&amp;n9k1+92+_p++lfnuhu@%bv&amp;n85nnb9&amp;'
+if DEVEL:
+    SECRET_KEY = 'owu4hx62rtuy!&amp;7w!h&amp;n9k1+92+_p++lfnuhu@%bv&amp;n85nnb9&amp;'
+else:
+    SECRET_KEY = '5p)g(u+m=4^n&amp;b5c(ef*1i^$sb#ocux@#i+box&amp;zdf(k3@n+ne'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (

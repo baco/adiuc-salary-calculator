@@ -18,20 +18,20 @@
             <div class="results_cargo">
                 {% for res in lista_res %}
                 <table> 
-                    <tr">
+                    <tr>
                         <td> Cargo: </td>
                         <td>{{ res.cargo.tipo }} {% if res.cargo.dedicacion %}, {{ res.cargo.get_dedicacion_display }}{% endif %}</td>
                     </tr>
                     <tr> <td> C&oacute;digo LU: </td> <td> {{ res.cargo.lu }} </td> </tr>
                     <tr ><td> C&oacute;digo PAMPA: </td> <td> {{ res.cargo.pampa }} </td> </tr>
                 </table>
-                <table class="result">
+                <table class="result" cellspaing=2>
                     <tr>
                         <th> C&oacute;digo </th>
                         <th> Detalle </th>
                         <th> Importe </th>
                     </tr>
-                    <tr class="dark">
+                    <tr>
                         <td> 10 </td>
                         <td> Sueldo B&aacute;sico </td>
                         <td> {{ res.basico_unc|floatformat:-2 }} </td>
@@ -43,7 +43,7 @@
                     </tr>
                     {% for obj, importe in res.remuneraciones %}
                     {% if obj.codigo == "118" %} <!-- Adicional 2003 8% -->
-						<tr class="{% cycle 'dark' '' %}">
+						<tr>
                             <td> {{ obj.codigo }} </td>
                             <td> {{ obj.nombre }} {% if obj.porcentaje %}({{ obj.porcentaje }}%){% endif %} </td>
                             <td class="adicionales">{{ importe|floatformat:-2 }} </td>
@@ -59,7 +59,7 @@
 
                     {% for obj, importe in res.remuneraciones %}
                     {% if obj.codigo != "118" %}
-                     <tr class = "{% cycle 'dark' '' %}">
+                     <tr>
                         <td> {{ obj.codigo }} </td>
                         <td> {{ obj.nombre }} {% if obj.porcentaje %}({{ obj.porcentaje }}%){% endif %} </td>
                         <td class="adicionales">{{ importe|floatformat:-2 }} </td>
@@ -68,7 +68,7 @@
                     {% endfor %}
 
                     {% for obj, importe in res.retenciones %}
-                     <tr class="{% cycle 'dark' '' %}">
+                     <tr>
                         <td> {{ obj.codigo }} </td>
                         <td> {{ obj.nombre }} (-{{ obj.porcentaje }}%) </td>
                         <td class="descuentos">-{{ importe|floatformat:-2 }}</td>

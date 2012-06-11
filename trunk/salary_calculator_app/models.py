@@ -52,7 +52,7 @@ class Cargo(models.Model):
         ordering = ['tipo']
 
     def __unicode__(self):
-        return self.lu + " " + unicode(self.tipo)
+        return self.lu + " - " + unicode(self.tipo)
 
 
 class TipoCargo(models.Model):
@@ -82,7 +82,7 @@ class GarantiaSalarial(models.Model):
         ordering = ['anio', 'mes', 'valor']
 
     def __unicode__(self):
-        return "$" + unicode(self.valor) + " " + self.mes + " " + self.anio
+        return "$" + unicode(self.valor) + " - " + self.mes + " " + self.anio
 
 
 class CargoUniv(Cargo):
@@ -99,7 +99,7 @@ class CargoUniv(Cargo):
         help_text=u'Es el adicional del 8% del salario básico del año 2003 que le corresponde a este cargo.')
 
     def __unicode__(self):
-        return super(CargoUniv, self).__unicode__() + " " + self.dedicacion
+        return super(CargoUniv, self).__unicode__() + " - " + self.dedicacion
 
 
 class CargoPreUniv(Cargo):
@@ -119,7 +119,7 @@ class CargoPreUniv(Cargo):
     def __unicode__(self):
         if self.pago_por_hora or self.horas <= 0.:
             return super(CargoPreUniv, self).__unicode__()
-        return super(CargoPreUniv, self).__unicode__() + " " + unicode(self.horas) + "hs"
+        return super(CargoPreUniv, self).__unicode__() + " - " + unicode(self.horas) + "hs"
 
 
 class AntiguedadUniv(models.Model):

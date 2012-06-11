@@ -2,6 +2,7 @@ div.form_content {
 	width:420px;
     margin: 0px;
     background-color: #cdd9de;
+    padding:0px;
 }
 
 #form_mes {
@@ -49,7 +50,7 @@ div.totales {
 }
 #result {
     margin:1px;
-    padding:2px;
+    padding:0px;
     width:500px;
 }
 
@@ -76,7 +77,8 @@ div.title {
 
 #forms_table {
 	width: 900px;
-	margin: auto;
+	margin: 0px;
+    padding:0px;
 }
 
 
@@ -88,6 +90,7 @@ div.title {
 #preunivformset_content{
 	float:right;
 	width:450px;
+	height:auto;
 }
 
 div.results_cargo {

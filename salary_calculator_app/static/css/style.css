@@ -3,6 +3,7 @@ div.form_content {
     margin: 0px;
     background-color: #cdd9de;
     padding:0px;
+    font-family: "Arial";
 }
 
 #form_mes {
@@ -16,6 +17,7 @@ div.form_cargo {
     background-color: #ededed;
     margin: 0px;
     height:auto;
+    font-family: "Arial";
 }
 
 a.agregar_quitar {
@@ -39,12 +41,14 @@ a.agregar_quitar {
 .rightalign {
     text-align: right;  
 }
-div.totales {
+div.totales{
     background-color: #224d8c;
     text-align: left;
     font-family: "Arial";
     width:550px;
+    font-family: "Arial";
 }
+
 #table_totales {
     width:550px;
 }
@@ -53,6 +57,7 @@ table.result {
     padding:0px;
     width:550px;
     background-color: #cdcdcd;
+    font-family: "Arial";
 }
 
 table.result td{
@@ -101,6 +106,7 @@ div.title {
 div.results_cargo {
     background-color: #cdcdcd;
     width:550px;
+    text-align:left;
 }
 
 tr.dark{

@@ -135,11 +135,11 @@
 							<td> {{ preunivform.pago_por_horas_info }} </td>
 						</tr>
 
-					    {% if preunivform.horas.errors %}			        
-	                    <tr class="error">
+					    {% if preunivform.horas.errors %}
+	                    <tr class="error" id="{{ preunivform.horas.auto_id }}-errors">
 	                        <td colspan="2" > 
     	                        {% for error in preunivform.horas.errors %}
-	                                ^ {{ error }} 
+	                                ^ {{ error }}
 	                            {% endfor %}
 	                        </td></tr>
                         {% endif %}
@@ -214,7 +214,9 @@
                         <div style=\'display:none\'>\
                             {{ preunivformset.empty_form.DELETE|escapejs }}\
                         </div>',
-                    preunivPrefix, 'nuevo_cargo_pre');enable_disable(calculateButtonId,univPrefix,preunivPrefix);">[+] A&ntilde;adir Cargo Nivel Medio</a>
+                    preunivPrefix, 'nuevo_cargo_pre');
+            enable_disable(calculateButtonId,univPrefix,preunivPrefix);
+            initial_show_horas(preunivPrefix)">[+] A&ntilde;adir Cargo Nivel Medio</a>
             </div><!-- form content-->
 					<div ><input id="calculate" type="submit" value="Calcular" /></div>
 			</div><!-- forms_table-->

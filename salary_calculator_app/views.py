@@ -145,7 +145,7 @@ def processUnivFormSet(aumento_obj, univformset):
         if has_doctorado:
             rem_porcentuales = rem_porcentuales.exclude(codigo=master_code)
         elif has_master:
-            rem_poscentuales = rem_porcentuales.exclude(codigo=doc_code)
+            rem_porcentuales = rem_porcentuales.exclude(codigo=doc_code)
         else:
             rem_porcentuales = rem_porcentuales.exclude(codigo=doc_code)
             rem_porcentuales = rem_porcentuales.exclude(codigo=master_code)
@@ -163,7 +163,7 @@ def processUnivFormSet(aumento_obj, univformset):
             ret_list.append( (ret, ret.valor) )
 
         for rem in rem_porcentuales:
-            importe = acum_rem + salario_bruto * rem.porcentaje / 100.
+            importe = salario_bruto * rem.porcentaje / 100.
             acum_rem += importe
             rem_list.append( (rem, importe) )
 
@@ -213,7 +213,6 @@ def processUnivFormSet(aumento_obj, univformset):
     context['total_bruto'] = total_bruto
     context['total_neto'] = total_neto
     context['lista_res'] = lista_res
-    print context
 
     return context
 
@@ -284,7 +283,7 @@ def processPreUnivFormSet(aumento_obj, preunivformset):
         if has_doctorado:
             rem_porcentuales = rem_porcentuales.exclude(codigo=master_preuniv_code)
         elif has_master:
-            rem_poscentuales = rem_porcentuales.exclude(codigo=doc_preuniv_code)
+            rem_porcentuales = rem_porcentuales.exclude(codigo=doc_preuniv_code)
         else:
             rem_porcentuales = rem_porcentuales.exclude(codigo=doc_preuniv_code)
             rem_porcentuales = rem_porcentuales.exclude(codigo=master_preuniv_code)
@@ -302,7 +301,7 @@ def processPreUnivFormSet(aumento_obj, preunivformset):
             ret_list.append( (ret, ret.valor) )
 
         for rem in rem_porcentuales:
-            importe = acum_rem + salario_bruto * rem.porcentaje / 100.
+            importe = salario_bruto * rem.porcentaje / 100.
             acum_rem = acum_rem + importe
             rem_list.append( (rem, importe) )
 
@@ -355,6 +354,5 @@ def processPreUnivFormSet(aumento_obj, preunivformset):
     context['total_bruto']= total_bruto
     context['total_neto'] = total_neto
     context['lista_res'] = lista_res
-    print context
 
     return context

@@ -26,7 +26,7 @@ class CargoPreUnivForm(forms.Form):
     """Formulario de calculo de salario docente para docentes Pre-universitarios."""
     
     cargo = forms.ModelChoiceField(label=u'Cargo', queryset=CargoPreUniv.objects.all(), empty_label=None,
-       widget=forms.Select(attrs={'onChange': 'showHoras(this)'}),
+       widget=forms.Select(attrs={'onChange': 'show_horas(this)', 'onLoad':'show_horas(this)', 'onKeyUp':'this.blur();this.focus();'}),
        help_text=u'Ingrese el nombre del cargo.'
     )
     antiguedad = forms.ModelChoiceField(label=u'Años de Antigüedad', queryset=AntiguedadPreUniv.objects.all(), empty_label=None,

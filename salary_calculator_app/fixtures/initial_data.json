@@ -838,11 +838,9 @@
       ], 
       "lu": "7", 
       "basico_unc": 5474.84, 
-      "adic2003": 66.23, 
+      "adic2003": null, 
       "pampa": "109", 
-      "garantia_salarial": [
-        3
-      ]
+      "garantia_salarial": []
     }
   }, 
   {
@@ -869,11 +867,9 @@
       ], 
       "lu": "20", 
       "basico_unc": 2734.95, 
-      "adic2003": 21.0, 
+      "adic2003": null, 
       "pampa": "110", 
-      "garantia_salarial": [
-        4
-      ]
+      "garantia_salarial": []
     }
   }, 
   {
@@ -900,7 +896,7 @@
       ], 
       "lu": "31", 
       "basico_unc": 1366.62, 
-      "adic2003": 6.4, 
+      "adic2003": null, 
       "pampa": "111", 
       "garantia_salarial": []
     }
@@ -929,11 +925,9 @@
       ], 
       "lu": "9", 
       "basico_unc": 4786.34, 
-      "adic2003": 58.03, 
+      "adic2003": null, 
       "pampa": "113", 
-      "garantia_salarial": [
-        3
-      ]
+      "garantia_salarial": []
     }
   }, 
   {
@@ -945,10 +939,7 @@
       "dedicacion": "D.S.E", 
       "tipo": 2, 
       "basico_nac": 2388.05, 
-      "rem_porcentuales": [
-        1, 
-        2
-      ], 
+      "rem_porcentuales": [], 
       "ret_porcentuales": [
         1, 
         2, 
@@ -960,11 +951,9 @@
       ], 
       "lu": "26", 
       "basico_unc": 2392.05, 
-      "adic2003": 19.52, 
+      "adic2003": null, 
       "pampa": "114", 
-      "garantia_salarial": [
-        4
-      ]
+      "garantia_salarial": []
     }
   }, 
   {
@@ -991,7 +980,7 @@
       ], 
       "lu": "32", 
       "basico_unc": 1195.18, 
-      "adic2003": 5.73, 
+      "adic2003": null, 
       "pampa": "115", 
       "garantia_salarial": []
     }
@@ -1020,11 +1009,9 @@
       ], 
       "lu": "6", 
       "basico_unc": 6162.16, 
-      "adic2003": 76.41, 
+      "adic2003": null, 
       "pampa": "105", 
-      "garantia_salarial": [
-        3
-      ]
+      "garantia_salarial": []
     }
   }, 
   {
@@ -1051,11 +1038,9 @@
       ], 
       "lu": "8", 
       "basico_unc": 3077.92, 
-      "adic2003": 22.77, 
+      "adic2003": null, 
       "pampa": "106", 
-      "garantia_salarial": [
-        4
-      ]
+      "garantia_salarial": []
     }
   }, 
   {
@@ -1082,7 +1067,7 @@
       ], 
       "lu": "54", 
       "basico_unc": 1538.07, 
-      "adic2003": 7.18, 
+      "adic2003": null, 
       "pampa": "107", 
       "garantia_salarial": []
     }
@@ -1111,7 +1096,7 @@
       ], 
       "lu": "36", 
       "basico_unc": 819.12, 
-      "adic2003": 4.81, 
+      "adic2003": null, 
       "pampa": "121", 
       "garantia_salarial": []
     }
@@ -1140,11 +1125,9 @@
       ], 
       "lu": "14", 
       "basico_unc": 4101.53, 
-      "adic2003": 52.23, 
+      "adic2003": null, 
       "pampa": "117", 
-      "garantia_salarial": [
-        3
-      ]
+      "garantia_salarial": []
     }
   }, 
   {
@@ -1171,11 +1154,9 @@
       ], 
       "lu": "28", 
       "basico_unc": 2049.21, 
-      "adic2003": 18.49, 
+      "adic2003": null, 
       "pampa": "118", 
-      "garantia_salarial": [
-        4
-      ]
+      "garantia_salarial": []
     }
   }, 
   {
@@ -1231,11 +1212,9 @@
       ], 
       "lu": "5", 
       "basico_unc": 6848.33, 
-      "adic2003": 81.08, 
+      "adic2003": null, 
       "pampa": "101", 
-      "garantia_salarial": [
-        3
-      ]
+      "garantia_salarial": []
     }
   }, 
   {
@@ -1262,11 +1241,9 @@
       ], 
       "lu": "13", 
       "basico_unc": 3420.72, 
-      "adic2003": 23.62, 
+      "adic2003": null, 
       "pampa": "102", 
-      "garantia_salarial": [
-        4
-      ]
+      "garantia_salarial": []
     }
   }, 
   {
@@ -1293,7 +1270,7 @@
       ], 
       "lu": "27", 
       "basico_unc": 1709.47, 
-      "adic2003": 7.51, 
+      "adic2003": null, 
       "pampa": "103", 
       "garantia_salarial": []
     }
@@ -1322,7 +1299,7 @@
         4
       ], 
       "basico_unc": 6092.64, 
-      "horas": 36, 
+      "horas": 36.0, 
       "pampa": "205", 
       "garantia_salarial": [
         8, 
@@ -1354,7 +1331,7 @@
         4
       ], 
       "basico_unc": 1592.44, 
-      "horas": 27, 
+      "horas": 27.0, 
       "pampa": "310", 
       "garantia_salarial": [
         16, 
@@ -1386,7 +1363,7 @@
         4
       ], 
       "basico_unc": 3046.32, 
-      "horas": 18, 
+      "horas": 18.0, 
       "pampa": "207", 
       "garantia_salarial": [
         14, 
@@ -1418,7 +1395,7 @@
         4
       ], 
       "basico_unc": 2856.0, 
-      "horas": 25, 
+      "horas": 25.0, 
       "pampa": "241", 
       "garantia_salarial": [
         36, 
@@ -1450,7 +1427,7 @@
         4
       ], 
       "basico_unc": 2229.88, 
-      "horas": 15, 
+      "horas": 15.0, 
       "pampa": "314", 
       "garantia_salarial": [
         30, 
@@ -1482,7 +1459,7 @@
         4
       ], 
       "basico_unc": 2196.98, 
-      "horas": 45, 
+      "horas": 45.0, 
       "pampa": "313", 
       "garantia_salarial": [
         16, 
@@ -1514,7 +1491,7 @@
         4
       ], 
       "basico_unc": 1988.915, 
-      "horas": 12, 
+      "horas": 12.0, 
       "pampa": "209", 
       "garantia_salarial": [
         18, 
@@ -1546,7 +1523,7 @@
         4
       ], 
       "basico_unc": 1749.7, 
-      "horas": 21, 
+      "horas": 21.0, 
       "pampa": "212", 
       "garantia_salarial": [
         16, 
@@ -1578,7 +1555,7 @@
         4
       ], 
       "basico_unc": 1896.14, 
-      "horas": 10, 
+      "horas": 10.0, 
       "pampa": "242", 
       "garantia_salarial": [
         40, 
@@ -1610,7 +1587,7 @@
         4
       ], 
       "basico_unc": 1749.7, 
-      "horas": 21, 
+      "horas": 21.0, 
       "pampa": "224", 
       "garantia_salarial": [
         16, 
@@ -1642,7 +1619,7 @@
         4
       ], 
       "basico_unc": 2430.973, 
-      "horas": 25, 
+      "horas": 25.0, 
       "pampa": "219", 
       "garantia_salarial": [
         20, 
@@ -1674,7 +1651,7 @@
         4
       ], 
       "basico_unc": 2446.415, 
-      "horas": 25, 
+      "horas": 25.0, 
       "pampa": "226", 
       "garantia_salarial": [
         22, 
@@ -1706,7 +1683,7 @@
         4
       ], 
       "basico_unc": 2230.525, 
-      "horas": 45, 
+      "horas": 45.0, 
       "pampa": "315", 
       "garantia_salarial": [
         16, 
@@ -1738,7 +1715,7 @@
         4
       ], 
       "basico_unc": 2445.48, 
-      "horas": 35, 
+      "horas": 35.0, 
       "pampa": "208", 
       "garantia_salarial": [
         16, 
@@ -1770,7 +1747,7 @@
         4
       ], 
       "basico_unc": 1994.97, 
-      "horas": 35, 
+      "horas": 35.0, 
       "pampa": "213", 
       "garantia_salarial": [
         16, 
@@ -1802,7 +1779,7 @@
         4
       ], 
       "basico_unc": 2264.08, 
-      "horas": 45, 
+      "horas": 45.0, 
       "pampa": "309", 
       "garantia_salarial": [
         16, 
@@ -1834,7 +1811,7 @@
         4
       ], 
       "basico_unc": 169.24, 
-      "horas": 0, 
+      "horas": 0.0, 
       "pampa": "318", 
       "garantia_salarial": [
         26, 
@@ -1866,7 +1843,7 @@
         4
       ], 
       "basico_unc": 2030.88, 
-      "horas": 12, 
+      "horas": 12.0, 
       "pampa": "319", 
       "garantia_salarial": [
         16, 
@@ -1898,7 +1875,7 @@
         4
       ], 
       "basico_unc": 169.24, 
-      "horas": 1, 
+      "horas": 1.0, 
       "pampa": "229", 
       "garantia_salarial": [
         26, 
@@ -1930,7 +1907,7 @@
         4
       ], 
       "basico_unc": 211.55, 
-      "horas": 1, 
+      "horas": 1.0, 
       "pampa": "228", 
       "garantia_salarial": [
         24, 
@@ -1962,7 +1939,7 @@
         4
       ], 
       "basico_unc": 2030.88, 
-      "horas": 12, 
+      "horas": 12.0, 
       "pampa": "230", 
       "garantia_salarial": [
         16, 
@@ -1994,7 +1971,7 @@
         4
       ], 
       "basico_unc": 2220.15, 
-      "horas": 15, 
+      "horas": 15.0, 
       "pampa": "235", 
       "garantia_salarial": [
         30, 
@@ -2026,7 +2003,7 @@
         4
       ], 
       "basico_unc": 2309.525, 
-      "horas": 45, 
+      "horas": 45.0, 
       "pampa": "307", 
       "garantia_salarial": [
         16, 
@@ -2058,7 +2035,7 @@
         4
       ], 
       "basico_unc": 3618.6, 
-      "horas": 25, 
+      "horas": 25.0, 
       "pampa": "232", 
       "garantia_salarial": [
         12, 
@@ -2090,7 +2067,7 @@
         4
       ], 
       "basico_unc": 2329.0, 
-      "horas": 45, 
+      "horas": 45.0, 
       "pampa": "308", 
       "garantia_salarial": [
         16, 
@@ -2122,7 +2099,7 @@
         4
       ], 
       "basico_unc": 4442.5, 
-      "horas": 25, 
+      "horas": 25.0, 
       "pampa": "203", 
       "garantia_salarial": [
         9, 
@@ -2154,7 +2131,7 @@
         4
       ], 
       "basico_unc": 3427.0, 
-      "horas": 25, 
+      "horas": 25.0, 
       "pampa": "206", 
       "garantia_salarial": [
         12, 
@@ -2186,7 +2163,7 @@
         4
       ], 
       "basico_unc": 2993.99, 
-      "horas": 27, 
+      "horas": 27.0, 
       "pampa": "312", 
       "garantia_salarial": [
         12, 
@@ -2218,7 +2195,7 @@
         4
       ], 
       "basico_unc": 4935.15, 
-      "horas": 45, 
+      "horas": 45.0, 
       "pampa": "311", 
       "garantia_salarial": [
         8, 
@@ -2250,7 +2227,7 @@
         4
       ], 
       "basico_unc": 2741.75, 
-      "horas": 25, 
+      "horas": 25.0, 
       "pampa": "223", 
       "garantia_salarial": [
         12, 
@@ -2282,7 +2259,7 @@
         4
       ], 
       "basico_unc": 1497.01, 
-      "horas": 18, 
+      "horas": 18.0, 
       "pampa": "222", 
       "garantia_salarial": [
         16, 
@@ -2314,7 +2291,7 @@
         4
       ], 
       "basico_unc": 2572.45, 
-      "horas": 27, 
+      "horas": 27.0, 
       "pampa": "317", 
       "garantia_salarial": [
         38, 
@@ -2346,7 +2323,7 @@
         4
       ], 
       "basico_unc": 4589.17, 
-      "horas": 45, 
+      "horas": 45.0, 
       "pampa": "316", 
       "garantia_salarial": [
         8, 
@@ -2378,7 +2355,7 @@
         4
       ], 
       "basico_unc": 2549.53, 
-      "horas": 25, 
+      "horas": 25.0, 
       "pampa": "227", 
       "garantia_salarial": [
         12, 
@@ -2410,7 +2387,7 @@
         4
       ], 
       "basico_unc": 1621.95, 
-      "horas": 17, 
+      "horas": 17.0, 
       "pampa": "221", 
       "garantia_salarial": [
         16, 
@@ -2442,7 +2419,7 @@
         4
       ], 
       "basico_unc": 1769.2, 
-      "horas": 21, 
+      "horas": 21.0, 
       "pampa": "218", 
       "garantia_salarial": [
         16, 
@@ -2474,7 +2451,7 @@
         4
       ], 
       "basico_unc": 1769.2, 
-      "horas": 21, 
+      "horas": 21.0, 
       "pampa": "220", 
       "garantia_salarial": [
         16, 
@@ -2506,7 +2483,7 @@
         4
       ], 
       "basico_unc": 5077.2, 
-      "horas": 30, 
+      "horas": 30.0, 
       "pampa": "236", 
       "garantia_salarial": [
         32, 
@@ -2538,7 +2515,7 @@
         4
       ], 
       "basico_unc": 4061.76, 
-      "horas": 24, 
+      "horas": 24.0, 
       "pampa": "237", 
       "garantia_salarial": [
         34, 
@@ -2570,7 +2547,7 @@
         4
       ], 
       "basico_unc": 3046.32, 
-      "horas": 18, 
+      "horas": 18.0, 
       "pampa": "238", 
       "garantia_salarial": [
         14, 
@@ -2602,7 +2579,7 @@
         4
       ], 
       "basico_unc": 2092.085, 
-      "horas": 12, 
+      "horas": 12.0, 
       "pampa": "239", 
       "garantia_salarial": [
         28, 
@@ -2634,7 +2611,7 @@
         4
       ], 
       "basico_unc": 6092.64, 
-      "horas": 36, 
+      "horas": 36.0, 
       "pampa": "204", 
       "garantia_salarial": [
         8, 
@@ -2666,7 +2643,7 @@
         4
       ], 
       "basico_unc": 3300.25, 
-      "horas": 25, 
+      "horas": 25.0, 
       "pampa": "240", 
       "garantia_salarial": [
         12, 
@@ -2698,7 +2675,7 @@
         4
       ], 
       "basico_unc": 1786.135, 
-      "horas": 0, 
+      "horas": 0.0, 
       "pampa": "234", 
       "garantia_salarial": [
         16, 
@@ -2730,7 +2707,7 @@
         4
       ], 
       "basico_unc": 2198.41, 
-      "horas": 12, 
+      "horas": 12.0, 
       "pampa": "231", 
       "garantia_salarial": [
         16, 
@@ -2762,7 +2739,7 @@
         4
       ], 
       "basico_unc": 5394.5, 
-      "horas": 25, 
+      "horas": 25.0, 
       "pampa": "211", 
       "garantia_salarial": [
         8, 
@@ -2794,7 +2771,7 @@
         4
       ], 
       "basico_unc": 4830.76, 
-      "horas": 25, 
+      "horas": 25.0, 
       "pampa": "202", 
       "garantia_salarial": [
         8, 
@@ -2826,7 +2803,7 @@
         4
       ], 
       "basico_unc": 3039.92, 
-      "horas": 45, 
+      "horas": 45.0, 
       "pampa": "303", 
       "garantia_salarial": [
         16, 
@@ -2858,7 +2835,7 @@
         4
       ], 
       "basico_unc": 2219.31, 
-      "horas": 35, 
+      "horas": 35.0, 
       "pampa": "215", 
       "garantia_salarial": [
         12, 
@@ -2890,7 +2867,7 @@
         4
       ], 
       "basico_unc": 3290.75, 
-      "horas": 25, 
+      "horas": 25.0, 
       "pampa": "214", 
       "garantia_salarial": [
         12, 
@@ -2922,7 +2899,7 @@
         4
       ], 
       "basico_unc": 1786.14, 
-      "horas": 35, 
+      "horas": 35.0, 
       "pampa": "216", 
       "garantia_salarial": [
         16, 
@@ -2954,7 +2931,7 @@
         4
       ], 
       "basico_unc": 4511.53, 
-      "horas": 25, 
+      "horas": 25.0, 
       "pampa": "233", 
       "garantia_salarial": [
         8, 
@@ -2986,7 +2963,7 @@
         4
       ], 
       "basico_unc": 3617.5, 
-      "horas": 25, 
+      "horas": 25.0, 
       "pampa": "217", 
       "garantia_salarial": [
         12, 
@@ -3018,7 +2995,7 @@
         4
       ], 
       "basico_unc": 6511.5, 
-      "horas": 45, 
+      "horas": 45.0, 
       "pampa": "306", 
       "garantia_salarial": [
         8, 
@@ -3050,7 +3027,7 @@
         4
       ], 
       "basico_unc": 5428.8, 
-      "horas": 45, 
+      "horas": 45.0, 
       "pampa": "304", 
       "garantia_salarial": [
         8, 
@@ -3082,7 +3059,7 @@
         4
       ], 
       "basico_unc": 3293.473, 
-      "horas": 27, 
+      "horas": 27.0, 
       "pampa": "305", 
       "garantia_salarial": [
         12, 
@@ -3114,7 +3091,7 @@
         4
       ], 
       "basico_unc": 8568.0, 
-      "horas": 45, 
+      "horas": 45.0, 
       "pampa": "302", 
       "garantia_salarial": [
         8, 
@@ -3146,7 +3123,7 @@
         4
       ], 
       "basico_unc": 2306.97, 
-      "horas": 35, 
+      "horas": 35.0, 
       "pampa": "210", 
       "garantia_salarial": [
         16, 
@@ -3178,7 +3155,7 @@
         4
       ], 
       "basico_unc": 5079.6, 
-      "horas": 25, 
+      "horas": 25.0, 
       "pampa": "201", 
       "garantia_salarial": [
         8, 
@@ -3210,7 +3187,7 @@
         4
       ], 
       "basico_unc": 2306.97, 
-      "horas": 25, 
+      "horas": 25.0, 
       "pampa": "225", 
       "garantia_salarial": [
         16, 
@@ -3650,7 +3627,7 @@
     "pk": 2, 
     "model": "salary_calculator_app.retencionporcentual", 
     "fields": {
-      "aplicacion": "T", 
+      "aplicacion": "U", 
       "nombre": "Jubilaci\u00f3n R\u00e9gimen Especial", 
       "codigo": "209", 
       "porcentaje": 11.0
@@ -3660,7 +3637,7 @@
     "pk": 3, 
     "model": "salary_calculator_app.retencionporcentual", 
     "fields": {
-      "aplicacion": "T", 
+      "aplicacion": "U", 
       "nombre": "Caja Complementaria de Jub.", 
       "codigo": "210", 
       "porcentaje": 4.5
@@ -3670,7 +3647,7 @@
     "pk": 4, 
     "model": "salary_calculator_app.retencionporcentual", 
     "fields": {
-      "aplicacion": "T", 
+      "aplicacion": "U", 
       "nombre": "Ley 19032 Obra Soc. Jub.", 
       "codigo": "220", 
       "porcentaje": 3.0
@@ -3680,7 +3657,7 @@
     "pk": 5, 
     "model": "salary_calculator_app.retencionporcentual", 
     "fields": {
-      "aplicacion": "T", 
+      "aplicacion": "U", 
       "nombre": "DASPU", 
       "codigo": "400", 
       "porcentaje": 3.0
@@ -3690,7 +3667,7 @@
     "pk": 6, 
     "model": "salary_calculator_app.retencionporcentual", 
     "fields": {
-      "aplicacion": "T", 
+      "aplicacion": "U", 
       "nombre": "ADIUC - Afiliaci\u00f3n", 
       "codigo": "640", 
       "porcentaje": 1.5
@@ -3700,7 +3677,7 @@
     "pk": 7, 
     "model": "salary_calculator_app.retencionporcentual", 
     "fields": {
-      "aplicacion": "T", 
+      "aplicacion": "U", 
       "nombre": "Fondo de Becas", 
       "codigo": "770", 
       "porcentaje": 3.8
@@ -3711,7 +3688,7 @@
     "model": "salary_calculator_app.remuneracionporcentual", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional T\u00edtulo Doctorado", 
+      "nombre": "Adicional por Doctorado", 
       "codigo": "51", 
       "porcentaje": 15.0
     }
@@ -3721,7 +3698,7 @@
     "model": "salary_calculator_app.remuneracionporcentual", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional T\u00edtulo Maestr\u00eda", 
+      "nombre": "Adicional por M\u00e1ster", 
       "codigo": "52", 
       "porcentaje": 5.0
     }
@@ -3744,6 +3721,416 @@
       "nombre": "Adic. T\u00edt. Maestr\u00eda Nivel Medio", 
       "codigo": "55", 
       "porcentaje": 5.0
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 81.08
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 23.62
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 7.57
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 76.41
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 22.47
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 7.18
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 66.23
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 21.0
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 6.4
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 58.03
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 19.52
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 5.73
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 52.23
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 18.49
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 5.27
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 4.81
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 3.85
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional 2003", 
+      "codigo": "118", 
+      "valor": 2.89
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 430.0
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 430.0
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 189.26
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 215.0
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 257.88
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 129.0
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 430.0
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 178.49
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 184.53
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 17.92
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 14.33
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 171.92
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 161.25
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 429.84
+    }
+  }, 
+  {
+    "pk": 35, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 343.84
+    }
+  }, 
+  {
+    "pk": 36, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 208.71
+    }
+  }, 
+  {
+    "pk": 37, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 215.0
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 161.25
+    }
+  }, 
+  {
+    "pk": 39, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 213.63
+    }
+  }, 
+  {
+    "pk": 40, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 14.33
+    }
+  }, 
+  {
+    "pk": 41, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "valor": 107.5
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional T\u00edtulo Doctorado", 
+      "codigo": "51", 
+      "valor": 15.0
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "aplicacion": "U", 
+      "nombre": "Adicional T\u00edtulo Maestr\u00eda", 
+      "codigo": "52", 
+      "valor": 5.0
     }
   }
 ]

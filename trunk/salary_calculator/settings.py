@@ -32,7 +32,7 @@ else:
 			'ENGINE': 'django.db.backends.mysql',			# Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
 			'NAME': 'mleec_consulta',											# Or path to database file if using sqlite3.
 			'USER': 'mleec_consulta',											# Not used with sqlite3.
-			'PASSWORD': 'f1bc6df1',									# Not used with sqlite3.
+			'PASSWORD': 'e044c865',									# Not used with sqlite3.
 			'HOST': '',											# Set to empty string for localhost. Not used with sqlite3.
 			'PORT': '',											# Set to empty string for default. Not used with sqlite3.
 		}

@@ -1280,7 +1280,9 @@
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        21
+      ], 
       "tipo": 16, 
       "basico_nac": 6092.64, 
       "tipo_horas": "C", 
@@ -1344,7 +1346,9 @@
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        25
+      ], 
       "tipo": 18, 
       "basico_nac": 3046.32, 
       "tipo_horas": "C", 
@@ -1376,7 +1380,9 @@
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        36
+      ], 
       "tipo": 51, 
       "basico_nac": 2856.0, 
       "tipo_horas": "R", 
@@ -1408,7 +1414,9 @@
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        33
+      ], 
       "tipo": 63, 
       "basico_nac": 2229.88, 
       "tipo_horas": "R", 
@@ -1472,7 +1480,9 @@
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        26
+      ], 
       "tipo": 20, 
       "basico_nac": 1988.915, 
       "tipo_horas": "R", 
@@ -1536,7 +1546,9 @@
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        41
+      ], 
       "tipo": 69, 
       "basico_nac": 1896.14, 
       "tipo_horas": "R", 
@@ -3072,7 +3084,9 @@
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        21
+      ], 
       "tipo": 52, 
       "basico_nac": 8568.0, 
       "tipo_horas": "R", 
@@ -3136,7 +3150,9 @@
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        21
+      ], 
       "tipo": 12, 
       "basico_nac": 5079.6, 
       "tipo_horas": "R", 
@@ -3905,16 +3921,6 @@
   }, 
   {
     "pk": 21, 
-    "model": "salary_calculator_app.remuneracionfija", 
-    "fields": {
-      "aplicacion": "P", 
-      "nombre": "FONID", 
-      "codigo": "122", 
-      "valor": 430.0
-    }
-  }, 
-  {
-    "pk": 22, 
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "P", 

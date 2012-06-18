@@ -51,6 +51,16 @@
                     {% endif %}
                     {% endfor %}
 
+                    {% for obj, importe in res.remuneraciones %}
+                    {% if obj.codigo == "122" %} <!-- Adicional 2003 8% -->
+						<tr>
+                            <td> {{ obj.codigo }} </td>
+                            <td> {{ obj.nombre }} {% if obj.porcentaje %}({{ obj.porcentaje }}%){% endif %} </td>
+                            <td class="adicionales">{{ importe|floatformat:-2 }} </td>
+                        </tr>
+                    {% endif %}
+                    {% endfor %}
+
                     <tr class="bold">
                         <td></td>
                         <td>Salario Bruto:</td>
@@ -58,7 +68,7 @@
                     </tr>
 
                     {% for obj, importe in res.remuneraciones %}
-                    {% if obj.codigo != "118" %}
+                    {% if obj.codigo != "118"  and obj.codigo != "122"%}
                      <tr>
                         <td> {{ obj.codigo }} </td>
                         <td> {{ obj.nombre }} {% if obj.porcentaje %}({{ obj.porcentaje }}%){% endif %} </td>
@@ -74,6 +84,7 @@
                         <td class="descuentos">-{{ importe|floatformat:-2 }}</td>
                     </tr>
                     {% endfor %}
+                    
                     <tr class="bold">
                         <td></td>
                         <td> Adicionales: </td>

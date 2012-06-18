@@ -232,7 +232,7 @@ def processPreUnivFormSet(aumento_obj, preunivformset):
     total_ret = 0.0
     total_bruto = 0.0
     total_neto = 0.0
-
+    
 
     for preunivform in preunivformset:
 
@@ -290,7 +290,7 @@ def processPreUnivFormSet(aumento_obj, preunivformset):
 
   
         ## Retenciones NO especiales:
-
+        
         for ret in ret_porcentuales:
             importe = salario_bruto * ret.porcentaje / 100.
             acum_ret = acum_ret + importe
@@ -305,12 +305,16 @@ def processPreUnivFormSet(aumento_obj, preunivformset):
             acum_rem = acum_rem + importe
             rem_list.append( (rem, importe) )
 
+        fonid = 0.0
         for rem in rem_fijas:
-            acum_rem = acum_rem + rem.valor
+            if rem.codigo == '122': #fonid
+                fonid = float(rem.valor)
+            else:
+                acum_rem = acum_rem + rem.valor
             rem_list.append( (rem, rem.valor) )
 
         ###### Salario Neto.
-        salario_neto = salario_bruto - acum_ret + acum_rem
+        salario_neto = salario_bruto - acum_ret + acum_rem + fonid
 
         ## Garantia salarial.
         if cargo_obj.garantia_salarial.filter(mes=aumento_obj.mes, anio=aumento_obj.anio).exists():
@@ -345,7 +349,7 @@ def processPreUnivFormSet(aumento_obj, preunivformset):
             'acum_ret': acum_ret,
             'acum_rem': acum_rem,
             'salario_bruto': salario_bruto,
-            'salario_neto': salario_neto
+            'salario_neto': salario_neto,
         }
         lista_res.append(form_res)
 

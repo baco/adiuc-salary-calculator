@@ -6,6 +6,12 @@ div.form_content {
     font-family: "Arial";
 }
 
+.univ_preuniv_form {
+    width: 900px;
+    height: auto;
+    margin: auto;
+}
+
 #form_mes {
     background-color: #004b6a;
     color: #FFFFFF;
@@ -17,6 +23,7 @@ div.form_cargo {
     background-color: #ededed;
     margin: 0px;
     height:auto;
+    /*min-height: 227px;*/
     font-family: "Arial";
 }
 
@@ -94,7 +101,7 @@ div.title {
 
 #univformset_content{
 	float:left;
-	width:450rpx;
+	width:450px;
 }
 
 #preunivformset_content{

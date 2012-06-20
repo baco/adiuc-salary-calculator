@@ -819,7 +819,9 @@
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        9
+      ], 
       "dedicacion": "D.E", 
       "tipo": 4, 
       "basico_nac": 5461.32, 
@@ -848,7 +850,9 @@
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        10
+      ], 
       "dedicacion": "D.S.E", 
       "tipo": 4, 
       "basico_nac": 2730.66, 
@@ -877,7 +881,9 @@
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        11
+      ], 
       "dedicacion": "D.S", 
       "tipo": 4, 
       "basico_nac": 1365.33, 
@@ -906,7 +912,9 @@
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        12
+      ], 
       "dedicacion": "D.E", 
       "tipo": 2, 
       "basico_nac": 4776.1, 
@@ -935,7 +943,9 @@
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        13
+      ], 
       "dedicacion": "D.S.E", 
       "tipo": 2, 
       "basico_nac": 2388.05, 
@@ -990,7 +1000,9 @@
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        6
+      ], 
       "dedicacion": "D.E", 
       "tipo": 3, 
       "basico_nac": 6146.54, 
@@ -1019,7 +1031,9 @@
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        10
+      ], 
       "dedicacion": "D.S.E", 
       "tipo": 3, 
       "basico_nac": 3073.27, 
@@ -1048,7 +1062,9 @@
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        8
+      ], 
       "dedicacion": "D.S", 
       "tipo": 3, 
       "basico_nac": 1536.63, 
@@ -1077,7 +1093,9 @@
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        18
+      ], 
       "dedicacion": "D.S", 
       "tipo": 6, 
       "basico_nac": 818.17, 
@@ -1106,7 +1124,9 @@
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        15
+      ], 
       "dedicacion": "D.E", 
       "tipo": 5, 
       "basico_nac": 4090.87, 
@@ -1135,7 +1155,9 @@
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        16
+      ], 
       "dedicacion": "D.S.E", 
       "tipo": 5, 
       "basico_nac": 2045.44, 
@@ -1164,7 +1186,9 @@
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        17
+      ], 
       "dedicacion": "D.S", 
       "tipo": 11, 
       "basico_nac": 1022.72, 
@@ -1193,7 +1217,9 @@
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        1
+      ], 
       "dedicacion": "D.E", 
       "tipo": 1, 
       "basico_nac": 6831.76, 
@@ -1222,7 +1248,9 @@
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        4
+      ], 
       "dedicacion": "D.S.E", 
       "tipo": 1, 
       "basico_nac": 3415.88, 
@@ -1251,7 +1279,9 @@
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
       "ret_fijas": [], 
-      "rem_fijas": [], 
+      "rem_fijas": [
+        5
+      ], 
       "dedicacion": "D.S", 
       "tipo": 1, 
       "basico_nac": 1707.94, 

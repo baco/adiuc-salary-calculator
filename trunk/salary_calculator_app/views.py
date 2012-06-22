@@ -41,7 +41,7 @@ def calculate(request):
         mform = MesForm(request.POST)
 
         if univformset.is_valid() and preunivformset.is_valid() and mform.is_valid():
-
+    
             aumento_obj = mform.cleaned_data['aumento']
 
             # Calculo para salarios de cargos universitarios.
@@ -80,6 +80,10 @@ def calculate(request):
 def processUnivFormSet(aumento_obj, univformset):
     """Procesa un formset con formularios de cargos universitarios. Retorna un context"""
 
+#NOTA: Sobre el cálculo, según las tablas:
+# importe = basico_sep11 + aumento2003 + acum (= basicoREFerencia*12% o 18%)
+# sueldo_bruto = importe*antiguedad%
+
     context = {}
 
     #guardo en esta lista un diccionario para cada formulario procesado
@@ -111,8 +115,7 @@ def processUnivFormSet(aumento_obj, univformset):
             adic2003_obj.valor = cargo_obj.adic2003 # 118: Adicional 8% 2003
         aumento = basico_nac * aumento_obj.porcentaje / 100.0
         ##
-        salario_bruto = basico_unc + aumento + adic2003_obj.valor
-
+        
         ###### El Neto se calcula del basico restando las retenciones y sumando las remuneraciones.
         ret_porcentuales = cargo_obj.ret_porcentuales.all()
         ret_fijas = cargo_obj.ret_fijas.all()
@@ -125,23 +128,18 @@ def processUnivFormSet(aumento_obj, univformset):
         acum_ret = 0.   # El acumulado de todo lo que hay que descontarle al bruto.
         acum_rem = 0. # El acumulado de todo lo que hay que sumarle.
 
-        ## Remuneraciones Especiales:
-
-        # 1: Adicional 8% 2003 (cod 118).
+        #Adicional 8% 2003 (cod 118).
         rem_list.append( (adic2003_obj, adic2003_obj.valor) )
         rem_fijas = rem_fijas.exclude(codigo=adic2003_code)
 
-        # 2: Adicional Antiguedad (cod 30).
-        importe = salario_bruto * antiguedad_obj.porcentaje / 100.0
-        acum_rem += importe
-        rem_obj = RemuneracionPorcentual(nombre=antiguedad_name, codigo=antiguedad_code)
-        if rem_porcentuales.filter(codigo=antiguedad_code).exists():
-            rem_obj = rem_porcentuales.get(codigo=antiguedad_code)
-        rem_obj.nombre = rem_obj.nombre + u' (' + unicode(antiguedad_obj.porcentaje) + u'%)'
-        rem_list.append( (rem_obj, importe) )
-        rem_porcentuales = rem_porcentuales.exclude(codigo=antiguedad_code)
 
-        # 3: Adicional titulo doctorado (cod 51), Adicional titulo maestria (cod 52)
+        # Antiguedad
+        importe = basico_unc + adic2003_obj.valor + aumento
+
+        antiguedad_importe = importe * antiguedad_obj.porcentaje / 100.0
+        salario_bruto = importe + antiguedad_importe
+
+        #Adicional titulo doctorado (cod 51), Adicional titulo maestria (cod 52)
         if has_doctorado:
             rem_porcentuales = rem_porcentuales.exclude(codigo=master_code)
         elif has_master:
@@ -149,7 +147,7 @@ def processUnivFormSet(aumento_obj, univformset):
         else:
             rem_porcentuales = rem_porcentuales.exclude(codigo=doc_code)
             rem_porcentuales = rem_porcentuales.exclude(codigo=master_code)
-
+  
   
         ## Retenciones NO especiales:
 
@@ -204,7 +202,9 @@ def processUnivFormSet(aumento_obj, univformset):
             'acum_ret': acum_ret,
             'acum_rem': acum_rem,
             'salario_bruto': salario_bruto,
-            'salario_neto': salario_neto
+            'salario_neto': salario_neto,
+            'antiguedad': antiguedad_obj,
+            'antiguedad_importe':antiguedad_importe
         }
         lista_res.append(form_res)
 

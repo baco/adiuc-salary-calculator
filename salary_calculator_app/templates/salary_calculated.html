@@ -38,9 +38,15 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td> Aum. {{ aumento.get_mes_display }} {{ aumento.get_anio_display }} ({{ aumento.porcentaje }}% sobre {{ res.basico_nac }})</td>
+                        <td> Antiguedad ({{res.antiguedad.anio}} años - {{ res.antiguedad.porcentaje }}%)</td>
+                        <td>{{ res.antiguedad_importe|floatformat:-2 }} </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td> {{ aumento.get_mes_display }} {{ aumento.get_anio_display }} ({{ aumento.porcentaje }}% sobre {{ res.basico_nac }})</td>
                         <td class="adicionales">{{ res.aumento|floatformat:-2 }} </td>
                     </tr>
+                    
                     {% for obj, importe in res.remuneraciones %}
                     {% if obj.codigo == "118" %} <!-- Adicional 2003 8% -->
 						<tr>
@@ -52,7 +58,7 @@
                     {% endfor %}
 
                     {% for obj, importe in res.remuneraciones %}
-                    {% if obj.codigo == "122" %} <!-- Adicional 2003 8% -->
+                    {% if obj.codigo == "122" %} <!-- FONID  -->
 						<tr>
                             <td> {{ obj.codigo }} </td>
                             <td> {{ obj.nombre }} {% if obj.porcentaje %}({{ obj.porcentaje }}%){% endif %} </td>

@@ -19,7 +19,10 @@
             {{ univformset.management_form }}
             {{ preunivformset.management_form }}
 
-            <div id="form_mes"> {{ mform.aumento}} </div>
+
+            <div id="form_mes"> Mes: {{ mform.aumento}} </div>
+
+            <div id="form_mes"> A&ntilde;os de antiguedad: {{ antform.antiguedad }} </div>
 
 			<div id="forms_table"> <!-- div principal, contiene los formularios -->
 				<div id="univformset_content" class="form_content">
@@ -41,13 +44,7 @@
 						    {% if univform.cargo.errors %}
                             <tr class="error"> <td colspan="2"> {{ univform.cargo.errors }} </td></tr>
                             {% endif %}
-						    <tr>
-							    <td> {{ univform.antiguedad.label_tag }}:</td>
-							    <td> {{ univform.antiguedad }} </td>
-						    </tr>
-						    {% if univform.antiguedad.errors %}
-                            <tr class="error"> <td colspan="2"> {{ univform.antiguedad.errors }} </td></tr>
-                            {% endif %}
+						    
 						    <tr>
 							    <td>T&iacute;tulos adicionales:</td>
 						    </tr>
@@ -142,21 +139,6 @@
 	                            {% endfor %}
 	                        </td></tr>
                         {% endif %}
-
-						<tr>
-							<td> {{ preunivform.antiguedad.label_tag }}:</td>
-							<td> {{ preunivform.antiguedad }} </td>
-						</tr>
-
-					    {% if preunivform.antiguedad.errors %}			        
-	                    <tr class="error">
-	                        <td colspan="2" > 
-    	                        {% for error in preunivform.antiguedad.errors %}
-	                                ^ {{ error }} 
-	                            {% endfor %}
-	                        </td></tr>
-                        {% endif %}
-
 				    	<tr>
 						    <td>T&iacute;tulos adicionales:</td>
 				    	</tr>

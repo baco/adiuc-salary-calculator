@@ -10,6 +10,9 @@ class MesForm(forms.Form):
 	aumento = forms.ModelChoiceField(label=u'aumento', queryset=Aumento.objects.all(),empty_label=None,
 		help_text=u'Seleccione el mes sobre el cual calcular el salario.')
 
+class AntiguedadForm(forms.Form):
+    antiguedad = forms.ModelChoiceField(label=u'Años de Antigüedad', queryset=AntiguedadUniv.objects.all(), empty_label=None,
+        help_text=u'Ingrese su antigüedad para el cargo.')
 
 class CargoUnivForm(forms.Form):
     """Formulario de calculo de salario docente para docentes universitarios."""

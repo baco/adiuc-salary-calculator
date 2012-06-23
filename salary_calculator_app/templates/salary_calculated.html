@@ -38,15 +38,14 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td> Antiguedad ({{antiguedad.anio}} años - {{ antiguedad.porcentaje }}%)</td>
-                        <td>{{ res.antiguedad_importe|floatformat:-2 }} </td>
-                    </tr>
-                    <tr>
-                        <td></td>
                         <td> {{ aumento.get_mes_display }} {{ aumento.get_anio_display }} ({{ aumento.porcentaje }}% sobre {{ res.basico_nac }})</td>
                         <td class="adicionales">{{ res.aumento|floatformat:-2 }} </td>
                     </tr>
-                    
+                    <tr>
+                        <td></td>
+                        <td> Antiguedad ({{antiguedad.anio}} años - {{ antiguedad.porcentaje }}%)</td>
+                        <td>{{ res.antiguedad_importe|floatformat:-2 }} </td>
+                    </tr>
                     {% for obj, importe in res.remuneraciones %}
                     {% if obj.codigo == "118" %} <!-- Adicional 2003 8% -->
 						<tr>

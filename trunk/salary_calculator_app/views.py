@@ -261,7 +261,9 @@ def processPreUnivFormSet(aumento_obj, preunivformset, antiguedad_obj):
         aumento = basico_nac * aumento_obj.porcentaje / 100.0
         ##
         salario_bruto = basico_unc + aumento
-
+        antiguedad_importe = salario_bruto * antiguedad_obj.porcentaje / 100.0
+        salario_bruto = salario_bruto + antiguedad_importe
+        
         ###### El Neto se calcula del basico restando las retenciones y sumando las remuneraciones.
         ret_porcentuales = cargo_obj.ret_porcentuales.all()
         ret_fijas = cargo_obj.ret_fijas.all()
@@ -273,20 +275,11 @@ def processPreUnivFormSet(aumento_obj, preunivformset, antiguedad_obj):
 
         acum_ret = 0.   # El acumulado de todo lo que hay que descontarle al bruto.
         acum_rem = 0. # El acumulado de todo lo que hay que sumarle.
+        
+        
+        ## Remuneraciones Especiales:        
 
-        ## Remuneraciones Especiales:
-
-        # 1: Adicional Antiguedad (cod 30).
-        importe = salario_bruto * antiguedad_obj.porcentaje / 100.0
-        acum_rem = acum_rem + importe
-        rem_obj = RemuneracionPorcentual(nombre=antiguedad_name, codigo=antiguedad_code)
-        if rem_porcentuales.filter(codigo=antiguedad_code).exists():
-            rem_obj = rem_porcentuales.get(codigo=antiguedad_code)
-        rem_obj.nombre = rem_obj.nombre + u' (' + unicode(antiguedad_obj.porcentaje) + u'%)'
-        rem_list.append( (rem_obj, importe) )
-        rem_porcentuales = rem_porcentuales.exclude(codigo=antiguedad_code)
-
-        # 2: Adicional titulo doctorado nivel medio (cod 53), Adicional titulo maestria nivel medio (cod 55)
+        # Adicional titulo doctorado nivel medio (cod 53), Adicional titulo maestria nivel medio (cod 55)
         if has_doctorado:
             rem_porcentuales = rem_porcentuales.exclude(codigo=master_preuniv_code)
         elif has_master:
@@ -357,6 +350,7 @@ def processPreUnivFormSet(aumento_obj, preunivformset, antiguedad_obj):
             'acum_rem': acum_rem,
             'salario_bruto': salario_bruto,
             'salario_neto': salario_neto,
+            'antiguedad_importe': antiguedad_importe
         }
         lista_res.append(form_res)
 

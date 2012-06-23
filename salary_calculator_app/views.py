@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.forms.formsets import formset_factory
 
-from forms import CargoUnivForm, MesForm, CargoPreUnivForm
+from forms import *
 from models import *
 
 #debugger
@@ -39,14 +39,16 @@ def calculate(request):
         univformset = CargoUnivFormSet(request.POST, prefix='univcargo')
         preunivformset = CargoPreUnivFormSet(request.POST, prefix='preunivcargo')
         mform = MesForm(request.POST)
-
-        if univformset.is_valid() and preunivformset.is_valid() and mform.is_valid():
+        antform = AntiguedadForm(request.POST)
+        
+        if univformset.is_valid() and preunivformset.is_valid() and mform.is_valid() and antform.is_valid():
     
             aumento_obj = mform.cleaned_data['aumento']
-
+            antiguedad_obj = antform.cleaned_data['antiguedad']
+            
             # Calculo para salarios de cargos universitarios.
-            context_univ = processUnivFormSet(aumento_obj, univformset)
-            context_preuniv = processPreUnivFormSet(aumento_obj, preunivformset)
+            context_univ = processUnivFormSet(aumento_obj, univformset, antiguedad_obj)
+            context_preuniv = processPreUnivFormSet(aumento_obj, preunivformset, antiguedad_obj)
 
             # Hago el merge de los dos contexts.
             context['total_rem'] = context_univ['total_rem'] + context_preuniv['total_rem']
@@ -56,13 +58,15 @@ def calculate(request):
             context['lista_res'] = context_univ['lista_res']
             context['lista_res'].extend(context_preuniv['lista_res'])
             context['aumento'] = aumento_obj
-
+            context['antiguedad'] = antiguedad_obj
+            
             return render_to_response('salary_calculated.html', context)
 
         else:
             context['univformset'] = univformset
             context['preunivformset'] = preunivformset
             context['mform'] = mform
+            context['antform'] = antform
 
     else:
 
@@ -70,14 +74,16 @@ def calculate(request):
         univformset = CargoUnivFormSet(prefix='univcargo')
         preunivformset = CargoPreUnivFormSet(prefix='preunivcargo')
         mform = MesForm()
+        antform = AntiguedadForm()
         context['univformset'] = univformset
         context['preunivformset'] = preunivformset
         context['mform'] = mform
-
+        context['antform'] = antform
+        
     return render_to_response('calculate.html', context)
 
 
-def processUnivFormSet(aumento_obj, univformset):
+def processUnivFormSet(aumento_obj, univformset, antiguedad_obj):
     """Procesa un formset con formularios de cargos universitarios. Retorna un context"""
 
 #NOTA: Sobre el cálculo, según las tablas:
@@ -105,16 +111,17 @@ def processUnivFormSet(aumento_obj, univformset):
         cargo_obj = univform.cleaned_data['cargo']
         has_doctorado = univform.cleaned_data['doctorado']
         has_master = univform.cleaned_data['master']
-        antiguedad_obj = univform.cleaned_data['antiguedad']
 
         ###### Salario Bruto.
         basico_unc = cargo_obj.basico_unc
         basico_nac = cargo_obj.basico_nac
-        adic2003_obj = RemuneracionFija(nombre=adic2003_name, codigo=adic2003_code, valor=0.)
+        adic2003_obj = RemuneracionFija(nombre=adic2003_name, codigo=adic2003_code, valor=0.0)
+        ##
+        
         if cargo_obj.adic2003:
             adic2003_obj.valor = cargo_obj.adic2003 # 118: Adicional 8% 2003
+
         aumento = basico_nac * aumento_obj.porcentaje / 100.0
-        ##
         
         ###### El Neto se calcula del basico restando las retenciones y sumando las remuneraciones.
         ret_porcentuales = cargo_obj.ret_porcentuales.all()
@@ -128,6 +135,7 @@ def processUnivFormSet(aumento_obj, univformset):
         acum_ret = 0.   # El acumulado de todo lo que hay que descontarle al bruto.
         acum_rem = 0. # El acumulado de todo lo que hay que sumarle.
 
+
         #Adicional 8% 2003 (cod 118).
         rem_list.append( (adic2003_obj, adic2003_obj.valor) )
         rem_fijas = rem_fijas.exclude(codigo=adic2003_code)
@@ -137,6 +145,7 @@ def processUnivFormSet(aumento_obj, univformset):
         importe = basico_unc + adic2003_obj.valor + aumento
 
         antiguedad_importe = importe * antiguedad_obj.porcentaje / 100.0
+        
         salario_bruto = importe + antiguedad_importe
 
         #Adicional titulo doctorado (cod 51), Adicional titulo maestria (cod 52)
@@ -203,11 +212,10 @@ def processUnivFormSet(aumento_obj, univformset):
             'acum_rem': acum_rem,
             'salario_bruto': salario_bruto,
             'salario_neto': salario_neto,
-            'antiguedad': antiguedad_obj,
             'antiguedad_importe':antiguedad_importe
         }
         lista_res.append(form_res)
-
+        
     context['total_rem'] = total_rem
     context['total_ret'] = total_ret
     context['total_bruto'] = total_bruto
@@ -217,7 +225,7 @@ def processUnivFormSet(aumento_obj, univformset):
     return context
 
 
-def processPreUnivFormSet(aumento_obj, preunivformset):
+def processPreUnivFormSet(aumento_obj, preunivformset, antiguedad_obj):
     """Procesa un formset con formularios de cargos preuniversitarios. 
     Retorna un context."""
 
@@ -242,7 +250,6 @@ def processPreUnivFormSet(aumento_obj, preunivformset):
         cargo_obj = preunivform.cleaned_data['cargo']
         has_doctorado = preunivform.cleaned_data['doctorado']
         has_master = preunivform.cleaned_data['master']
-        antiguedad_obj = preunivform.cleaned_data['antiguedad']
         horas = preunivform.cleaned_data['horas']
 
         ###### Salario Bruto.

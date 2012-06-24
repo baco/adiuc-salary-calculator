@@ -149,7 +149,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-	'salary_calculator_app',
+     'django.contrib.humanize',
+    'salary_calculator_app',
 	'django.contrib.staticfiles'
 )
 

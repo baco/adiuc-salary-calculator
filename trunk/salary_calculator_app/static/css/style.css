@@ -1,5 +1,5 @@
 div.form_content {
-	width:420px;
+	width:450px;
     margin: 0px;
     background-color: #cdd9de;
     padding:0px;
@@ -28,11 +28,17 @@ div.form_cargo {
     height: auto;
     margin: 0px;
     font-family: "Arial";
+    /*min-height: 170px;*/
+    /*height: 170px;*/
 }
 
 a.agregar_quitar {
     color: #000000;
     font-size: small;
+}
+
+p.padding_fix {
+    padding-top: 4px;
 }
 
 #submit {
@@ -52,7 +58,7 @@ a.agregar_quitar {
     text-align: right;  
 }
 div.totales{
-    background-color: #224d8c;
+    background-color: #004B6A;
     text-align: left;
     font-family: "Arial";
     color: white;
@@ -63,6 +69,7 @@ div.totales{
 #table_totales {
     width:550px;
 }
+
 table.result {
     margin:0px;
     padding:0px;
@@ -104,13 +111,10 @@ div.title {
 
 #univformset_content{
 	float:left;
-	width:450px;
 }
 
 #preunivformset_content{
 	float:right;
-	width:450px;
-	height:auto;
 }
 
 div.results_cargo {

@@ -52,7 +52,8 @@ class Cargo(models.Model):
         ordering = ['tipo']
 
     def __unicode__(self):
-        return self.lu + " - " + unicode(self.tipo)
+        #return self.lu + " - " + unicode(self.tipo)
+        return unicode(self.tipo)
 
 
 class TipoCargo(models.Model):

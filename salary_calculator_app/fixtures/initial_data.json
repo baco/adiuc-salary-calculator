@@ -818,7 +818,9 @@
     "pk": 7, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         9
       ], 
@@ -835,8 +837,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "7", 
       "basico_unc": 5474.84, 
@@ -849,7 +850,9 @@
     "pk": 8, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         10
       ], 
@@ -866,8 +869,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "20", 
       "basico_unc": 2734.95, 
@@ -880,7 +882,9 @@
     "pk": 9, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         11
       ], 
@@ -897,8 +901,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "31", 
       "basico_unc": 1366.62, 
@@ -911,7 +914,9 @@
     "pk": 10, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         12
       ], 
@@ -928,8 +933,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "9", 
       "basico_unc": 4786.34, 
@@ -942,7 +946,9 @@
     "pk": 11, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         13
       ], 
@@ -956,8 +962,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "26", 
       "basico_unc": 2392.05, 
@@ -970,7 +975,9 @@
     "pk": 12, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "dedicacion": "D.S", 
       "tipo": 2, 
@@ -985,8 +992,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "32", 
       "basico_unc": 1195.18, 
@@ -999,7 +1005,9 @@
     "pk": 4, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         6
       ], 
@@ -1016,8 +1024,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "6", 
       "basico_unc": 6162.16, 
@@ -1030,7 +1037,9 @@
     "pk": 5, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         10
       ], 
@@ -1047,8 +1056,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "8", 
       "basico_unc": 3077.92, 
@@ -1061,7 +1069,9 @@
     "pk": 6, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         8
       ], 
@@ -1078,8 +1088,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "54", 
       "basico_unc": 1538.07, 
@@ -1092,7 +1101,9 @@
     "pk": 15, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         18
       ], 
@@ -1109,8 +1120,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "36", 
       "basico_unc": 819.12, 
@@ -1123,7 +1133,9 @@
     "pk": 13, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         15
       ], 
@@ -1140,8 +1152,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "14", 
       "basico_unc": 4101.53, 
@@ -1154,7 +1165,9 @@
     "pk": 14, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         16
       ], 
@@ -1171,8 +1184,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "28", 
       "basico_unc": 2049.21, 
@@ -1185,7 +1197,9 @@
     "pk": 16, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         17
       ], 
@@ -1202,8 +1216,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "34", 
       "basico_unc": 1023.8, 
@@ -1216,7 +1229,9 @@
     "pk": 1, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         1
       ], 
@@ -1233,8 +1248,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "5", 
       "basico_unc": 6848.33, 
@@ -1247,7 +1261,9 @@
     "pk": 2, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         4
       ], 
@@ -1264,8 +1280,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "13", 
       "basico_unc": 3420.72, 
@@ -1278,7 +1293,9 @@
     "pk": 3, 
     "model": "salary_calculator_app.cargouniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         5
       ], 
@@ -1295,8 +1312,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "27", 
       "basico_unc": 1709.47, 
@@ -1309,7 +1325,9 @@
     "pk": 5, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         21
       ], 
@@ -1322,8 +1340,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "10", 
       "rem_porcentuales": [
@@ -1343,7 +1360,9 @@
     "pk": 50, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 16, 
       "basico_nac": 1592.44, 
@@ -1354,8 +1373,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "90", 
       "rem_porcentuales": [
@@ -1375,7 +1393,9 @@
     "pk": 7, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         25
       ], 
@@ -1388,8 +1408,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "12", 
       "rem_porcentuales": [
@@ -1409,7 +1428,9 @@
     "pk": 41, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         36
       ], 
@@ -1422,8 +1443,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "80", 
       "rem_porcentuales": [
@@ -1443,7 +1463,9 @@
     "pk": 54, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         33
       ], 
@@ -1456,8 +1478,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "94", 
       "rem_porcentuales": [
@@ -1477,7 +1498,9 @@
     "pk": 53, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 62, 
       "basico_nac": 2196.98, 
@@ -1488,8 +1511,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "93", 
       "rem_porcentuales": [
@@ -1509,7 +1531,9 @@
     "pk": 9, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         26
       ], 
@@ -1522,8 +1546,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "16", 
       "rem_porcentuales": [
@@ -1543,7 +1566,9 @@
     "pk": 12, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 23, 
       "basico_nac": 1749.7, 
@@ -1554,8 +1579,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "19", 
       "rem_porcentuales": [
@@ -1575,7 +1599,9 @@
     "pk": 60, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         41
       ], 
@@ -1588,8 +1614,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "99", 
       "rem_porcentuales": [
@@ -1609,7 +1634,9 @@
     "pk": 25, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 35, 
       "basico_nac": 1749.7, 
@@ -1620,8 +1647,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "40", 
       "rem_porcentuales": [
@@ -1641,7 +1667,9 @@
     "pk": 20, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 31, 
       "basico_nac": 2430.973, 
@@ -1652,8 +1680,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "33", 
       "rem_porcentuales": [
@@ -1673,7 +1700,9 @@
     "pk": 27, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 37, 
       "basico_nac": 2446.415, 
@@ -1684,8 +1713,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "42", 
       "rem_porcentuales": [
@@ -1705,7 +1733,9 @@
     "pk": 55, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 64, 
       "basico_nac": 2230.525, 
@@ -1716,8 +1746,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "95", 
       "rem_porcentuales": [
@@ -1737,7 +1766,9 @@
     "pk": 8, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 19, 
       "basico_nac": 2445.48, 
@@ -1748,8 +1779,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "15", 
       "rem_porcentuales": [
@@ -1769,7 +1799,9 @@
     "pk": 13, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 24, 
       "basico_nac": 1994.97, 
@@ -1780,8 +1812,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "21", 
       "rem_porcentuales": [
@@ -1801,7 +1832,9 @@
     "pk": 49, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 59, 
       "basico_nac": 2264.08, 
@@ -1812,8 +1845,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "89", 
       "rem_porcentuales": [
@@ -1833,7 +1865,9 @@
     "pk": 58, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 67, 
       "basico_nac": 169.24, 
@@ -1844,8 +1878,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "98", 
       "rem_porcentuales": [
@@ -1865,7 +1898,9 @@
     "pk": 59, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 68, 
       "basico_nac": 2030.88, 
@@ -1876,8 +1911,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "98", 
       "rem_porcentuales": [
@@ -1897,7 +1931,9 @@
     "pk": 30, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 40, 
       "basico_nac": 169.24, 
@@ -1908,8 +1944,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "45", 
       "rem_porcentuales": [
@@ -1929,7 +1964,9 @@
     "pk": 29, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 39, 
       "basico_nac": 211.55, 
@@ -1940,8 +1977,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "44", 
       "rem_porcentuales": [
@@ -1961,7 +1997,9 @@
     "pk": 31, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 41, 
       "basico_nac": 2030.88, 
@@ -1972,8 +2010,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "46", 
       "rem_porcentuales": [
@@ -1993,7 +2030,9 @@
     "pk": 37, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 47, 
       "basico_nac": 2220.15, 
@@ -2004,8 +2043,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "55", 
       "rem_porcentuales": [
@@ -2025,7 +2063,9 @@
     "pk": 47, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 57, 
       "basico_nac": 2309.525, 
@@ -2036,8 +2076,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "87", 
       "rem_porcentuales": [
@@ -2057,7 +2096,9 @@
     "pk": 34, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 44, 
       "basico_nac": 3618.6, 
@@ -2068,8 +2109,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "51", 
       "rem_porcentuales": [
@@ -2089,7 +2129,9 @@
     "pk": 48, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 58, 
       "basico_nac": 2329.0, 
@@ -2100,8 +2142,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "88", 
       "rem_porcentuales": [
@@ -2121,7 +2162,9 @@
     "pk": 3, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 14, 
       "basico_nac": 4442.5, 
@@ -2132,8 +2175,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "3", 
       "rem_porcentuales": [
@@ -2153,7 +2195,9 @@
     "pk": 6, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 17, 
       "basico_nac": 3427.0, 
@@ -2164,8 +2208,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "11", 
       "rem_porcentuales": [
@@ -2185,7 +2228,9 @@
     "pk": 52, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 61, 
       "basico_nac": 2993.99, 
@@ -2196,8 +2241,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "92", 
       "rem_porcentuales": [
@@ -2217,7 +2261,9 @@
     "pk": 51, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 60, 
       "basico_nac": 4935.15, 
@@ -2228,8 +2274,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "91", 
       "rem_porcentuales": [
@@ -2249,7 +2294,9 @@
     "pk": 24, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 34, 
       "basico_nac": 2741.75, 
@@ -2260,8 +2307,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "39", 
       "rem_porcentuales": [
@@ -2281,7 +2327,9 @@
     "pk": 23, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 33, 
       "basico_nac": 1497.01, 
@@ -2292,8 +2340,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "38", 
       "rem_porcentuales": [
@@ -2313,7 +2360,9 @@
     "pk": 57, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 66, 
       "basico_nac": 2572.45, 
@@ -2324,8 +2373,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "97", 
       "rem_porcentuales": [
@@ -2345,7 +2393,9 @@
     "pk": 56, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 65, 
       "basico_nac": 4589.17, 
@@ -2356,8 +2406,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "96", 
       "rem_porcentuales": [
@@ -2377,7 +2426,9 @@
     "pk": 28, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 38, 
       "basico_nac": 2549.53, 
@@ -2388,8 +2439,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "43", 
       "rem_porcentuales": [
@@ -2409,7 +2459,9 @@
     "pk": 22, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 32, 
       "basico_nac": 1621.95, 
@@ -2420,8 +2472,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "37", 
       "rem_porcentuales": [
@@ -2441,7 +2492,9 @@
     "pk": 19, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 30, 
       "basico_nac": 1769.2, 
@@ -2452,8 +2505,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "30", 
       "rem_porcentuales": [
@@ -2473,7 +2525,9 @@
     "pk": 21, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 30, 
       "basico_nac": 1769.2, 
@@ -2484,8 +2538,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "35", 
       "rem_porcentuales": [
@@ -2505,7 +2558,9 @@
     "pk": 38, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 48, 
       "basico_nac": 5077.2, 
@@ -2516,8 +2571,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "57", 
       "rem_porcentuales": [
@@ -2537,7 +2591,9 @@
     "pk": 39, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 49, 
       "basico_nac": 4061.76, 
@@ -2548,8 +2604,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "58", 
       "rem_porcentuales": [
@@ -2569,7 +2624,9 @@
     "pk": 40, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 50, 
       "basico_nac": 3046.32, 
@@ -2580,8 +2637,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "59", 
       "rem_porcentuales": [
@@ -2601,7 +2657,9 @@
     "pk": 33, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 43, 
       "basico_nac": 2092.085, 
@@ -2612,8 +2670,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "50", 
       "rem_porcentuales": [
@@ -2633,7 +2690,9 @@
     "pk": 4, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 15, 
       "basico_nac": 6092.64, 
@@ -2644,8 +2703,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "4", 
       "rem_porcentuales": [
@@ -2665,7 +2723,9 @@
     "pk": 14, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 25, 
       "basico_nac": 3300.25, 
@@ -2676,8 +2736,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "22", 
       "rem_porcentuales": [
@@ -2697,7 +2756,9 @@
     "pk": 36, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 46, 
       "basico_nac": 1786.135, 
@@ -2708,8 +2769,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "53", 
       "rem_porcentuales": [
@@ -2729,7 +2789,9 @@
     "pk": 32, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 42, 
       "basico_nac": 2198.41, 
@@ -2740,8 +2802,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "49", 
       "rem_porcentuales": [
@@ -2761,7 +2822,9 @@
     "pk": 11, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 22, 
       "basico_nac": 5394.5, 
@@ -2772,8 +2835,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "18", 
       "rem_porcentuales": [
@@ -2793,7 +2855,9 @@
     "pk": 2, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 13, 
       "basico_nac": 4830.76, 
@@ -2804,8 +2868,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "2", 
       "rem_porcentuales": [
@@ -2825,7 +2888,9 @@
     "pk": 43, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 53, 
       "basico_nac": 3039.92, 
@@ -2836,8 +2901,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "83", 
       "rem_porcentuales": [
@@ -2857,7 +2921,9 @@
     "pk": 16, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 27, 
       "basico_nac": 2219.31, 
@@ -2868,8 +2934,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "24", 
       "rem_porcentuales": [
@@ -2889,7 +2954,9 @@
     "pk": 15, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 26, 
       "basico_nac": 3290.75, 
@@ -2900,8 +2967,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "23", 
       "rem_porcentuales": [
@@ -2921,7 +2987,9 @@
     "pk": 17, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 28, 
       "basico_nac": 1786.14, 
@@ -2932,8 +3000,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "25", 
       "rem_porcentuales": [
@@ -2953,7 +3020,9 @@
     "pk": 35, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 45, 
       "basico_nac": 4511.53, 
@@ -2964,8 +3033,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "52", 
       "rem_porcentuales": [
@@ -2985,7 +3053,9 @@
     "pk": 18, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 29, 
       "basico_nac": 3617.5, 
@@ -2996,8 +3066,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "29", 
       "rem_porcentuales": [
@@ -3017,7 +3086,9 @@
     "pk": 46, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 56, 
       "basico_nac": 6511.5, 
@@ -3028,8 +3099,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "86", 
       "rem_porcentuales": [
@@ -3049,7 +3119,9 @@
     "pk": 44, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 54, 
       "basico_nac": 5428.8, 
@@ -3060,8 +3132,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "84", 
       "rem_porcentuales": [
@@ -3081,7 +3152,9 @@
     "pk": 45, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 55, 
       "basico_nac": 3293.473, 
@@ -3092,8 +3165,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "85", 
       "rem_porcentuales": [
@@ -3113,7 +3185,9 @@
     "pk": 42, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         21
       ], 
@@ -3126,8 +3200,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "82", 
       "rem_porcentuales": [
@@ -3147,7 +3220,9 @@
     "pk": 10, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 21, 
       "basico_nac": 2306.97, 
@@ -3158,8 +3233,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "17", 
       "rem_porcentuales": [
@@ -3179,7 +3253,9 @@
     "pk": 1, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [
         21
       ], 
@@ -3192,8 +3268,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "1", 
       "rem_porcentuales": [
@@ -3213,7 +3288,9 @@
     "pk": 26, 
     "model": "salary_calculator_app.cargopreuniv", 
     "fields": {
-      "ret_fijas": [], 
+      "ret_fijas": [
+        1
+      ], 
       "rem_fijas": [], 
       "tipo": 36, 
       "basico_nac": 2306.97, 
@@ -3224,8 +3301,7 @@
         3, 
         4, 
         5, 
-        6, 
-        7
+        6
       ], 
       "lu": "41", 
       "rem_porcentuales": [
@@ -3720,13 +3796,13 @@
     }
   }, 
   {
-    "pk": 7, 
-    "model": "salary_calculator_app.retencionporcentual", 
+    "pk": 1, 
+    "model": "salary_calculator_app.retencionfija", 
     "fields": {
-      "aplicacion": "U", 
+      "aplicacion": "T", 
       "nombre": "Fondo de Becas", 
       "codigo": "770", 
-      "porcentaje": 3.8
+      "valor": 3.8
     }
   }, 
   {
@@ -3774,7 +3850,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 81.08
     }
@@ -3784,7 +3860,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 23.62
     }
@@ -3794,7 +3870,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 7.57
     }
@@ -3804,7 +3880,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 76.41
     }
@@ -3814,7 +3890,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 22.47
     }
@@ -3824,7 +3900,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 7.18
     }
@@ -3834,7 +3910,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 66.23
     }
@@ -3844,7 +3920,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 21.0
     }
@@ -3854,7 +3930,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 6.4
     }
@@ -3864,7 +3940,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 58.03
     }
@@ -3874,7 +3950,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 19.52
     }
@@ -3884,7 +3960,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 5.73
     }
@@ -3894,7 +3970,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 52.23
     }
@@ -3904,7 +3980,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 18.49
     }
@@ -3914,7 +3990,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 5.27
     }
@@ -3924,7 +4000,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 4.81
     }
@@ -3934,7 +4010,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 3.85
     }
@@ -3944,7 +4020,7 @@
     "model": "salary_calculator_app.remuneracionfija", 
     "fields": {
       "aplicacion": "U", 
-      "nombre": "Adicional 2003", 
+      "nombre": "Adic. 8% RHCS 153/03", 
       "codigo": "118", 
       "valor": 2.89
     }

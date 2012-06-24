@@ -12,18 +12,21 @@ div.form_content {
     margin: auto;
 }
 
-#form_mes {
+div.form_mes {
     background-color: #004b6a;
     color: #FFFFFF;
-    text-align: center;
+    text-align: left;
     font-family: "Arial";
+}
+
+table.form_mes {
+    margin: auto;
 }
 
 div.form_cargo {
     background-color: #ededed;
+    height: auto;
     margin: 0px;
-    height:auto;
-    /*min-height: 227px;*/
     font-family: "Arial";
 }
 
@@ -52,6 +55,7 @@ div.totales{
     background-color: #224d8c;
     text-align: left;
     font-family: "Arial";
+    color: white;
     width:550px;
     font-family: "Arial";
 }
@@ -98,7 +102,6 @@ div.title {
     padding:0px;
 }
 
-
 #univformset_content{
 	float:left;
 	width:450px;
@@ -125,9 +128,9 @@ hr{
 }
 
 tr.error{
-	    background-color: #E00000 ;
-	    color: yellow;
-	    font-size:small;
-	    padding: 0px;
-	    margin: 0px;
+    background-color: #E00000 ;
+    color: yellow;
+    font-size:small;
+    padding: 0px;
+    margin: 0px;
 }

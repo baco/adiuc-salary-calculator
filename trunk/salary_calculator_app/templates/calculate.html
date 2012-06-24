@@ -20,9 +20,28 @@
             {{ preunivformset.management_form }}
 
 
-            <div id="form_mes"> Mes: {{ mform.aumento}} </div>
-
-            <div id="form_mes"> A&ntilde;os de antiguedad: {{ antform.antiguedad }} </div>
+            <div class="form_mes">
+                <table class="form_mes">
+                    <tr>
+                        <td> {{ commonform.aumento.label_tag }}: </td>
+                        <td> {{ commonform.aumento }} </td>
+                    </tr>
+			        {% if commonform.aumento.errors %}
+                    <tr class="error">
+                        <td colspan="2"> {{ commonform.aumento.errors }} </td>
+                    </tr>
+                    {% endif %}
+                    <tr>
+                        <td> {{ commonform.antiguedad.label_tag }}: </td>
+                        <td> {{ commonform.antiguedad }} </td>
+                    </tr>
+			        {% if commonform.antiguedad.errors %}
+                    <tr class="error">
+                        <td colspan="2"> {{ commonform.antiguedad.errors }} </td>
+                    </tr>
+                    {% endif %}
+                </table>
+            </div>
 
 			<div id="forms_table"> <!-- div principal, contiene los formularios -->
 				<div id="univformset_content" class="form_content">
@@ -44,7 +63,6 @@
 						    {% if univform.cargo.errors %}
                             <tr class="error"> <td colspan="2"> {{ univform.cargo.errors }} </td></tr>
                             {% endif %}
-						    
 						    <tr>
 							    <td>T&iacute;tulos adicionales:</td>
 						    </tr>
@@ -72,10 +90,6 @@
                             <tr>\
                                 <td> {{ univformset.empty_form.cargo.label_tag|escapejs }}: </td>\
                                 <td> {{ univformset.empty_form.cargo|escapejs }} </td>\
-						    </tr>\
-						    <tr>\
-							    <td> {{ univformset.empty_form.antiguedad.label_tag|escapejs }}:</td>\
-							    <td> {{ univformset.empty_form.antiguedad|escapejs }} </td>\
 						    </tr>\
 						    <tr>\
 							    <td>T&iacute;tulos adicionales:</td>\
@@ -174,10 +188,6 @@
 						    </tr>\
                             <tr>\
 							    <td> {{ preunivformset.empty_form.pago_por_horas_info|escapejs }} </td>\
-						    </tr>\
-						    <tr>\
-							    <td> {{ preunivformset.empty_form.antiguedad.label_tag|escapejs }}:</td>\
-							    <td> {{ preunivformset.empty_form.antiguedad|escapejs }} </td>\
 						    </tr>\
 						    <tr>\
 							    <td>T&iacute;tulos adicionales:</td>\

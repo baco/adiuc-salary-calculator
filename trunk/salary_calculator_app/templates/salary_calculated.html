@@ -43,7 +43,7 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td> Antiguedad ({{antiguedad.anio}} años - {{ antiguedad.porcentaje }}%)</td>
+                        <td> Antig&uuml;edad ({{res.antiguedad.anio}} años - {{ res.antiguedad.porcentaje }}%)</td>
                         <td>{{ res.antiguedad_importe|floatformat:-2 }} </td>
                     </tr>
                     {% for obj, importe in res.remuneraciones %}
@@ -85,7 +85,7 @@
                     {% for obj, importe in res.retenciones %}
                      <tr>
                         <td> {{ obj.codigo }} </td>
-                        <td> {{ obj.nombre }} (-{{ obj.porcentaje }}%) </td>
+                        <td> {{ obj.nombre }} {% if obj.porcentaje %}(-{{ obj.porcentaje }}%){% endif %} </td>
                         <td class="descuentos">-{{ importe|floatformat:-2 }}</td>
                     </tr>
                     {% endfor %}

@@ -4,23 +4,30 @@ from django import forms
 from models import *
 
 
-class MesForm(forms.Form):
-	"""Formulario para el cálculo de salario docente. Indica el mes correspondiente al cálculo."""
+class CommonForm(forms.Form):
+    """Formulario para el cálculo de salario docente. Contiene todos los valores
+    que dependen de la persona y no de cada cargo por separado."""
 
-	aumento = forms.ModelChoiceField(label=u'aumento', queryset=Aumento.objects.all(),empty_label=None,
-		help_text=u'Seleccione el mes sobre el cual calcular el salario.')
+    aumento = forms.ModelChoiceField(label=u'Período', queryset=Aumento.objects.all(),empty_label=None,
+        help_text=u'Seleccione el mes sobre el cual calcular el salario.')
+    antiguedad = forms.ChoiceField(label=u'Años de Antigüedad', 
+        choices=[(i, unicode(i)) for i in 
+            range(0, max(AntiguedadUniv.objects.all()[AntiguedadUniv.objects.count()-1].anio,
+            AntiguedadPreUniv.objects.all()[AntiguedadPreUniv.objects.count()-1].anio)+1)
+        ],
+        help_text=u'Ingrese su antigüedad docente')
 
-class AntiguedadForm(forms.Form):
-    antiguedad = forms.ModelChoiceField(label=u'Años de Antigüedad', queryset=AntiguedadUniv.objects.all(), empty_label=None,
-        help_text=u'Ingrese su antigüedad para el cargo.')
+#class AntiguedadForm(forms.Form):
+#    antiguedad = forms.ModelChoiceField(label=u'Años de Antigüedad', queryset=AntiguedadUniv.objects.all(), empty_label=None,
+#        help_text=u'Ingrese su antigüedad para el cargo.')
 
 class CargoUnivForm(forms.Form):
     """Formulario de calculo de salario docente para docentes universitarios."""
 
     cargo = forms.ModelChoiceField(label=u'Cargo', queryset=CargoUniv.objects.all(), empty_label=None,
         help_text=u'Ingrese el nombre del cargo.')
-    antiguedad = forms.ModelChoiceField(label=u'Años de Antigüedad', queryset=AntiguedadUniv.objects.all(), empty_label=None,
-        help_text=u'Ingrese su antigüedad para el cargo.')
+    #antiguedad = forms.ModelChoiceField(label=u'Años de Antigüedad', queryset=AntiguedadUniv.objects.all(), empty_label=None,
+    #help_text=u'Ingrese su antigüedad para el cargo.')
     master = forms.BooleanField(label=u'Master', required=False)
     doctorado = forms.BooleanField(label=u'Doctorado', required=False)
 
@@ -32,8 +39,8 @@ class CargoPreUnivForm(forms.Form):
        widget=forms.Select(attrs={'onChange': 'show_horas(this)', 'onLoad':'show_horas(this)', 'onKeyUp':'this.blur();this.focus();'}),
        help_text=u'Ingrese el nombre del cargo.'
     )
-    antiguedad = forms.ModelChoiceField(label=u'Años de Antigüedad', queryset=AntiguedadPreUniv.objects.all(), empty_label=None,
-        help_text=u'Ingrese su antigüedad para el cargo.')
+    #antiguedad = forms.ModelChoiceField(label=u'Años de Antigüedad', queryset=AntiguedadPreUniv.objects.all(), empty_label=None,
+    #help_text=u'Ingrese su antigüedad para el cargo.')
     master = forms.BooleanField(label=u'Master', required=False)
     doctorado = forms.BooleanField(label=u'Doctorado', required=False)
     horas = forms.FloatField(label=u'Cantidad de Horas', min_value=0., max_value=99., initial=1.,

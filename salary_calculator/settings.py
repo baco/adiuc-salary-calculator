@@ -182,3 +182,5 @@ LOGGING = {
         },
     }
 }
+
+DECIMAL_SEPARATOR='.'

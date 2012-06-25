@@ -44,6 +44,7 @@ p.padding_fix {
 #submit {
 	width:860px;
     margin: 0px;
+    font-size: 7pt;
     text-align: center;
 }
 #calculate{
@@ -128,7 +129,7 @@ tr.dark{
     background-color: #ededed;
 }
 hr{
-	border: 1px #cdcdcd dotted;
+	border: 1px #ededed dotted;
 }
 
 tr.error{

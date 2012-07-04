@@ -51,22 +51,27 @@
                     <tr>
                         <th> C&oacute;digo </th>
                         <th> Detalle </th>
-                        <th> Importe </th>
+                        <th> Importe (+) </th>
+                        <th> Importe (-) </th>
+
                     </tr>
                     <tr>
                         <td> 10 </td>
                         <td> Sueldo B&aacute;sico </td>
                         <td> {{ res.basico_unc|floatformat:-2 }} </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td> {{ aumento.get_mes_display }} {{ aumento.get_anio_display }} ({{ aumento.porcentaje }}% sobre {{ res.basico_nac }})</td>
                         <td class="adicionales">{{ res.aumento|floatformat:-2 }} </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td> Antig&uuml;edad ({{res.antiguedad.anio}} años - {{ res.antiguedad.porcentaje }}%)</td>
                         <td>{{ res.antiguedad_importe|floatformat:-2 }} </td>
+                        <td></td>
                     </tr>
                     {% for obj, importe in res.remuneraciones %}
                     {% if obj.codigo == "118" %} <!-- Adicional 2003 8% -->
@@ -74,6 +79,7 @@
                             <td> {{ obj.codigo }} </td>
                             <td> {{ obj.nombre }} {% if obj.porcentaje %}({{ obj.porcentaje }}%){% endif %} </td>
                             <td class="adicionales">{{ importe|floatformat:-2 }} </td>
+                            <td></td>
                         </tr>
                     {% endif %}
                     {% endfor %}
@@ -84,6 +90,7 @@
                             <td> {{ obj.codigo }} </td>
                             <td> {{ obj.nombre }} {% if obj.porcentaje %}({{ obj.porcentaje }}%){% endif %} </td>
                             <td class="adicionales">{{ importe|floatformat:-2 }} </td>
+                            <td></td>
                         </tr>
                     {% endif %}
                     {% endfor %}
@@ -92,6 +99,8 @@
                         <td></td>
                         <td>Salario Bruto:</td>
                         <td>{{ res.salario_bruto|floatformat:-2 }} </td>
+                        <td></td>
+                        
                     </tr>
 
                     {% for obj, importe in res.remuneraciones %}
@@ -100,6 +109,7 @@
                         <td> {{ obj.codigo }} </td>
                         <td> {{ obj.nombre }} {% if obj.porcentaje %}({{ obj.porcentaje }}%){% endif %} </td>
                         <td class="adicionales">{{ importe|floatformat:-2 }} </td>
+                        <td></td>
                     </tr>
                     {% endif %}
                     {% endfor %}
@@ -108,6 +118,7 @@
                      <tr>
                         <td> {{ obj.codigo }} </td>
                         <td> {{ obj.nombre }} {% if obj.porcentaje %}(-{{ obj.porcentaje }}%){% endif %} </td>
+                        <td></td>
                         <td class="descuentos">-{{ importe|floatformat:-2 }}</td>
                     </tr>
                     {% endfor %}
@@ -116,16 +127,19 @@
                         <td></td>
                         <td> Adicionales: </td>
                         <td class="adicionales"> {{ res.acum_rem|floatformat:-2 }} </td>
+                        <td></td>
                     </tr>
                     <tr class="bold">
                         <td></td>
                         <td> Descuentos: </td>
+                        <td></td>
                         <td class="descuentos"> -{{ res.acum_ret|floatformat:-2 }} </td>
                     </tr>
                     <tr class="bold">
                         <td></td>
                         <td> Salario Neto: </td>
                         <td> {{ res.salario_neto|floatformat:-2 }} </td>
+                        <td></td>
                     </tr>
                 </table>
                <hr>

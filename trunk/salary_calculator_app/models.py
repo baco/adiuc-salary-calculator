@@ -194,12 +194,18 @@ class Aumento(models.Model):
 class RemuneracionRetencion(models.Model):
     """Modelo abstracto que junta los atributos en comun que tiene una retencion y una remuneracion."""
 
-    codigo     = models.CharField(u'Código', max_length=3, validators=[validate_isdigit],
+    MODO_OPCS = (
+        ('P', u'Se aplica a la persona (solo una vez).'),
+        ('C', u'Se aplica por cargo (una vez por cada cargo).'),
+    )
+
+    codigo = models.CharField(u'Código', max_length=3, validators=[validate_isdigit],
         help_text=u'El código de remuneración/retención tal cual figura en la lista de la web de ADIUC.')
     nombre  = models.CharField(u'Nombre', max_length=50,
         help_text=u'El nombre de la remuneración/retención tal cual figura en la lista de la web de ADIUC.')
     aplicacion = models.CharField(u'Aplica a', max_length=1, choices=APP_OPCS,
         help_text=u'A qué tipo de cargo aplica esta remuneración/retención.')
+    modo = models.CharField(u'Modo', max_length=1,choices=MODO_OPCS)
 
     class Meta:
         abstract = True

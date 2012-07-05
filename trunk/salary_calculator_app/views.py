@@ -36,16 +36,27 @@ import pdb
 ##### Hardcoded
 adic2003_code = '118'
 adic2003_name = u'Adic. 8% RHCS 153/03'
+
 antiguedad_code = '30'
 antiguedad_name = u'Adicional Antigüedad'
+
 doc_code = '51'
 doc_preuniv_code = '53'
+
 master_code = '52'
 master_preuniv_code = '55'
+
 garantia_code = '115'
 garantia_name = u'Garantía Docentes Univ.'
+
 garantia_preuniv_code = '107'
 garantia_preuniv_name = u'Garantía Nivel Medio'
+
+fondo_becas_code = '770'
+fondo_becas_name = u'Fondo de Becas'
+
+afiliacion_code = '640'
+afiliacion_name = u'ADIUC - Afiliacion'
 
 def calculate(request):
     """Vista principal"""
@@ -66,20 +77,71 @@ def calculate(request):
 
             aumento_obj = commonform.cleaned_data['aumento']
             antiguedad = commonform.cleaned_data['antiguedad']
+            es_afiliado = commonform.cleaned_data['afiliado']
             #antiguedad_obj = commonform.cleaned_data['antiguedad']
             
             # Calculo para salarios de cargos universitarios.
-            context_univ = processUnivFormSet(aumento_obj, antiguedad, univformset)
-            context_preuniv = processPreUnivFormSet(aumento_obj, antiguedad, preunivformset)
+            context_univ = processUnivFormSet(aumento_obj, antiguedad, univformset, es_afiliado)
+            context_preuniv = processPreUnivFormSet(aumento_obj, antiguedad, preunivformset, es_afiliado)
+            
+            #quito los duplicados, si hay, entre univ y preuniv para las ret/rem por persona
+            rfp_univ = context_univ['ret_fijas_persona']
+            rfp_preuniv = context_preuniv['ret_fijas_persona']            
+            ret_fijas_persona = list(set(rfp_univ + rfp_preuniv))
+            
+            rpp_univ = context_univ['ret_porc_persona']
+            rpp_preuniv = context_preuniv['ret_porc_persona']
+            ret_porc_persona = list(set(rpp_univ + rpp_preuniv))
 
+            #calculo las retenciones/remuneracioens que son por persona.
+            
+            total_rem = context_univ['total_rem'] + context_preuniv['total_rem']
+            total_ret = context_univ['total_ret'] + context_preuniv['total_ret']
+            total_bruto = context_univ['total_bruto'] + context_preuniv['total_bruto']
+            total_neto = context_univ['total_neto'] + context_preuniv['total_neto']
+            
+            #acumulacion de retenciones y remuneraciones por persona.
+            acum_ret = 0.0
+            acum_rem = 0.0
+            for ret in ret_porc_persona:
+                importe = (total_bruto * ret.porcentaje / 100)
+                acum_ret += importe
+
+            for ret in ret_fijas_persona:
+                acum_ret += ret.valor
+            
+            for rem in rem_porc_persona:
+                importe = (total_bruto * ret.porcentaje / 100)
+                acum_rem += importe
+
+            for rem in rem_fijas_persona:
+                importe = rem.valor
+                acum_rem += importe
+
+            #calculo de afiliacion.
+            af_importe = 0.0
+            if es_afiliado:
+                afiliacion_obj = RetencionPorcentual.get(codigo=afiliacion_code)
+                af_importe = total_bruto * afiliacion_obj.porcentaje/100.0 
+                # en caso de exisitr, los guardo en el context.
+                context['afiliacion'] = afiliacion_obj
+                context['afiliacion_importe'] = af_importe
+    
+            acum_ret += af_importe
+            total_neto = total_neto - acum_ret + acum_rem
+                
             # Hago el merge de los dos contexts.
-            context['total_rem'] = context_univ['total_rem'] + context_preuniv['total_rem']
-            context['total_ret'] = context_univ['total_ret'] + context_preuniv['total_ret']
-            context['total_bruto'] = context_univ['total_bruto'] + context_preuniv['total_bruto']
-            context['total_neto'] = context_univ['total_neto'] + context_preuniv['total_neto']
+            context['total_rem'] = total_rem + acum_rem
+            context['total_ret'] = total_ret + acum_ret
+            context['total_bruto'] = total_bruto
+            context['total_neto'] = total_neto
             context['lista_res'] = context_univ['lista_res']
             context['lista_res'].extend(context_preuniv['lista_res'])
             context['aumento'] = aumento_obj
+            context['ret_fijas_persona'] = ret_fijas_persona
+            context['ret_porc_persona'] = ret_porc_persona
+            
+
             
             return render_to_response('salary_calculated.html', context)
 
@@ -171,23 +233,59 @@ def processUnivFormSet(aumento_obj, antiguedad, univformset):
             rem_porcentuales = rem_porcentuales.exclude(codigo=master_code)
   
   
-        ## Retenciones NO especiales:
+        #divido en dos grupos: retenciones/remuneraciones por persona y por cargo        
+        ret_fijas_persona = list()
+        ret_porc_persona  = list()
+        rem_fijas_persona = list()
+        rem_porc_persona  = list()
+
+        ret_fijas_cargo = list()
+        ret_porc_cargo  = list()
+        rem_fijas_cargo = list()
+        rem_porc_cargo  = list()
+
+        for ret in ret_fijas:
+            if ret.mode == 'C':
+                ret_fijas_cargo.append(ret)
+            else:#modo 'P'
+                ret_fijas_persona.append(ret)
+
+        for rem in rem_fijas:
+            if rem.mode == 'C':
+                rem_fijas_cargo.append(rem)
+            else:
+                rem_fijas_persona.append(rem)
 
         for ret in ret_porcentuales:
+            if ret.mode == 'C':
+                ret_porc_cargo.append(ret)
+            else:
+                ret_porc_persona.append(ret)
+
+        for rem in rem_porcentuales:
+            if rem.mode == 'C':
+                rem_porc_cargo.append(rem)
+            else:
+                rem_porc_persona.append(rem)
+
+  
+        ## Retenciones NO especiales:
+
+        for ret in ret_porc_cargo:
             importe = salario_bruto * ret.porcentaje / 100.
             acum_ret += importe
             ret_list.append( (ret, importe) )
 
-        for ret in ret_fijas:
-            acum_ret += ret.valor
-            ret_list.append( (ret, ret.valor) )
+        for ret in ret_fijas_cargo:
+                acum_ret += ret.valor
+                ret_list.append( (ret, ret.valor) )
 
-        for rem in rem_porcentuales:
+        for rem in rem_porc_cargo:
             importe = salario_bruto * rem.porcentaje / 100.
             acum_rem += importe
             rem_list.append( (rem, importe) )
 
-        for rem in rem_fijas:
+        for rem in rem_fijas_cargo:
             acum_rem += rem.valor
             rem_list.append( (rem, rem.valor) )
 
@@ -235,7 +333,9 @@ def processUnivFormSet(aumento_obj, antiguedad, univformset):
     context['total_bruto'] = total_bruto
     context['total_neto'] = total_neto
     context['lista_res'] = lista_res
-
+    context['ret_fijas_persona'] = ret_fijas_persona
+    context['ret_porc_persona'] = ret_porc_persona
+    
     return context
 
 
@@ -308,22 +408,25 @@ def processPreUnivFormSet(aumento_obj, antiguedad, preunivformset):
         ## Retenciones NO especiales:
         
         for ret in ret_porcentuales:
-            importe = salario_bruto * ret.porcentaje / 100.
-            acum_ret = acum_ret + importe
-            ret_list.append( (ret, importe) )
+            if ret.modo == 'C':
+                importe = salario_bruto * ret.porcentaje / 100.
+                acum_ret = acum_ret + importe
+                ret_list.append( (ret, importe) )
 
         for ret in ret_fijas:
-            acum_ret = acum_ret + ret.valor
-            ret_list.append( (ret, ret.valor) )
+            if ret.modo == 'C':
+                acum_ret = acum_ret + ret.valor
+                ret_list.append( (ret, ret.valor) )
 
         for rem in rem_porcentuales:
-            importe = salario_bruto * rem.porcentaje / 100.
-            acum_rem = acum_rem + importe
-            rem_list.append( (rem, importe) )
+            if ret.modo == 'C':
+                importe = salario_bruto * rem.porcentaje / 100.
+                acum_rem = acum_rem + importe
+                rem_list.append( (rem, importe) )
 
         fonid = 0.0
         for rem in rem_fijas:
-            if rem.codigo == '122': #fonid
+            if rem.codigo == '122' and rem.modo == 'C': #fonid
                 fonid = float(rem.valor)
             else:
                 acum_rem = acum_rem + rem.valor

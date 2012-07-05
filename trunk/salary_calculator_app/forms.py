@@ -38,6 +38,7 @@ class CommonForm(forms.Form):
             AntiguedadPreUniv.objects.all()[AntiguedadPreUniv.objects.count()-1].anio)+1)
         ],
         help_text=u'Ingrese su antigüedad docente')
+    afiliado = forms.BooleanField(label=u'Afiliado a ADIUC', required=False)
 
 #class AntiguedadForm(forms.Form):
 #    antiguedad = forms.ModelChoiceField(label=u'Años de Antigüedad', queryset=AntiguedadUniv.objects.all(), empty_label=None,

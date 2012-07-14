@@ -1,0 +1,4881 @@
+[
+  {
+    "pk": 151, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 51, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 1592.44
+    }
+  }, 
+  {
+    "pk": 152, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 51, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 1783.53
+    }
+  }, 
+  {
+    "pk": 153, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 51, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 1879.08
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 5, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 6092.64
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 5, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 6823.76
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 5, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 7189.32
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 7, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 3046.32
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 7, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 3411.88
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 7, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 3594.66
+    }
+  }, 
+  {
+    "pk": 121, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 41, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2856.0
+    }
+  }, 
+  {
+    "pk": 122, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 41, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 3198.72
+    }
+  }, 
+  {
+    "pk": 123, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 41, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 3370.08
+    }
+  }, 
+  {
+    "pk": 163, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 55, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2229.88
+    }
+  }, 
+  {
+    "pk": 164, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 55, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2497.47
+    }
+  }, 
+  {
+    "pk": 165, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 55, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2631.26
+    }
+  }, 
+  {
+    "pk": 160, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 54, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2196.98
+    }
+  }, 
+  {
+    "pk": 161, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 54, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2460.62
+    }
+  }, 
+  {
+    "pk": 162, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 54, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2592.44
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 9, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 1988.92
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 9, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2227.58
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 9, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2346.92
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 12, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 1749.7
+    }
+  }, 
+  {
+    "pk": 35, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 12, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 1959.66
+    }
+  }, 
+  {
+    "pk": 36, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 12, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2064.65
+    }
+  }, 
+  {
+    "pk": 181, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 61, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 1896.14
+    }
+  }, 
+  {
+    "pk": 182, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 61, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2123.68
+    }
+  }, 
+  {
+    "pk": 183, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 61, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2237.45
+    }
+  }, 
+  {
+    "pk": 73, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 25, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 1749.7
+    }
+  }, 
+  {
+    "pk": 74, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 25, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 1959.66
+    }
+  }, 
+  {
+    "pk": 75, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 25, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2064.65
+    }
+  }, 
+  {
+    "pk": 58, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 20, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2430.97
+    }
+  }, 
+  {
+    "pk": 59, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 20, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2722.69
+    }
+  }, 
+  {
+    "pk": 60, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 20, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2868.55
+    }
+  }, 
+  {
+    "pk": 79, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 27, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2446.42
+    }
+  }, 
+  {
+    "pk": 80, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 27, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2739.98
+    }
+  }, 
+  {
+    "pk": 81, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 27, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2886.77
+    }
+  }, 
+  {
+    "pk": 166, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 56, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2230.53
+    }
+  }, 
+  {
+    "pk": 167, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 56, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2498.19
+    }
+  }, 
+  {
+    "pk": 168, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 56, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2632.02
+    }
+  }, 
+  {
+    "pk": 124, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 42, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 9710.1
+    }
+  }, 
+  {
+    "pk": 125, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 42, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 10875.31
+    }
+  }, 
+  {
+    "pk": 126, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 42, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 11457.92
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 8, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2445.48
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 8, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2738.94
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 8, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2885.67
+    }
+  }, 
+  {
+    "pk": 37, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 13, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 1994.97
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 13, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2234.37
+    }
+  }, 
+  {
+    "pk": 39, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 13, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2354.06
+    }
+  }, 
+  {
+    "pk": 148, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 50, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2264.08
+    }
+  }, 
+  {
+    "pk": 149, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 50, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2535.77
+    }
+  }, 
+  {
+    "pk": 150, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 50, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2671.61
+    }
+  }, 
+  {
+    "pk": 178, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 60, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 169.24
+    }
+  }, 
+  {
+    "pk": 179, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 60, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 189.55
+    }
+  }, 
+  {
+    "pk": 180, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 60, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 199.7
+    }
+  }, 
+  {
+    "pk": 175, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 59, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2030.88
+    }
+  }, 
+  {
+    "pk": 176, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 59, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2274.59
+    }
+  }, 
+  {
+    "pk": 177, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 59, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2396.44
+    }
+  }, 
+  {
+    "pk": 91, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 31, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2030.88
+    }
+  }, 
+  {
+    "pk": 92, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 31, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2274.59
+    }
+  }, 
+  {
+    "pk": 93, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 31, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2396.44
+    }
+  }, 
+  {
+    "pk": 88, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 30, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 169.24
+    }
+  }, 
+  {
+    "pk": 89, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 30, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 189.55
+    }
+  }, 
+  {
+    "pk": 90, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 30, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 199.7
+    }
+  }, 
+  {
+    "pk": 85, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 29, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 211.55
+    }
+  }, 
+  {
+    "pk": 86, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 29, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 236.94
+    }
+  }, 
+  {
+    "pk": 87, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 29, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 249.63
+    }
+  }, 
+  {
+    "pk": 109, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 37, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2220.15
+    }
+  }, 
+  {
+    "pk": 110, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 37, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2486.57
+    }
+  }, 
+  {
+    "pk": 111, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 37, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2619.78
+    }
+  }, 
+  {
+    "pk": 142, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 48, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2309.53
+    }
+  }, 
+  {
+    "pk": 143, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 48, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2586.67
+    }
+  }, 
+  {
+    "pk": 144, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 48, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2725.24
+    }
+  }, 
+  {
+    "pk": 100, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 34, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 3618.6
+    }
+  }, 
+  {
+    "pk": 101, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 34, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 4052.83
+    }
+  }, 
+  {
+    "pk": 102, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 34, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 4269.95
+    }
+  }, 
+  {
+    "pk": 145, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 49, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2329.0
+    }
+  }, 
+  {
+    "pk": 146, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 49, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2608.48
+    }
+  }, 
+  {
+    "pk": 147, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 49, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2748.22
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 3, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 4442.5
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 3, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 4975.6
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 3, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5242.15
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 6, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 3427.0
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 6, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 3838.24
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 6, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 4043.86
+    }
+  }, 
+  {
+    "pk": 157, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 53, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2993.99
+    }
+  }, 
+  {
+    "pk": 158, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 53, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 3353.27
+    }
+  }, 
+  {
+    "pk": 159, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 53, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 3532.91
+    }
+  }, 
+  {
+    "pk": 154, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 52, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 4935.15
+    }
+  }, 
+  {
+    "pk": 155, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 52, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 5527.37
+    }
+  }, 
+  {
+    "pk": 156, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 52, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5823.48
+    }
+  }, 
+  {
+    "pk": 70, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 24, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2741.75
+    }
+  }, 
+  {
+    "pk": 71, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 24, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 3070.76
+    }
+  }, 
+  {
+    "pk": 72, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 24, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 3235.27
+    }
+  }, 
+  {
+    "pk": 67, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 23, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 1497.01
+    }
+  }, 
+  {
+    "pk": 68, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 23, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 1676.65
+    }
+  }, 
+  {
+    "pk": 69, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 23, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 1766.47
+    }
+  }, 
+  {
+    "pk": 172, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 58, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2572.45
+    }
+  }, 
+  {
+    "pk": 173, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 58, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2881.14
+    }
+  }, 
+  {
+    "pk": 174, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 58, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 3035.49
+    }
+  }, 
+  {
+    "pk": 169, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 57, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 4589.17
+    }
+  }, 
+  {
+    "pk": 170, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 57, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 5139.87
+    }
+  }, 
+  {
+    "pk": 171, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 57, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5415.22
+    }
+  }, 
+  {
+    "pk": 82, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 28, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2549.53
+    }
+  }, 
+  {
+    "pk": 83, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 28, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2855.47
+    }
+  }, 
+  {
+    "pk": 84, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 28, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 3008.45
+    }
+  }, 
+  {
+    "pk": 64, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 22, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 1621.95
+    }
+  }, 
+  {
+    "pk": 65, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 22, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 1816.58
+    }
+  }, 
+  {
+    "pk": 66, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 22, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 1913.9
+    }
+  }, 
+  {
+    "pk": 55, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 19, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 1769.2
+    }
+  }, 
+  {
+    "pk": 61, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 21, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 1769.2
+    }
+  }, 
+  {
+    "pk": 56, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 19, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 1981.5
+    }
+  }, 
+  {
+    "pk": 62, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 21, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 1981.5
+    }
+  }, 
+  {
+    "pk": 57, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 19, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2087.66
+    }
+  }, 
+  {
+    "pk": 63, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 21, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2087.66
+    }
+  }, 
+  {
+    "pk": 112, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 38, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 5077.2
+    }
+  }, 
+  {
+    "pk": 113, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 38, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 5686.46
+    }
+  }, 
+  {
+    "pk": 114, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 38, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5991.1
+    }
+  }, 
+  {
+    "pk": 115, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 39, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 4061.76
+    }
+  }, 
+  {
+    "pk": 116, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 39, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 4549.17
+    }
+  }, 
+  {
+    "pk": 117, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 39, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 4792.88
+    }
+  }, 
+  {
+    "pk": 118, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 40, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 3046.32
+    }
+  }, 
+  {
+    "pk": 119, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 40, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 3411.88
+    }
+  }, 
+  {
+    "pk": 120, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 40, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 3594.66
+    }
+  }, 
+  {
+    "pk": 97, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 33, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2092.09
+    }
+  }, 
+  {
+    "pk": 98, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 33, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2343.14
+    }
+  }, 
+  {
+    "pk": 99, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 33, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2468.66
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 4, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 6092.64
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 4, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 6823.76
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 4, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 7189.32
+    }
+  }, 
+  {
+    "pk": 40, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 14, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 3300.25
+    }
+  }, 
+  {
+    "pk": 41, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 14, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 3696.28
+    }
+  }, 
+  {
+    "pk": 42, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 14, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 3894.3
+    }
+  }, 
+  {
+    "pk": 106, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 36, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 1786.14
+    }
+  }, 
+  {
+    "pk": 107, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 36, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2000.47
+    }
+  }, 
+  {
+    "pk": 108, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 36, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2107.64
+    }
+  }, 
+  {
+    "pk": 94, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 32, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2198.41
+    }
+  }, 
+  {
+    "pk": 95, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 32, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2462.22
+    }
+  }, 
+  {
+    "pk": 96, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 32, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2594.12
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 11, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 5394.5
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 11, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 6041.84
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 11, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 6365.51
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 2, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 4830.76
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 2, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 5410.45
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 2, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5700.3
+    }
+  }, 
+  {
+    "pk": 130, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 44, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 3039.92
+    }
+  }, 
+  {
+    "pk": 131, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 44, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 3404.71
+    }
+  }, 
+  {
+    "pk": 132, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 44, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 3587.11
+    }
+  }, 
+  {
+    "pk": 46, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 16, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2219.31
+    }
+  }, 
+  {
+    "pk": 47, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 16, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2485.62
+    }
+  }, 
+  {
+    "pk": 48, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 16, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2618.78
+    }
+  }, 
+  {
+    "pk": 43, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 15, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 3290.75
+    }
+  }, 
+  {
+    "pk": 44, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 15, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 3685.64
+    }
+  }, 
+  {
+    "pk": 45, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 15, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 3883.09
+    }
+  }, 
+  {
+    "pk": 49, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 17, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 1786.14
+    }
+  }, 
+  {
+    "pk": 50, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 17, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2000.47
+    }
+  }, 
+  {
+    "pk": 51, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 17, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2107.64
+    }
+  }, 
+  {
+    "pk": 103, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 35, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 4511.53
+    }
+  }, 
+  {
+    "pk": 104, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 35, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 5052.91
+    }
+  }, 
+  {
+    "pk": 105, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 35, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5323.61
+    }
+  }, 
+  {
+    "pk": 52, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 18, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 3617.5
+    }
+  }, 
+  {
+    "pk": 53, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 18, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 4051.6
+    }
+  }, 
+  {
+    "pk": 54, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 18, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 4268.65
+    }
+  }, 
+  {
+    "pk": 139, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 47, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 6511.5
+    }
+  }, 
+  {
+    "pk": 140, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 47, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 7292.88
+    }
+  }, 
+  {
+    "pk": 141, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 47, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 7683.57
+    }
+  }, 
+  {
+    "pk": 133, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 45, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 5428.8
+    }
+  }, 
+  {
+    "pk": 134, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 45, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 6080.26
+    }
+  }, 
+  {
+    "pk": 135, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 45, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 6405.98
+    }
+  }, 
+  {
+    "pk": 136, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 46, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 3293.47
+    }
+  }, 
+  {
+    "pk": 137, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 46, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 3688.69
+    }
+  }, 
+  {
+    "pk": 138, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 46, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 3886.3
+    }
+  }, 
+  {
+    "pk": 127, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 43, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 8568.0
+    }
+  }, 
+  {
+    "pk": 128, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 43, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 9596.16
+    }
+  }, 
+  {
+    "pk": 129, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 43, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 10110.24
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 10, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2306.97
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 10, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2583.81
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 10, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2722.22
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 1, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 5079.6
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 1, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 5689.15
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 1, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5993.93
+    }
+  }, 
+  {
+    "pk": 76, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 26, 
+      "vigencia_desde": "2011-09-01", 
+      "vigencia_hasta": "2012-02-29", 
+      "valor": 2306.97
+    }
+  }, 
+  {
+    "pk": 77, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 26, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-05-31", 
+      "valor": 2583.81
+    }
+  }, 
+  {
+    "pk": 78, 
+    "model": "salary_calculator_app.salariobasico", 
+    "fields": {
+      "cargo": 26, 
+      "vigencia_desde": "2012-09-30", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2722.22
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 5, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5600.0
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 7, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 3358.47
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 41, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2718.04
+    }
+  }, 
+  {
+    "pk": 35, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 55, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2100.0
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 9, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 1680.0
+    }
+  }, 
+  {
+    "pk": 39, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 61, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 1400.0
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 20, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2324.51
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 27, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2403.16
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 42, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5600.0
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 60, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 186.58
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 30, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 186.58
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 29, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 233.42
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 37, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2100.0
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 34, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2800.0
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 3, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2464.76
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 6, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2800.0
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 53, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2800.0
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 52, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5600.0
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 24, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2800.0
+    }
+  }, 
+  {
+    "pk": 37, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 58, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2782.18
+    }
+  }, 
+  {
+    "pk": 36, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 57, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5600.0
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 28, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2800.0
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 38, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5597.96
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 39, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 4477.96
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 40, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 3358.47
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 33, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2238.98
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 4, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5600.0
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 14, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2800.0
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 11, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5600.0
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 2, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5600.0
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 16, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2800.0
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 15, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2800.0
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 35, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5600.0
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 18, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2800.0
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 47, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5600.0
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 45, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5600.0
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 46, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 2800.0
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 43, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5600.0
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "salary_calculator_app.garantiasalarial", 
+    "fields": {
+      "cargo": 1, 
+      "vigencia_desde": "2012-03-01", 
+      "vigencia_hasta": "2012-06-01", 
+      "valor": 5600.0
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 5, 
+      "lu": "10", 
+      "pampa": "205"
+    }
+  }, 
+  {
+    "pk": 51, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 5, 
+      "lu": "90", 
+      "pampa": "310"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 7, 
+      "lu": "12", 
+      "pampa": "207"
+    }
+  }, 
+  {
+    "pk": 41, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 40, 
+      "lu": "80", 
+      "pampa": "241"
+    }
+  }, 
+  {
+    "pk": 55, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 53, 
+      "lu": "94", 
+      "pampa": "314"
+    }
+  }, 
+  {
+    "pk": 54, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 52, 
+      "lu": "93", 
+      "pampa": "313"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 9, 
+      "lu": "16", 
+      "pampa": "209"
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 12, 
+      "lu": "19", 
+      "pampa": "212"
+    }
+  }, 
+  {
+    "pk": 61, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 59, 
+      "lu": "99", 
+      "pampa": "242"
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 24, 
+      "lu": "40", 
+      "pampa": "224"
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 20, 
+      "lu": "33", 
+      "pampa": "219"
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 26, 
+      "lu": "42", 
+      "pampa": "226"
+    }
+  }, 
+  {
+    "pk": 56, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 54, 
+      "lu": "95", 
+      "pampa": "315"
+    }
+  }, 
+  {
+    "pk": 42, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 41, 
+      "lu": "81", 
+      "pampa": "301"
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 8, 
+      "lu": "15", 
+      "pampa": "208"
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 13, 
+      "lu": "21", 
+      "pampa": "213"
+    }
+  }, 
+  {
+    "pk": 50, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 49, 
+      "lu": "89", 
+      "pampa": "309"
+    }
+  }, 
+  {
+    "pk": 60, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 58, 
+      "lu": "98", 
+      "pampa": "318"
+    }
+  }, 
+  {
+    "pk": 59, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 57, 
+      "lu": "98", 
+      "pampa": "319"
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 30, 
+      "lu": "46", 
+      "pampa": "230"
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 29, 
+      "lu": "45", 
+      "pampa": "229"
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 28, 
+      "lu": "44", 
+      "pampa": "228"
+    }
+  }, 
+  {
+    "pk": 37, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 36, 
+      "lu": "55", 
+      "pampa": "235"
+    }
+  }, 
+  {
+    "pk": 48, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 47, 
+      "lu": "87", 
+      "pampa": "307"
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 33, 
+      "lu": "51", 
+      "pampa": "232"
+    }
+  }, 
+  {
+    "pk": 49, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 48, 
+      "lu": "88", 
+      "pampa": "308"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 3, 
+      "lu": "3", 
+      "pampa": "203"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 6, 
+      "lu": "11", 
+      "pampa": "206"
+    }
+  }, 
+  {
+    "pk": 53, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 51, 
+      "lu": "92", 
+      "pampa": "312"
+    }
+  }, 
+  {
+    "pk": 52, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 50, 
+      "lu": "91", 
+      "pampa": "311"
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 23, 
+      "lu": "39", 
+      "pampa": "223"
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 22, 
+      "lu": "38", 
+      "pampa": "222"
+    }
+  }, 
+  {
+    "pk": 58, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 56, 
+      "lu": "97", 
+      "pampa": "317"
+    }
+  }, 
+  {
+    "pk": 57, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 55, 
+      "lu": "96", 
+      "pampa": "316"
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 27, 
+      "lu": "43", 
+      "pampa": "227"
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 21, 
+      "lu": "37", 
+      "pampa": "221"
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 19, 
+      "lu": "30", 
+      "pampa": "218"
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 19, 
+      "lu": "35", 
+      "pampa": "220"
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 37, 
+      "lu": "57", 
+      "pampa": "236"
+    }
+  }, 
+  {
+    "pk": 39, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 38, 
+      "lu": "58", 
+      "pampa": "237"
+    }
+  }, 
+  {
+    "pk": 40, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 39, 
+      "lu": "59", 
+      "pampa": "238"
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 32, 
+      "lu": "50", 
+      "pampa": "239"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 4, 
+      "lu": "4", 
+      "pampa": "204"
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 14, 
+      "lu": "22", 
+      "pampa": "240"
+    }
+  }, 
+  {
+    "pk": 36, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 35, 
+      "lu": "53", 
+      "pampa": "234"
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 31, 
+      "lu": "49", 
+      "pampa": "231"
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 11, 
+      "lu": "18", 
+      "pampa": "211"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 2, 
+      "lu": "2", 
+      "pampa": "202"
+    }
+  }, 
+  {
+    "pk": 44, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 43, 
+      "lu": "83", 
+      "pampa": "303"
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 16, 
+      "lu": "24", 
+      "pampa": "215"
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 15, 
+      "lu": "23", 
+      "pampa": "214"
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 17, 
+      "lu": "25", 
+      "pampa": "216"
+    }
+  }, 
+  {
+    "pk": 35, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 34, 
+      "lu": "52", 
+      "pampa": "233"
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 18, 
+      "lu": "29", 
+      "pampa": "217"
+    }
+  }, 
+  {
+    "pk": 47, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 46, 
+      "lu": "86", 
+      "pampa": "306"
+    }
+  }, 
+  {
+    "pk": 45, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 44, 
+      "lu": "84", 
+      "pampa": "304"
+    }
+  }, 
+  {
+    "pk": 46, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 45, 
+      "lu": "85", 
+      "pampa": "305"
+    }
+  }, 
+  {
+    "pk": 43, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 42, 
+      "lu": "82", 
+      "pampa": "302"
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 10, 
+      "lu": "17", 
+      "pampa": "210"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 1, 
+      "lu": "1", 
+      "pampa": "201"
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "salary_calculator_app.cargo", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "ret_porcentuales": [], 
+      "denominacion": 25, 
+      "lu": "41", 
+      "pampa": "225"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Asesor Pedago\u0301gico"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Asesor Psicopedago\u0301gico"
+    }
+  }, 
+  {
+    "pk": 40, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Auxiliar Docente"
+    }
+  }, 
+  {
+    "pk": 53, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Ayud. Gabinete Pra\u0301ctico"
+    }
+  }, 
+  {
+    "pk": 52, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Ayud. Gabinete Pra\u0301ctico D.E"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Ayudante Clases Pra\u0301ct.(02)"
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Ayudante Clases Pra\u0301cticas"
+    }
+  }, 
+  {
+    "pk": 59, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Ayudante Gab. Psicoped."
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Ayudante Trab.Pra\u0301cticos"
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Bibliot. Ley 22.416"
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Bibliot.Ens. Superior"
+    }
+  }, 
+  {
+    "pk": 54, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Bibliotecario D.E"
+    }
+  }, 
+  {
+    "pk": 41, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Director 1\u00b0 D.E"
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Director Escuela Superior"
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Director de 3\u00b0 Categori\u0301a"
+    }
+  }, 
+  {
+    "pk": 49, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Gabinetista D.E"
+    }
+  }, 
+  {
+    "pk": 58, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Horas Ca\u0301tedra Secundario"
+    }
+  }, 
+  {
+    "pk": 57, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Hs Ca\u0301t. Inherentes a cargos"
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Hs. Ca\u0301t. Inherentes a cargos"
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Hs. Ca\u0301tedra Secundario"
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Hs. Ca\u0301tedra Terciario"
+    }
+  }, 
+  {
+    "pk": 36, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "J.T.P T.C (Esc. Comercio)"
+    }
+  }, 
+  {
+    "pk": 47, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Jefe Dpto D.E"
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Jefe Equipo Tec.Pedago\u0301gico"
+    }
+  }, 
+  {
+    "pk": 48, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Jefe Gabinete Psicoped. D.E"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Jefe Gral Ens.Pra\u0301ctica"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Jefe Labor. Informa\u0301tica"
+    }
+  }, 
+  {
+    "pk": 51, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Jefe Preceptores 1\u00b0"
+    }
+  }, 
+  {
+    "pk": 50, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Jefe Preceptores 1\u00b0 D.E"
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Jefe Preceptores de 1\u00b0"
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Maestro Ayud.Ens.Pra\u0301ctico"
+    }
+  }, 
+  {
+    "pk": 56, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Preceptor"
+    }
+  }, 
+  {
+    "pk": 55, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Preceptor D.E"
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Preceptores"
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Prof. Centro Deportivo"
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Prof. Jefe Trab.Pra\u0301cticos"
+    }
+  }, 
+  {
+    "pk": 37, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Prof. T.P (1)"
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Prof. T.P (2)"
+    }
+  }, 
+  {
+    "pk": 39, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Prof. T.P (3)"
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Profesor T.P (4)"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Profesor TC"
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Prosecretario 1\u00b0 (Esc.Com.)"
+    }
+  }, 
+  {
+    "pk": 35, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Prosecretario Nivel Superior"
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Rector Educacio\u0301n Arti\u0301stica"
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Rector de 1\u00b0 Categori\u0301a"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Regente de 1\u00b0"
+    }
+  }, 
+  {
+    "pk": 43, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Regente de 1\u00b0 D.E"
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Regente de 1\u00b0 Esc.Superior"
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Regente de Esc.Superior"
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Secret. de 1\u00b0 Categori\u0301a"
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Secretario 1\u00b0 Categori\u0301a"
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Secretario Esc.Superior"
+    }
+  }, 
+  {
+    "pk": 46, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Secretario de 1\u00b0 Categ.D.E"
+    }
+  }, 
+  {
+    "pk": 44, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Sub Regente de 1\u00b0 Cat. D.E"
+    }
+  }, 
+  {
+    "pk": 45, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Sub Regente de 1\u00b0 Categori\u0301a"
+    }
+  }, 
+  {
+    "pk": 42, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Vice Director 1\u00b0 D.E"
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Vice Director Escuela Superior"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Vice Director de 1\u00b0"
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "salary_calculator_app.denominacioncargo", 
+    "fields": {
+      "nombre": "Vice Rector Escuela Artes"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 36.0, 
+      "tipo_horas": "C"
+    }
+  }, 
+  {
+    "pk": 51, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 27.3, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 18.0, 
+      "tipo_horas": "C"
+    }
+  }, 
+  {
+    "pk": 41, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 25.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 55, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 15.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 54, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 45.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 12.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 21.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 61, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 10.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 21.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 25.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 25.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 56, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 45.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 42, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 45.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 35.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 35.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 50, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 45.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 60, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": true, 
+      "ret_porcentuales": [], 
+      "horas": 0.0, 
+      "tipo_horas": "C"
+    }
+  }, 
+  {
+    "pk": 59, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 12.0, 
+      "tipo_horas": "C"
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 12.0, 
+      "tipo_horas": "C"
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": true, 
+      "ret_porcentuales": [], 
+      "horas": 1.0, 
+      "tipo_horas": "C"
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": true, 
+      "ret_porcentuales": [], 
+      "horas": 1.0, 
+      "tipo_horas": "C"
+    }
+  }, 
+  {
+    "pk": 37, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 15.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 48, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 45.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 25.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 49, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 45.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 25.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 25.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 53, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 27.3, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 52, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 45.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 25.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 18.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 58, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 27.3, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 57, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 45.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 25.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 17.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 21.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 21.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 30.0, 
+      "tipo_horas": "C"
+    }
+  }, 
+  {
+    "pk": 39, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 24.0, 
+      "tipo_horas": "C"
+    }
+  }, 
+  {
+    "pk": 40, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 18.0, 
+      "tipo_horas": "C"
+    }
+  }, 
+  {
+    "pk": 33, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 12.0, 
+      "tipo_horas": "C"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 36.0, 
+      "tipo_horas": "C"
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 25.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 36, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 0.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 32, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 12.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 25.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 25.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 44, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 45.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 35.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 25.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 35.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 35, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 25.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 25.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 47, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 45.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 45, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 45.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 46, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 27.3, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 43, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 45.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 35.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 25.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "salary_calculator_app.cargopreuniversitario", 
+    "fields": {
+      "ret_fijas": [], 
+      "rem_fijas": [], 
+      "rem_porcentuales": [], 
+      "pago_por_hora": false, 
+      "ret_porcentuales": [], 
+      "horas": 25.0, 
+      "tipo_horas": "R"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 0, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 20.0
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 20.0
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 2, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 20.0
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 3, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 20.0
+    }
+  }, 
+  {
+    "pk": 25, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 4, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 20.0
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 5, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 30.0
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 6, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 30.0
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 7, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 40.0
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 8, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 40.0
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 9, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 40.0
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 10, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 50.0
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 11, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 50.0
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 12, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 60.0
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 13, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 60.0
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 14, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 60.0
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 15, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 70.0
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 16, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 70.0
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 17, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 80.0
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 18, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 80.0
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 19, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 80.0
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 20, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 100.0
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 21, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 100.0
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 22, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 110.0
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 23, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 110.0
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "salary_calculator_app.antiguedaduniversitaria", 
+    "fields": {
+      "anio": 24, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 120.0
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 10.0
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 2, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 15.0
+    }
+  }, 
+  {
+    "pk": 23, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 3, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 15.0
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 4, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 15.0
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 5, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 30.0
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 6, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 30.0
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 7, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 40.0
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 8, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 40.0
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 9, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 40.0
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 10, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 50.0
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 11, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 50.0
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 12, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 60.0
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 13, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 60.0
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 14, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 60.0
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 15, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 70.0
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 16, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 70.0
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 17, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 80.0
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 18, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 80.0
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 19, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 80.0
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 20, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 100.0
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 21, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 100.0
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 22, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 110.0
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 23, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 110.0
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "salary_calculator_app.antiguedadpreuniversitaria", 
+    "fields": {
+      "anio": 24, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "porcentaje": 120.0
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "salary_calculator_app.remuneracionretencion", 
+    "fields": {
+      "aplicacion": "P", 
+      "nombre": "FONID", 
+      "codigo": "122", 
+      "modo": "P"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "remuneracion": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "valor": 14.33
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "remuneracion": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "valor": 17.92
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "remuneracion": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "valor": 107.5
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "remuneracion": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "valor": 129.0
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "remuneracion": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "valor": 161.25
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "remuneracion": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "valor": 171.92
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "remuneracion": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "valor": 178.49
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "remuneracion": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "valor": 184.53
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "remuneracion": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "valor": 189.26
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "remuneracion": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "valor": 208.71
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "remuneracion": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "valor": 213.63
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "remuneracion": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "valor": 215.0
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "remuneracion": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "valor": 257.88
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "remuneracion": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "valor": 343.84
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "remuneracion": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "valor": 429.84
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "salary_calculator_app.remuneracionfija", 
+    "fields": {
+      "remuneracion": 1, 
+      "vigencia_desde": "2012-01-01", 
+      "vigencia_hasta": "2012-12-31", 
+      "valor": 430.0
+    }
+  }
+]

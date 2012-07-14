@@ -28,10 +28,16 @@
 # Correr con:
 # bash fill_db.sh
 
-scripts=( "aumentos_data.py" "fonid_data.py" "antiguedad_data.py" "preuniv_data.py" )
+scripts=(
+    "fonid_data.py"
+    "antiguedad_data.py"
+    "preuniv_data.py"
+)
+
+prefix="salary_calculator_app/database_scripts/"
 
 for s in "${scripts[@]}"
 do 
     echo "Running $s ..."
-    python  $s
+    python  $prefix$s
 done

@@ -137,6 +137,7 @@ def add_garantia_preuniv(cargo, valor, mes, anio):
 #    anio = '2012'
 #)
 
+##############
 c = add_cargo_preuniv(
     nombre = u'Vice Director de 1°', 
     lu = u'1', 

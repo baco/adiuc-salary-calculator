@@ -23,33 +23,33 @@
 #
 #=============================================
 
-#para correr sobre el shell
-#python manage.py shell
-#from salary_calculator_app import RemuneracionFija, RemuneracionRetencion
+import sys
+import os
+import pdb
+sys.path.append(os.getcwd() + '/../')
 
-fonid_values = [
-    '430',
-    '189.26',
-    '215',
-    '257.88',
-    '129',
-    '430',
-    '178.49',
-    '184.53',
-    '17.92',
-    '14.33',
-    '171.92',
-    '161.25',
-    '429.84',
-    '343.84',
-    '208.71',
-    '215',
-    '161.25',
-    '213.63',
-    '14.33',
-    '107.50'
-]
+try:
+        from salary_calculator import settings
+except ImportError:
+        import sys
+        sys.stderr.write("Error: Can't find the file 'settings.py' in the directory containing %r. It appears you've customized things.\nYou'll have to run django-admin.py, passing it your settings module.\n(If the file settings.py does indeed exist, it's causing an ImportError somehow.)\n" % __file__)
+        sys.exit(1)
 
-for v in fonid_values:
-    r = RemuneracionFija(codigo="122",nombre="FONID",aplicacion='P',valor=v)
-    r.save()
+from django.core.management import setup_environ
+setup_environ(settings)
+
+from salary_calculator_app.models import *
+
+############
+Aumento(
+    mes='MAR',
+    anio='2012',
+    porcentaje=12
+)
+############
+Aumento(
+    mes='JUN',
+    anio='2012',
+    porcentaje=18
+)
+############

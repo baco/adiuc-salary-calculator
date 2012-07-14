@@ -32,21 +32,46 @@ APP_OPCS = (
     ('P', u'Cargos Preuniversitarios'),
     ('T', u'Todos los cargos')
 )
-MONTHS_OPCS=(
-        ('ENE', u'Enero'),
-        ('FEB', u'Febrero'),
-        ('MAR', u'Marzo'),
-        ('ABR', u'Abril'),
-        ('MAY', u'Mayo'),
-        ('JUN', u'Junio'),
-        ('JUL', u'Julio'),
-        ('AGO', u'Agosto'),
-        ('SEP', u'Septiembre'),
-        ('OCT', u'Octubre'),
-        ('NOV', u'Noviembre'),
-        ('DIC', u'Diciembre'),
-)
-YEARS_OPCS=tuple([(unicode(i), unicode(i)) for i in range(2000, 2020)])
+
+
+class SalarioBasico(models.Model):
+    """Representa un valor de un salario basico relacionado a un cargo."""
+
+    cargo = models.ForeignKey('Cargo',
+        help_text=u'El cargo docente sobre el que se aplica este salario.')
+    valor = models.FloatField(u'Monto del salario', validators=[validate_isgezero],
+        help_text=u'El monto del salario básico.')
+    vigencia_desde = models.DateField(u'Vigente desde',
+        help_text=u'Fecha a partir de la cual este salario comienza tener vigencia.')
+    vigencia_hasta = models.DateField(u'Vigente hasta',
+        help_text=u'Fecha a partir de la cual este salario deja de ser vigente.')
+
+    class Meta:
+        ordering = ['cargo', 'valor']
+
+    def __unicode__(self):
+        return unicode(self.cargo) + "$" + unicode(self.valor) + " " 
+        + unicode(self.vigencia_desde) + " / " + unicode(self.vigencia_hasta)
+
+
+class GarantiaSalarial(models.Model):
+    """Representa el valor minimo que un Cargo puede cobrar."""
+
+    cargo = models.ForeignKey('Cargo',
+        help_text=u'El cargo docente sobre el que se aplica esta garantía.')
+    valor = models.FloatField(u'Monto de la garantía', validators=[validate_isgezero],
+        help_text=u'El monto de esta garantía.')
+    vigencia_desde = models.DateField(u'Vigente desde',
+        help_text=u'Fecha a partir de la cual esta garantía comienza a tener vigencia.')
+    vigencia_hasta = models.DateField(u'Vigente hasta',
+        help_text=u'Fecha a partir de la cual esta garantía deja de ser vigente.')
+
+    class Meta:
+        ordering = ['cargo', 'valor']
+
+    def __unicode__(self):
+        return unicode(self.cargo) + "$" + unicode(self.valor) + " " 
+        + unicode(self.vigencia_desde) + " / " + unicode(self.vigencia_hasta)
 
 
 class Cargo(models.Model):
@@ -56,33 +81,27 @@ class Cargo(models.Model):
         help_text=u'El código L.U. del cargo que figura en la planilla de la UNC.')
     pampa = models.CharField(u'Código PAMPA', max_length=3, unique=True, validators=[validate_isdigit],
         help_text=u'El código PAMPA del cargo que figura en la planilla de la UNC.')
-    tipo = models.ForeignKey('TipoCargo',
-        help_text=u'El nombre o tipo de cargo asociado.')
-    basico_unc = models.FloatField(u'Sueldo Básico UNC', validators=[validate_isgezero],
-        help_text=u'El sueldo básico del cargo que figura en la planilla de la UNC. Los cálculos de aumentos y salarios brutos/netos se calcularán tomando como base este valor.')
-    basico_nac = models.FloatField(u'Sueldo Básico Paritaria Nacional', validators=[validate_isgezero],
-        help_text=u'El sueldo básico del cargo que figura en la planilla grande, es decir, la planilla de las paritarias nacionales. Se toma este valor para el cálculo de los aumentos')
-    garantia_salarial = models.ManyToManyField('GarantiaSalarial', blank=True, null=True,
-        help_text=u'La garantía salarial asociada a este cargo. Es el monto mínimo que una persona con el cargo puede cobrar.')
-    rem_fijas = models.ManyToManyField('RemuneracionFija',blank=True)
-    rem_porcentuales = models.ManyToManyField('RemuneracionPorcentual',blank=True )
-    ret_fijas = models.ManyToManyField('RetencionFija',blank=True )
-    ret_porcentuales = models.ManyToManyField('RetencionPorcentual',blank=True )
+    denominacion = models.ForeignKey('DenominacionCargo',
+        help_text=u'El nombre del cargo asociado.')
+
+    rem_fijas = models.ManyToManyField('RemuneracionFija', blank=True)
+    rem_porcentuales = models.ManyToManyField('RemuneracionPorcentual', blank=True)
+    ret_fijas = models.ManyToManyField('RetencionFija', blank=True)
+    ret_porcentuales = models.ManyToManyField('RetencionPorcentual', blank=True)
 
     class Meta:
-        abstract = True
-        ordering = ['tipo']
+        ordering = ['denominacion']
 
     def __unicode__(self):
-        #return self.lu + " - " + unicode(self.tipo)
-        return unicode(self.tipo)
+        #return self.lu + " - " + unicode(self.denominacion)
+        return unicode(self.denominacion)
 
 
-class TipoCargo(models.Model):
-    """El nombre o tipo de cargo. Ej: Profesor Adjunto, Ayudante Alumno, etc"""
+class DenominacionCargo(models.Model):
+    """El nombre de un cargo docente. Ej: Profesor Adjunto, Ayudante Alumno, etc"""
 
-    nombre = models.CharField(u'Tipo de Cargo', max_length=50,
-        help_text=u'El nombre de un tipo de cargo como figura en la planilla de la UNC. Ej: Profesor Titular, Profesor Asociado, etc')
+    nombre = models.CharField(u'Denominacion del Cargo', max_length=50,
+        help_text=u'El nombre de un cargo docente. Ej: Profesor Titular, Profesor Asociado, etc')
     
     class Meta:
         ordering = ['nombre']
@@ -91,24 +110,7 @@ class TipoCargo(models.Model):
         return self.nombre
 
 
-class GarantiaSalarial(models.Model):
-    """Representa el valor minimo que un Cargo puede cobrar."""
-
-    valor = models.FloatField(u'Valor de la garantía', validators=[validate_isgezero],
-        help_text=u'La garantía salarial para este cargo.')
-    mes = models.CharField(u'Mes', max_length=3, choices=MONTHS_OPCS,
-        help_text=u'El mes en que se definió la garantía.')
-    anio = models.CharField(u'Año', max_length=4, choices=YEARS_OPCS, validators=[validate_isdigit],
-        help_text=u'El año en que se definió la garantía.')
-
-    class Meta:
-        ordering = ['anio', 'mes', 'valor']
-
-    def __unicode__(self):
-        return "$" + unicode(self.valor) + " - " + self.mes + " " + self.anio
-
-
-class CargoUniv(Cargo):
+class CargoUniversitario(Cargo):
     """Cargo de docente Universitario."""
 
     DEDICACION_OPCS = (
@@ -118,14 +120,14 @@ class CargoUniv(Cargo):
     )
     dedicacion = models.CharField(u'Dedicación', max_length=5, choices=DEDICACION_OPCS,
         help_text=u'El tipo de dedicación para el cargo. Pueden ser dedicación exclusiva, semi-exclusiva o simple.')
-    adic2003 = models.FloatField(u'Adic. 8% RHCS 153/03', blank=True, null=True,	
-        help_text=u'Es el adicional del 8% del salario básico del año 2003 que le corresponde a este cargo.')
+    #adic2003 = models.FloatField(u'Adic. 8% RHCS 153/03', blank=True, null=True,	
+    #help_text=u'Es el adicional del 8% del salario básico del año 2003 que le corresponde a este cargo.')
 
     def __unicode__(self):
         return super(CargoUniv, self).__unicode__() + " - " + self.dedicacion
 
 
-class CargoPreUniv(Cargo):
+class CargoPreUniversitario(Cargo):
     """Cargo de docente Preuniversitario."""
 
     TIPOHORAS_OPCS = (
@@ -136,7 +138,7 @@ class CargoPreUniv(Cargo):
         help_text=u'La cantidad de horas para el cargo como figuran en la planilla de la UNC. Ej: Al cargo "Vice Director de 1°" le corresponden 25 horas.')
     tipo_horas = models.CharField(u'Tipo de Horas', max_length=1, choices=TIPOHORAS_OPCS,
         help_text=u'El tipo de horas del cargo.')
-    pago_por_hora=models.BooleanField(u'Pago por hora?', 
+    pago_por_hora=models.BooleanField(u'Pago por hora?',
         help_text=u'Poner "Sí" si este cargo se paga por cantidad de horas. Poner "No" en caso contrario.')
 
     def __unicode__(self):
@@ -145,50 +147,42 @@ class CargoPreUniv(Cargo):
         return super(CargoPreUniv, self).__unicode__() + " - " + unicode(self.horas) + "hs"
 
 
-class AntiguedadUniv(models.Model):
+class AntiguedadUniversitaria(models.Model):
     """Una entrada de la tabla de escala de antiguedad para los docentes Universitarios"""
-    anio               = models.SmallIntegerField(u'Años de Antiguedad', unique=True, validators=[validate_isgezero],
+
+    anio = models.SmallIntegerField(u'Años de Antiguedad', unique=True, validators=[validate_isgezero],
         help_text=u'La cantidad de años correspondiente a la antigüedad. Ej: 0, 1, 2, 5, 7, 9, 24, etc.')
-    porcentaje     = models.FloatField(u'Porcentaje', validators=[validate_isgezero],
+    porcentaje = models.FloatField(u'Porcentaje', validators=[validate_isgezero],
         help_text=u'El porcentaje correspondiente al aumento para la cantidad de años de antigüedad seleccionado. Ej: Para 5 años corresponde un 30%.')
+    vigencia_desde = models.DateField(u'Vigente desde',
+        help_text=u'Fecha a partir de la cual esta antiguedad comienza a tener vigencia.')
+    vigencia_hasta = models.DateField(u'Vigente hasta',
+        help_text=u'Fecha a partir de la cual esta antiguedad deja de ser vigente.')
 
     class Meta:
         ordering = ['anio']
 
     def __unicode__(self):
-        return unicode(self.anio) + " - " + unicode(self.porcentaje) + "%"
+        return unicode(self.anio) + u" años - " + unicode(self.porcentaje) + u"%"
 
 
-class AntiguedadPreUniv(models.Model):
+class AntiguedadPreUniversitaria(models.Model):
     """Una entrada de la tabla de escala de antiguedad para los docentes Preuniversitarios"""
 
     anio = models.SmallIntegerField(u'Años de Antiguedad', unique=True, validators=[validate_isgezero],
         help_text=u'La cantidad de años correspondiente a la antigüedad. Ej: 0, 1, 2, 5, 7, 9, 24, etc.')
     porcentaje = models.FloatField(u'Porcentaje', validators=[validate_isgezero],
         help_text=u'El porcentaje correspondiente al aumento para la cantidad de años de antigüedad seleccionado. Ej: Para 2 años corresponde un 15%.')
+    vigencia_desde = models.DateField(u'Vigente desde',
+        help_text=u'Fecha a partir de la cual esta antiguedad comienza a tener vigencia.')
+    vigencia_hasta = models.DateField(u'Vigente hasta',
+        help_text=u'Fecha a partir de la cual esta antiguedad deja de ser vigente.')
 
     class Meta:
         ordering = ['anio']
 
     def __unicode__(self):
-        return unicode(self.anio) + " - " + unicode(self.porcentaje) + "%"
-
-
-class Aumento(models.Model):
-    """Representa un aumento del salario basico."""
-
-    mes = models.CharField(u'Mes', max_length=3, choices=MONTHS_OPCS,
-        help_text=u'El mes del aumento.')
-    anio = models.CharField(u'Año', max_length=4, choices=YEARS_OPCS, validators=[validate_isdigit],
-        help_text=u'El año del aumento.')
-    porcentaje = models.FloatField(u'Porcentaje', validators=[validate_isgezero],
-        help_text=u'El porcentaje de aumento correspondiente. Ingresar valores entre 0 y 100. Por ejemplo, para Marzo de 2012 hay un aumento del 6%')
-
-    class Meta:
-        ordering = ['anio', 'mes', 'porcentaje']
-
-    def __unicode__(self):
-        return self.mes + " " + self.anio + " - " + unicode(self.porcentaje) + "%"
+        return unicode(self.anio) + u" años - " + unicode(self.porcentaje) + u"%"
 
 
 class RemuneracionRetencion(models.Model):
@@ -208,48 +202,84 @@ class RemuneracionRetencion(models.Model):
     modo = models.CharField(u'Modo', max_length=1,choices=MODO_OPCS)
 
     class Meta:
-        abstract = True
         ordering = ['codigo', 'nombre', 'aplicacion']
 
     def __unicode__(self):
         return self.codigo + " " + self.nombre
 
 
-class RetencionPorcentual(RemuneracionRetencion):
+class RetencionPorcentual(models.Model):
     """Una retencion que especifica el porcentaje del descuento que debe realizarse."""
 
+    retencion = models.ForeignKey('RemuneracionRetencion',
+        help_text = u'La retención relacionada con esta retención porcentual.')
     porcentaje = models.FloatField(u'Porcentaje de Descuento', validators=[validate_isgezero],
         help_text=u'El porcentaje del descuento. Ingresar un valor positivo.')
+    vigencia_desde = models.DateField(u'Vigente desde',
+        help_text=u'Fecha a partir de la cual esta retención porcentual comienza a tener vigencia.')
+    vigencia_hasta = models.DateField(u'Vigente hasta',
+        help_text=u'Fecha a partir de la cual esta retención porcentual deja de ser vigente.')
+
+    class Meta:
+        ordering = ['retencion', 'porcentaje']
 
     def __unicode__(self):
-        return super(RetencionPorcentual, self).__unicode__() + " " + unicode(self.porcentaje ) + "%"
+        return self.retencion + " " + unicode(self.porcentaje) + "%"
 
 
-class RetencionFija(RemuneracionRetencion):
+class RetencionFija(models.Model):
     """Una retencion que especifica un descuento fijo que debe realizarse."""
 
+    retencion = models.ForeignKey('RemuneracionRetencion',
+        help_text = u'La retención relacionada con esta retención porcentual.')
     valor = models.FloatField(u'Valor de Descuento', validators=[validate_isgezero],
         help_text=u'El valor fijo que debe descontarse.')
+    vigencia_desde = models.DateField(u'Vigente desde',
+        help_text=u'Fecha a partir de la cual esta retención porcentual comienza a tener vigencia.')
+    vigencia_hasta = models.DateField(u'Vigente hasta',
+        help_text=u'Fecha a partir de la cual esta retención porcentual deja de ser vigente.')
+
+    class Meta:
+        ordering = ['retencion', 'valor']
 
     def __unicode__(self):
-        return super(RetencionFija, self).__unicode__() + u" $" + unicode(self.valor)
+        return self.retencion + u" $" + unicode(self.valor)
 
 
-class RemuneracionPorcentual(RemuneracionRetencion):
+class RemuneracionPorcentual(models.Model):
     """Una remuneracion que especifica el porcentaje de aumento que debe realizarse."""
+
+    remuneracion = models.ForeignKey('RemuneracionRetencion',
+        help_text = u'La retención relacionada con esta remuneración porcentual.')
     porcentaje = models.FloatField(u'Porcentaje de Aumento', validators=[validate_isgezero],
         help_text=u'El porcentaje del aumento. Ingresar un valor positivo.')
+    vigencia_desde = models.DateField(u'Vigente desde',
+        help_text=u'Fecha a partir de la cual esta remuneración porcentual comienza a tener vigencia.')
+    vigencia_hasta = models.DateField(u'Vigente hasta',
+        help_text=u'Fecha a partir de la cual esta remuneración porcentual deja de ser vigente.')
+
+    class Meta:
+        ordering = ['remuneracion', 'porcentaje']
 
     def __unicode__(self):
-        return super(RemuneracionPorcentual, self).__unicode__() + " " + unicode(self.porcentaje) + "%"
+        return self.remuneracion + " " + unicode(self.porcentaje) + "%"
 
 
-class RemuneracionFija(RemuneracionRetencion):
+class RemuneracionFija(models.Model):
     """Una remuneracion que especifica un aumento fijo sobre el salario basico."""
 
+    remuneracion = models.ForeignKey('RemuneracionRetencion',
+        help_text = u'La retención relacionada con esta remuneración fija.')
     valor = models.FloatField(u'Valor del Aumento', validators=[validate_isgezero],
         help_text=u'El valor fijo que se sumará al salario básico.')
+    vigencia_desde = models.DateField(u'Vigente desde',
+        help_text=u'Fecha a partir de la cual esta remuneración fija comienza a tener vigencia.')
+    vigencia_hasta = models.DateField(u'Vigente hasta',
+        help_text=u'Fecha a partir de la cual esta remuneración fija deja de ser vigente.')
+
+    class Meta:
+        ordering = ['remuneracion', 'valor']
 
     def __unicode__(self):
-        return super(RemuneracionFija, self).__unicode__() + u" $" + unicode(self.valor)
+        return self.remuneracion + u" $" + unicode(self.valor)
 

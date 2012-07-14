@@ -50,8 +50,7 @@ class SalarioBasico(models.Model):
         ordering = ['cargo', 'valor']
 
     def __unicode__(self):
-        return unicode(self.cargo) + "$" + unicode(self.valor) + " " 
-        + unicode(self.vigencia_desde) + " / " + unicode(self.vigencia_hasta)
+        return unicode(self.cargo) + " $" + unicode(self.valor) + " [" + unicode(self.vigencia_desde) + " / " + unicode(self.vigencia_hasta) + "]"
 
 
 class GarantiaSalarial(models.Model):
@@ -70,8 +69,7 @@ class GarantiaSalarial(models.Model):
         ordering = ['cargo', 'valor']
 
     def __unicode__(self):
-        return unicode(self.cargo) + "$" + unicode(self.valor) + " " 
-        + unicode(self.vigencia_desde) + " / " + unicode(self.vigencia_hasta)
+        return unicode(self.cargo) + " $" + unicode(self.valor) + " [" + unicode(self.vigencia_desde) + " / " + unicode(self.vigencia_hasta) + "]"
 
 
 class Cargo(models.Model):
@@ -124,7 +122,7 @@ class CargoUniversitario(Cargo):
     #help_text=u'Es el adicional del 8% del salario básico del año 2003 que le corresponde a este cargo.')
 
     def __unicode__(self):
-        return super(CargoUniv, self).__unicode__() + " - " + self.dedicacion
+        return super(CargoUniversitario, self).__unicode__() + " - " + self.dedicacion
 
 
 class CargoPreUniversitario(Cargo):
@@ -143,14 +141,14 @@ class CargoPreUniversitario(Cargo):
 
     def __unicode__(self):
         if self.pago_por_hora or self.horas <= 0.:
-            return super(CargoPreUniv, self).__unicode__()
-        return super(CargoPreUniv, self).__unicode__() + " - " + unicode(self.horas) + "hs"
+            return super(CargoPreUniversitario, self).__unicode__()
+        return super(CargoPreUniversitario, self).__unicode__() + " - " + unicode(self.horas) + "hs"
 
 
 class AntiguedadUniversitaria(models.Model):
     """Una entrada de la tabla de escala de antiguedad para los docentes Universitarios"""
 
-    anio = models.SmallIntegerField(u'Años de Antiguedad', unique=True, validators=[validate_isgezero],
+    anio = models.SmallIntegerField(u'Años de Antigüedad', validators=[validate_isgezero],
         help_text=u'La cantidad de años correspondiente a la antigüedad. Ej: 0, 1, 2, 5, 7, 9, 24, etc.')
     porcentaje = models.FloatField(u'Porcentaje', validators=[validate_isgezero],
         help_text=u'El porcentaje correspondiente al aumento para la cantidad de años de antigüedad seleccionado. Ej: Para 5 años corresponde un 30%.')
@@ -169,7 +167,7 @@ class AntiguedadUniversitaria(models.Model):
 class AntiguedadPreUniversitaria(models.Model):
     """Una entrada de la tabla de escala de antiguedad para los docentes Preuniversitarios"""
 
-    anio = models.SmallIntegerField(u'Años de Antiguedad', unique=True, validators=[validate_isgezero],
+    anio = models.SmallIntegerField(u'Años de Antigüedad', validators=[validate_isgezero],
         help_text=u'La cantidad de años correspondiente a la antigüedad. Ej: 0, 1, 2, 5, 7, 9, 24, etc.')
     porcentaje = models.FloatField(u'Porcentaje', validators=[validate_isgezero],
         help_text=u'El porcentaje correspondiente al aumento para la cantidad de años de antigüedad seleccionado. Ej: Para 2 años corresponde un 15%.')
@@ -205,7 +203,7 @@ class RemuneracionRetencion(models.Model):
         ordering = ['codigo', 'nombre', 'aplicacion']
 
     def __unicode__(self):
-        return self.codigo + " " + self.nombre
+        return self.codigo + u" " + self.nombre
 
 
 class RetencionPorcentual(models.Model):
@@ -224,7 +222,7 @@ class RetencionPorcentual(models.Model):
         ordering = ['retencion', 'porcentaje']
 
     def __unicode__(self):
-        return self.retencion + " " + unicode(self.porcentaje) + "%"
+        return unicode(self.retencion) + u" " + unicode(self.porcentaje) + u"%"
 
 
 class RetencionFija(models.Model):
@@ -243,7 +241,7 @@ class RetencionFija(models.Model):
         ordering = ['retencion', 'valor']
 
     def __unicode__(self):
-        return self.retencion + u" $" + unicode(self.valor)
+        return unicode(self.retencion) + u" $" + unicode(self.valor)
 
 
 class RemuneracionPorcentual(models.Model):
@@ -262,7 +260,7 @@ class RemuneracionPorcentual(models.Model):
         ordering = ['remuneracion', 'porcentaje']
 
     def __unicode__(self):
-        return self.remuneracion + " " + unicode(self.porcentaje) + "%"
+        return unicode(self.remuneracion) + u" " + unicode(self.porcentaje) + u"%"
 
 
 class RemuneracionFija(models.Model):
@@ -281,5 +279,5 @@ class RemuneracionFija(models.Model):
         ordering = ['remuneracion', 'valor']
 
     def __unicode__(self):
-        return self.remuneracion + u" $" + unicode(self.valor)
+        return unicode(self.remuneracion) + u" $" + unicode(self.valor)
 

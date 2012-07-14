@@ -33,7 +33,7 @@
 	<body  style="background-image: url('{% get_static_prefix %}images/bg.png');">
 	<div align=center>
 			<div class = "title">
-			    C&aacute;lculo salarial para el periodo: {{ aumento.get_mes_display }} {{ aumento.get_anio_display }} ({{ aumento.porcentaje }}%)
+			    C&aacute;lculo salarial para el periodo: {{ fecha.get_mes_display }} {{ fecha.get_anio_display }}
 			</div>
 
             <br>
@@ -42,7 +42,7 @@
                 <table> 
                     <tr>
                         <td> Cargo: </td>
-                        <td>{{ res.cargo.tipo }} {% if res.cargo.dedicacion %}, {{ res.cargo.get_dedicacion_display }}{% endif %}</td>
+                        <td>{{ res.cargo.denominacion }} {% if res.cargo.dedicacion %}, {{ res.cargo.get_dedicacion_display }}{% endif %}</td>
                     </tr>
                     <tr> <td> C&oacute;digo LU: </td> <td> {{ res.cargo.lu }} </td> </tr>
                     <tr> <td> C&oacute;digo PAMPA: </td> <td> {{ res.cargo.pampa }} </td> </tr>
@@ -58,29 +58,31 @@
                     <tr>
                         <td> 10 </td>
                         <td> Sueldo B&aacute;sico </td>
-                        <td> {{ res.basico_unc|floatformat:-2 }} </td>
+                        <!--<td> {{ res.basico_unc|floatformat:-2 }} </td>-->
+                        <td> {{ res.basico|floatformat:-2 }} </td>
                         <td></td>
                     </tr>
-                    <tr>
+                    <!--<tr>
                         <td></td>
                         <td> {{ aumento.get_mes_display }} {{ aumento.get_anio_display }} ({{ aumento.porcentaje }}% sobre {{ res.basico_nac }})</td>
                         <td class="adicionales">{{ res.aumento|floatformat:-2 }} </td>
                         <td></td>
-                    </tr>
+                    </tr>-->
                     <tr>
                         <td></td>
                         <td> Antig&uuml;edad ({{res.antiguedad.anio}} años - {{ res.antiguedad.porcentaje }}%)</td>
                         <td>{{ res.antiguedad_importe|floatformat:-2 }} </td>
                         <td></td>
                     </tr>
+                
                     {% for obj, importe in res.remuneraciones %}
                     {% if obj.codigo == "118" %} <!-- Adicional 2003 8% -->
-						<tr>
+						<!--<tr>
                             <td> {{ obj.codigo }} </td>
                             <td> {{ obj.nombre }} {% if obj.porcentaje %}({{ obj.porcentaje }}%){% endif %} </td>
                             <td class="adicionales">{{ importe|floatformat:-2 }} </td>
                             <td></td>
-                        </tr>
+                        </tr>-->
                     {% endif %}
                     {% endfor %}
 

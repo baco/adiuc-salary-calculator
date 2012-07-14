@@ -40,28 +40,29 @@ setup_environ(settings)
 
 from salary_calculator_app.models import *
 
-### Llena los "huecos" de las tablas de antiguedades.
+fonid_values = [
+    '430',
+    '189.26',
+    '215',
+    '257.88',
+    '129',
+    '430',
+    '178.49',
+    '184.53',
+    '17.92',
+    '14.33',
+    '171.92',
+    '161.25',
+    '429.84',
+    '343.84',
+    '208.71',
+    '215',
+    '161.25',
+    '213.63',
+    '14.33',
+    '107.50'
+]
 
-# Universitarias
-antunivs = AntiguedadUniv.objects.order_by('-anio')
-if antunivs.count()>0:
-    prev = antunivs[0]
-    antunivs = AntiguedadUniv.objects.exclude(anio=prev.anio).order_by('-anio')
-    for ant in antunivs:
-        if ant.anio < prev.anio:
-            for anio in range(ant.anio+1, prev.anio):
-                new_ant = AntiguedadUniv(anio=anio, porcentaje=ant.porcentaje)
-                new_ant.save()
-        prev = ant
-
-# PreUniversitarias
-antunivs = AntiguedadPreUniv.objects.order_by('-anio')
-if antunivs.count()>0:
-    prev = antunivs[0]
-    antunivs = AntiguedadPreUniv.objects.exclude(anio=prev.anio).order_by('-anio')
-    for ant in antunivs:
-        if ant.anio < prev.anio:
-            for anio in range(ant.anio+1, prev.anio):
-                new_ant = AntiguedadPreUniv(anio=anio, porcentaje=ant.porcentaje)
-                new_ant.save()
-        prev = ant
+for v in fonid_values:
+    r = RemuneracionFija(codigo="122",nombre="FONID",aplicacion='P',valor=v)
+    r.save()

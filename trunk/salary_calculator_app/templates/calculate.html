@@ -45,12 +45,12 @@
             <div class="form_mes">
                 <table class="form_mes">
                     <tr>
-                        <td> {{ commonform.aumento.label_tag }}: </td>
-                        <td> {{ commonform.aumento }} </td>
+                        <td> {{ commonform.fecha.label_tag }}: </td>
+                        <td> {{ commonform.fecha }} </td>
                     </tr>
-			        {% if commonform.aumento.errors %}
+			        {% if commonform.fecha.errors %}
                     <tr class="error">
-                        <td colspan="2"> {{ commonform.aumento.errors }} </td>
+                        <td colspan="2"> {{ commonform.fecha.errors }} </td>
                     </tr> 
 
                     {% endif %}

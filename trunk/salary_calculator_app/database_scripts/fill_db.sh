@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#!/bin/bash
 
 #=============================================
 #
@@ -22,20 +22,16 @@
 #
 #=============================================
 
-from salary_calculator_app.models import *
-from django.contrib import admin
+# Especifica bien el orden en que deben ejecutarse los scripts que llenan
+# la base de datos con los datos basicos.
 
-admin.site.register(SalarioBasico)
-admin.site.register(GarantiaSalarial)
-admin.site.register(DenominacionCargo)
-admin.site.register(CargoUniversitario)
-admin.site.register(CargoPreUniversitario)
+# Correr con:
+# bash fill_db.sh
 
-admin.site.register(AntiguedadUniversitaria)
-admin.site.register(AntiguedadPreUniversitaria)
+scripts=( "aumentos_data.py" "fonid_data.py" "antiguedad_data.py" "preuniv_data.py" )
 
-admin.site.register(RemuneracionRetencion)
-admin.site.register(RetencionPorcentual)
-admin.site.register(RetencionFija)
-admin.site.register(RemuneracionPorcentual)
-admin.site.register(RemuneracionFija)
+for s in "${scripts[@]}"
+do 
+    echo "Running $s ..."
+    python  $s
+done

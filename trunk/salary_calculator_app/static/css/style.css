@@ -21,7 +21,7 @@
 ==============================================*/
 
 div.form_content {
-	width:450px;
+	width:350px;
     margin: 0px;
     background-color: #cdd9de;
     padding:0px;
@@ -29,7 +29,7 @@ div.form_content {
 }
 
 .univ_preuniv_form {
-    width: 900px;
+    width: 700px;
     height: auto;
     margin: auto;
 }
@@ -70,7 +70,7 @@ p.padding_fix {
     text-align: center;
 }
 #calculate{
-	width:900px;
+	width:700px;
 }
 
 .centeralign {
@@ -127,7 +127,7 @@ div.title {
 }
 
 #forms_table {
-	width: 900px;
+	width: 700px;
 	margin: 0px;
     padding:0px;
 }

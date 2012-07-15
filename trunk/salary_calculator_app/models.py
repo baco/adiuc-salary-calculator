@@ -58,15 +58,31 @@ class GarantiaSalarial(models.Model):
 
     cargo = models.ForeignKey('Cargo',
         help_text=u'El cargo docente sobre el que se aplica esta garantía.')
-    valor = models.FloatField(u'Monto de la garantía', validators=[validate_isgezero],
-        help_text=u'El monto de esta garantía.')
+
+    valor_minimo = models.FloatField(u'Monto minimo', validators=[validate_isgezero],
+        help_text=u'Monto mínimo, igualdao éste no se aplica la garantía.')
+
+    valor_st = models.FloatField(u'Monto de la garantía', validators=[validate_isgezero],
+        help_text=u'El monto de esta garantía sin título adicional.')
+    valor_doctorado = models.FloatField(u'Monto de la garantía', validators=[validate_isgezero],
+        help_text=u'El monto de esta garantía con título de doctorado.')
+    valor_master = models.FloatField(u'Monto de la garantía', validators=[validate_isgezero],
+        help_text=u'El monto de esta garantía con título de master.')
+    
+    antiguedad_min = models.IntegerField(u'Antiguedad mínima',
+        help_text=u'A partir de esta antiguedad corresponde el monto asociado a la garantía.' )
+    
+    antiguedad_max = models.IntegerField(u'Antiguedad máxima',
+        help_text=u'Hasta esta antiguedad (inclusive) corresponde el monto asociado a la garantía.' )
+    
     vigencia_desde = models.DateField(u'Vigente desde',
         help_text=u'Fecha a partir de la cual esta garantía comienza a tener vigencia.')
+
     vigencia_hasta = models.DateField(u'Vigente hasta',
-        help_text=u'Fecha a partir de la cual esta garantía deja de ser vigente.')
+        help_text=u'Fecha a partir de la cual esta garantía deja de ser vigente.')    
 
     class Meta:
-        ordering = ['cargo', 'valor']
+        ordering = ['cargo', 'valor_minimo']
 
     def __unicode__(self):
         return unicode(self.cargo) + " $" + unicode(self.valor) + " [" + unicode(self.vigencia_desde) + " / " + unicode(self.vigencia_hasta) + "]"

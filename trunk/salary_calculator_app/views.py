@@ -81,8 +81,9 @@ def calculate(request):
             es_afiliado = commonform.cleaned_data['afiliado']
 
             # Calculo para salarios de cargos universitarios.
-            context_univ = processUnivFormSet(fecha, antiguedad, univformset, es_afiliado)
-            context_preuniv = processPreUnivFormSet(fecha, antiguedad, preunivformset, es_afiliado)
+
+            context_univ = processUnivFormSet(aumento_obj, antiguedad, univformset)
+            context_preuniv = processPreUnivFormSet(aumento_obj, antiguedad, preunivformset)
 
             #quito los duplicados, si hay, entre univ y preuniv para las ret/rem por persona
             rfp_univ = context_univ['ret_fijas_persona']
@@ -198,7 +199,7 @@ def processUnivFormSet(fecha, antiguedad, univformset):
         basicos = basicos.order_by('vigencia_hasta')
         basico = basicos[basico.count()-1]
         #aumento = basico_nac * aumento_obj.porcentaje / 100.0
-        #adic2003_obj = RemuneracionFija(nombre=adic2003_name, codigo=adic2003_code, valor=0.0)
+        adic2003_obj = RemuneracionFija(nombre=adic2003_name, codigo=adic2003_code, valor=0.0)
         #if cargo_obj.adic2003:
         #    adic2003_obj.valor = cargo_obj.adic2003 # 118: Adicional 8% 2003
         #adic2003_obj = cargo_obj.rem_fijas.get(codigo=adic2003_code)
@@ -297,14 +298,28 @@ def processUnivFormSet(fecha, antiguedad, univformset):
         garantia_salarial_objs = GarantiaSalarial.objects.filter(cargo=cargo_obj, vigencia_desde__lte=fecha, vigencia_hasta__gte=fecha)
         if garantia_salarial_objs.exists():
             garantia_obj = garantia_salarial_objs.order_by('vigencia_hasta')[garantia_salarial_objs.count()-1]
-            if salario_neto < garantia_obj.valor:
-                garantia = garantia_obj.valor - salario_neto
-                rem_obj = RemuneracionFija( codigo=garantia_code,
-                                                            nombre= garantia_name + ' (' + unicode(garantia_obj) + ')',
-                                                            aplicacion='U', valor=garantia)
-                rem_list.append( (rem_obj, garantia) )
-                acum_rem += garantia
-                salario_neto += garantia
+            valor_minimo = garantia_obj.valor_minimo
+            if salario_neto < valor_minimo:
+                if garantia_obj.antiguedad_min <= antiguedad_obj.anios and antiguedad_obj.anios < garantia_obj.antiguedad_max:
+                    
+                    if has_doctorado:
+                        valor = garantia_obj.valor_doctorado
+                    elif has_master:
+                        valor = garantia_obj.valor_master
+                    else:
+                        valor = garantia_obj.valor_st
+
+                    #el neto + garantia no puede superar la cota de garantia.
+                    total = max(valor_minimo,salario_neto+valor)
+                    
+                    garantia = total - salario_neto
+                    
+                    rem_obj = RemuneracionFija( codigo=garantia_code,
+                                                                nombre= garantia_name + ' (' + unicode(garantia_obj) + ')',
+                                                                aplicacion='U', valor=garantia)
+                    rem_list.append( (rem_obj, garantia) )
+                    acum_rem += garantia
+                    salario_neto += garantia
 
         # Calculo los acumulados de los salarios para todos los cargos.
         # y tambien los acumulados de las remuneraciones y retenciones.
@@ -445,21 +460,32 @@ def processPreUnivFormSet(fecha, antiguedad, preunivformset):
         ###### Salario Neto.
         salario_neto = salario_bruto - acum_ret + acum_rem + fonid
 
-        ## Garantia salarial.
+## Garantia salarial.
         garantia_salarial_objs = GarantiaSalarial.objects.filter(cargo=cargo_obj, vigencia_desde__lte=fecha, vigencia_hasta__gte=fecha)
         if garantia_salarial_objs.exists():
             garantia_obj = garantia_salarial_objs.order_by('vigencia_hasta')[garantia_salarial_objs.count()-1]
-            garantia_valor = garantia_obj.valor
-            if cargo_obj.pago_por_hora:
-                garantia_valor *= horas
-            if salario_neto < garantia_valor:
-                garantia = garantia_valor - salario_neto
-                rem_obj = RemuneracionFija( codigo=garantia_preuniv_code,
-                                                            nombre=garantia_preuniv_name + ' (' + unicode(garantia_obj) + ')',
-                                                            aplicacion='P', valor=garantia)
-                rem_list.append( (rem_obj, garantia) )
-                acum_rem += garantia
-                salario_neto += garantia
+            valor_minimo = garantia_obj.valor_minimo
+            if salario_neto < valor_minimo:
+                if garantia_obj.antiguedad_min <= antiguedad_obj.anios and antiguedad_obj.anios < garantia_obj.antiguedad_max:
+                    
+                    if has_doctorado:
+                        valor = garantia_obj.valor_doctorado
+                    elif has_master:
+                        valor = garantia_obj.valor_master
+                    else:
+                        valor = garantia_obj.valor_st
+
+                    #el neto + garantia no puede superar la cota de garantia.
+                    total = max(valor_minimo,salario_neto+valor)
+                    
+                    garantia = total - salario_neto
+                    
+                    rem_obj = RemuneracionFija( codigo=garantia_code,
+                                                                nombre= garantia_name + ' (' + unicode(garantia_obj) + ')',
+                                                                aplicacion='U', valor=garantia)
+                    rem_list.append( (rem_obj, garantia) )
+                    acum_rem += garantia
+                    salario_neto += garantia
 
         # Calculo los acumulados de los salarios para todos los cargos.
         # y tambien los acumulados de las remuneraciones y retenciones.

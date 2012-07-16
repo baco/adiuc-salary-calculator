@@ -1,6 +1,7 @@
-Pasos para correr fill_db.sh:
+El script de bash "fill_db.sh" ejecuta los scripts de python que llenan la
+base de datos especificada en "salary_calculator/settings.py". "fill_db.sh"
+conoce cual es el orden correcto en que deben ejecutarse los scripts de python.
 
-1. export PYTHONPATH=<absolute path to manage.py file>
+Para correr "fill_db.sh" ejecutar lo siguiente desde la linea de comandos:
 
-2. desde el directorio en donde esta manage.py correr:
-    bash salary_calculator_app/database_scripts/fill_db.sh
+bash salary_calculator_app/database_scripts/fill_db.sh

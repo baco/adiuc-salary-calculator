@@ -83,37 +83,74 @@ def add_cargo_preuniv(nombre, lu, pampa, horas, tipo_horas, pago_por_hora):
         )
         c.save()
 
-    if c:
-        for rem in RemuneracionPorcentual.objects.filter(remuneracion__aplicacion='P', remuneracion__modo='C'):
-            c.rem_porcentuales.add(rem)
-        for rem in RemuneracionPorcentual.objects.filter(remuneracion__aplicacion='T', remuneracion__modo='C'):
-            c.rem_porcentuales.add(rem)
-        for ret in RetencionPorcentual.objects.filter(retencion__aplicacion='P', retencion__modo='C'):
-            c.ret_porcentuales.add(ret)
-        for ret in RetencionPorcentual.objects.filter(retencion__aplicacion='T', retencion__modo='C'):
-            c.ret_porcentuales.add(ret)
+#    if c:
+#        for rem in RemuneracionPorcentual.objects.filter(remuneracion__aplicacion='P', remuneracion__modo='C'):
+#            c.rem_porcentuales.add(rem)
+#        for rem in RemuneracionPorcentual.objects.filter(remuneracion__aplicacion='T', remuneracion__modo='C'):
+#            c.rem_porcentuales.add(rem)
+#        for ret in RetencionPorcentual.objects.filter(retencion__aplicacion='P', retencion__modo='C'):
+#            c.ret_porcentuales.add(ret)
+#        for ret in RetencionPorcentual.objects.filter(retencion__aplicacion='T', retencion__modo='C'):
+#            c.ret_porcentuales.add(ret)
 
     return c
 
 
+### Salario object
+salario_obj = RemuneracionRetencion.objects.get(codigo="10/0")
+
 def add_salario_basico(cargo, valor, vigencia_desde, vigencia_hasta):
-    """Crea una garantia salarial nueva si no existia ya en la BD con los 
+    """Crea un salario basico nuevo si no existia ya en la BD con los 
     valores dados y la asocia al cargo que toma por parametro."""
-    if SalarioBasico.objects.filter(cargo=cargo, valor=valor, vigencia_desde=vigencia_desde, vigencia_hasta=vigencia_hasta).exists():
-        g = SalarioBasico.objects.get(cargo=cargo, valor=valor, vigencia_desde=vigencia_desde, vigencia_hasta=vigencia_hasta)
+
+    if SalarioBasico.objects.filter(remuneracion=salario_obj, cargo=cargo, valor=valor, vigencia_desde=vigencia_desde, vigencia_hasta=vigencia_hasta).exists():
+        g = SalarioBasico.objects.get(remuneracion=salario_obj, cargo=cargo, valor=valor, vigencia_desde=vigencia_desde, vigencia_hasta=vigencia_hasta)
     else:
-        g = SalarioBasico(cargo=cargo, valor=valor, vigencia_desde=vigencia_desde, vigencia_hasta=vigencia_hasta)
+        g = SalarioBasico(remuneracion=salario_obj, cargo=cargo, valor=valor, vigencia_desde=vigencia_desde, vigencia_hasta=vigencia_hasta)
         g.save()
 
 
-def add_garantia_preuniv(cargo, valor, vigencia_desde, vigencia_hasta):
+def add_garantia(cargo, valor, vigencia_desde, vigencia_hasta):
+#def add_garantia(cargo, valor_minimo, valor_sin_titulo, valor_doctorado, valor_master, antiguedad_min, antiguedad_max, vigencia_desde, vigencia_hasta):
     """Crea una garantia salarial nueva si no existia ya en la BD con los 
     valores dados y la asocia al cargo que toma por parametro."""
-    if GarantiaSalarial.objects.filter(cargo=cargo, valor=valor, vigencia_desde=vigencia_desde, vigencia_hasta=vigencia_hasta).exists():
-        g = GarantiaSalarial.objects.get(cargo=cargo, valor=valor, vigencia_desde=vigencia_desde, vigencia_hasta=vigencia_hasta)
-    else:
-        g = GarantiaSalarial(cargo=cargo, valor=valor, vigencia_desde=vigencia_desde, vigencia_hasta=vigencia_hasta)
-        g.save()
+
+#    if GarantiaSalarial.objects.filter(
+#        cargo=cargo,
+#        valor_minimo=valor_minimo,
+#        valor_sin_titulo=valor_sin_titulo,
+#        valor_doctorado=valor_doctorado,
+#        valor_master=valor_master,
+#        antiguedad_min=antiguedad_min,
+#        antiguedad_max=antiguedad_max,
+#        vigencia_desde=vigencia_desde,
+#        vigencia_hasta=vigencia_hasta
+#    ).exists():
+#        g = GarantiaSalarial.objects.get(
+#            cargo=cargo,
+#            valor_minimo=valor_minimo,
+#            valor_sin_titulo=valor_sin_titulo,
+#            valor_doctorado=valor_doctorado,
+#            valor_master=valor_master,
+#            antiguedad_min=antiguedad_min,
+#            antiguedad_max=antiguedad_max,
+#            vigencia_desde=vigencia_desde,
+#            vigencia_hasta=vigencia_hasta
+#        )
+#    else:
+#        g = GarantiaSalarial(
+#           cargo=cargo,
+#           valor_minimo=valor_minimo,
+#           valor_sin_titulo=valor_sin_titulo,
+#           valor_doctorado=valor_doctorado,
+#           valor_master=valor_master,
+#           antiguedad_min=antiguedad_min,
+#           antiguedad_max=antiguedad_max,
+#           vigencia_desde=vigencia_desde,
+#           vigencia_hasta=vigencia_hasta
+#        )
+#        g.save()
+    return
 
 
 ############### VIGENCIAS
@@ -134,28 +171,36 @@ jun_vigencia_desde = date(2012, 9, 30)
 #    tipo_horas = '',
 #    pago_por_hora = False
 #)
+## Septiembre 2011
+#add_salario_basico(
+#    cargo = c,
+#    valor = ,
+#    vigencia_desde = sep_vigencia_desde,
+#    vigencia_hasta = sep_vigencia_hasta,
+#)
+## Marzo 2012
 #add_salario_basico(
 #    cargo = c,
 #    valor = ,
 #    vigencia_desde = mar_vigencia_desde,
-#    vigencia_hasta = jun_vigencia_hasta,
+#    vigencia_hasta = mar_vigencia_hasta
 #)
+## Junio 2012
 #add_salario_basico(
 #    cargo = c,
 #    valor = ,
 #    vigencia_desde = jun_vigencia_desde,
 #    vigencia_hasta = jun_vigencia_hasta
 #)
-#add_garantia_preuniv(
+#add_garantia(
 #    cargo = c,
-#    valor = ,
+#    valor_minimo = ,
+#    valor_sin_titulo=valor_sin_titulo,
+#    valor_doctorado=valor_doctorado,
+#    valor_master=valor_master,
+#    antiguedad_min=antiguedad_min,
+#    antiguedad_max=antiguedad_max,
 #    vigencia_desde = mar_vigencia_desde,
-#    vigencia_hasta = jun_vigencia_hasta,
-#)
-#add_garantia_preuniv(
-#    cargo = c,
-#    valor = ,
-#    vigencia_desde = jun_vigencia_desde,
 #    vigencia_hasta = jun_vigencia_hasta
 #)
 ##############
@@ -185,12 +230,17 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
-    cargo = c,
-    valor = 5600,
-    vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
-)
+#add_garantia(
+#    cargo = c,
+#    valor_minimo = 5600,
+#    valor_sin_titulo=5600,
+#    valor_doctorado=5600,
+#    valor_master=5600,
+#    antiguedad_min=0,
+#    antiguedad_max=1,
+#    vigencia_desde = mar_vigencia_desde,
+#	vigencia_hasta = jun_vigencia_hasta
+#)
 ##############
 c = add_cargo_preuniv(
     nombre = u'Regente de 1°', 
@@ -218,7 +268,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 5600,
 	vigencia_desde = mar_vigencia_desde,
@@ -251,7 +301,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2464.76,
 	vigencia_desde = mar_vigencia_desde,
@@ -284,7 +334,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 5600,
 	vigencia_desde = mar_vigencia_desde,
@@ -318,7 +368,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 5600,
 	vigencia_desde = mar_vigencia_desde,
@@ -352,7 +402,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2800,
 	vigencia_desde = mar_vigencia_desde,
@@ -385,7 +435,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 3358.47,
 	vigencia_desde = mar_vigencia_desde,
@@ -445,7 +495,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 1680,
 	vigencia_desde = mar_vigencia_desde,
@@ -505,7 +555,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 5600,
 	vigencia_desde = mar_vigencia_desde,
@@ -593,7 +643,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2800,
 	vigencia_desde = mar_vigencia_desde,
@@ -626,7 +676,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2800,
 	vigencia_desde = mar_vigencia_desde,
@@ -659,7 +709,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2800,
 	vigencia_desde = mar_vigencia_desde,
@@ -719,7 +769,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2800,
 	vigencia_desde = mar_vigencia_desde,
@@ -779,7 +829,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2324.51,
 	vigencia_desde = mar_vigencia_desde,
@@ -893,7 +943,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2800,
 	vigencia_desde = mar_vigencia_desde,
@@ -980,7 +1030,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2403.16,
 	vigencia_desde = mar_vigencia_desde,
@@ -1013,7 +1063,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2800,
 	vigencia_desde = mar_vigencia_desde,
@@ -1046,7 +1096,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 233.42,
 	vigencia_desde = mar_vigencia_desde,
@@ -1079,7 +1129,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 186.58,
 	vigencia_desde = mar_vigencia_desde,
@@ -1166,7 +1216,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2238.98,
 	vigencia_desde = mar_vigencia_desde,
@@ -1199,7 +1249,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2800,
 	vigencia_desde = mar_vigencia_desde,
@@ -1232,7 +1282,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 5600,
 	vigencia_desde = mar_vigencia_desde,
@@ -1292,7 +1342,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2100,
 	vigencia_desde = mar_vigencia_desde,
@@ -1325,7 +1375,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 5597.96,
 	vigencia_desde = mar_vigencia_desde,
@@ -1358,7 +1408,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 4477.96,
 	vigencia_desde = mar_vigencia_desde,
@@ -1391,7 +1441,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 3358.47,
 	vigencia_desde = mar_vigencia_desde,
@@ -1424,7 +1474,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2718.04,
 	vigencia_desde = mar_vigencia_desde,
@@ -1457,7 +1507,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 5600,
 	vigencia_desde = mar_vigencia_desde,
@@ -1490,7 +1540,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 5600,
 	vigencia_desde = mar_vigencia_desde,
@@ -1550,7 +1600,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 5600,
 	vigencia_desde = mar_vigencia_desde,
@@ -1583,7 +1633,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2800,
 	vigencia_desde = mar_vigencia_desde,
@@ -1616,7 +1666,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 5600,
 	vigencia_desde = mar_vigencia_desde,
@@ -1757,7 +1807,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 5600,
 	vigencia_desde = mar_vigencia_desde,
@@ -1790,7 +1840,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2800,
 	vigencia_desde = mar_vigencia_desde,
@@ -1850,7 +1900,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2100,
 	vigencia_desde = mar_vigencia_desde,
@@ -1910,7 +1960,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 5600,
 	vigencia_desde = mar_vigencia_desde,
@@ -1943,7 +1993,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 2782.18,
 	vigencia_desde = mar_vigencia_desde,
@@ -2003,7 +2053,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 186.58,
 	vigencia_desde = mar_vigencia_desde,
@@ -2036,7 +2086,7 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-add_garantia_preuniv(
+add_garantia(
     cargo = c,
     valor = 1400,
 	vigencia_desde = mar_vigencia_desde,

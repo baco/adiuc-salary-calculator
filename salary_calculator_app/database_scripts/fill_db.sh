@@ -26,11 +26,15 @@
 # la base de datos con los datos basicos.
 
 # Correr con:
-# bash fill_db.sh
+# bash salary_calculator_app/database_scripts/fill_db.sh
+
+export PYTHONPATH=`pwd`
 
 scripts=(
     "fonid_data.py"
+    "remuneraciones_retenciones_data.py"
     "antiguedad_data.py"
+    "univ_data.py"
     "preuniv_data.py"
 )
 

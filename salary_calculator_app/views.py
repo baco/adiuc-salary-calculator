@@ -82,8 +82,8 @@ def calculate(request):
 
             # Calculo para salarios de cargos universitarios.
 
-            context_univ = processUnivFormSet(aumento_obj, antiguedad, univformset)
-            context_preuniv = processPreUnivFormSet(aumento_obj, antiguedad, preunivformset)
+            context_univ = processUnivFormSet(fecha, antiguedad, univformset)
+            context_preuniv = processPreUnivFormSet(fecha, antiguedad, preunivformset)
 
             #quito los duplicados, si hay, entre univ y preuniv para las ret/rem por persona
             rfp_univ = context_univ['ret_fijas_persona']
@@ -182,6 +182,12 @@ def processUnivFormSet(fecha, antiguedad, univformset):
     total_bruto = 0.0
     total_neto = 0.0
 
+    #retencioens/remuenraciones por persona (no por cargo)
+    ret_fijas_persona = list()
+    ret_porc_persona  = list()
+    rem_fijas_persona = list()
+    rem_porc_persona  = list()
+
     for univform in univformset:
 
         if univform in univformset.deleted_forms:
@@ -197,7 +203,7 @@ def processUnivFormSet(fecha, antiguedad, univformset):
         #basico_nac = cargo_obj.basico_nac
         basicos = SalarioBasico.objects.filter(cargo=cargo_obj, vigencia_desde__lte=fecha, vigencia_hasta__gte=fecha)
         basicos = basicos.order_by('vigencia_hasta')
-        basico = basicos[basico.count()-1]
+        basico = basicos[basicos.count()-1]
         #aumento = basico_nac * aumento_obj.porcentaje / 100.0
         adic2003_obj = RemuneracionFija(nombre=adic2003_name, codigo=adic2003_code, valor=0.0)
         #if cargo_obj.adic2003:
@@ -235,11 +241,7 @@ def processUnivFormSet(fecha, antiguedad, univformset):
             rem_porcentuales = rem_porcentuales.exclude(codigo=doc_code)
             rem_porcentuales = rem_porcentuales.exclude(codigo=master_code)
   
-        #divido en dos grupos: retenciones/remuneraciones por persona y por cargo        
-        ret_fijas_persona = list()
-        ret_porc_persona  = list()
-        rem_fijas_persona = list()
-        rem_porc_persona  = list()
+        #Retenciones/remuneraciones por cargo
 
         ret_fijas_cargo = list()
         ret_porc_cargo  = list()
@@ -382,7 +384,7 @@ def processPreUnivFormSet(fecha, antiguedad, preunivformset):
         cargo_obj = preunivform.cleaned_data['cargo']
         has_doctorado = preunivform.cleaned_data['doctorado']
         has_master = preunivform.cleaned_data['master']
-        antiguedad_obj = AntiguedadPreUniv.objects.get(anio=antiguedad)
+        antiguedad_obj = AntiguedadPreUniversitaria.objects.get(anio=antiguedad)
         horas = preunivform.cleaned_data['horas']
 
         ###### Salario Bruto.

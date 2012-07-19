@@ -156,10 +156,12 @@ def add_garantia(cargo, valor, vigencia_desde, vigencia_hasta):
 ############### VIGENCIAS
 sep_vigencia_desde = date(2011, 9, 1)
 sep_vigencia_hasta = date(2012, 2, 29)
+
 mar_vigencia_desde = date(2012, 3, 1)
 mar_vigencia_hasta = date(2012, 5, 31)
-jun_vigencia_hasta = date(2012, 6, 1)
-jun_vigencia_desde = date(2012, 9, 30)
+
+jun_vigencia_desde = date(2012, 6, 1)
+jun_vigencia_hasta = date(2012, 9, 30)
 
 # Base: Copiar y pegar este
 ###############

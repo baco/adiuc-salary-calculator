@@ -26,14 +26,29 @@ from django.db import models
 
 from salary_calculator_app.validators import *
 
-class GarantiaSalarial(models.Model):
+class GarantiaSalarialPreUniversitaria(models.Model):
+    """ garantía salarial para cargos preuniversitarios """
+    
+    cargo = models.ForeignKey('CargoPreUniversitario',
+        help_text=u'El cargo docente sobre el que se aplica esta garantía.')
+    
+    valor = models.FloatField(u'Monto minimo', validators=[validate_isgezero],
+        help_text=u'Monto mínimo, igualado éste no se aplica la garantía.')
+
+    vigencia_desde = models.DateField(u'Vigente desde',
+        help_text=u'Fecha a partir de la cual esta garantía comienza a tener vigencia.')
+
+    vigencia_hasta = models.DateField(u'Vigente hasta',
+        help_text=u'Fecha a partir de la cual esta garantía deja de ser vigente.')
+
+class GarantiaSalarialUniversitaria(models.Model):
     """Representa el valor minimo que un Cargo puede cobrar."""
 
-    cargo = models.ForeignKey('Cargo',
+    cargo = models.ForeignKey('CargoUniversitario',
         help_text=u'El cargo docente sobre el que se aplica esta garantía.')
 
     valor_minimo = models.FloatField(u'Monto minimo', validators=[validate_isgezero],
-        help_text=u'Monto mínimo, igualdao éste no se aplica la garantía.')
+        help_text=u'Monto mínimo, igualado éste no se aplica la garantía.')
 
     valor_st = models.FloatField(u'Monto de la garantía', validators=[validate_isgezero],
         help_text=u'El monto de esta garantía sin título adicional.')

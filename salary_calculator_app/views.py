@@ -323,7 +323,7 @@ def processUnivFormSet(fecha, antiguedad, univformset):
         salario_neto = salario_bruto - acum_ret + acum_rem
 
         ## Garantia salarial.
-        garantias_salariales = GarantiaSalarial.objects.filter(cargo=cargo_obj, vigencia_desde__lte=fecha, vigencia_hasta__gte=fecha)
+        garantias_salariales = GarantiaSalarialUniversitaria.objects.filter(cargo=cargo_obj, vigencia_desde__lte=fecha, vigencia_hasta__gte=fecha)
         
         if garantias_salariales.exists():
 
@@ -341,9 +341,12 @@ def processUnivFormSet(fecha, antiguedad, univformset):
                     else:
                         valor = garantia_obj.valor_st
 
-                    #el neto + garantia no puede superar la cota de garantia.
-                    total = max(valor_minimo, salario_neto+valor)
-
+                    #NO SABEMOS SI: el neto + garantia no puede superar la cota de garantia.
+                    #total = min(valor_minimo, salario_neto+valor)
+                    #NOtar que sigo usando la variable 'total' Por si es necesario usar la linea anterior
+                    #borramos la de abajo y listo.
+                    
+                    total = valor
                     garantia = total - salario_neto
 
                     rem_obj = RemuneracionFija(
@@ -525,7 +528,7 @@ def processPreUnivFormSet(fecha, antiguedad, preunivformset):
         salario_neto = salario_bruto - acum_ret + acum_rem + fonid
 
         ## Garantia salarial.
-        garantias_salariales = GarantiaSalarial.objects.filter(cargo=cargo_obj, vigencia_desde__lte=fecha, vigencia_hasta__gte=fecha)
+        garantias_salariales = GarantiaSalarialPreUniversitaria.objects.filter(cargo=cargo_obj, vigencia_desde__lte=fecha, vigencia_hasta__gte=fecha)
 
         if garantiaes_salariales.exists():
 
@@ -534,29 +537,17 @@ def processPreUnivFormSet(fecha, antiguedad, preunivformset):
 
             if salario_neto < valor_minimo:
 
-                if garantia_obj.antiguedad_min <= antiguedad.anios and antiguedad.anios < garantia_obj.antiguedad_max:
-  
-                    if has_doctorado:
-                        valor = garantia_obj.valor_doctorado
-                    elif has_master:
-                        valor = garantia_obj.valor_master
-                    else:
-                        valor = garantia_obj.valor_st
+                garantia = valor_minimo - salario_neto
 
-                    #el neto + garantia no puede superar la cota de garantia.
-                    total = max(valor_minimo,salario_neto+valor)
-
-                    garantia = total - salario_neto
-
-                    rem_obj = RemuneracionFija(
-                        codigo=garantia_code,
-                        nombre= garantia_name + ' (' + unicode(garantia_obj) + ')',
-                        aplicacion='U',
-                        valor=garantia
-                    )
-                    rem_list.append( (rem_obj, garantia) )
-                    acum_rem += garantia
-                    salario_neto += garantia
+                rem_obj = RemuneracionFija(
+                    codigo=garantia_code,
+                    nombre= garantia_name + ' (' + unicode(garantia_obj) + ')',
+                    aplicacion='U',
+                    valor=garantia
+                )
+                rem_list.append( (rem_obj, garantia) )
+                acum_rem += garantia
+                salario_neto += garantia
 
         # Calculo los acumulados de los salarios para todos los cargos.
         # y tambien los acumulados de las remuneraciones y retenciones.

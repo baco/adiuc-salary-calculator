@@ -34,28 +34,28 @@ from models import *
 import pdb
 
 ##### Hardcoded
-adic2003_code = '118'
+adic2003_code = '11/8'
 adic2003_name = u'Adic. 8% RHCS 153/03'
 
-antiguedad_code = '30'
+antiguedad_code = '30/0'
 antiguedad_name = u'Adicional Antigüedad'
 
-doc_code = '51'
-doc_preuniv_code = '53'
+doc_code = '51/0'
+doc_preuniv_code = '53/0'
 
-master_code = '52'
-master_preuniv_code = '55'
+master_code = '52/0'
+master_preuniv_code = '55/0'
 
-garantia_code = '115'
+garantia_code = '11/5'
 garantia_name = u'Garantía Docentes Univ.'
 
-garantia_preuniv_code = '107'
+garantia_preuniv_code = '10/7'
 garantia_preuniv_name = u'Garantía Nivel Medio'
 
-fondo_becas_code = '770'
+fondo_becas_code = '77/0'
 fondo_becas_name = u'Fondo de Becas'
 
-afiliacion_code = '640'
+afiliacion_code = '64/0'
 afiliacion_name = u'ADIUC - Afiliacion'
 
 def calculate(request):

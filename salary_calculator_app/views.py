@@ -57,6 +57,17 @@ fondo_becas_name = u'Fondo de Becas'
 
 afiliacion_code = '64/0'
 afiliacion_name = u'ADIUC - Afiliacion'
+#Para mezclar las listas de retenciones/remuneraciones de cada context
+def merge_retrem(context1, context2, key):
+    r1 = list()
+    r2 = list()
+    if context1.has_key(key):
+        r1 = list(context1[key])
+    if context2.has_key(key):
+        r2 = list(context2[key])
+    result = list(set(r1 + r2))
+    
+    return result
 
 def calculate(request):
     """Vista principal"""
@@ -75,68 +86,53 @@ def calculate(request):
 
         if univformset.is_valid() and preunivformset.is_valid() and commonform.is_valid():
 
-            #aumento_obj = commonform.cleaned_data['aumento']
             fecha = commonform.cleaned_data['fecha']
             antiguedad = commonform.cleaned_data['antiguedad']
             es_afiliado = commonform.cleaned_data['afiliado']
 
-            # Calculo para salarios de cargos universitarios.
-
             context_univ = processUnivFormSet(fecha, antiguedad, univformset)
             context_preuniv = processPreUnivFormSet(fecha, antiguedad, preunivformset)
-
-            #quito los duplicados, si hay, entre univ y preuniv para las ret/rem por persona
-            rfp_univ = list()
-            rfp_preuniv = list()
-            if context_univ.has_key('ret_fijas_persona'):
-                rfp_univ = list(context_univ['ret_fijas_persona'])
-            if context_preuniv.has_key('ret_fijas_persona'):
-                rfp_preuniv = list(context_preuniv['ret_fijas_persona'])
-            ret_fijas_persona = list(set(rfp_univ + rfp_preuniv))
-
-            rpp_univ = list()
-            rpp_preuniv = list()
-            if context_univ.has_key('ret_porc_persona'):
-                rpp_univ = list(context_univ['ret_porc_persona'])
-            if context_preuniv.has_key('ret_porc_persona'):
-                rpp_preuniv = list(context_preuniv['ret_porc_persona'])
-            ret_porc_persona = list(set(rpp_univ + rpp_preuniv))
-
-            #calculo las retenciones/remuneracioens que son por persona.
 
             total_rem = context_univ['total_rem'] + context_preuniv['total_rem']
             total_ret = context_univ['total_ret'] + context_preuniv['total_ret']
             total_bruto = context_univ['total_bruto'] + context_preuniv['total_bruto']
             total_neto = context_univ['total_neto'] + context_preuniv['total_neto']
- 
-            #acumulacion de retenciones y remuneraciones por persona.
+
+            #quito los duplicados, si hay, entre univ y preuniv para las ret/rem por persona
+            ret_fijas_persona = merge_retrem(context_univ, context_preuniv, 'ret_fijas_persona')
+            ret_porc_persona  = merge_retrem(context_univ, context_preuniv, 'ret_porc_persona')
+            rem_fijas_persona = merge_retrem(context_univ, context_preuniv, 'rem_fijas_persona')
+            rem_porc_persona  = merge_retrem(context_univ, context_preuniv, 'rem_porc_persona')
+
+            #calculo las retenciones/remuneracioens que son por persona.
             acum_ret = 0.0
             acum_rem = 0.0
             for ret in ret_porc_persona:
-                importe = (total_bruto * ret.porcentaje / 100)
+                importe = (total_bruto * ret.porcentaje / 100.0)
                 acum_ret += importe
-
+                
             for ret in ret_fijas_persona:
                 acum_ret += ret.valor
   
-            #for rem in rem_porc_persona:
-                #importe = (total_bruto * ret.porcentaje / 100)
-                #acum_rem += importe
+            for rem in rem_porc_persona:
+                importe = (total_bruto * ret.porcentaje / 100.0)
+                acum_rem += importe
 
-            #for rem in rem_fijas_persona:
-                #importe = rem.valor
-                #acum_rem += importe
+            for rem in rem_fijas_persona:
+                importe = rem.valor
+                acum_rem += importe
 
             #calculo de afiliacion.
             af_importe = 0.0
             if es_afiliado:
-                afiliacion_objs = RetencionPorcentual.objects.filter(retencion__codigo=afiliacion_code, vigencia_desde__lte=fecha, vigencia_hasta__gte=fecha)
+                afiliacion_objs = RetencionPorcentual.objects.filter(retencion__codigo=afiliacion_code,
+                                                vigencia_desde__lte=fecha, vigencia_hasta__gte=fecha)
                 if not afiliacion_objs.exists():
                     context["error_msg"] = "No existe informacion sobre afiliaciones."
                     return render_to_response('salary_calculated.html', context)
+                    
                 afiliacion_obj = afiliacion_objs.order_by('vigencia_hasta')[afiliacion_objs.count()-1]
-                af_importe = total_bruto * afiliacion_obj.porcentaje / 100.0 
-                # en caso de exisitr, los guardo en el context.
+                af_importe = total_bruto * afiliacion_obj.porcentaje / 100.0
                 context['afiliacion'] = afiliacion_obj
                 context['afiliacion_importe'] = af_importe
 
@@ -177,24 +173,17 @@ def calculate(request):
 
 def processUnivFormSet(fecha, antiguedad, univformset):
     """Procesa un formset con formularios de cargos universitarios. Retorna un context"""
-
-    #NOTA: Sobre el cálculo, según las tablas:
-    # importe = basico_sep11 + aumento2003 + acum (= basicoREFerencia*12% o 18%)
-    # sueldo_bruto = importe*antiguedad%
-
     context = {}
 
-    #guardo en esta lista un diccionario para cada formulario procesado
-    #en cada una de estas, los resultados para renderizar luego.
+    #Guardo en esta lista un diccionario para cada formulario procesado
     lista_res = list()
 
-    # Itero sobre todos los cargos.
     total_rem = 0.0
     total_ret = 0.0
     total_bruto = 0.0
     total_neto = 0.0
 
-    # Retenciones / Remuneraciones que son por persona (no por cargo).
+    # Filtro las Retenciones / Remuneraciones que son por persona (no por cargo).
     ret_fijas_persona = RetencionFija.objects.filter(
         retencion__aplicacion='U',
         retencion__modo='P',
@@ -231,7 +220,7 @@ def processUnivFormSet(fecha, antiguedad, univformset):
         has_doctorado = univform.cleaned_data['doctorado']
         has_master = univform.cleaned_data['master']
 
-        # Retenciones / Remuneraciones que son por cargo.
+        # Filtro Retenciones / Remuneraciones que son por cargo.
         ret_porcentuales = RetencionPorcentual.objects.filter(
             retencion__aplicacion='U',
             retencion__modo='C',
@@ -258,10 +247,12 @@ def processUnivFormSet(fecha, antiguedad, univformset):
         )
 
         # Obtengo la Antiguedad
-        antiguedades = AntiguedadUniversitaria.objects.filter(anio=antiguedad, vigencia_desde__lte=fecha, vigencia_hasta__gte=fecha)
+        antiguedades = AntiguedadUniversitaria.objects.filter(anio=antiguedad, vigencia_desde__lte=fecha,
+                                                                vigencia_hasta__gte=fecha)
         antiguedad = None
         if not antiguedades.exists():
-            context['error_msg'] = u'No existe información de Antigüedad para los datos ingresados. Por favor introduzca otros datos.'
+            context['error_msg'] = u'No existe información de Antigüedad \
+            para los datos ingresados. Por favor introduzca otros datos.'
             return context
         else:
             antiguedad = antiguedades.order_by('vigencia_hasta')[antiguedades.count()-1]
@@ -272,7 +263,8 @@ def processUnivFormSet(fecha, antiguedad, univformset):
         basicos = SalarioBasico.objects.filter(cargo=cargo_obj, vigencia_desde__lte=fecha, vigencia_hasta__gte=fecha)
         basico = None
         if not basicos.exists():
-            context['error_msg'] = u'No existe información de Salarios Básicos para los datos ingresados. Por favor introduzca otros datos.'
+            context['error_msg'] = u'No existe información de Salarios Básicos \
+            para los datos ingresados. Por favor introduzca otros datos.'
             return context
         else:
             basico = basicos.order_by('vigencia_hasta')[basicos.count()-1]
@@ -284,10 +276,10 @@ def processUnivFormSet(fecha, antiguedad, univformset):
 
         ###### El Neto se calcula del bruto restando las retenciones y sumando las remuneraciones.
 
-        ret_list = list()   # Aqui iran tuplas de la forma (obj retencion, importe) para mostrar esta info en el template.
-        rem_list = list()  # De forma similar, tendra tuplas (obj remuneracion, importe)
+        ret_list = list()  # Con tuplas de la forma (obj retencion, importe).
+        rem_list = list()  # Con tuplas (obj remuneracion, importe).
 
-        acum_ret = 0.   # El acumulado de todo lo que hay que descontarle al bruto.
+        acum_ret = 0. # El acumulado de todo lo que hay que descontarle al bruto.
         acum_rem = 0. # El acumulado de todo lo que hay que sumarle.
 
         #Adicional titulo doctorado (cod 51), Adicional titulo maestria (cod 52)
@@ -300,15 +292,14 @@ def processUnivFormSet(fecha, antiguedad, univformset):
             rem_porcentuales = rem_porcentuales.exclude(remuneracion__codigo=master_code)
 
         ## Retenciones / Remuneraciones NO especiales:
-
         for ret in ret_porcentuales:
             importe = salario_bruto * ret.porcentaje / 100.
             acum_ret += importe
             ret_list.append( (ret, importe) )
 
         for ret in ret_fijas:
-                acum_ret += ret.valor
-                ret_list.append( (ret, ret.valor) )
+            acum_ret += ret.valor
+            ret_list.append( (ret, ret.valor) )
 
         for rem in rem_porcentuales:
             importe = salario_bruto * rem.porcentaje / 100.
@@ -360,10 +351,10 @@ def processUnivFormSet(fecha, antiguedad, univformset):
 
         # Calculo los acumulados de los salarios para todos los cargos.
         # y tambien los acumulados de las remuneraciones y retenciones.
-        total_rem += acum_rem
-        total_ret += acum_ret
+        total_rem   += acum_rem
+        total_ret   += acum_ret
         total_bruto += salario_bruto
-        total_neto += salario_neto
+        total_neto  += salario_neto
 
         # Aqui iran los resultados del calculo para este cargo en particular.
         form_res = {
@@ -376,10 +367,11 @@ def processUnivFormSet(fecha, antiguedad, univformset):
             'salario_bruto': salario_bruto,
             'salario_neto': salario_neto,
             'antiguedad': antiguedad,
-            'antiguedad_importe':antiguedad.porcentaje
+            'antiguedad_importe':antiguedad_importe
         }
         lista_res.append(form_res)
-
+    
+    print lista_res
     context['total_rem'] = total_rem
     context['total_ret'] = total_ret
     context['total_bruto'] = total_bruto

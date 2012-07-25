@@ -99,29 +99,40 @@ def calculate(request):
             total_neto = context_univ['total_neto'] + context_preuniv['total_neto']
 
             #quito los duplicados, si hay, entre univ y preuniv para las ret/rem por persona
-            ret_fijas_persona = merge_retrem(context_univ, context_preuniv, 'ret_fijas_persona')
-            ret_porc_persona  = merge_retrem(context_univ, context_preuniv, 'ret_porc_persona')
-            rem_fijas_persona = merge_retrem(context_univ, context_preuniv, 'rem_fijas_persona')
-            rem_porc_persona  = merge_retrem(context_univ, context_preuniv, 'rem_porc_persona')
+            ret_fp = merge_retrem(context_univ, context_preuniv, 'ret_fijas_persona')
+            ret_pp  = merge_retrem(context_univ, context_preuniv, 'ret_porc_persona')
+            rem_fp = merge_retrem(context_univ, context_preuniv, 'rem_fijas_persona')
+            rem_pp  = merge_retrem(context_univ, context_preuniv, 'rem_porc_persona')
 
             #calculo las retenciones/remuneracioens que son por persona.
             acum_ret = 0.0
             acum_rem = 0.0
-            for ret in ret_porc_persona:
+
+            ret_porc_persona = list()
+            rem_porc_persona = list()
+            ret_fijas_persona = list()
+            rem_fijas_persona = list()
+
+
+            for ret in ret_pp:
                 importe = (total_bruto * ret.porcentaje / 100.0)
                 acum_ret += importe
+                ret_porc_persona.append( (ret, importe) )
                 
-            for ret in ret_fijas_persona:
+            for ret in ret_fp:
                 acum_ret += ret.valor
-  
-            for rem in rem_porc_persona:
+                ret_fijas_persona.append( (ret, ret.valor) )
+                
+            for rem in rem_pp:
                 importe = (total_bruto * ret.porcentaje / 100.0)
                 acum_rem += importe
+                rem_porc_persona.append( (rem, importe) )
 
-            for rem in rem_fijas_persona:
+            for rem in rem_fp:
                 importe = rem.valor
                 acum_rem += importe
-
+                rem_fijas_persona.append( (rem, rem.valor) )
+                
             #calculo de afiliacion.
             af_importe = 0.0
             if es_afiliado:
@@ -149,7 +160,10 @@ def calculate(request):
             context['fecha'] = fecha
             context['ret_fijas_persona'] = ret_fijas_persona
             context['ret_porc_persona'] = ret_porc_persona
-
+            print ret_fijas_persona
+            print rem_fijas_persona
+            print ret_porc_persona
+            print rem_porc_persona
             return render_to_response('salary_calculated.html', context)
 
         else:

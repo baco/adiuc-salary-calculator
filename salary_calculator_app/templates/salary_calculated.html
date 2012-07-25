@@ -45,25 +45,52 @@
             <div class="results_cargo">
             
                 <table class="result" cellspaing=2><br>
-                    <!--<tr colspand=4><td>Importes aplicados solo una vez</td></tr>
+                    <tr><th colspan=4>Importes aplicados solo una vez:</th></tr>
                     <tr>
                         <th> C&oacute;digo </th>
                         <th> Detalle </th>
                         <th> Importe (+) </th>
                         <th> Importe (-) </th>
 
-                    </tr>-->
-                    {% for rf in ret_fijas_persona %}
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td> </td>
-                        <td></td>
                     </tr>
+                    {% for rem,importe in rem_fijas_persona %}
+                        <tr>
+                        <td> {{ rem.remuneracion.codigo }} </td>
+                        <td> {{ rem.remuneracion.nombre }} </td>
+                        <td> {{ importe|floatformat:-2 }}    </td>
+                        <td></td>
+                        </tr>
                     {% endfor %}
-                </table> 
-            
-            
+                    
+                    {% for rem,importe in rem_porc_persona %}
+                        <tr>
+                        <td> {{ rem.remuneracion.codigo }} </td>
+                        <td> {{ rem.remuneracion.nombre }} ({{ rem.porcentaje }}%) </td>
+                        <td> {{ importe|floatformat:-2 }} </td>
+                        <td></td>
+                        </tr>
+                    {% endfor %}
+                    
+                    {% for ret,importe in ret_fijas_persona %}
+                        <tr>
+                        <td> {{ ret.retencion.codigo }} </td>
+                        <td> {{ ret.retencion.nombre }} </td>
+                        <td>  </td>
+                        <td> {{ importe|floatformat:-2 }} </td>
+                        </tr>
+                    {% endfor %}
+                    
+                    {% for ret,importe in ret_porc_persona %}
+                        <tr>
+                        <td> {{ ret.retencion.codigo }} </td>
+                        <td> {{ ret.retencion.nombre }} ({{ ret.porcentaje }}%) </td>
+                        <td></td>
+                        <td> {{ importe|floatformat:-2 }} </td>
+                        </tr>
+                    {% endfor %}
+                    
+                </table>
+               <hr>            
                 {% for res in lista_res %}
                     <tr>
                         <td> Cargo: </td>

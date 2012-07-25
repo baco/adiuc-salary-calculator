@@ -34,7 +34,7 @@
 	<div align=center>
 	{% if error_msg %}
 	    <p>{{ error_msg }}</p>
-	{% endif %}
+	{% else %}
 			<div class = "title">
 			    C&aacute;lculo salarial para el periodo: {{ fecha.month }} / {{ fecha.year }}
 			</div>
@@ -43,7 +43,6 @@
             
             
             <div class="results_cargo">
-
                 <table class="result" cellspaing=2><br>
                     <tr><th colspan=4>Importes por persona:</th></tr>
                     <tr>
@@ -205,6 +204,7 @@
             </div>
             <br><br>
             <a class="agregar_quitar"href="javascript: history.go(-2)"> Volver</a>
+	{% endif %} <!-- error_msg -->
 	</div>
 	</body>
 

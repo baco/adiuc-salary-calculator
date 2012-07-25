@@ -36,16 +36,16 @@
 	    <p>{{ error_msg }}</p>
 	{% endif %}
 			<div class = "title">
-			    C&aacute;lculo salarial para el periodo: {{ fecha.month }} {{ fecha.year }}
+			    C&aacute;lculo salarial para el periodo: {{ fecha.month }} / {{ fecha.year }}
 			</div>
 
             <br>
             
             
             <div class="results_cargo">
-            
+
                 <table class="result" cellspaing=2><br>
-                    <tr><th colspan=4>Importes aplicados solo una vez:</th></tr>
+                    <tr><th colspan=4>Importes por persona:</th></tr>
                     <tr>
                         <th> C&oacute;digo </th>
                         <th> Detalle </th>
@@ -53,11 +53,19 @@
                         <th> Importe (-) </th>
 
                     </tr>
+                    {% if afiliacion %}
+                    <tr>
+                        <td> {{ afiliacion.retencion.codigo }} </td>
+                        <td> {{ afiliacion.retencion.nombre }}({{afiliacion.porcentaje}} %) </td>
+                        <td>  </td>
+                        <td class="descuentos"> -{{ afiliacion_importe|floatformat:-2 }} </td>
+                    </tr>
+                    {% endif %}
                     {% for rem,importe in rem_fijas_persona %}
                         <tr>
                         <td> {{ rem.remuneracion.codigo }} </td>
                         <td> {{ rem.remuneracion.nombre }} </td>
-                        <td> {{ importe|floatformat:-2 }}    </td>
+                        <td class="adicionales"> {{ importe|floatformat:-2 }}    </td>
                         <td></td>
                         </tr>
                     {% endfor %}
@@ -66,7 +74,7 @@
                         <tr>
                         <td> {{ rem.remuneracion.codigo }} </td>
                         <td> {{ rem.remuneracion.nombre }} ({{ rem.porcentaje }}%) </td>
-                        <td> {{ importe|floatformat:-2 }} </td>
+                        <td class="adicionales"> {{ importe|floatformat:-2 }} </td>
                         <td></td>
                         </tr>
                     {% endfor %}
@@ -76,7 +84,7 @@
                         <td> {{ ret.retencion.codigo }} </td>
                         <td> {{ ret.retencion.nombre }} </td>
                         <td>  </td>
-                        <td> {{ importe|floatformat:-2 }} </td>
+                        <td class="descuentos"> -{ importe|floatformat:-2 }} </td>
                         </tr>
                     {% endfor %}
                     
@@ -85,12 +93,15 @@
                         <td> {{ ret.retencion.codigo }} </td>
                         <td> {{ ret.retencion.nombre }} ({{ ret.porcentaje }}%) </td>
                         <td></td>
-                        <td> {{ importe|floatformat:-2 }} </td>
+                        <td class="descuentos"> -{{ importe|floatformat:-2 }} </td>
                         </tr>
                     {% endfor %}
                     
                 </table>
-               <hr>            
+               <hr>     
+      
+                <table>
+                    <tr><th colspan=4>Importes por cargo:</th></tr>
                 {% for res in lista_res %}
                     <tr>
                         <td> Cargo: </td>
@@ -115,7 +126,7 @@
                     </tr>
 
                     <tr>
-                        <td></td>
+                        <td>{{ res.antiguedad.remuneracion.codigo }}</td>
                         <td> Antig&uuml;edad ({{res.antiguedad.anio}} años - {{ res.antiguedad.porcentaje }}%)</td>
                         <td>{{ res.antiguedad_importe|floatformat:-2 }} </td>
                         <td></td>
@@ -124,8 +135,8 @@
 
                     {% for obj, importe in res.remuneraciones %}
 						<tr>
-                            <td> {{ obj.codigo }} </td>
-                            <td> {{ obj.nombre }} {% if obj.porcentaje %}({{ obj.porcentaje }}%){% endif %} </td>
+                            <td> {{ obj.remuneracion.codigo }} </td>
+                            <td> {{ obj.remuneracion.nombre }} {% if obj.porcentaje %}({{ obj.porcentaje }}%){% endif %} </td>
                             <td class="adicionales">{{ importe|floatformat:-2 }} </td>
                             <td></td>
                         </tr>

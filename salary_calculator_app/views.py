@@ -160,10 +160,8 @@ def calculate(request):
             context['fecha'] = fecha
             context['ret_fijas_persona'] = ret_fijas_persona
             context['ret_porc_persona'] = ret_porc_persona
-            print ret_fijas_persona
-            print rem_fijas_persona
-            print ret_porc_persona
-            print rem_porc_persona
+
+            print context
             return render_to_response('salary_calculated.html', context)
 
         else:
@@ -385,7 +383,7 @@ def processUnivFormSet(fecha, antiguedad, univformset):
         }
         lista_res.append(form_res)
     
-    print lista_res
+
     context['total_rem'] = total_rem
     context['total_ret'] = total_ret
     context['total_bruto'] = total_bruto

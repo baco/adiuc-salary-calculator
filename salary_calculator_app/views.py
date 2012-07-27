@@ -183,7 +183,7 @@ def calculate(request):
     return render_to_response('calculate.html', context)
 
 
-def processUnivFormSet(fecha, antiguedad, univformset):
+def processUnivFormSet(fecha, antiguedad_arg, univformset):
     """Procesa un formset con formularios de cargos universitarios. Retorna un context"""
     context = {}
 
@@ -259,7 +259,8 @@ def processUnivFormSet(fecha, antiguedad, univformset):
         )
 
         # Obtengo la Antiguedad
-        antiguedades = AntiguedadUniversitaria.objects.filter(anio=antiguedad, vigencia_desde__lte=fecha,
+
+        antiguedades = AntiguedadUniversitaria.objects.filter(anio=antiguedad_arg, vigencia_desde__lte=fecha,
                                                                 vigencia_hasta__gte=fecha)
         antiguedad = None
         if not antiguedades.exists():

@@ -33,7 +33,7 @@
 	<body  style="background-image: url('{% get_static_prefix %}images/bg.png');">
 	<div align=center>
 	{% if error_msg %}
-	    <p>{{ error_msg }}</p>
+	    <div class="errorbox">{{ error_msg }}</div>
 	{% else %}
 			<div class = "title">
 			    C&aacute;lculo salarial para el periodo: {{ fecha.month }} / {{ fecha.year }}

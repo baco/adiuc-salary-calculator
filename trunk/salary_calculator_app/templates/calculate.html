@@ -234,6 +234,23 @@
             formset_init(preunivPrefix, "preunivformset_content");
             calculateButtonId = "calculate";
             enable_disable(calculateButtonId, univPrefix, preunivPrefix);
+            $(document).ready(function() { 
+ 
+              $('form').keypress(function(e){    
+                if(e == 13){ 
+                  return false; 
+                } 
+              }); 
+             
+              $('input').keypress(function(e){ 
+                if(e.which == 13){ 
+                  return false; 
+                } 
+              }); 
+             
+            }); 
+
+
         </script>
 
 	</body>

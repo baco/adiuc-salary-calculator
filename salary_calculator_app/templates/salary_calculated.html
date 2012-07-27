@@ -44,7 +44,7 @@
             
             <div class="results_cargo">
                 <table class="result" cellspaing=2><br>
-                    <tr><th colspan=4>Importes por persona:</th></tr>
+                    <div class="title_importes"><b>Importes por persona:</b></div>
                     <tr>
                         <th> C&oacute;digo </th>
                         <th> Detalle </th>
@@ -98,13 +98,13 @@
                     
                 </table>
                <hr>     
-      
+
+                <div class="title_importes"><b>Cargos:</b></div>
                 <table>
-                    <tr><th colspan=4>Importes por cargo:</th></tr>
                 {% for res in lista_res %}
                     <tr>
                         <td> Cargo: </td>
-                        <td>{{ res.cargo.denominacion }} {% if res.cargo.dedicacion %}, {{ res.cargo.get_dedicacion_display }}{% endif %}</td>
+                        <td>{{ res.cargo.denominacion }} {% if res.cargo.dedicacion %}, {{ res.cargo.get_dedicacion_display }}{% endif %}</td>              
                     </tr>
                     <tr> <td> C&oacute;digo LU: </td> <td> {{ res.cargo.lu }} </td> </tr>
                     <tr> <td> C&oacute;digo PAMPA: </td> <td> {{ res.cargo.pampa }} </td> </tr>

@@ -38,14 +38,14 @@ div.form_content {
     margin: auto;
 }
 
-div.form_mes {
+div.common_form {
     background-color: #004b6a;
     color: #FFFFFF;
     text-align: left;
     font-family: "Arial";
 }
 
-table.form_mes {
+table.common_form {
     margin: auto;
 }
 
@@ -56,6 +56,10 @@ div.form_cargo {
     font-family: "Arial";
     /*min-height: 170px;*/
     /*height: 170px;*/
+}
+
+td.form_cargo_label {
+    width: 83px;
 }
 
 a.agregar_quitar {
@@ -119,11 +123,11 @@ td.descuentos{
     color:#550000;
 }
 
-td.adicionales{
+td.adicionales {
     color:#005500;
 }
 
-.bold{
+.bold {
     font-weight: bold;
 }
 
@@ -133,7 +137,6 @@ div.title {
     text-align: center;
     font-family: "Arial";
     width:550px;
-
 }
 
 #forms_table {

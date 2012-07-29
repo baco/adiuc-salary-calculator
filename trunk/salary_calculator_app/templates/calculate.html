@@ -21,20 +21,26 @@
 ==============================================-->
 
 {% load static %}
+{% load adminmedia %} <!-- For the django admin widget -->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-es" lang="es-es" dir="ltr">
 
 	<head>
+		<title>Simulador Salarial ADIUC</title>
+
 		<link rel="stylesheet" href="{% get_static_prefix %}css/style.css" type="text/css" />
-        <script type="text/javascript" src="{% get_static_prefix %}js/jquery.js"></script>
+        <link type="text/css" href="{% get_static_prefix %}css/ui-lightness/jquery-ui-1.8.22.custom.css" rel="stylesheet" />
+
+        <script type="text/javascript" src="{% get_static_prefix %}js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="{% get_static_prefix %}js/jquery-ui-1.8.22.custom.min.js"></script>
+        <script type="text/javascript" src="{% get_static_prefix %}js/jquery.ui.datepicker-es.js"></script>
         <script type="text/javascript" src="{% get_static_prefix %}js/formset.js"></script>
         <script type="text/javascript" src="{% get_static_prefix %}js/hide_horas_field.js"></script>
-		<title>Simulador Salarial ADIUC</title>
 	</head>
-	
+
 	<body style="background-image: url('{% get_static_prefix %}images/bg.png');">
-	    
+
 		<form action="/calculate/" method="POST" class="univ_preuniv_form">
 
             <!-- Requerido para contabilizar cuantos forms tiene el formset -->
@@ -42,8 +48,8 @@
             {{ preunivformset.management_form }}
 
 
-            <div class="form_mes">
-                <table class="form_mes">
+            <div class="common_form">
+                <table class="common_form">
                     <tr>
                         <td> {{ commonform.fecha.label_tag }}: </td>
                         <td> {{ commonform.fecha }} </td>
@@ -64,8 +70,16 @@
                     </tr>
                     {% endif %}
                     <tr>
-                        <td> {{ commonform.afiliado }} {{ commonform.afiliado.label_tag }}</td>
-                        <td>  </td>
+                        <td> {{ commonform.afiliado.label_tag }} </td>
+                        <td> {{ commonform.afiliado }} </td>
+                    </tr>
+                    <tr>
+                        <td> {{ commonform.master.label_tag }} </td>
+                        <td> {{ commonform.master }} </td>
+                    </tr>
+                    <tr>
+                        <td> {{ commonform.doctorado.label_tag }} </td>
+                        <td> {{ commonform.doctorado }} </td>
                     </tr>
                 </table>
             </div>
@@ -74,7 +88,7 @@
 				<div id="univformset_content" class="form_content">
                     {% for univform in univformset %}
                     {{ univform.id }}
-            
+
                     {% if univform in univformset.deleted_forms or univform.DELETE.value == "on" %}
                     <div class="form_cargo" style="display:none">
                     {% else %}
@@ -83,22 +97,18 @@
                         <!-- Errores del formulario que no se relacionan con ningun campo en particular -->
                         {{ univform.non_field_errors }}
 					    <table>
-						    <tr> <td> {{ univform.cargo.label_tag }}: </td> </tr>
-							<tr> <td> {{ univform.cargo }} </td> </tr>
+						    <tr> 
+                                <td class="form_cargo_label"> {{ univform.cargo.label_tag }}: </td>
+							    <td> {{ univform.cargo }} </td>
+                            </tr>
 						    {% if univform.cargo.errors %}
                             <tr class="error"> <td colspan="2"> {{ univform.cargo.errors }} </td></tr>
                             {% endif %}
-						    <tr> <td>T&iacute;tulos adicionales:</td> </tr> 
-						    <tr> <td colspand=2><blockquote>
-								    {{ univform.master }} {{ univform.master.label_tag }} 
-								    <br>
-								    {{ univform.doctorado }} {{ univform.doctorado.label_tag }}
-								    </blockquote><br>
-							    </td>
-						    </tr>
 					    </table>
                         <p class="agregar_quitar rightalign">
-                        	<a href="#" onclick="hide_father(this,univPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);">Quitar</a>
+                        	<a href="#" onclick="hide_father(this,univPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);">
+                                Quitar
+                            </a>
                         </p>
                         <!-- Necesario para django, marca que forms estan marcados para borrar del formset -->
                         <div style="display:none">
@@ -108,18 +118,11 @@
                     {% endfor %}
 
 				    <a id="nuevo_cargo_univ" class="agregar_quitar" href="#" onclick="show_new_form_HTML('univformset_content', univDivAttrs,
-                    '<table>\
-                            <tr> <td> {{ univformset.empty_form.cargo.label_tag|escapejs }}: </td> </tr>\
-                            <tr> <td> {{ univformset.empty_form.cargo|escapejs }} </td> </tr>\
-						    <tr> <td>T&iacute;tulos adicionales:</td> </tr> \
-						    <tr>\
-							    <td colspan=2><blockquote>\
-								    {{ univformset.empty_form.master|escapejs }} {{ univformset.empty_form.master.label_tag|escapejs }}\
-								    <br>\
-								    {{ univformset.empty_form.doctorado|escapejs }} {{ univformset.empty_form.doctorado.label_tag|escapejs }}\
-								    </blockquote>\
-							    </td>\
-						    </tr>\
+                        '<table>\
+                            <tr> \
+                                <td class=\'form_cargo_label\'> {{ univformset.empty_form.cargo.label_tag|escapejs }}: </td> \
+                                <td> {{ univformset.empty_form.cargo|escapejs }} </td> \
+                            </tr>\
 					    </table>\
                         <p class=\'agregar_quitar rightalign padding_fix\'><a href=\'#\' onclick=\'hide_father(this, univPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);\'>Quitar</a></p>\
                         <div style=\'display:none\'>\
@@ -127,9 +130,9 @@
                         </div>',
                     univPrefix, 'nuevo_cargo_univ');enable_disable(calculateButtonId,univPrefix,preunivPrefix);">[+] A&ntilde;adir Cargo Universitario</a>
 			    </div> <!-- univformset_content -->
-			
+
 			<!--mbio form-->
-			
+
 			<div id="preunivformset_content" class="form_content">
                 {% for preunivform in preunivformset %}
                 
@@ -141,21 +144,26 @@
                 <div class="form_cargo">
                 {% endif %}
 				    <table>
-						<tr> <td> {{ preunivform.cargo.label_tag }}: </td> </tr>
- 						<tr> <td> {{ preunivform.cargo }} </td> </tr>
+						<tr>
+                            <td class="form_cargo_label"> {{ preunivform.cargo.label_tag }}: </td>
+ 						    <td> {{ preunivform.cargo }} </td>
+                        </tr>
 					    {% if preunivform.cargo.errors %}
 	                    <tr class="error">
 	                        <td colspan="2" > 
     	                        {% for error in preunivform.cargo.errors %}
 	                                ^ {{ error }} 
 	                            {% endfor %}
-	                        </td></tr>
+	                        </td>
+                        </tr>
                         {% endif %}
 
-						<tr> <td> {{ preunivform.horas.label_tag }}: </td> </tr>
-						<tr> <td> {{ preunivform.horas }} </td> </tr>
+						<tr>
+                            <td class="form_cargo_label"> {{ preunivform.horas.label_tag }}: </td>
+						    <td> {{ preunivform.horas }} </td>
+                        </tr>
                         <!-- El siguiente widget nos dice que cargo es "pago por hora" y cual no -->
-                         <tr style="display:none">
+                        <tr style="display:none">
 							<td> {{ preunivform.pago_por_horas_info }} </td>
 						</tr>
 
@@ -165,20 +173,14 @@
     	                        {% for error in preunivform.horas.errors %}
 	                                ^ {{ error }}
 	                            {% endfor %}
-	                        </td></tr>
+	                        </td>
+                        </tr>
                         {% endif %}
-				    	<tr> <td>T&iacute;tulos adicionales:</td></tr>
-				    	<tr>
-						    <td colspand="2"><blockquote>
-						    {{ preunivform.master }} {{ preunivform.master.label_tag }} 
-						    <br>
-						    {{ preunivform.doctorado }} {{ preunivform.doctorado.label_tag }}
-						    </blockquote>
-						    </td>
-					    </tr>
 					</table>
                     <p class="agregar_quitar rightalign">
-                        <a href="#" onclick="hide_father(this,preunivPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);">Quitar</a>
+                        <a href="#" onclick="hide_father(this,preunivPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);">
+                            Quitar
+                        </a>
                     </p>
                     <!-- Necesario para django, marca que forms estan marcados para borrar del formset -->
                     <div style="display:none">
@@ -189,24 +191,17 @@
 
                 <a id="nuevo_cargo_pre" class="agregar_quitar" href="#"
                 onclick="show_new_form_HTML('preunivformset_content', preunivDivAttrs,
-                    '<table>\
-                            <tr> <td> {{ preunivformset.empty_form.cargo.label_tag|escapejs }}: </td> </tr>\
-                            <tr> <td> {{ preunivformset.empty_form.cargo|escapejs }} </td> </tr>\
-						    <tr> <td> {{ preunivformset.empty_form.horas.label_tag|escapejs }}: </td> <tr>\
-                            <tr> <td> {{ preunivformset.empty_form.horas|escapejs }} </td> </tr>\
+                        '<table>\
+                            <tr> \
+                                <td class=\'form_cargo_label\'> {{ preunivformset.empty_form.cargo.label_tag|escapejs }}: </td> \
+                                <td> {{ preunivformset.empty_form.cargo|escapejs }} </td> \
+                            </tr> \
+                            <tr> \
+						        <td class=\'form_cargo_label\'> {{ preunivformset.empty_form.horas.label_tag|escapejs }}: </td> \
+                                <td> {{ preunivformset.empty_form.horas|escapejs }} </td> \
+                            </tr> \
                             <tr>\
 							    <td> {{ preunivformset.empty_form.pago_por_horas_info|escapejs }} </td>\
-						    </tr>\
-						    <tr>\
-							    <td>T&iacute;tulos adicionales:</td>\
-						    </tr>\
-						    <tr>\
-							    <td colspan=2><blockquote>\
-								    {{ preunivformset.empty_form.master|escapejs }} {{ preunivformset.empty_form.master.label_tag|escapejs }}\
-								    <br>\
-								    {{ preunivformset.empty_form.doctorado|escapejs }} {{ preunivformset.empty_form.doctorado.label_tag|escapejs }}\
-								    </blockquote>\
-							    </td>\
 						    </tr>\
 					    </table>\
                         <p class=\'agregar_quitar rightalign\'><a href=\'#\' onclick=\'hide_father(this, preunivPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);\'>Quitar</a></p>\
@@ -221,36 +216,32 @@
 			</div><!-- forms_table-->
 
 
-		</form>    
+		</form>
+
         <!-- Script para setear valores iniciales de variables luego de cargar el body -->
         <script type="text/javascript">
-            univPrefix = "univcargo";
-            preunivPrefix = "preunivcargo";
-            univDivAttrs = {};
-            univDivAttrs['class'] = 'form_cargo height_fix';
-            preunivDivAttrs = {};
-            preunivDivAttrs['class'] = 'form_cargo';
+            univPrefix                  = "univcargo";
+            preunivPrefix               = "preunivcargo";
+            univDivAttrs                = {};
+            univDivAttrs['class']       = 'form_cargo height_fix';
+            preunivDivAttrs             = {};
+            preunivDivAttrs['class']    = 'form_cargo';
             formset_init(univPrefix, "univformset_content");
             formset_init(preunivPrefix, "preunivformset_content");
-            calculateButtonId = "calculate";
+            calculateButtonId           = "calculate";
             enable_disable(calculateButtonId, univPrefix, preunivPrefix);
-            $(document).ready(function() { 
- 
-              $('form').keypress(function(e){    
-                if(e == 13){ 
-                  return false; 
-                } 
-              }); 
-             
-              $('input').keypress(function(e){ 
-                if(e.which == 13){ 
-                  return false; 
-                } 
-              }); 
-             
-            }); 
 
+            $(document).ready(function() {
+                $('form').keypress(function(e){    
+                    if(e == 13) return false;
+                }); 
+             
+                $('input').keypress(function(e){ 
+                    if(e.which == 13) return false;
+                });
 
+                $("#id_fecha").datepicker();
+            });
         </script>
 
 	</body>

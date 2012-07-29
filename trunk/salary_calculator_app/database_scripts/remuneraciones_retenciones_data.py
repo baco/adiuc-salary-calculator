@@ -267,7 +267,7 @@ add_remuneracion_porcentual(
 r = add_remuneracion_retencion(
     codigo="55/0",
     nombre= u"Adic. Tít. Maestría Nivel Medio",
-    aplicacion="U",
+    aplicacion="P",
     modo="C"
 )
 add_remuneracion_porcentual(

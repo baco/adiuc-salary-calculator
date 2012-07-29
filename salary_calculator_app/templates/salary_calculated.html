@@ -44,7 +44,7 @@
             
             <div class="results_cargo">
                 <table class="result" cellspaing=2><br>
-                    <div class="title_importes"><b>Importes por persona:</b></div>
+                    <div class="title_importes"><b>Importes por Persona:</b></div>
                     <tr>
                         <th> C&oacute;digo </th>
                         <th> Detalle </th>
@@ -57,7 +57,7 @@
                         <td> {{ afiliacion.retencion.codigo }} </td>
                         <td> {{ afiliacion.retencion.nombre }}({{afiliacion.porcentaje}} %) </td>
                         <td>  </td>
-                        <td class="descuentos"> -{{ afiliacion_importe|floatformat:-2 }} </td>
+                        <td class="descuentos"> {% if afiliacion_importe > 0 %}-{% endif %}{{ afiliacion_importe|floatformat:-2 }} </td>
                     </tr>
                     {% endif %}
                     {% for rem,importe in rem_fijas_persona %}
@@ -83,7 +83,7 @@
                         <td> {{ ret.retencion.codigo }} </td>
                         <td> {{ ret.retencion.nombre }} </td>
                         <td>  </td>
-                        <td class="descuentos"> -{ importe|floatformat:-2 }} </td>
+                        <td class="descuentos"> {% if importe > 0 %}-{% endif %}{ importe|floatformat:-2 }} </td>
                         </tr>
                     {% endfor %}
                     
@@ -92,7 +92,7 @@
                         <td> {{ ret.retencion.codigo }} </td>
                         <td> {{ ret.retencion.nombre }} ({{ ret.porcentaje }}%) </td>
                         <td></td>
-                        <td class="descuentos"> -{{ importe|floatformat:-2 }} </td>
+                        <td class="descuentos"> {% if importe > 0 %}-{% endif %}{{ importe|floatformat:-2 }} </td>
                         </tr>
                     {% endfor %}
                     
@@ -100,8 +100,8 @@
                <hr>     
 
                 <div class="title_importes"><b>Cargos:</b></div>
-                <table>
                 {% for res in lista_res %}
+                <table>
                     <tr>
                         <td> Cargo: </td>
                         <td>{{ res.cargo.denominacion }} {% if res.cargo.dedicacion %}, {{ res.cargo.get_dedicacion_display }}{% endif %}</td>              
@@ -154,7 +154,7 @@
                         <td> {{ obj.codigo }} </td>
                         <td> {{ obj.nombre }} {% if obj.porcentaje %}(-{{ obj.porcentaje }}%){% endif %} </td>
                         <td></td>
-                        <td class="descuentos">-{{ importe|floatformat:-2 }}</td>
+                        <td class="descuentos">{% if importe > 0 %}-{% endif %}{{ importe|floatformat:-2 }}</td>
                     </tr>
                     {% endfor %}
                     
@@ -168,7 +168,7 @@
                         <td></td>
                         <td> Descuentos: </td>
                         <td></td>
-                        <td class="descuentos"> -{{ res.acum_ret|floatformat:-2 }} </td>
+                        <td class="descuentos"> {% if res.acum_ret > 0 %}-{% endif %}{{ res.acum_ret|floatformat:-2 }} </td>
                     </tr>
                     <tr class="bold">
                         <td></td>
@@ -177,7 +177,6 @@
                         <td></td>
                     </tr>
                 </table>
-               <hr>
                 {% endfor %}
 
             </div>
@@ -194,7 +193,7 @@
                     </tr>
                     <tr>
                         <td> Total Descuentos: </td>
-                        <td> <font color="#660000"> -{{ total_ret|floatformat:-2 }} </fonts></td>
+                        <td> <font color="#660000"> {% if total_ret > 0 %}-{% endif %}{{ total_ret|floatformat:-2 }} </fonts></td>
                     </tr>
                     <tr>
                         <td> Total Neto: </td>
@@ -202,9 +201,9 @@
                     </tr>
                 </table>
             </div>
-            <br><br>
-            <a class="agregar_quitar"href="javascript: history.go(-2)"> Volver</a>
+            <br><br>        
 	{% endif %} <!-- error_msg -->
+        <a class="agregar_quitar"href="javascript: history.go(-2)"> Volver</a>
 	</div>
 	</body>
 

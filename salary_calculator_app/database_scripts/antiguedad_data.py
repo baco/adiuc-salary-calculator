@@ -157,6 +157,13 @@ def addAntiguedadPreUniv(anio, porcentaje, vigencia_desde, vigencia_hasta):
         ).save()
 
 addAntiguedadPreUniv(
+    anio=0,
+    porcentaje=0,
+    vigencia_desde=date(2012, 1, 1),
+    vigencia_hasta=date(2012, 12, 31)
+)
+###########
+addAntiguedadPreUniv(
     anio=1,
     porcentaje=10,
     vigencia_desde=date(2012, 1, 1),

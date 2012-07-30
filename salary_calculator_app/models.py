@@ -164,7 +164,7 @@ class RemuneracionRetencion(models.Model):
         ('T', u'Todos los cargos')
     )
 
-    codigo = models.CharField(u'Código', max_length=3, validators=[validate_isdigit],
+    codigo = models.CharField(u'Código', max_length=5, validators=[validate_isdigit],
         help_text=u'El código de remuneración/retención tal cual figura en la lista de la web de ADIUC.')
     nombre  = models.CharField(u'Nombre', max_length=50,
         help_text=u'El nombre de la remuneración/retención tal cual figura en la lista de la web de ADIUC.')

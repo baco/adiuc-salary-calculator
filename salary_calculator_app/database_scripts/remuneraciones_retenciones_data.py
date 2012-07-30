@@ -125,10 +125,10 @@ vigencia_hasta = date(2012, 12, 31)
 
 ##### Retenciones Porcentuales
 r = add_remuneracion_retencion(
-    codigo="20/3",
+    codigo=u"20/3",
     nombre= u"Aporte Fondo Adic. Universitario",
-    aplicacion="U",
-    modo="P"
+    aplicacion=u"U",
+    modo=u"P"
 )
 add_retencion_porcentual(
     retencion = r,
@@ -138,10 +138,10 @@ add_retencion_porcentual(
 )
 ####
 r = add_remuneracion_retencion(
-    codigo="20/9",
+    codigo=u"20/9",
     nombre= u"Jubilación Régimen Especial",
-    aplicacion="T",
-    modo="C"
+    aplicacion=u"T",
+    modo=u"C"
 )
 add_retencion_porcentual(
     retencion = r,
@@ -153,8 +153,8 @@ add_retencion_porcentual(
 r = add_remuneracion_retencion(
     codigo="21/0",
     nombre= u"Caja Complementaria de Jub.",
-    aplicacion="T",
-    modo="C"
+    aplicacion=u"T",
+    modo=u"C"
 )
 add_retencion_porcentual(
     retencion = r,
@@ -164,10 +164,10 @@ add_retencion_porcentual(
 )
 ####
 r = add_remuneracion_retencion(
-    codigo="22/0",
+    codigo=u"22/0",
     nombre= u"Ley 19032 Obra Soc. Jubilados",
-    aplicacion="T",
-    modo="C"
+    aplicacion=u"T",
+    modo=u"C"
 )
 add_retencion_porcentual(
     retencion = r,
@@ -177,10 +177,10 @@ add_retencion_porcentual(
 )
 ####
 r = add_remuneracion_retencion(
-    codigo="40/0",
+    codigo=u"40/0",
     nombre= u"DASPU",
-    aplicacion="T",
-    modo="C"
+    aplicacion=u"T",
+    modo=u"C"
 )
 add_retencion_porcentual(
     retencion = r,
@@ -190,10 +190,10 @@ add_retencion_porcentual(
 )
 ####
 r = add_remuneracion_retencion(
-    codigo="64/0",
+    codigo=u"64/0",
     nombre= u"ADIUC - Afiliación",
-    aplicacion="T",
-    modo="C"
+    aplicacion=u"T",
+    modo=u"C"
 )
 add_retencion_porcentual(
     retencion = r,
@@ -204,10 +204,10 @@ add_retencion_porcentual(
 
 ##### Retenciones Fijas
 r = add_remuneracion_retencion(
-    codigo="77/0",
+    codigo=u"77/0",
     nombre= u"Fondo de Becas",
-    aplicacion="T",
-    modo="P"
+    aplicacion=u"T",
+    modo=u"P"
 )
 add_retencion_fija(
     retencion = r,
@@ -218,18 +218,18 @@ add_retencion_fija(
 
 ###### Remuneraciones Porcentuales
 r = add_remuneracion_retencion(
-    codigo="30/0",
+    codigo=u"30/0",
     nombre= u"Adicional por Antigüedad",
-    aplicacion="U",
-    modo="P"
+    aplicacion=u"U",
+    modo=u"P"
 )
 ## Ver: antiguedad_data.py
 ####
 r = add_remuneracion_retencion(
-    codigo="51/0",
+    codigo=u"51/0",
     nombre= u"Adicional Título Doctorado",
-    aplicacion="U",
-    modo="C"
+    aplicacion=u"U",
+    modo=u"C"
 )
 add_remuneracion_porcentual(
     remuneracion = r,
@@ -239,10 +239,10 @@ add_remuneracion_porcentual(
 )
 ####
 r = add_remuneracion_retencion(
-    codigo="53/0",
+    codigo=u"53/0",
     nombre= u"Adic. Tít. Doctorado Nivel Medio",
-    aplicacion="P",
-    modo="C"
+    aplicacion=u"P",
+    modo=u"C"
 )
 add_remuneracion_porcentual(
     remuneracion = r,
@@ -252,10 +252,10 @@ add_remuneracion_porcentual(
 )
 ####
 r = add_remuneracion_retencion(
-    codigo="52/0",
+    codigo=u"52/0",
     nombre= u"Adicional Título Maestría",
-    aplicacion="U",
-    modo="C"
+    aplicacion=u"U",
+    modo=u"C"
 )
 add_remuneracion_porcentual(
     remuneracion = r,
@@ -265,10 +265,10 @@ add_remuneracion_porcentual(
 )
 ####
 r = add_remuneracion_retencion(
-    codigo="55/0",
+    codigo=u"55/0",
     nombre= u"Adic. Tít. Maestría Nivel Medio",
-    aplicacion="P",
-    modo="C"
+    aplicacion=u"P",
+    modo=u"C"
 )
 add_remuneracion_porcentual(
     remuneracion = r,
@@ -280,9 +280,9 @@ add_remuneracion_porcentual(
 
 ###### Remuneraciones Fijas
 r = add_remuneracion_retencion(
-    codigo="10/0",
+    codigo=u"10/0",
     nombre= u"Sueldo Básico",
-    aplicacion="T",
-    modo="C"
+    aplicacion=u"T",
+    modo=u"C"
 )
 ## Ver: univ_data.py y preuniv_data.py

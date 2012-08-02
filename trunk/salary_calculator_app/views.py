@@ -14,7 +14,7 @@
 # ADIUC Salary Calculator is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
+# GNU General Public License for more detailss.
 #
 # You should have received a copy of the GNU General Public License
 # along with ADIUC Salary Calculator.  If not, see 
@@ -99,8 +99,10 @@ def calculate(request):
         univformset = CargoUnivFormSet(request.POST, prefix='univcargo')
         preunivformset = CargoPreUnivFormSet(request.POST, prefix='preunivcargo')
         commonform = CommonForm(request.POST)
+        afamiliaresform = AFamiliaresForm(request.POST)
 
-        if univformset.is_valid() and preunivformset.is_valid() and commonform.is_valid():
+        if univformset.is_valid() and preunivformset.is_valid() \
+             and commonform.is_valid() and afamiliaresform.is_valid():
 
             fecha = commonform.cleaned_data['fecha']
             antiguedad = commonform.cleaned_data['antiguedad']
@@ -108,8 +110,11 @@ def calculate(request):
             has_doctorado = commonform.cleaned_data['doctorado']
             has_master = commonform.cleaned_data['master']
 
+            afamiliar_concepto = afamiliaresform.cleaned_data['asig_familiar']
+
             context_univ = processUnivFormSet(fecha, antiguedad, has_doctorado, has_master, univformset)
             context_preuniv = processPreUnivFormSet(fecha, antiguedad, has_doctorado, has_master, preunivformset)
+
 
             # Control de errores
             if context_univ.has_key('error_msg'):
@@ -124,6 +129,15 @@ def calculate(request):
             total_bruto = add_values_from_contexts(context_univ, context_preuniv, 'total_bruto')
             total_neto = add_values_from_contexts(context_univ, context_preuniv, 'total_neto')
 
+            #tomo las asignaciones familiares correspondientes.
+            afamiliares = AsignacionFamiliar.objects.filter(
+                concepto = afamiliar_concepto,
+                valor_min__lte = total_bruto,
+                valor_max__gte = total_bruto,
+                vigencia_desde__lte=fecha,
+                vigencia_hasta__gte=fecha
+            )
+            
             # Quito los duplicados, si hay, entre univ y preuniv para las ret/rem por persona
             ret_fp = merge_retrem(context_univ, context_preuniv, 'ret_fijas_persona')
             ret_pp  = merge_retrem(context_univ, context_preuniv, 'ret_porc_persona')
@@ -138,6 +152,12 @@ def calculate(request):
             rem_porc_persona = list()
             ret_fijas_persona = list()
             rem_fijas_persona = list()
+            
+            #Las asignacioens familiares son remuneraciones fijas por persona.S
+            if afamiliares:
+                afamiliar = afamiliares.order_by('vigencia_hasta')[afamiliares.count()-1]
+                context['afamiliar'] = afamiliar
+                acum_rem += afamiliar.valor
 
             for ret in ret_pp:
                 importe = (total_bruto * ret.porcentaje / 100.0)
@@ -158,6 +178,7 @@ def calculate(request):
                 acum_rem += importe
                 rem_fijas_persona.append( (rem, rem.valor) )
 
+            print rem_fijas_persona
             #calculo de afiliacion.
             af_importe = 0.0
             if es_afiliado:
@@ -191,13 +212,13 @@ def calculate(request):
             context['ret_fijas_persona'] = ret_fijas_persona
             context['ret_porc_persona'] = ret_porc_persona
 
-            print context
             return render_to_response('salary_calculated.html', context)
 
         else:
             context['univformset'] = univformset
             context['preunivformset'] = preunivformset
             context['commonform'] = commonform
+            context['afamiliaresform'] = afamiliaresform
 
     else:
 
@@ -205,10 +226,12 @@ def calculate(request):
         univformset = CargoUnivFormSet(prefix='univcargo')
         preunivformset = CargoPreUnivFormSet(prefix='preunivcargo')
         commonform = CommonForm()
+        afamiliaresform = AFamiliaresForm()
 
         context['univformset'] = univformset
         context['preunivformset'] = preunivformset
         context['commonform'] = commonform
+        context['afamiliaresform'] = afamiliaresform
 
     return render_to_response('calculate.html', context)
 

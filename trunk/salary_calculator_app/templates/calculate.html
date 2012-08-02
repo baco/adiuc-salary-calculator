@@ -37,6 +37,7 @@
         <script type="text/javascript" src="{% get_static_prefix %}js/jquery.ui.datepicker-es.js"></script>
         <script type="text/javascript" src="{% get_static_prefix %}js/formset.js"></script>
         <script type="text/javascript" src="{% get_static_prefix %}js/hide_horas_field.js"></script>
+        <script type="text/javascript" src="{% get_static_prefix %}js/utils.js"></script>
 	</head>
 
 	<body style="background-image: url('{% get_static_prefix %}images/bg.png');">
@@ -81,6 +82,21 @@
                         <td> {{ commonform.doctorado.label_tag }} </td>
                         <td> {{ commonform.doctorado }} </td>
                     </tr>
+                    <tr><td colspan="2" align="right">
+                            <a class="agregar_quitar" href=# onclick='$("#afamiliares_form").slideToggle(200);'>
+                                Mas/Menos opciones      
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="afamiliares_form" class="common_form">
+                <table class=common_form>                
+                <tr>
+                    <td> {{ afamiliaresform.asig_familiar.label_tag }} </td>
+                    <td> {{ afamiliaresform.asig_familiar }} </td>
+                </tr>
+                <tr><td><a class="agregar_quitar" href=#>[+] Añadir asignaci&oacute;n</a></td></tr>
                 </table>
             </div>
 

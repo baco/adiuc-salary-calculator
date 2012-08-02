@@ -36,9 +36,12 @@ admin.site.register(GarantiaSalarialPreUniversitaria)
 admin.site.register(AntiguedadUniversitaria)
 admin.site.register(AntiguedadPreUniversitaria)
 
+
 admin.site.register(RemuneracionRetencion)
 admin.site.register(RetencionPorcentual)
 admin.site.register(RetencionFija)
 admin.site.register(RemuneracionPorcentual)
 admin.site.register(RemuneracionFija)
+
+admin.site.register(AsignacionFamiliar)
 

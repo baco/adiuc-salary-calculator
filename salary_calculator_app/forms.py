@@ -26,6 +26,24 @@ from django import forms
 from models import *
 import datetime
 
+#Utilizada para filtrar datos en DEtailsForm (asignaciones familiares)
+def get_concepts_asigf():
+    asignaciones = AsignacionFamiliar.objects.all()
+    result = list()
+    for a in asignaciones:
+        c = (a.concepto).title()
+        result.append(c)
+    return list(set(result))
+
+class AFamiliaresForm(forms.Form):
+    """Formulario con opciones específicasc opcionales."""
+
+    asig_familiar = forms.ChoiceField(
+        label=u'Asignación Familiar',
+        choices=[(i, unicode(i)) for i in get_concepts_asigf()],
+        help_text= u'Seleccione el tipo de asignación.'
+    )
+
 class CommonForm(forms.Form):
     """Formulario para el cálculo de salario docente. Contiene todos los valores
     que dependen de la persona y no de cada cargo por separado."""
@@ -49,7 +67,6 @@ class CommonForm(forms.Form):
     afiliado = forms.BooleanField(label=u'Afiliado a ADIUC', required=False)
     master = forms.BooleanField(label=u'Título de masters', required=False)
     doctorado = forms.BooleanField(label=u'Título de doctorado', required=False)
-    
 
 class CargoUnivForm(forms.Form):
     """Formulario de calculo de salario docente para docentes universitarios."""

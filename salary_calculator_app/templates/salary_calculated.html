@@ -60,11 +60,21 @@
                         <td class="descuentos"> {% if afiliacion_importe > 0 %}-{% endif %}{{ afiliacion_importe|floatformat:-2 }} </td>
                     </tr>
                     {% endif %}
+
+                    {% if afamiliar %}
+                        <tr>
+                        <td>  </td>
+                        <td> Asignaci&oacute;n Familiar ({{ afamiliar.concepto }})</td>
+                        <td class="adicionales"> {{ afamiliar.valor|floatformat:-2 }} </td>
+                        <td></td>
+                        </tr>
+                    {% endif %}
+                    
                     {% for rem,importe in rem_fijas_persona %}
                         <tr>
                         <td> {{ rem.remuneracion.codigo }} </td>
                         <td> {{ rem.remuneracion.nombre }} </td>
-                        <td class="adicionales"> {{ importe|floatformat:-2 }}    </td>
+                        <td class="adicionales"> {{ importe|floatformat:-2 }} </td>
                         <td></td>
                         </tr>
                     {% endfor %}

@@ -26,6 +26,7 @@ from django.db import models
 
 from salary_calculator_app.validators import *
 
+
 class GarantiaSalarialPreUniversitaria(models.Model):
     """ garantía salarial para cargos preuniversitarios """
     
@@ -254,9 +255,53 @@ class RemuneracionFija(models.Model):
     def __unicode__(self):
         return u"$" + unicode(self.valor) + " - " + unicode(self.remuneracion)
 
+#class ConceptoAsigFamiliar(models.Model):
+#    concepto = models.CharField(u'Concepto de asignación', max_length='50', help_text=u'Concepto de asignación familiar.')
+#
+#    class Meta:
+#        ordering = ['concepto']
+#
+#    def __unicode__(self):
+#        return unicode(self.concepto)
+        
+#class CategoriaAsigFamiliar(models.Model):
+#    valor_min = models.FloatField(u'Valor mínimo:',help_text=u'Valor mínimo de categoría.')
+#    valor_max = models.FloatField(u'Valor máximo:', help_text=u'Valor máximo de categoría.')
+#
+#    def clean(self):
+#        from django.core.exceptions import ValidationError
+#        if self.valor_min > valor_max:
+#            raise ValidationError('El valor mínimo debe ser menor al valor máximo.')
+#    class Meta:
+#        ordering = ['valor_min','valor_max']
+
+#    def __unicode__(self):
+#       return unicode(self.valor_min) + u" - " + unicode(self.valor_max)
+
+class AsignacionFamiliar(RemuneracionFija):
+    """Representa uan asignación familiar."""
+#    concepto = models.ForeignKey('ConceptoAsigFamiliar',help_text=u'Concepto de la asignación.')
+#    categoria = models.OneToOneField('CategoriaAsigFamiliar',help_text=u'Categoría de la asignación.')
+
+    concepto = models.CharField(u'Concepto de asignación', max_length='50', help_text=u'Concepto de la asignación.')
+    valor_min = models.FloatField(u'Valor mínimo:',help_text=u'Valor mínimo de categoría.')
+    valor_max = models.FloatField(u'Valor máximo:', help_text=u'Valor máximo de categoría.')
+    
+    def clean(self):
+        from django.core.exceptions import ValidationError
+        if self.valor_min > self.valor_max:
+            raise ValidationError('El valor mínimo debe ser menor al valor máximo.')
+    
+    class Meta:
+        ordering = ['concepto']
+
+    def __unicode__(self):
+        return unicode(self.concepto) + u" - [ " + unicode(self.valor_min) +u" / " + unicode(self.valor_max) + u" ]"
+
 
 class SalarioBasico(RemuneracionFija):
-    """Representa un valor de un salario basico relacionado a un cargo."""
+    """Representavalor_min = models.FloatField(u'Valor mínimo:',help_text=u'Valor mínimo de categoría.')
+    valor_max = models.FloatField(u'Valor máximo:', help_text=u'Valor máximo de categoría.') un valor de un salario basico relacionado a un cargo."""
 
     cargo = models.ForeignKey('Cargo',
         help_text=u'El cargo docente sobre el que se aplica este salario.')

@@ -41,8 +41,8 @@ setup_environ(settings)
 
 from salary_calculator_app.models import *
 
-#### Objeto Salario
-salario_obj = RemuneracionRetencion.objects.get(codigo="30/0")
+#### Objeto Adicional Antiguedad RemuneracionRetencion
+rem_obj = RemuneracionRetencion.objects.get(codigo="30/0")
 
 #################################
 # Tabla de antiguedades para cargos Universitarios #
@@ -51,7 +51,7 @@ salario_obj = RemuneracionRetencion.objects.get(codigo="30/0")
 def addAntiguedadUniv(anio, porcentaje, vigencia_desde, vigencia_hasta):
     if not AntiguedadUniversitaria.objects.filter(anio=anio, porcentaje=porcentaje, vigencia_desde=vigencia_desde, vigencia_hasta=vigencia_hasta).exists():
         AntiguedadUniversitaria(
-            remuneracion=salario_obj,
+            remuneracion=rem_obj,
             anio=anio,
             porcentaje=porcentaje,
             vigencia_desde=vigencia_desde,
@@ -149,7 +149,7 @@ addAntiguedadUniv(
 def addAntiguedadPreUniv(anio, porcentaje, vigencia_desde, vigencia_hasta):
     if not AntiguedadPreUniversitaria.objects.filter(anio=anio, porcentaje=porcentaje, vigencia_desde=vigencia_desde, vigencia_hasta=vigencia_hasta).exists():
         AntiguedadPreUniversitaria(
-            remuneracion=salario_obj,
+            remuneracion=rem_obj,
             anio=anio,
             porcentaje=porcentaje,
             vigencia_desde=vigencia_desde,
@@ -258,7 +258,7 @@ def completeAntiguedadUniv(vigencia_desde, vigencia_hasta):
             if ant.anio < prev.anio:
                 for anio in range(ant.anio+1, prev.anio):
                     new_ant = AntiguedadUniversitaria(
-                        remuneracion=salario_obj,
+                        remuneracion=rem_obj,
                         anio=anio,
                         porcentaje=ant.porcentaje,
                         vigencia_desde=vigencia_desde,
@@ -279,7 +279,7 @@ def completeAntiguedadPreUniv(vigencia_desde, vigencia_hasta):
             if ant.anio < prev.anio:
                 for anio in range(ant.anio+1, prev.anio):
                     new_ant = AntiguedadPreUniversitaria(
-                        remuneracion=salario_obj,
+                        remuneracion=rem_obj,
                         anio=anio,
                         porcentaje=ant.porcentaje,
                         vigencia_desde=vigencia_desde,

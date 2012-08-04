@@ -66,7 +66,7 @@ fonid_values = [
 ]
 
 rt = None
-codigo = "122"
+codigo = "12/2"
 nombre = "FONID"
 aplicacion = 'P'
 modo = 'P'

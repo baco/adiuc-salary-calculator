@@ -40,6 +40,7 @@ class AFamiliaresForm(forms.Form):
 
     asig_familiar = forms.ChoiceField(
         label=u'Asignación Familiar',
+        required=False,
         choices=[(i, unicode(i)) for i in get_concepts_asigf()],
         help_text= u'Seleccione el tipo de asignación.'
     )

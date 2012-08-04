@@ -193,7 +193,7 @@ r = add_remuneracion_retencion(
     codigo=u"64/0",
     nombre= u"ADIUC - Afiliación",
     aplicacion=u"T",
-    modo=u"C"
+    modo=u"P"
 )
 add_retencion_porcentual(
     retencion = r,
@@ -220,8 +220,8 @@ add_retencion_fija(
 r = add_remuneracion_retencion(
     codigo=u"30/0",
     nombre= u"Adicional por Antigüedad",
-    aplicacion=u"U",
-    modo=u"P"
+    aplicacion=u"T",
+    modo=u"C"
 )
 ## Ver: antiguedad_data.py
 ####

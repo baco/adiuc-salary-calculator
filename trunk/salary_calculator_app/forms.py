@@ -26,7 +26,7 @@ from django import forms
 from models import *
 import datetime
 
-#Utilizada para filtrar datos en DEtailsForm (asignaciones familiares)
+#Utilizada para filtrar datos en AFamiliaresForm (asignaciones familiares)
 def get_concepts_asigf():
     asignaciones = AsignacionFamiliar.objects.all()
     result = list()

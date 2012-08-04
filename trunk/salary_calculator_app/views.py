@@ -97,6 +97,8 @@ def calculate(request):
     CargoUnivFormSet = formset_factory(CargoUnivForm, extra=0, max_num=5, can_delete=True)
     CargoPreUnivFormSet = formset_factory(CargoPreUnivForm, extra=0, max_num=5, can_delete=True)
 
+    AFamiliaresFormSet = formset_factory(AFamiliaresForm, extra=0, max_num=10, can_delete=True)
+
     context = {}
 
     if request.method == 'POST':
@@ -105,11 +107,12 @@ def calculate(request):
         univformset = CargoUnivFormSet(request.POST, prefix='univcargo')
         preunivformset = CargoPreUnivFormSet(request.POST, prefix='preunivcargo')
         commonform = CommonForm(request.POST)
-        afamiliaresform = AFamiliaresForm(request.POST)
+        afamiliaresformset = AFamiliaresFormSet(request.POST, prefix='afamiliares')
+#        afamiliaresform = AFamiliaresForm(request.POST)
 
 
         if univformset.is_valid() and preunivformset.is_valid() \
-             and commonform.is_valid() and afamiliaresform.is_valid():
+             and commonform.is_valid() and afamiliaresformset.is_valid():
 
             # Proceso los formularios de cargos.
             context_univ = processUnivFormSet(commonform, univformset)
@@ -144,7 +147,10 @@ def calculate(request):
 
             # Calculo de las remuneraciones y retenciones que son por persona.
             # Esto modifica el contexto.
-            context = calculateRemRetPorPersona(context, commonform.cleaned_data['afiliado'], afamiliaresform)
+            context = calculateRemRetPorPersona(context, commonform.cleaned_data['afiliado'],afamiliaresformset)
+
+            #Calculo las asignaciones familiares.
+            context_afamiliares = processAFamiliaresFormSet(context, afamiliaresformset)
 
             # Renderizo el template con el contexto.
             return render_to_response('salary_calculated.html', context)
@@ -153,7 +159,7 @@ def calculate(request):
             context['univformset'] = univformset
             context['preunivformset'] = preunivformset
             context['commonform'] = commonform
-            context['afamiliaresform'] = afamiliaresform
+            context['afamiliaresformset'] = afamiliaresformset
 
     else:
 
@@ -161,12 +167,12 @@ def calculate(request):
         univformset = CargoUnivFormSet(prefix='univcargo')
         preunivformset = CargoPreUnivFormSet(prefix='preunivcargo')
         commonform = CommonForm()
-        afamiliaresform = AFamiliaresForm()
+        afamiliaresformset = AFamiliaresFormSet(prefix='afamiliares')
 
         context['univformset'] = univformset
         context['preunivformset'] = preunivformset
         context['commonform'] = commonform
-        context['afamiliaresform'] = afamiliaresform
+        context['afamiliaresformset'] = afamiliaresformset
 
     return render_to_response('calculate.html', context)
 
@@ -176,7 +182,44 @@ def calculate(request):
 # Form processing
 ##############################################
 
-def calculateRemRetPorPersona(context, es_afiliado, afamiliaresform):
+def processAFamiliaresFormSet(context,afamiliaresformset):
+    """ Procesa un formet con formularios de asignaciones familiares.
+        Retorna una tupla con dos elementos:
+            El primero, una lista con todas las asignaciones.
+            El segundo, la suma total correspondiente a la primer lista."""
+
+    fecha = context['fecha']
+    total_bruto = context['total_bruto']
+
+    afamiliares_list = list()
+    total = 0.0
+
+    for afamiliaresform in afamiliaresformset:
+
+        # No analizamos los forms que fueron borrados por el usuario.
+        if univform in univformset.deleted_forms:
+            continue
+
+        afamiliar_concepto = afamiliaresform.cleaned_data['asig_familiar']
+
+        # Tomo las asignaciones familiares del mismo concepto, cateogria y fecha adecuada.
+        afamiliares = AsignacionFamiliar.objects.filter(
+            concepto = afamiliar_concepto,
+            valor_min__lte = total_bruto,
+            valor_max__gte = total_bruto,
+            vigencia_desde__lte=fecha,
+            vigencia_hasta__gte=fecha
+        )
+
+        # De todas las anteriores tomo la de fecha vigente.
+        if afamiliares:
+            afamiliar = afamiliares.order_by('vigencia_hasta')[afamiliares.count()-1]
+            afamiliares_list.append(afamiliar)
+            total += afamiliar.valor
+
+    return (afamiliares_list,total)
+
+def calculateRemRetPorPersona(context, es_afiliado, afamiliaresformset):
 
     fecha = context['fecha']
     total_rem = context['total_rem']
@@ -217,23 +260,10 @@ def calculateRemRetPorPersona(context, es_afiliado, afamiliaresform):
     rem_fijas_persona = list()
 
     # Proceso el formulario de asignacion familiar.
-    afamiliar_concepto = afamiliaresform.cleaned_data['asig_familiar']
-
-    # Tomo las asignaciones familiares correspondientes.
-    afamiliares = AsignacionFamiliar.objects.filter(
-        concepto = afamiliar_concepto,
-        valor_min__lte = total_bruto,
-        valor_max__gte = total_bruto,
-        vigencia_desde__lte=fecha,
-        vigencia_hasta__gte=fecha
-    )
-
-    # Las asignaciones familiares son remuneraciones fijas por persona.
-    if afamiliares:
-        afamiliar = afamiliares.order_by('vigencia_hasta')[afamiliares.count()-1]
-        context['afamiliar'] = afamiliar
-        acum_rem += afamiliar.valor
-
+    afamiliares_list, total_afamiliares = processAFamiliaresFormSet(context,afamiliaresformset)
+     
+    acum_rem += total_afamiliares
+    
     for ret in ret_pp:
         importe = (total_bruto * ret.porcentaje / 100.0)
         acum_ret += importe
@@ -280,6 +310,7 @@ def calculateRemRetPorPersona(context, es_afiliado, afamiliaresform):
     context['ret_porc_persona'] = ret_porc_persona
     context['rem_fijas_persona'] = rem_fijas_persona
     context['rem_porc_persona'] = rem_porc_persona
+    context['afamiliares_list'] = afamiliares_list
 
     context['total_bruto'] = total_bruto
     context['total_neto'] = total_neto

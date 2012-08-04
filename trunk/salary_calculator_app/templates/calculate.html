@@ -47,7 +47,7 @@
             <!-- Requerido para contabilizar cuantos forms tiene el formset -->
             {{ univformset.management_form }}
             {{ preunivformset.management_form }}
-
+            {{ afamiliaresformset.management_form }}
 
             <div class="common_form">
                 <table class="common_form">
@@ -82,22 +82,41 @@
                         <td> {{ commonform.doctorado.label_tag }} </td>
                         <td> {{ commonform.doctorado }} </td>
                     </tr>
-                    <tr><td colspan="2" align="right">
-                            <a class="agregar_quitar" href=# onclick='$("#afamiliares_form").slideToggle(200);'>
-                                Mas/Menos opciones      
-                            </a>
-                        </td>
-                    </tr>
                 </table>
             </div>
-            <div id="afamiliares_form" class="common_form">
-                <table class=common_form>                
-                <tr>
-                    <td> {{ afamiliaresform.asig_familiar.label_tag }} </td>
-                    <td> {{ afamiliaresform.asig_familiar }} </td>
-                </tr>
-                <tr><td><a class="agregar_quitar" href=#>[+] Añadir asignaci&oacute;n</a></td></tr>
-                </table>
+            
+            <div id="afamiliaresformset_content" class="common_form">                
+                {% for afamiliares in afamiliaresformset %}
+                <div id="afamiliares_form" class="common_form">
+                    <table class=common_form>                
+                        <tr>
+                            <td> {{ afamiliaresform.asig_familiar.label_tag }} </td>
+                            <td> {{ afamiliaresform.asig_familiar }} </td>
+                        </tr>
+                    </table>
+                <p class="agregar_quitar rightalign">
+                <a href="#" onclick="hide_father(this,afamiliaresPrefix);">
+                    Quitar
+                </a>
+                </p>
+                </div>
+                {% endfor %}
+                
+                <a id="nueva_afamiliar" href=# class="agregar_quitar" onclick="show_new_form_HTML('afamiliaresformset_content', afamiliaresDivAttrs,
+                '<div id=\'afamiliares_form\' class=\'common_form\'>
+                    <table class=common_form>\ 
+                        <tr>\
+                            <td> {{ afamiliaresform.asig_familiar.label_tag }} </td>\
+                            <td> {{ afamiliaresform.asig_familiar }} </td>\
+                        </tr>\
+                        <tr><td><a class=\'agregar_quitar\' href=#>\
+                                    [+] Añadir asignaci&oacute;n\
+                                </a>\
+                        </td></tr>\
+                    </table>\
+                </div>',
+                
+                afamiliaresPrefix,'nueva_afamiliar');"> Agregar asignacion </a>
             </div>
 
 			<div id="forms_table"> <!-- div principal, contiene los formularios -->
@@ -238,12 +257,15 @@
         <script type="text/javascript">
             univPrefix                  = "univcargo";
             preunivPrefix               = "preunivcargo";
+            afamiliaresPrefix               = "afamiliares";
             univDivAttrs                = {};
             univDivAttrs['class']       = 'form_cargo height_fix';
             preunivDivAttrs             = {};
             preunivDivAttrs['class']    = 'form_cargo';
+            afamiliaresDivAttrs                = {};
             formset_init(univPrefix, "univformset_content");
             formset_init(preunivPrefix, "preunivformset_content");
+            formset_init(afamiliaresPrefix, "afamiliaresformset_content");
             calculateButtonId           = "calculate";
             enable_disable(calculateButtonId, univPrefix, preunivPrefix);
 

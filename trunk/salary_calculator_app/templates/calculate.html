@@ -90,7 +90,7 @@
                 {% for afamiliaresform in afamiliaresformset %}
                 {{ afamiliaresform.id }}
                 {% if univform in univformset.deleted_forms or univform.DELETE.value == "on" %}
-                <div class="afamiliares_form" style="display:none" align="center">
+                <div class="afamiliares_form" style="display:none">
                 {% else %}
 				<div class="afamiliares_form">
                 {% endif %}
@@ -105,20 +105,14 @@
                             </td>
                         </tr>
                     </table>
-                <!--<div class="agregar_quitar rightalign">
-                <a href="#" onclick="hide_father(this,afamiliaresPrefix);">
-                    Quitar
-                </a>
-                </div>-->
                     <div style="display:none">
                         {{ afamiliaresform.DELETE }}
                     </div>
                 </div>
                 {% endfor %}
                 
-                <a id="nueva_afamiliar" href=# class="agregar_quitar" onclick="show_new_form_HTML('afamiliaresformset_content', afamiliaresDivAttrs,
-                '<div id=\'afamiliares_form\' class=\'common_form\'>
-                    <table class=common_form>\ 
+                <a id="nueva_afamiliar" href=# class="agregar_quitar" onclick="show_new_form_HTML(afamiliaresformset_content, afamiliaresDivAttrs,
+                '<table class=common_form>\ 
                         <tr>\
                             <td> {{ afamiliaresformset.empty_form.asig_familiar.label_tag|escapejs }} </td>\
                             <td> {{ afamiliaresformset.empty_fotm.asig_familiar|escapejs }} </td>\
@@ -131,11 +125,8 @@
 
                     </table>\
                         <div style=\'display:none\'>\
-                            {{ afamiliaresform.DELETE }}\
-                        </div>\
-                    </div>',
-                
-                afamiliaresPrefix,'nueva_afamiliar');"> [+] Agregar asignaci&oacute;n </a>
+                            {{ afamiliaresform.empty_form.DELETE|escapejs }}</div>',
+                            afamiliaresPrefix,'nueva_afamiliar');"> [+] Agregar asignaci&oacute;n </a>
             </div></div>
 
 			<div id="forms_table"> <!-- div principal, contiene los formularios -->
@@ -282,10 +273,9 @@
             preunivDivAttrs             = {};
             preunivDivAttrs['class']    = 'form_cargo';
             afamiliaresDivAttrs         = {};
-            afamiliaresDivAttrs['class']= 'common_form' ;
-            formset_init(univPrefix, "univformset_content");
-            formset_init(preunivPrefix, "preunivformset_content");
-            formset_init(afamiliaresPrefix, "afamiliaresformset_content");
+            formset_init(univPrefix, "univformset_content", "form_cargo");
+            formset_init(preunivPrefix, "preunivformset_content", "form_cargo");
+            formset_init(afamiliaresPrefix, "afamiliaresformset_content","afamiliares_form");
             calculateButtonId           = "calculate";
             enable_disable(calculateButtonId, univPrefix, preunivPrefix);
 

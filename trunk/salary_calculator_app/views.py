@@ -96,7 +96,7 @@ def calculate(request):
     # Permite que aparezcan multiples formularios identicos.
     CargoUnivFormSet = formset_factory(CargoUnivForm, extra=0, max_num=5, can_delete=True)
     CargoPreUnivFormSet = formset_factory(CargoPreUnivForm, extra=0, max_num=5, can_delete=True)
-    AFamiliaresFormSet = formset_factory(AFamiliaresForm, extra=1, max_num=10, can_delete=True)
+    AFamiliaresFormSet = formset_factory(AFamiliaresForm, extra=0, max_num=10, can_delete=True)
 
     context = {}
 
@@ -107,6 +107,9 @@ def calculate(request):
         preunivformset = CargoPreUnivFormSet(request.POST, prefix='preunivcargo')
         commonform = CommonForm(request.POST)
         afamiliaresformset = AFamiliaresFormSet(request.POST, prefix='afamiliares')
+
+        print univformset
+        print afamiliaresformset
 
         if univformset.is_valid() and preunivformset.is_valid() \
              and commonform.is_valid() and afamiliaresformset.is_valid():
@@ -189,7 +192,7 @@ def processAFamiliaresFormSet(context,afamiliaresformset):
     total = 0.0
 
     for afamiliaresform in afamiliaresformset:
-        print "holaaaa"
+
         # No analizamos los forms que fueron borrados por el usuario.
         if afamiliaresform in afamiliaresform.deleted_forms:
             continue
@@ -211,8 +214,7 @@ def processAFamiliaresFormSet(context,afamiliaresformset):
             afamiliares_list.append(afamiliar)
             total += afamiliar.valor
 
-    print afamiliares_list
-    print total
+
     return (afamiliares_list,total)
 
 def calculateRemRetPorPersona(context, es_afiliado, afamiliaresformset):

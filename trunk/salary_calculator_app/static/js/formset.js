@@ -23,7 +23,7 @@
 // global
 total_hidden_forms = {};
 
-function formset_init(formsetPrefix, containerId)
+function formset_init(formsetPrefix, containerId, className)
 {
     var totalformsObj = document.getElementById("id_" + formsetPrefix + "-TOTAL_FORMS");
     totalformsObj.value = "0";
@@ -34,7 +34,7 @@ function formset_init(formsetPrefix, containerId)
     for (var i=0; i<containerObj.children.length; i++)
     {
         child = containerObj.children[i];
-        if (child.tagName == "DIV" && child.className == "form_cargo") {
+        if (child.tagName == "DIV" && child.className == className) {
             increase_total_forms(formsetPrefix, 1);
             if (child.style.display == "none")
                 total_hidden_forms[formsetPrefix] = total_hidden_forms[formsetPrefix] + 1;

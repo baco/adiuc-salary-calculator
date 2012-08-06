@@ -36,6 +36,7 @@ scripts=(
     "antiguedad_data.py"
     "univ_data.py"
     "preuniv_data.py"
+    "asignaciones_familiares_data.py"
 )
 
 prefix="salary_calculator_app/database_scripts/"

@@ -86,19 +86,33 @@
             </div>
             
             <div id="afamiliaresformset_content" class="common_form">                
-                {% for afamiliares in afamiliaresformset %}
-                <div id="afamiliares_form" class="common_form">
+                <div align=center>
+                {% for afamiliaresform in afamiliaresformset %}
+                {{ afamiliaresform.id }}
+                {% if univform in univformset.deleted_forms or univform.DELETE.value == "on" %}
+                <div class="afamiliares_form" style="display:none" align="center">
+                {% else %}
+				<div class="afamiliares_form">
+                {% endif %}
                     <table class=common_form>                
                         <tr>
                             <td> {{ afamiliaresform.asig_familiar.label_tag }} </td>
                             <td> {{ afamiliaresform.asig_familiar }} </td>
+                            <td>
+                            <a href="#" class="agregar_quitar" onclick="hide_father(this.parentNode,afamiliaresPrefix);">
+                                [x] Quitar
+                            </a>
+                            </td>
                         </tr>
                     </table>
-                <p class="agregar_quitar rightalign">
+                <!--<div class="agregar_quitar rightalign">
                 <a href="#" onclick="hide_father(this,afamiliaresPrefix);">
                     Quitar
                 </a>
-                </p>
+                </div>-->
+                    <div style="display:none">
+                        {{ afamiliaresform.DELETE }}
+                    </div>
                 </div>
                 {% endfor %}
                 
@@ -106,18 +120,23 @@
                 '<div id=\'afamiliares_form\' class=\'common_form\'>
                     <table class=common_form>\ 
                         <tr>\
-                            <td> {{ afamiliaresform.asig_familiar.label_tag }} </td>\
-                            <td> {{ afamiliaresform.asig_familiar }} </td>\
+                            <td> {{ afamiliaresformset.empty_form.asig_familiar.label_tag|escapejs }} </td>\
+                            <td> {{ afamiliaresformset.empty_fotm.asig_familiar|escapejs }} </td>\
+                            <td>
+                            <a href=\'#\' class=\'agregar_quitar\' onclick=\'hide_father(this.parentNode,afamiliaresPrefix);\'>\
+                                [x] Quitar\
+                            </a>\
+                            </td>\
                         </tr>\
-                        <tr><td><a class=\'agregar_quitar\' href=#>\
-                                    [+] Añadir asignaci&oacute;n\
-                                </a>\
-                        </td></tr>\
+
                     </table>\
-                </div>',
+                        <div style=\'display:none\'>\
+                            {{ afamiliaresform.DELETE }}\
+                        </div>\
+                    </div>',
                 
-                afamiliaresPrefix,'nueva_afamiliar');"> Agregar asignacion </a>
-            </div>
+                afamiliaresPrefix,'nueva_afamiliar');"> [+] Agregar asignaci&oacute;n </a>
+            </div></div>
 
 			<div id="forms_table"> <!-- div principal, contiene los formularios -->
 				<div id="univformset_content" class="form_content">
@@ -262,7 +281,8 @@
             univDivAttrs['class']       = 'form_cargo height_fix';
             preunivDivAttrs             = {};
             preunivDivAttrs['class']    = 'form_cargo';
-            afamiliaresDivAttrs                = {};
+            afamiliaresDivAttrs         = {};
+            afamiliaresDivAttrs['class']= 'common_form' ;
             formset_init(univPrefix, "univformset_content");
             formset_init(preunivPrefix, "preunivformset_content");
             formset_init(afamiliaresPrefix, "afamiliaresformset_content");

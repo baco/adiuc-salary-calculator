@@ -285,4 +285,10 @@ r = add_remuneracion_retencion(
     aplicacion=u"T",
     modo=u"C"
 )
+r = add_remuneracion_retencion(
+    codigo=u"---",
+    nombre= u"Asignación Familiar",
+    aplicacion=u"T",
+    modo=u"P"
+)
 ## Ver: univ_data.py y preuniv_data.py

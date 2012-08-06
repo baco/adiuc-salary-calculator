@@ -96,8 +96,7 @@ def calculate(request):
     # Permite que aparezcan multiples formularios identicos.
     CargoUnivFormSet = formset_factory(CargoUnivForm, extra=0, max_num=5, can_delete=True)
     CargoPreUnivFormSet = formset_factory(CargoPreUnivForm, extra=0, max_num=5, can_delete=True)
-
-    AFamiliaresFormSet = formset_factory(AFamiliaresForm, extra=0, max_num=10, can_delete=True)
+    AFamiliaresFormSet = formset_factory(AFamiliaresForm, extra=1, max_num=10, can_delete=True)
 
     context = {}
 
@@ -108,8 +107,6 @@ def calculate(request):
         preunivformset = CargoPreUnivFormSet(request.POST, prefix='preunivcargo')
         commonform = CommonForm(request.POST)
         afamiliaresformset = AFamiliaresFormSet(request.POST, prefix='afamiliares')
-#        afamiliaresform = AFamiliaresForm(request.POST)
-
 
         if univformset.is_valid() and preunivformset.is_valid() \
              and commonform.is_valid() and afamiliaresformset.is_valid():
@@ -147,10 +144,7 @@ def calculate(request):
 
             # Calculo de las remuneraciones y retenciones que son por persona.
             # Esto modifica el contexto.
-            context = calculateRemRetPorPersona(context, commonform.cleaned_data['afiliado'],afamiliaresformset)
-
-            #Calculo las asignaciones familiares.
-            context_afamiliares = processAFamiliaresFormSet(context, afamiliaresformset)
+            context = calculateRemRetPorPersona(context, commonform.cleaned_data['afiliado'], afamiliaresformset)
 
             # Renderizo el template con el contexto.
             return render_to_response('salary_calculated.html', context)
@@ -195,9 +189,9 @@ def processAFamiliaresFormSet(context,afamiliaresformset):
     total = 0.0
 
     for afamiliaresform in afamiliaresformset:
-
+        print "holaaaa"
         # No analizamos los forms que fueron borrados por el usuario.
-        if univform in univformset.deleted_forms:
+        if afamiliaresform in afamiliaresform.deleted_forms:
             continue
 
         afamiliar_concepto = afamiliaresform.cleaned_data['asig_familiar']
@@ -217,6 +211,8 @@ def processAFamiliaresFormSet(context,afamiliaresformset):
             afamiliares_list.append(afamiliar)
             total += afamiliar.valor
 
+    print afamiliares_list
+    print total
     return (afamiliares_list,total)
 
 def calculateRemRetPorPersona(context, es_afiliado, afamiliaresformset):
@@ -261,7 +257,7 @@ def calculateRemRetPorPersona(context, es_afiliado, afamiliaresformset):
 
     # Proceso el formulario de asignacion familiar.
     afamiliares_list, total_afamiliares = processAFamiliaresFormSet(context,afamiliaresformset)
-     
+    print afamiliares_list
     acum_rem += total_afamiliares
     
     for ret in ret_pp:
@@ -428,7 +424,6 @@ def processUnivFormSet(commonform, univformset):
         antiguedad = antiguedades.order_by('vigencia_hasta')[antiguedades.count()-1]
         for ant in antiguedades:
             rem_porcentuales = rem_porcentuales.exclude(remuneracion__codigo = ant.remuneracion.codigo)
-
 
     for univform in univformset:
 

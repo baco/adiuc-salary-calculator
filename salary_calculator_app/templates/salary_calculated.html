@@ -61,14 +61,14 @@
                     </tr>
                     {% endif %}
 
-                    {% if afamiliar %}
+                    {% for afamiliar in afamiliares_list %}
                         <tr>
                         <td>  </td>
                         <td> Asignaci&oacute;n Familiar ({{ afamiliar.concepto }})</td>
                         <td class="adicionales"> {{ afamiliar.valor|floatformat:-2 }} </td>
                         <td></td>
                         </tr>
-                    {% endif %}
+                    {% endfor %}
                     
                     {% for rem,importe in rem_fijas_persona %}
                         <tr>

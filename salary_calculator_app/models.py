@@ -278,15 +278,34 @@ class RemuneracionFija(models.Model):
 #    def __unicode__(self):
 #       return unicode(self.valor_min) + u" - " + unicode(self.valor_max)
 
-class AsignacionFamiliar(RemuneracionFija):
+
+class AsignacionFamiliar(models.Model):
     """Representa uan asignación familiar."""
+# Antes heredaba de remuneracionFIja, pero es necesario poder dejar en blank algunos valores.
 #    concepto = models.ForeignKey('ConceptoAsigFamiliar',help_text=u'Concepto de la asignación.')
 #    categoria = models.OneToOneField('CategoriaAsigFamiliar',help_text=u'Categoría de la asignación.')
 
+    remuneracion = models.ForeignKey('RemuneracionRetencion',
+        help_text = u'La remuneración asociada a esta asignación.')
+
     concepto = models.CharField(u'Concepto de asignación', max_length='50', help_text=u'Concepto de la asignación.')
-    valor_min = models.FloatField(u'Valor mínimo:',help_text=u'Valor mínimo de categoría.')
-    valor_max = models.FloatField(u'Valor máximo:', help_text=u'Valor máximo de categoría.')
-    
+
+    valor = models.FloatField(u'Valor del Aumento', validators=[validate_isgezero],
+        help_text=u'El valor fijo que se sumará al salario básico.',blank=True)
+
+    valor_min = models.FloatField(u'Valor mínimo:',
+        help_text=u'Valor mínimo de categoría. Si se deja en blanco, se asume 0 (cero).', blank=True)
+
+    valor_max = models.FloatField(u'Valor máximo:',
+        help_text=u'Valor máximo de categoría. Si se deja en blanco se asume que no hay valor máximo.', blank=True)
+
+    vigencia_desde = models.DateField(u'Vigente desde',
+        help_text=u'Fecha a partir de la cual esta remuneración fija comienza a tener vigencia.')
+
+    vigencia_hasta = models.DateField(u'Vigente hasta',
+        help_text=u'Fecha a partir de la cual esta remuneración fija deja de ser vigente.')
+
+
     def clean(self):
         from django.core.exceptions import ValidationError
         if self.valor_min > self.valor_max:

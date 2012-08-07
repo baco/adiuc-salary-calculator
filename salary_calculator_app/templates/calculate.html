@@ -88,10 +88,6 @@
             <div id="detailsform" class="common_form" style="display:none">
                 <table>
                     <tr>
-                        <td> {{ detailsform.seguro_sepelio.label_tag }} </td>
-                        <td> {{ detailsform.seguro_sepelio }} </td>
-                    </tr>
-                    <tr>
                         <td> {{ detailsform.sis.label_tag }} </td>
                         <td> {{ detailsform.sis }} </td>
                     </tr>
@@ -106,9 +102,7 @@
                     </tr>
                 </table>
             </div>
-            <a href=# onclick="toggle_and_change(detailsform,this,'[+] Opciones','[-] Opciones');">
-                [+] Opciones
-            </a>
+            <a href=# class="agregar_quitar" onclick="toggle_and_change(detailsform,this,'[+] Opciones','[-] Opciones','options_concept');">[+] Opciones</a>
             <div id="afamiliaresformset_content" class="common_form">                
                 <div align=center>
                 {% for afamiliaresform in afamiliaresformset %}
@@ -302,7 +296,6 @@
             formset_init(afamiliaresPrefix, "afamiliaresformset_content","afamiliares_form");
             calculateButtonId           = "calculate";
             enable_disable(calculateButtonId, univPrefix, preunivPrefix);
-                    
             $(document).ready(function() {
                 $('form').keypress(function(e){    
                     if(e == 13) return false;

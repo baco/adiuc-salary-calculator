@@ -37,6 +37,7 @@ scripts=(
     "univ_data.py"
     "preuniv_data.py"
     "asignaciones_familiares_data.py"
+    "fondo_solidario_data.py"
 )
 
 prefix="salary_calculator_app/database_scripts/"

@@ -217,7 +217,9 @@ class RetencionFija(models.Model):
     def __unicode__(self):
         return unicode(self.retencion) + u" $" + unicode(self.valor)
 
-
+class FondoSolidario(RetencionFija):
+    concepto = models.CharField(u'Concepto', max_length='50')
+    
 class RemuneracionPorcentual(models.Model):
     """Una remuneracion que especifica el porcentaje de aumento que debe realizarse."""
 
@@ -291,13 +293,13 @@ class AsignacionFamiliar(models.Model):
     concepto = models.CharField(u'Concepto de asignación', max_length='50', help_text=u'Concepto de la asignación.')
 
     valor = models.FloatField(u'Valor del Aumento', validators=[validate_isgezero],
-        help_text=u'El valor fijo que se sumará al salario básico.',blank=True)
+        help_text=u'El valor fijo que se sumará al salario básico.')
 
     valor_min = models.FloatField(u'Valor mínimo:',
-        help_text=u'Valor mínimo de categoría. Si se deja en blanco, se asume 0 (cero).', blank=True)
+        help_text=u'Valor mínimo de categoría.')
 
     valor_max = models.FloatField(u'Valor máximo:',
-        help_text=u'Valor máximo de categoría. Si se deja en blanco se asume que no hay valor máximo.', blank=True)
+        help_text=u'Valor máximo de categoría.')
 
     vigencia_desde = models.DateField(u'Vigente desde',
         help_text=u'Fecha a partir de la cual esta remuneración fija comienza a tener vigencia.')

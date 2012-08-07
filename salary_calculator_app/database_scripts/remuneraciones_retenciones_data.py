@@ -203,6 +203,48 @@ add_retencion_porcentual(
 )
 
 ##### Retenciones Fijas
+
+r = add_remuneracion_retencion(
+    codigo=u"DAS/1",
+    nombre= u"Sistema Integral de Sepelio (SIS)",
+    aplicacion=u"T",
+    modo=u"P"
+)
+add_retencion_fija(
+    retencion = r,
+    valor = 7.0,
+    vigencia_desde = vigencia_desde,
+    vigencia_hasta = vigencia_hasta
+)
+
+###
+r = add_remuneracion_retencion(
+    codigo=u"DAS/4",
+    nombre= u"Fondo Solidario",
+    aplicacion=u"T",
+    modo=u"P"
+)
+add_retencion_fija(
+    retencion = r,
+    valor = 7.0,
+    vigencia_desde = vigencia_desde,
+    vigencia_hasta = vigencia_hasta
+)
+###
+r = add_remuneracion_retencion(
+    codigo=u"DAS/2",
+    nombre= u"Subsidio por fallecimiento",
+    aplicacion=u"T",
+    modo=u"P"
+)
+add_retencion_fija(
+    retencion = r,
+    valor = 7.0,
+    vigencia_desde = vigencia_desde,
+    vigencia_hasta = vigencia_hasta
+)
+
+###
 r = add_remuneracion_retencion(
     codigo=u"77/0",
     nombre= u"Fondo de Becas",
@@ -285,6 +327,7 @@ r = add_remuneracion_retencion(
     aplicacion=u"T",
     modo=u"C"
 )
+
 r = add_remuneracion_retencion(
     codigo=u"---",
     nombre= u"Asignación Familiar",

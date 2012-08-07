@@ -55,7 +55,9 @@ garantia_preuniv_name = u'Garantía Nivel Medio'
 afiliacion_code = '64/0'
 afiliacion_name = u'ADIUC - Afiliacion'
 
-
+sis_code = "DAS/1"
+subsidio_fallecimiento_code = "DAS/2"
+fs_code="DAS/4"
 ###############################################
 # Helpers
 ###############################################
@@ -117,6 +119,8 @@ def calculate(request):
             context_univ = processUnivFormSet(commonform, univformset)
             context_preuniv = processPreUnivFormSet(commonform, preunivformset)
 
+            #context_details = processDetailsForm(commonform,detailsform)
+
             # Control de errores
             if context_univ.has_key('error_msg'):
                 context['error_msg'] = context_univ['error_msg']
@@ -146,7 +150,7 @@ def calculate(request):
 
             # Calculo de las remuneraciones y retenciones que son por persona.
             # Esto modifica el contexto.
-            context = calculateRemRetPorPersona(context, commonform.cleaned_data['afiliado'], afamiliaresformset)
+            context = calculateRemRetPorPersona(context, commonform.cleaned_data['afiliado'], afamiliaresformset, detailsform)
 
             # Renderizo el template con el contexto.
             return render_to_response('salary_calculated.html', context)
@@ -218,7 +222,90 @@ def processAFamiliaresFormSet(context,afamiliaresformset):
 
     return (afamiliares_list,total)
 
-def calculateRemRetPorPersona(context, es_afiliado, afamiliaresformset):
+def processDetailsForm(context,detailsform):
+
+    fecha = context['fecha']
+    total_rem = context['total_rem']
+    total_ret = context['total_ret']
+    total_bruto = context['total_bruto']
+    total_neto = context['total_neto']
+    
+    sis = detailsform.cleaned_data['sis']
+    sf = detailsform.cleaned_data['subsidio_fallecimiento']
+    fs_mayores = detailsform.cleaned_data['fondo_solidario_mayores']
+    fs_menores = detailsform.cleaned_data['fondo_solidario_menores']
+    
+    result = {}
+  
+    #en principio estos datos son retenciones por persona
+    #los datos se guardan indicando esa categoria para luego ser procesados en..  (ej: l656+ ) 
+
+    if fs_mayores > 0.0:
+        fs_objs= FondoSolidario.objects.filter(
+            retencion__codigo=fs_code,
+            vigencia_desde__lte=fecha,
+            vigencia_hasta__gte=fecha,
+            concepto='Fondo solidario para una persona (mayor a 55 años)'
+            )
+        if not fs_objs.exists():
+            result["error_msg"] = "No hay información sobre Fondo solidario para personas mayores de 55 años."
+        else:
+            fs_obj = fs_objs.order_by('vigencia_hasta')[fs_objs.count()-1]
+            importe = fs_obj.valor * fs_mayores
+            result['fs_mayores'] = ('retencion_fija_persona',fs_obj,importe)
+
+    if fs_menores>0.0:
+        if fs_menores == 1:
+            query='Fondo solidario para una persona (menor a 55 años)'
+        elif fs_menores == 2:
+            query='Fondo solidario para dos personas (menor a 55 años)'
+        elif fs_menores == 3:
+            query='Fondo solidario para tres personas (menor a 55 años)'
+        elif fs_menores ==4:
+            query='Fondo solidario para cuatro personas (menor a 55 años)'
+        else:
+            query='Fondo solidario para cinco personas o más (menor a 55 años)'
+            
+        fs_objs= FondoSolidario.objects.filter(
+            retencion__codigo=fs_code,
+                vigencia_desde__lte=fecha,
+                vigencia_hasta__gte=fecha,
+                concepto=query
+            )
+        if not fs_objs.exists():
+            result["error_msg"] = "No hay información sobre Fondo solidario"
+        else:
+            fs_obj = fs_objs.order_by('vigencia_hasta')[fs_objs.count()-1]
+            importe = fs_obj.valor
+            result['fs_menores'] = ('retencion_fija_persona',fs_obj,importe)
+
+    if sis:    
+        sis_objs= RetencionFija.objects.filter(
+                retencion__codigo=sis_code,
+                vigencia_desde__lte=fecha,
+                vigencia_hasta__gte=fecha
+            )
+        if not sis_objs.exists():
+            result["error_msg"] = "No existe informacion sobre Seguro Integral de Sepelio."
+        else:
+            sis_obj = sis_objs.order_by('vigencia_hasta')[sis_objs.count()-1]
+            result['sis'] = ('retencion_fija_persona',sis_obj,sis_obj.valor)
+
+    if sf:    
+        sf_objs= RetencionFija.objects.filter(
+                retencion__codigo=subsidio_fallecimiento_code,
+                vigencia_desde__lte=fecha,
+                vigencia_hasta__gte=fecha
+            )
+        if not sf_objs.exists():
+            result["error_msg"] = "No existe informacion sobre Subsidio por Fallecimiento."
+        else:
+            sf_obj = sf_objs.order_by('vigencia_hasta')[sf_objs.count()-1]
+            result['sf'] = ('retencion_fija_persona',sf_obj,sf_obj.valor)
+
+    return result
+                
+def calculateRemRetPorPersona(context, es_afiliado, afamiliaresformset, detailsform):        
 
     fecha = context['fecha']
     total_rem = context['total_rem']
@@ -291,13 +378,28 @@ def calculateRemRetPorPersona(context, es_afiliado, afamiliaresformset):
             vigencia_hasta__gte=fecha
         )
         if not afiliacion_objs.exists():
-            context["error_msg"] = "No existe informacion sobre afiliaciones."
+            context["error_msg"] = "No existe informacion sobre afiliaciones.\n"
         else:
             afiliacion_obj = afiliacion_objs.order_by('vigencia_hasta')[afiliacion_objs.count()-1]
             af_importe = total_bruto * afiliacion_obj.porcentaje / 100.0
-            context['afiliacion'] = afiliacion_obj
+            context['afiliacion'] = afiliacion_obj                
+            
+        acum_ret += af_importe
 
-    acum_ret += af_importe
+    #Calculo los detalles (opciones extras)
+    details_context = processDetailsForm(context,detailsform)
+    if details_context.has_key("error_msg"):
+        if context.has_key("error_msg"):
+            context["error_msg"] += "\n"+ details_context["error_msg"]
+        else:
+            context["error_msg"] = details_context["error_msg"]
+    else:
+        for d in details_context.keys():
+            concept,obj,val = details_context[d]
+            if concept == 'retencion_fija_persona':
+                print obj
+                ret_fijas_persona.append( (obj , val) )
+                acum_ret += val
 
     total_ret += acum_ret
     total_rem += acum_rem

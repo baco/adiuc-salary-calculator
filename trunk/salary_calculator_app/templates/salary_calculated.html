@@ -93,7 +93,7 @@
                         <td> {{ ret.retencion.codigo }} </td>
                         <td> {{ ret.retencion.nombre }} </td>
                         <td>  </td>
-                        <td class="descuentos"> {% if importe > 0 %}-{% endif %}{ importe|floatformat:-2 }} </td>
+                        <td class="descuentos"> {% if importe > 0 %}-{% endif %}{{ importe|floatformat:-2 }} </td>
                         </tr>
                     {% endfor %}
                     

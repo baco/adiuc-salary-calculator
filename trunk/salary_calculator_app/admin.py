@@ -44,3 +44,4 @@ admin.site.register(RemuneracionPorcentual)
 admin.site.register(RemuneracionFija)
 
 admin.site.register(AsignacionFamiliar)
+admin.site.register(FondoSolidario)

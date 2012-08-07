@@ -26,6 +26,7 @@ from django import forms
 from models import *
 import datetime
 
+
 #Utilizada para filtrar datos en AFamiliaresForm (asignaciones familiares)
 def get_concepts_asigf():
     asignaciones = AsignacionFamiliar.objects.all()
@@ -35,6 +36,15 @@ def get_concepts_asigf():
         result.append(c)
     return list(set(result))
 
+class DetailsForm(forms.Form):
+    """Formulario con opciones extras."""
+    seguro_sepelio = forms.BooleanField(label=u'Seguro de sepelio', required=False)
+    sis = forms.BooleanField(label=u'SIS', required=False)
+    subsidio_fallecimiento  = forms.BooleanField(label=u'Subsidio por Fallecimiento', required=False)
+    fondo_solidario_mayores = forms.IntegerField(label=u'Mayores de 55 años.',
+        widget=forms.Select(choices=[(i, i) for i in range(16)]))
+    fondo_solidario_menores = forms.IntegerField(label=u'Menores de 55 años.',
+        widget=forms.Select(choices=[(i, i) for i in range(16)]))
 class AFamiliaresForm(forms.Form):
     """Formulario con opciones específicasc opcionales."""
 

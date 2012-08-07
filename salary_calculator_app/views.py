@@ -108,11 +108,10 @@ def calculate(request):
         commonform = CommonForm(request.POST)
         afamiliaresformset = AFamiliaresFormSet(request.POST, prefix='afamiliares')
 
-        print univformset
-        print afamiliaresformset
-
+        detailsform = DetailsForm(request.POST)
+        
         if univformset.is_valid() and preunivformset.is_valid() \
-             and commonform.is_valid() and afamiliaresformset.is_valid():
+             and commonform.is_valid() and afamiliaresformset.is_valid() and detailsform.is_valid():
 
             # Proceso los formularios de cargos.
             context_univ = processUnivFormSet(commonform, univformset)
@@ -157,6 +156,7 @@ def calculate(request):
             context['preunivformset'] = preunivformset
             context['commonform'] = commonform
             context['afamiliaresformset'] = afamiliaresformset
+            context['detailsform'] = detailsform
 
     else:
 
@@ -165,12 +165,13 @@ def calculate(request):
         preunivformset = CargoPreUnivFormSet(prefix='preunivcargo')
         commonform = CommonForm()
         afamiliaresformset = AFamiliaresFormSet(prefix='afamiliares')
+        detailsform = DetailsForm()
 
         context['univformset'] = univformset
         context['preunivformset'] = preunivformset
         context['commonform'] = commonform
         context['afamiliaresformset'] = afamiliaresformset
-
+        context['detailsform'] = detailsform
     return render_to_response('calculate.html', context)
 
 

@@ -84,7 +84,31 @@
                     </tr>
                 </table>
             </div>
-            
+
+            <div id="detailsform" class="common_form" style="display:none">
+                <table>
+                    <tr>
+                        <td> {{ detailsform.seguro_sepelio.label_tag }} </td>
+                        <td> {{ detailsform.seguro_sepelio }} </td>
+                    </tr>
+                    <tr>
+                        <td> {{ detailsform.sis.label_tag }} </td>
+                        <td> {{ detailsform.sis }} </td>
+                    </tr>
+                    <tr>
+                        <td> {{ detailsform.subsidio_fallecimiento.label_tag }} </td>
+                        <td> {{ detailsform.subsidio_fallecimiento }} </td>
+                    </tr>
+                    <tr>
+                        <td> Fondo Solidario </td>
+                        <td> (Cant. personas mayores de 55 a&ntilde;os) {{ detailsform.fondo_solidario_mayores }} <br>  
+                             (Cant. personas menores de 55 a&ntilde;os) {{ detailsform.fondo_solidario_menores }} </td>
+                    </tr>
+                </table>
+            </div>
+            <a href=# onclick="toggle_and_change(detailsform,this,'[+] Opciones','[-] Opciones');">
+                [+] Opciones
+            </a>
             <div id="afamiliaresformset_content" class="common_form">                
                 <div align=center>
                 {% for afamiliaresform in afamiliaresformset %}
@@ -278,7 +302,7 @@
             formset_init(afamiliaresPrefix, "afamiliaresformset_content","afamiliares_form");
             calculateButtonId           = "calculate";
             enable_disable(calculateButtonId, univPrefix, preunivPrefix);
-
+                    
             $(document).ready(function() {
                 $('form').keypress(function(e){    
                     if(e == 13) return false;

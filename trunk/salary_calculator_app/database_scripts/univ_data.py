@@ -46,7 +46,7 @@ from preuniv_data import add_garantia
 
 
 #=============================================#
-#						CARGOS UNIVERSITARIOS											      #
+#       CARGOS UNIVERSITARIOS                 #
 #=============================================#
 
 def add_cargo_univ(nombre, lu, pampa, dedicacion):
@@ -103,7 +103,10 @@ mar_vigencia_desde = date(2012, 3, 1)
 mar_vigencia_hasta = date(2012, 5, 31)
 
 jun_vigencia_desde = date(2012, 6, 1)
-jun_vigencia_hasta = date(2012, 9, 30)
+jun_vigencia_hasta = date(2012, 8, 31)
+
+sep12_vigencia_desde = date(2012, 9, 1)
+sep12_vigencia_hasta = date(2012, 12, 31)
 
 
 ######################
@@ -131,6 +134,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 8438.55,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ######################
 c = add_cargo_univ(
     nombre="Profesor Titular",
@@ -155,6 +164,12 @@ add_salario_basico(
     valor = 4059.20,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 4198.91,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 ######################
 c = add_cargo_univ(
@@ -181,6 +196,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2094.26,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ######################
 c = add_cargo_univ(
     nombre="Profesor Asociado",
@@ -205,6 +226,12 @@ add_salario_basico(
     valor = 7344.95,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 7585.28,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 ######################
 c = add_cargo_univ(
@@ -231,6 +258,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 3774.04,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ######################
 c = add_cargo_univ(
     nombre="Profesor Asociado",
@@ -255,6 +288,12 @@ add_salario_basico(
     valor = 1821.84,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 1881.93,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 ######################
 c = add_cargo_univ(
@@ -281,6 +320,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 6725.08,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ######################
 c = add_cargo_univ(
     nombre="Profesor Adjunto",
@@ -305,6 +350,12 @@ add_salario_basico(
     valor = 3247.47,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 3347.96,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 ######################
 c = add_cargo_univ(
@@ -331,6 +382,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 1669.02,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ######################
 c = add_cargo_univ(
     nombre="Profesor Asistente (Ex. JTP)",
@@ -355,6 +412,12 @@ add_salario_basico(
     valor = 5704.07,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 5865.98,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 ######################
 c = add_cargo_univ(
@@ -381,6 +444,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2922.37,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ######################
 c = add_cargo_univ(
     nombre="Profesor Asistente (Ex. JTP)",
@@ -405,6 +474,12 @@ add_salario_basico(
     valor = 1415.83,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 1243.84,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 ######################
 c = add_cargo_univ(
@@ -431,6 +506,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 5012.84,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ######################
 c = add_cargo_univ(
     nombre='Profesor Ayudante "A" (Ex. Ayud. 1°)',
@@ -455,6 +536,12 @@ add_salario_basico(
     valor = 2435.88,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 2497.24,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 ######################
 c = add_cargo_univ(
@@ -481,6 +568,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 1243.84,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ######################
 c = add_cargo_univ(
     nombre='Profesor Ayudante "B" (Ex. Ayud. 2°)',
@@ -506,4 +599,9 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
-
+add_salario_basico(
+    cargo = c,
+    valor = 995.75,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)

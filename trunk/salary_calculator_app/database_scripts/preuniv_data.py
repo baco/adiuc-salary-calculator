@@ -43,7 +43,7 @@ from salary_calculator_app.models import *
 
 
 #=============================================#
-#						CARGOS PREUNIVERSITARIOS											   #
+#           CARGOS PREUNIVERSITARIOS          #
 #=============================================#
 
 def add_cargo_preuniv(nombre, lu, pampa, horas, tipo_horas, pago_por_hora):
@@ -161,7 +161,11 @@ mar_vigencia_desde = date(2012, 3, 1)
 mar_vigencia_hasta = date(2012, 5, 31)
 
 jun_vigencia_desde = date(2012, 6, 1)
-jun_vigencia_hasta = date(2012, 9, 30)
+jun_vigencia_hasta = date(2012, 8, 31)
+
+sep12_vigencia_desde = date(2012, 9, 1)
+sep12_vigencia_hasta = date(2012, 12, 31)
+
 
 # Base: Copiar y pegar este
 ###############
@@ -232,6 +236,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 6146.32,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 #add_garantia(
 #    cargo = c,
 #    valor_minimo = 5600,
@@ -270,6 +280,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 5845.22,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 5600,
@@ -303,6 +319,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 5375.43,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2464.76,
@@ -335,6 +357,12 @@ add_salario_basico(
     valor = 7189.32,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 7372.09,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -370,6 +398,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 7372.09,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 5600,
@@ -404,6 +438,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 4146.67,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2800,
@@ -436,6 +476,12 @@ add_salario_basico(
     valor = 3594.66,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 3686.05,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -470,6 +516,13 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2959.03,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
+
 ###############
 c = add_cargo_preuniv(
     nombre = u'Ayudante Clases Práct.(02)', 
@@ -496,6 +549,12 @@ add_salario_basico(
     valor = 2346.92,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 2406.59,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -530,6 +589,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2791.43,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Rector de 1° Categoría', 
@@ -556,6 +621,12 @@ add_salario_basico(
     valor = 6365.51,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 6527.35,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -591,6 +662,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2117.14,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Director de 3° Categoría', 
@@ -618,6 +695,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2413.91,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Prosecretario 1° (Esc.Com.)', 
@@ -644,6 +727,12 @@ add_salario_basico(
     valor = 3894.30,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 3993.30,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -678,6 +767,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 3981.81,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2800,
@@ -710,6 +805,12 @@ add_salario_basico(
     valor = 2618.78,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 2685.36,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -744,6 +845,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2161.22,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Secretario Esc.Superior', 
@@ -770,6 +877,12 @@ add_salario_basico(
     valor = 4268.65,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 4377.18,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -804,6 +917,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2140.73,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Bibliot. Ley 22.416', 
@@ -830,6 +949,12 @@ add_salario_basico(
     valor = 2868.55,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 2941.48,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -864,6 +989,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2140.73,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Prof. Centro Deportivo', 
@@ -890,6 +1021,12 @@ add_salario_basico(
     valor = 1913.90,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 1962.56,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
@@ -918,6 +1055,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 1811.38,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Jefe Preceptores de 1°', 
@@ -944,6 +1087,12 @@ add_salario_basico(
     valor = 3235.27,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 3317.52,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -978,6 +1127,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2117.14,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Vice Rector Escuela Artes', 
@@ -1005,6 +1160,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2791.43,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Bibliot.Ens. Superior', 
@@ -1031,6 +1192,12 @@ add_salario_basico(
     valor = 2886.77,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 2960.16,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -1065,6 +1232,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 3084.93,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2800,
@@ -1097,6 +1270,12 @@ add_salario_basico(
     valor = 249.63,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 255.98,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -1131,6 +1310,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 204.78,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 186.58,
@@ -1164,6 +1349,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2457.36,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Rector Educación Artística', 
@@ -1191,6 +1382,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2660.08,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Profesor T.P (4)', 
@@ -1217,6 +1414,12 @@ add_salario_basico(
     valor = 2468.66,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 2531.42,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -1251,6 +1454,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 4378.51,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2800,
@@ -1283,6 +1492,12 @@ add_salario_basico(
     valor = 5323.61,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 5458.95,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -1317,6 +1532,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2161.22,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'J.T.P T.C (Esc. Comercio)', 
@@ -1343,6 +1564,12 @@ add_salario_basico(
     valor = 2619.78,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 2686.38,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -1377,6 +1604,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 6143.41,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 5597.96,
@@ -1409,6 +1642,12 @@ add_salario_basico(
     valor = 4792.88,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 4914.73,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -1443,6 +1682,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 3686.05,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 3358.47,
@@ -1475,6 +1720,12 @@ add_salario_basico(
     valor = 3370.08,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 3455.76,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -1509,6 +1760,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 11749.22,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 5600,
@@ -1541,6 +1798,12 @@ add_salario_basico(
     valor = 10110.24,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 10367.28,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -1575,6 +1838,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 3678.30,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Sub Regente de 1° Cat. D.E', 
@@ -1601,6 +1870,12 @@ add_salario_basico(
     valor = 6405.98,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 6568.85,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -1635,6 +1910,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 6568.85,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2800,
@@ -1667,6 +1948,12 @@ add_salario_basico(
     valor = 7683.57,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 7878.92,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -1701,6 +1988,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2794.53,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Jefe Gabinete Psicoped. D.E', 
@@ -1727,6 +2020,12 @@ add_salario_basico(
     valor = 2748.22,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 2818.09,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
@@ -1755,6 +2054,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2739.543,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Asesor Pedagógico', 
@@ -1782,6 +2087,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 1926.85,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Jefe Preceptores 1° D.E', 
@@ -1808,6 +2119,12 @@ add_salario_basico(
     valor = 5823.48,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 5971.53,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -1842,6 +2159,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 3622.73,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2800,
@@ -1875,6 +2198,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2658.35,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Ayud. Gabinete Práctico', 
@@ -1901,6 +2230,12 @@ add_salario_basico(
     valor = 2631.26,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 2698.15,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -1935,6 +2270,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2698.94,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Preceptor D.E', 
@@ -1961,6 +2302,12 @@ add_salario_basico(
     valor = 5415.22,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 5552.90,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,
@@ -1995,6 +2342,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 3112.66,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2782.18,
@@ -2028,6 +2381,12 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 2457.36,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 ###############
 c = add_cargo_preuniv(
     nombre = u'Horas Cátedra Secundario', 
@@ -2055,9 +2414,15 @@ add_salario_basico(
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
 )
+add_salario_basico(
+    cargo = c,
+    valor = 5993.93,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
-    valor = 186.58,
+    valor = 204.78,
 	vigencia_desde = mar_vigencia_desde,
 	vigencia_hasta = jun_vigencia_hasta
 )
@@ -2087,6 +2452,12 @@ add_salario_basico(
     valor = 2237.45,
     vigencia_desde = jun_vigencia_desde,
     vigencia_hasta = jun_vigencia_hasta
+)
+add_salario_basico(
+    cargo = c,
+    valor = 2294.33,
+    vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
     cargo = c,

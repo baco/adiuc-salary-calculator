@@ -119,15 +119,18 @@
                             <td> {{ afamiliaresform.asig_familiar.label_tag }} </td>
                             <td> {{ afamiliaresform.asig_familiar }} </td>
                             <td>
-                            <a href="#" class="agregar_quitar" onclick="hide_father(this.parentNode,afamiliaresPrefix);">
-                                [x] Quitar
+                            <p>
+                            <a href="#" class="agregar_quitar" onclick="hide_father(this.parentNode.parentNode.parentNode,afamiliaresPrefix);">
+                                <font color=white>[x] Quitar</font>
                             </a>
+                            </p>
+                                <div style="display:none">
+                                    {{ afamiliaresform.DELETE }}
+                                </div>
                             </td>
                         </tr>
                     </table>
-                    <div style="display:none">
-                        {{ afamiliaresform.DELETE }}
-                    </div>
+
                 </div>
                 {% endfor %}
 
@@ -137,15 +140,20 @@
                             <td> {{ afamiliaresformset.empty_form.asig_familiar.label_tag|escapejs }} </td> \
                             <td> {{ afamiliaresformset.empty_form.asig_familiar|escapejs }} </td> \
                             <td> \
-                                <a href=\'#\' class=\'agregar_quitar\' onclick=\'hide_father(this.parentNode,afamiliaresPrefix);\'>[x] Quitar \
+                            <p>\
+                                <a href=\'#\' class=\'agregar_quitar\' onclick=\'hide_father(this.parentNode.parentNode.parentNode,afamiliaresPrefix);\'><font color=white>[x] Quitar</font> \
                                 </a> \
+                            </p>\
+                           <div style=\'display:none\'>\
+                                {{ afamiliaresform.DELETE }}\
+                            </div>\
                             </td> \
                         </tr> \
                     </table> \
                     <div style=\'display:none\'> \
                         {{ afamiliaresformset.empty_form.DELETE|escapejs }} \
                     </div>',
-                    afamiliaresPrefix,'nueva_afamiliar');"> [+] Agregar asignaci&oacute;n
+                    afamiliaresPrefix,'nueva_afamiliar');"> <font color=white>[+] Agregar asignaci&oacute;n</font>
                 </a>
                 <!--</div>-->
             </div>

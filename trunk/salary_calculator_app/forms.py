@@ -32,7 +32,7 @@ def get_concepts_asigf():
     asignaciones = AsignacionFamiliar.objects.all()
     result = list()
     for a in asignaciones:
-        c = (a.concepto).title()
+        c = a.concepto
         result.append(c)
     return list(set(result))
 

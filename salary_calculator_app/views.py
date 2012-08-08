@@ -200,13 +200,11 @@ def processAFamiliaresFormSet(context,afamiliaresformset):
     total = 0.0
 
     for afamiliaresform in afamiliaresformset:
-
         # No analizamos los forms que fueron borrados por el usuario.
-        if afamiliaresform in afamiliaresform.deleted_forms:
+        if afamiliaresform in afamiliaresformset.deleted_forms:
             continue
 
         afamiliar_concepto = afamiliaresform.cleaned_data['asig_familiar']
-
         # Tomo las asignaciones familiares del mismo concepto, cateogria y fecha adecuada.
         afamiliares = AsignacionFamiliar.objects.filter(
             concepto = afamiliar_concepto,
@@ -220,8 +218,8 @@ def processAFamiliaresFormSet(context,afamiliaresformset):
         if afamiliares:
             afamiliar = afamiliares.order_by('vigencia_hasta')[afamiliares.count()-1]
             afamiliares_list.append(afamiliar)
-            total += afamiliar.valor
-
+            total +=afamiliar.valor
+            
     return (afamiliares_list,total)
 
 
@@ -352,6 +350,7 @@ def calculateRemRetPorPersona(context, es_afiliado, afamiliaresformset, detailsf
     # Proceso el formulario de asignacion familiar.
     afamiliares_list, total_afamiliares = processAFamiliaresFormSet(context,afamiliaresformset)
     print afamiliares_list
+    print total_afamiliares
     acum_rem += total_afamiliares
     
     for ret in ret_pp:

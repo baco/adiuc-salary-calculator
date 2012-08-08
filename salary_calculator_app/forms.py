@@ -36,9 +36,11 @@ def get_concepts_asigf():
         result.append(c)
     return list(set(result))
 
+
 class DetailsForm(forms.Form):
     """Formulario con opciones extras."""
-    sis = forms.BooleanField(label=u'Servicio Integral de  Sepelio(SIS)', required=False)
+
+    sis = forms.BooleanField(label=u'Servicio Integral de  Sepelio (SIS)', required=False)
     subsidio_fallecimiento  = forms.BooleanField(label=u'Subsidio por Fallecimiento', required=False)
     fondo_solidario_mayores = forms.IntegerField(label=u'Mayores de 55 años.',
         widget=forms.Select(choices=[(i, i) for i in range(16)]))
@@ -47,7 +49,7 @@ class DetailsForm(forms.Form):
 
 
 class AFamiliaresForm(forms.Form):
-    """Formulario con opciones específicasc opcionales."""
+    """Formulario con opciones específicas opcionales."""
 
     asig_familiar = forms.ChoiceField(
         label=u'Asignación Familiar',
@@ -55,6 +57,7 @@ class AFamiliaresForm(forms.Form):
         choices=[(i, unicode(i)) for i in get_concepts_asigf()],
         help_text= u'Seleccione el tipo de asignación.'
     )
+
 
 class CommonForm(forms.Form):
     """Formulario para el cálculo de salario docente. Contiene todos los valores
@@ -79,6 +82,7 @@ class CommonForm(forms.Form):
     afiliado = forms.BooleanField(label=u'Afiliado a ADIUC', required=False)
     master = forms.BooleanField(label=u'Título de masters', required=False)
     doctorado = forms.BooleanField(label=u'Título de doctorado', required=False)
+
 
 class CargoUnivForm(forms.Form):
     """Formulario de calculo de salario docente para docentes universitarios."""

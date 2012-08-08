@@ -58,6 +58,8 @@ afiliacion_name = u'ADIUC - Afiliacion'
 sis_code = "DAS/1"
 subsidio_fallecimiento_code = "DAS/2"
 fs_code="DAS/4"
+
+
 ###############################################
 # Helpers
 ###############################################
@@ -176,6 +178,7 @@ def calculate(request):
         context['commonform'] = commonform
         context['afamiliaresformset'] = afamiliaresformset
         context['detailsform'] = detailsform
+
     return render_to_response('calculate.html', context)
 
 
@@ -187,8 +190,8 @@ def calculate(request):
 def processAFamiliaresFormSet(context,afamiliaresformset):
     """ Procesa un formet con formularios de asignaciones familiares.
         Retorna una tupla con dos elementos:
-            El primero, una lista con todas las asignaciones.
-            El segundo, la suma total correspondiente a la primer lista."""
+            * El primero, una lista con todas las asignaciones.
+            * El segundo, la suma total correspondiente a la primer lista."""
 
     fecha = context['fecha']
     total_bruto = context['total_bruto']
@@ -219,8 +222,8 @@ def processAFamiliaresFormSet(context,afamiliaresformset):
             afamiliares_list.append(afamiliar)
             total += afamiliar.valor
 
-
     return (afamiliares_list,total)
+
 
 def processDetailsForm(context,detailsform):
 
@@ -304,7 +307,8 @@ def processDetailsForm(context,detailsform):
             result['sf'] = ('retencion_fija_persona',sf_obj,sf_obj.valor)
 
     return result
-                
+
+
 def calculateRemRetPorPersona(context, es_afiliado, afamiliaresformset, detailsform):        
 
     fecha = context['fecha']

@@ -101,7 +101,25 @@
                     </tr>
                 </table>
             </div>
-            <a href=# class="agregar_quitar" onclick="toggle_and_change(detailsform,this,'[+] Opciones','[-] Opciones','options_concept');">
+            <a href="javascript:void(0)" class="agregar_quitar" onclick="
+                toggle_and_change(detailsform,this,'[+] Opciones','[-] Opciones','options_concept');
+                $(detailsform).html(
+                    '<table> \
+                        <tr> \
+                            <td> {{ detailsform.sis.label_tag|escapejs }} </td> \
+                            <td> {{ detailsform.sis|escapejs }} </td> \
+                        </tr> \
+                        <tr> \
+                            <td> {{ detailsform.subsidio_fallecimiento.label_tag|escapejs }} </td> \
+                            <td> {{ detailsform.subsidio_fallecimiento|escapejs }} </td> \
+                        </tr> \
+                        <tr> \
+                            <td> Fondo Solidario </td> \
+                            <td> (Cant. personas mayores de 55 a&ntilde;os) {{ detailsform.fondo_solidario_mayores|escapejs }} <br> \
+                                 (Cant. personas menores de 55 a&ntilde;os) {{ detailsform.fondo_solidario_menores|escapejs }} </td> \
+                        </tr> \
+                    </table>'
+                )">
                 [+] Opciones
             </a>
 
@@ -120,7 +138,7 @@
                             <td> {{ afamiliaresform.asig_familiar }} </td>
                             <td>
                             <p>
-                            <a href="#" class="agregar_quitar" onclick="hide_father(this.parentNode.parentNode.parentNode,afamiliaresPrefix);">
+                            <a href="javascript:void(0)" class="agregar_quitar" onclick="hide_father(this.parentNode.parentNode.parentNode.parentNode,afamiliaresPrefix);">
                                 <font color=white>[x] Quitar</font>
                             </a>
                             </p>
@@ -134,19 +152,16 @@
                 </div>
                 {% endfor %}
 
-                <a id="nueva_afamiliar" href=# class="agregar_quitar" onclick="show_new_form_HTML('afamiliaresformset_content',afamiliaresDivAttrs,
+                <a id="nueva_afamiliar" href="javascript:void(0)" class="agregar_quitar" onclick="show_new_form_HTML('afamiliaresformset_content',afamiliaresDivAttrs,
                     '<table class=\'common_form\'> \
                         <tr> \
                             <td> {{ afamiliaresformset.empty_form.asig_familiar.label_tag|escapejs }} </td> \
                             <td> {{ afamiliaresformset.empty_form.asig_familiar|escapejs }} </td> \
                             <td> \
                             <p>\
-                                <a href=\'#\' class=\'agregar_quitar\' onclick=\'hide_father(this.parentNode.parentNode.parentNode,afamiliaresPrefix);\'><font color=white>[x] Quitar</font> \
+                                <a href=\'javascript:void(0)\' class=\'agregar_quitar\' onclick=\'hide_father(this.parentNode.parentNode.parentNode.parentNode,afamiliaresPrefix);\'><font color=white>[x] Quitar</font> \
                                 </a> \
                             </p>\
-                           <div style=\'display:none\'>\
-                                {{ afamiliaresform.DELETE }}\
-                            </div>\
                             </td> \
                         </tr> \
                     </table> \
@@ -180,7 +195,7 @@
                             {% endif %}
 					    </table>
                         <p class="agregar_quitar rightalign">
-                        	<a href="#" onclick="hide_father(this,univPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);">
+                        	<a href="javascript:void(0)" onclick="hide_father(this,univPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);">
                                 Quitar
                             </a>
                         </p>
@@ -191,14 +206,14 @@
 				    </div> <!--form_cargo-->
                     {% endfor %}
 
-				    <a id="nuevo_cargo_univ" class="agregar_quitar" href="#" onclick="show_new_form_HTML('univformset_content', univDivAttrs,
+				    <a id="nuevo_cargo_univ" class="agregar_quitar" href="javascript:void(0)" onclick="show_new_form_HTML('univformset_content', univDivAttrs,
                         '<table>\
                             <tr> \
                                 <td class=\'form_cargo_label\'> {{ univformset.empty_form.cargo.label_tag|escapejs }}: </td> \
                                 <td> {{ univformset.empty_form.cargo|escapejs }} </td> \
                             </tr>\
 					    </table>\
-                        <p class=\'agregar_quitar rightalign padding_fix\'><a href=\'#\' onclick=\'hide_father(this, univPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);\'>Quitar</a></p>\
+                        <p class=\'agregar_quitar rightalign padding_fix\'><a href=\'javascript:void(0)\' onclick=\'hide_father(this, univPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);\'>Quitar</a></p>\
                         <div style=\'display:none\'>\
                             {{ univformset.empty_form.DELETE|escapejs }}\
                         </div>',
@@ -252,7 +267,7 @@
                         {% endif %}
 					</table>
                     <p class="agregar_quitar rightalign">
-                        <a href="#" onclick="hide_father(this,preunivPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);">
+                        <a href="javascript:void(0)" onclick="hide_father(this,preunivPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);">
                             Quitar
                         </a>
                     </p>
@@ -263,7 +278,7 @@
                 </div> <!-- form_cargo-->
                 {% endfor %}
 
-                <a id="nuevo_cargo_pre" class="agregar_quitar" href="#"
+                <a id="nuevo_cargo_pre" class="agregar_quitar" href="javascript:void(0)"
                 onclick="show_new_form_HTML('preunivformset_content', preunivDivAttrs,
                         '<table>\
                             <tr> \
@@ -278,7 +293,7 @@
 							    <td> {{ preunivformset.empty_form.pago_por_horas_info|escapejs }} </td>\
 						    </tr>\
 					    </table>\
-                        <p class=\'agregar_quitar rightalign\'><a href=\'#\' onclick=\'hide_father(this, preunivPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);\'>Quitar</a></p>\
+                        <p class=\'agregar_quitar rightalign\'><a href=\'javascript:void(0)\' onclick=\'hide_father(this, preunivPrefix);enable_disable(calculateButtonId,univPrefix,preunivPrefix);\'>Quitar</a></p>\
                         <div style=\'display:none\'>\
                             {{ preunivformset.empty_form.DELETE|escapejs }}\
                         </div>',

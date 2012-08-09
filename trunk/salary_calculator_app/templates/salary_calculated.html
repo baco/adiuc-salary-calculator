@@ -60,7 +60,15 @@
                         <td class="descuentos"> {% if afiliacion_importe > 0 %}-{% endif %}{{ afiliacion_importe|floatformat:-2 }} </td>
                     </tr>
                     {% endif %}
-
+                    {% if daspu %}
+                    <tr>
+                        <td> {{ daspu.retencion.codigo }} </td>
+                        <td> {{ daspu.retencion.nombre }}({{daspu.porcentaje_patronal}}% (patronal) + {{daspu.porcentaje_personal}}% (personal) ) </td>
+                        <td>  </td>
+                        <td class="descuentos"> {% if daspu_importe > 0 %}-{% endif %}{{ daspu_importe|floatformat:-2 }} </td>
+                    </tr>
+                    {% endif %}
+                    
                     {% for afamiliar in afamiliares_list %}
                         <tr>
                         <td>  </td>

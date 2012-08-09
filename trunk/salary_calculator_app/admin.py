@@ -45,3 +45,4 @@ admin.site.register(RemuneracionFija)
 
 admin.site.register(AsignacionFamiliar)
 admin.site.register(FondoSolidario)
+admin.site.register(RetencionDaspu)

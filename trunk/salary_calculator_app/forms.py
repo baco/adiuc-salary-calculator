@@ -79,10 +79,11 @@ class CommonForm(forms.Form):
         help_text=u'Ingrese su antigüedad docente'
     )
 
-    afiliado = forms.BooleanField(label=u'Afiliado a ADIUC', required=False)
     master = forms.BooleanField(label=u'Título de masters', required=False)
     doctorado = forms.BooleanField(label=u'Título de doctorado', required=False)
 
+    afiliado = forms.BooleanField(label=u'Afiliado a ADIUC', required=False)
+    daspu = forms.BooleanField(label=u'Afiliado a DASPU', required=False)
 
 class CargoUnivForm(forms.Form):
     """Formulario de calculo de salario docente para docentes universitarios."""

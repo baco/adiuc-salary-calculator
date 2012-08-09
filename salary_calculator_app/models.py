@@ -199,6 +199,29 @@ class RetencionPorcentual(models.Model):
         return unicode(self.retencion) + u" " + unicode(self.porcentaje) + u"%"
 
 
+class RetencionDaspu(models.Model):
+    """ Representa las retenciones para DASPU """
+    
+    #No usa retencion fija, porque necesita dos porcentajes.    
+    retencion = models.ForeignKey('RemuneracionRetencion',
+        help_text = u'La retención relacionada con esta retención porcentual.')
+
+    porcentaje_personal = models.FloatField(u'Porcentaje de descuento de contribución personal',
+        help_text=u'Porcentaje de retención de aporte personal.')
+        
+    porcentaje_patronal = models.FloatField(u'Porcentaje de descuento de aporte patronal.',
+        help_text=u'Porcentaje de retención de contribución patronal.')
+    
+    vigencia_desde = models.DateField(u'Vigente desde',
+        help_text=u'Fecha a partir de la cual esta retención comienza a tener vigencia.')
+
+    vigencia_hasta = models.DateField(u'Vigente hasta',
+        help_text=u'Fecha a partir de la cual esta retención deja de ser vigente.') 
+
+    def __unicode__(self):
+            return u"Retención DASPU: [" + unicode(self.porcentaje_patronal) + u"% - " + unicode(self.porcentaje_personal) + u"%] - [" + unicode(self.vigencia_desde) + u" / " + unicode(self.vigencia_hasta) + u"]"
+
+
 class RetencionFija(models.Model):
     """Una retencion que especifica un descuento fijo que debe realizarse."""
 

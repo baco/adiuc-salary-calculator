@@ -52,6 +52,8 @@ garantia_preuniv_name = u'Garantía Nivel Medio'
 #fondo_becas_code = '77/0'
 #fondo_becas_name = u'Fondo de Becas'
 
+daspu_code = '40/0'
+
 afiliacion_code = '64/0'
 afiliacion_name = u'ADIUC - Afiliacion'
 
@@ -152,7 +154,9 @@ def calculate(request):
 
             # Calculo de las remuneraciones y retenciones que son por persona.
             # Esto modifica el contexto.
-            context = calculateRemRetPorPersona(context, commonform.cleaned_data['afiliado'], afamiliaresformset, detailsform)
+            afiliacion_daspu = commonform.cleaned_data['daspu']
+            afiliacion_adiuc = commonform.cleaned_data['afiliado']
+            context = calculateRemRetPorPersona(context, afiliacion_adiuc, afiliacion_daspu, afamiliaresformset, detailsform)
 
             # Renderizo el template con el contexto.
             return render_to_response('salary_calculated.html', context)
@@ -307,7 +311,7 @@ def processDetailsForm(context,detailsform):
     return result
 
 
-def calculateRemRetPorPersona(context, es_afiliado, afamiliaresformset, detailsform):        
+def calculateRemRetPorPersona(context, es_afiliado, afiliacion_daspu,afamiliaresformset, detailsform):        
 
     fecha = context['fecha']
     total_rem = context['total_rem']
@@ -349,8 +353,6 @@ def calculateRemRetPorPersona(context, es_afiliado, afamiliaresformset, detailsf
 
     # Proceso el formulario de asignacion familiar.
     afamiliares_list, total_afamiliares = processAFamiliaresFormSet(context,afamiliaresformset)
-    print afamiliares_list
-    print total_afamiliares
     acum_rem += total_afamiliares
     
     for ret in ret_pp:
@@ -388,6 +390,24 @@ def calculateRemRetPorPersona(context, es_afiliado, afamiliaresformset, detailsf
             context['afiliacion'] = afiliacion_obj                
             
         acum_ret += af_importe
+    
+    #calculo afiliacion daspu
+    daspu_importe = 0.0
+    if afiliacion_daspu:
+        daspu_objs = RetencionDaspu.objects.filter(
+            retencion__codigo=daspu_code,
+            vigencia_desde__lte=fecha,
+            vigencia_hasta__gte=fecha
+        )
+    if not daspu_objs.exists():
+            context["error_msg"] = "No existe informacion sobre afiliaciones para DASPU.\n"
+    else:
+        daspu_obj = daspu_objs.order_by('vigencia_hasta')[daspu_objs.count()-1]
+        daspu_importe += total_bruto * daspu_obj.porcentaje_personal / 100.0
+        daspu_importe += total_bruto * daspu_obj.porcentaje_patronal / 100.0
+        context['daspu'] = daspu_obj
+        
+    acum_ret += daspu_importe
 
     #Calculo los detalles (opciones extras)
     details_context = processDetailsForm(context,detailsform)
@@ -410,6 +430,7 @@ def calculateRemRetPorPersona(context, es_afiliado, afamiliaresformset, detailsf
     total_neto = total_neto - acum_ret + acum_rem
 
     context['afiliacion_importe'] = af_importe
+    context['daspu_importe'] = daspu_importe
     context['ret_fijas_persona'] = ret_fijas_persona
     context['ret_porc_persona'] = ret_porc_persona
     context['rem_fijas_persona'] = rem_fijas_persona

@@ -70,10 +70,6 @@
                     </tr>
                     {% endif %}
                     <tr>
-                        <td> {{ commonform.afiliado.label_tag }} </td>
-                        <td> {{ commonform.afiliado }} </td>
-                    </tr>
-                    <tr>
                         <td> {{ commonform.master.label_tag }} </td>
                         <td> {{ commonform.master }} </td>
                     </tr>
@@ -81,6 +77,14 @@
                         <td> {{ commonform.doctorado.label_tag }} </td>
                         <td> {{ commonform.doctorado }} </td>
                     </tr>
+                    <tr>
+                        <td> {{ commonform.afiliado.label_tag }} </td>
+                        <td> {{ commonform.afiliado }} </td>
+                    </tr>
+                    <tr>
+                        <td> {{ commonform.daspu.label_tag }} </td>
+                        <td> {{ commonform.daspu }} </td>
+                    </tr>                                        
                 </table>
             </div>
 
@@ -101,7 +105,7 @@
                     </tr>
                 </table>
             </div>
-            <a href="javascript:void(0)" class="agregar_quitar" onclick="
+            <a id="daspu_opciones" href="javascript:void(0)" class="agregar_quitar" onclick="
                 toggle_and_change(detailsform,this,'[+] Opciones','[-] Opciones','options_concept');
                 $(detailsform).html(
                     '<table> \

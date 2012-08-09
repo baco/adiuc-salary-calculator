@@ -65,7 +65,7 @@ fondos =[
 ('Fondo solidario para tres personas (menor a 55 años)','34',date(2012, 1, 1),date(2012, 12, 31)),
 ('Fondo solidario para cuatro personas (menor a 55 años)','40',date(2012, 1, 1),date(2012, 12, 31)),
 ('Fondo solidario para cinco personas o más (menor a 55 años)','47',date(2012, 1, 1),date(2012, 12, 31)),
-('Fondo solidario para una persona (mayor a 55 años)','47',date(2012, 1, 1),date(2012, 12, 31))
+('Fondo solidario para una persona (mayor a 55 años)','55',date(2012, 1, 1),date(2012, 12, 31))
 ]
 
 for a in fondos:

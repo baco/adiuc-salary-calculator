@@ -182,7 +182,7 @@ def calculate(request):
         context['commonform'] = commonform
         context['afamiliaresformset'] = afamiliaresformset
         context['detailsform'] = detailsform
-
+        
     return render_to_response('calculate.html', context)
 
 
@@ -393,21 +393,49 @@ def calculateRemRetPorPersona(context, es_afiliado, afiliacion_daspu,afamiliares
     
     #calculo afiliacion daspu
     daspu_importe = 0.0
+    daspu_extra = 0.0
     if afiliacion_daspu:
-        daspu_objs = RetencionDaspu.objects.filter(
-            retencion__codigo=daspu_code,
+        rets_porc_daspu = RetencionPorcentual.objects.filter(
+            retencion__codigo =daspu_code,
             vigencia_desde__lte=fecha,
             vigencia_hasta__gte=fecha
-        )
-    if not daspu_objs.exists():
-            context["error_msg"] = "No existe informacion sobre afiliaciones para DASPU.\n"
-    else:
-        daspu_obj = daspu_objs.order_by('vigencia_hasta')[daspu_objs.count()-1]
-        daspu_importe += total_bruto * daspu_obj.porcentaje_personal / 100.0
-        daspu_importe += total_bruto * daspu_obj.porcentaje_patronal / 100.0
-        context['daspu'] = daspu_obj
+            )
+        if rets_porc_daspu.exists():
+            r = rets_porc_daspu.order_by('vigencia_hasta')[rets_porc_daspu.count()-1]
         
-    acum_ret += daspu_importe
+            daspu_objs = RetencionDaspu.objects.filter(
+                retencion=r,
+                )
+            if not daspu_objs.exists():
+                context["error_msg"] = "No existe informacion sobre afiliaciones para DASPU.\n"
+            else:
+                daspu_obj = daspu_objs[daspu_objs.count()-1]
+                p = daspu_obj.retencion.porcentaje
+                p_min = daspu_obj.porcentaje_minimo
+
+                #corroborar si no cubre el minimo de del cargo ayudante dse sin antiguedad.
+                basicos = SalarioBasico.objects.filter(
+                    cargo=daspu_obj.cargo_referencia,
+                    vigencia_desde__lte=fecha,
+                    vigencia_hasta__gte=fecha
+                    )
+                if not basicos.exists():
+                    context['error_msg']='No se encuentra información salarial.'
+                else:
+                    basico = basicos.order_by('vigencia_hasta')[basicos.count()-1]
+                    basico = basico.valor
+                    daspu_importe += total_bruto * p / 100.0
+                    tope_min = basico * p_min / 100.0
+                
+                    context['daspu_importe'] = daspu_importe                
+                
+                    if daspu_importe < tope_min:
+                        daspu_extra = tope_min - daspu_importe
+                        context['daspu_extra'] = daspu_extra
+                        context['daspu_importe'] = tope_min
+                    context['daspu'] = daspu_obj
+            
+    acum_ret += daspu_importe + daspu_extra
 
     #Calculo los detalles (opciones extras)
     details_context = processDetailsForm(context,detailsform)
@@ -420,7 +448,6 @@ def calculateRemRetPorPersona(context, es_afiliado, afiliacion_daspu,afamiliares
         for d in details_context.keys():
             concept,obj,val = details_context[d]
             if concept == 'retencion_fija_persona':
-                print obj
                 ret_fijas_persona.append( (obj , val) )
                 acum_ret += val
 
@@ -430,7 +457,6 @@ def calculateRemRetPorPersona(context, es_afiliado, afiliacion_daspu,afamiliares
     total_neto = total_neto - acum_ret + acum_rem
 
     context['afiliacion_importe'] = af_importe
-    context['daspu_importe'] = daspu_importe
     context['ret_fijas_persona'] = ret_fijas_persona
     context['ret_porc_persona'] = ret_porc_persona
     context['rem_fijas_persona'] = rem_fijas_persona

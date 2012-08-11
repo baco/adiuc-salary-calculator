@@ -62,8 +62,11 @@
                     {% endif %}
                     {% if daspu %}
                     <tr>
-                        <td> {{ daspu.retencion.codigo }} </td>
-                        <td> {{ daspu.retencion.nombre }}({{daspu.porcentaje_patronal}}% (patronal) + {{daspu.porcentaje_personal}}% (personal) ) </td>
+                        <td> {{ daspu.retencion.retencion.codigo }} </td>
+                        <td> {{ daspu.retencion.retencion.nombre }}
+                            ({{daspu.retencion.porcentaje}}% 
+                            {% if daspu_extra %} + {{ daspu_extra|floatformat:-2 }} extra por m&iacute;nimo {% endif %})
+                        </td>
                         <td>  </td>
                         <td class="descuentos"> {% if daspu_importe > 0 %}-{% endif %}{{ daspu_importe|floatformat:-2 }} </td>
                     </tr>

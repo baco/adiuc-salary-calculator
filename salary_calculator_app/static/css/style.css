@@ -181,3 +181,15 @@ tr.error{
     padding: 0px;
     margin: 0px;
 }
+
+td.estimativo{
+    color: red;
+}
+
+div.referencias {
+    margin-top: 15px;
+    font-family: arial;
+    font-size: 10pt;
+    width: 550px;
+    text-align: left;
+}

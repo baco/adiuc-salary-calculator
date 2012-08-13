@@ -41,8 +41,8 @@ setup_environ(settings)
 
 from salary_calculator_app.models import *
 
-#### Objeto RemuneracionRetencion Asignación Familiar.
-rem_obj = RemuneracionRetencion.objects.get(codigo="---")
+#### Objeto Remuneracion Asignación Familiar.
+rem_obj = Remuneracion.objects.get(codigo="---")
 
 def addAFamiliar(concepto, valor_min, valor_max, valor, vigencia_desde, vigencia_hasta):
 

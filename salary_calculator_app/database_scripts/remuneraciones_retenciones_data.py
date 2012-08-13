@@ -42,14 +42,44 @@ setup_environ(settings)
 from salary_calculator_app.models import *
 
 
-def add_remuneracion_retencion(codigo, nombre, aplicacion, modo):
+def add_retencion(codigo, nombre, aplicacion, modo):
 
     r = None
-    if not RemuneracionRetencion.objects.filter(codigo=codigo, nombre=nombre, aplicacion=aplicacion, modo=modo).exists():
-        r = RemuneracionRetencion(codigo=codigo, nombre=nombre, aplicacion=aplicacion, modo=modo)
+    if not Retencion.objects.filter(codigo=codigo, nombre=nombre, aplicacion=aplicacion, modo=modo).exists():
+        r = Retencion(codigo=codigo, nombre=nombre, aplicacion=aplicacion, modo=modo)
         r.save()
     else:
-        r = RemuneracionRetencion.objects.get(codigo=codigo, nombre=nombre, aplicacion=aplicacion, modo=modo)
+        r = Retencion.objects.get(codigo=codigo, nombre=nombre, aplicacion=aplicacion, modo=modo)
+    return r
+
+
+def add_remuneracion(codigo, nombre, aplicacion, modo, remunerativo, bonificable):
+
+    r = None
+    if not Remuneracion.objects.filter(
+        codigo=codigo,
+        nombre=nombre,
+        aplicacion=aplicacion,
+        modo=modo,
+        remunerativo=remunerativo,
+        bonificable=bonificable).exists():
+            r = Remuneracion(
+                codigo=codigo,
+                nombre=nombre,
+                aplicacion=aplicacion,
+                modo=modo,
+                remunerativo=remunerativo,
+                bonificable=bonificable)
+            r.save()
+    else:
+        r = Remuneracion.objects.get(
+                codigo=codigo,
+                nombre=nombre,
+                aplicacion=aplicacion,
+                modo=modo,
+                remunerativo=remunerativo,
+                bonificable=bonificable
+        )
     return r
 
 
@@ -68,6 +98,7 @@ def add_retencion_porcentual(retencion, porcentaje, vigencia_desde, vigencia_has
             vigencia_hasta=vigencia_hasta
         )
         r.save()
+
 
 def add_remuneracion_porcentual(remuneracion, porcentaje, vigencia_desde, vigencia_hasta):
 
@@ -102,6 +133,7 @@ def add_retencion_fija(retencion, valor, vigencia_desde, vigencia_hasta):
         )
         r.save()
 
+
 def add_remuneracion_fija(remuneracion, valor, vigencia_desde, vigencia_hasta):
 
     if not RemuneracionFija.objects.filter(
@@ -123,23 +155,16 @@ def add_remuneracion_fija(remuneracion, valor, vigencia_desde, vigencia_hasta):
 vigencia_desde = date(2012, 1, 1)
 vigencia_hasta = date(2012, 12, 31)
 
-
-##### Retenciones Porcentuales
-r = add_remuneracion_retencion(
+# Retencion DASPU
+r = add_retencion(
     codigo=u"40/0",
     nombre= u"DASPU",
     aplicacion=u"T",
     modo=u"C"
 )
-add_retencion_porcentual(
-    retencion=r,
-    porcentaje= 3.0,
-    vigencia_desde=vigencia_desde,
-    vigencia_hasta=vigencia_hasta
-)
 
-####
-r = add_remuneracion_retencion(
+##### Retenciones Porcentuales
+r = add_retencion(
     codigo=u"20/3",
     nombre= u"Aporte Fondo Adic. Universitario",
     aplicacion=u"U",
@@ -152,7 +177,7 @@ add_retencion_porcentual(
     vigencia_hasta = vigencia_hasta
 )
 ####
-r = add_remuneracion_retencion(
+r = add_retencion(
     codigo=u"20/9",
     nombre= u"Jubilación Régimen Especial",
     aplicacion=u"T",
@@ -165,7 +190,7 @@ add_retencion_porcentual(
     vigencia_hasta = vigencia_hasta
 )
 ####
-r = add_remuneracion_retencion(
+r = add_retencion(
     codigo="21/0",
     nombre= u"Caja Complementaria de Jub.",
     aplicacion=u"T",
@@ -178,7 +203,7 @@ add_retencion_porcentual(
     vigencia_hasta = vigencia_hasta
 )
 ####
-r = add_remuneracion_retencion(
+r = add_retencion(
     codigo=u"22/0",
     nombre= u"Ley 19032 Obra Soc. Jubilados",
     aplicacion=u"T",
@@ -191,7 +216,7 @@ add_retencion_porcentual(
     vigencia_hasta = vigencia_hasta
 )
 ####
-r = add_remuneracion_retencion(
+r = add_retencion(
     codigo=u"64/0",
     nombre= u"ADIUC - Afiliación",
     aplicacion=u"T",
@@ -206,7 +231,7 @@ add_retencion_porcentual(
 
 ##### Retenciones Fijas
 
-r = add_remuneracion_retencion(
+r = add_retencion(
     codigo=u"DAS/1",
     nombre= u"Sistema Integral de Sepelio (SIS)",
     aplicacion=u"T",
@@ -220,7 +245,7 @@ add_retencion_fija(
 )
 
 ###
-r = add_remuneracion_retencion(
+r = add_retencion(
     codigo=u"DAS/4",
     nombre= u"Fondo Solidario",
     aplicacion=u"T",
@@ -233,7 +258,7 @@ add_retencion_fija(
     vigencia_hasta = vigencia_hasta
 )
 ###
-r = add_remuneracion_retencion(
+r = add_retencion(
     codigo=u"DAS/2",
     nombre= u"Subsidio por fallecimiento",
     aplicacion=u"T",
@@ -247,7 +272,7 @@ add_retencion_fija(
 )
 
 ###
-r = add_remuneracion_retencion(
+r = add_retencion(
     codigo=u"77/0",
     nombre= u"Fondo de Becas",
     aplicacion=u"T",
@@ -261,19 +286,23 @@ add_retencion_fija(
 )
 
 ###### Remuneraciones Porcentuales
-r = add_remuneracion_retencion(
+r = add_remuneracion(
     codigo=u"30/0",
     nombre= u"Adicional por Antigüedad",
     aplicacion=u"T",
-    modo=u"C"
+    modo=u"C",
+    remunerativo=True,
+    bonificable=False
 )
 ## Ver: antiguedad_data.py
 ####
-r = add_remuneracion_retencion(
+r = add_remuneracion(
     codigo=u"51/0",
     nombre= u"Adicional Título Doctorado",
     aplicacion=u"U",
-    modo=u"C"
+    modo=u"C",
+    remunerativo=True,
+    bonificable=False
 )
 add_remuneracion_porcentual(
     remuneracion = r,
@@ -282,11 +311,13 @@ add_remuneracion_porcentual(
     vigencia_hasta = vigencia_hasta
 )
 ####
-r = add_remuneracion_retencion(
+r = add_remuneracion(
     codigo=u"53/0",
     nombre= u"Adic. Tít. Doctorado Nivel Medio",
     aplicacion=u"P",
-    modo=u"C"
+    modo=u"C",
+    remunerativo=True,
+    bonificable=False
 )
 add_remuneracion_porcentual(
     remuneracion = r,
@@ -295,11 +326,13 @@ add_remuneracion_porcentual(
     vigencia_hasta = vigencia_hasta
 )
 ####
-r = add_remuneracion_retencion(
+r = add_remuneracion(
     codigo=u"52/0",
     nombre= u"Adicional Título Maestría",
     aplicacion=u"U",
-    modo=u"C"
+    modo=u"C",
+    remunerativo=True,
+    bonificable=False
 )
 add_remuneracion_porcentual(
     remuneracion = r,
@@ -308,11 +341,13 @@ add_remuneracion_porcentual(
     vigencia_hasta = vigencia_hasta
 )
 ####
-r = add_remuneracion_retencion(
+r = add_remuneracion(
     codigo=u"55/0",
     nombre= u"Adic. Tít. Maestría Nivel Medio",
     aplicacion=u"P",
-    modo=u"C"
+    modo=u"C",
+    remunerativo=True,
+    bonificable=False
 )
 add_remuneracion_porcentual(
     remuneracion = r,
@@ -323,17 +358,37 @@ add_remuneracion_porcentual(
 ####
 
 ###### Remuneraciones Fijas
-r = add_remuneracion_retencion(
+r = add_remuneracion(
     codigo=u"10/0",
     nombre= u"Sueldo Básico",
     aplicacion=u"T",
-    modo=u"C"
+    modo=u"C",
+    remunerativo=True,
+    bonificable=True
 )
 
-r = add_remuneracion_retencion(
+r = add_remuneracion(
     codigo=u"---",
     nombre= u"Asignación Familiar",
     aplicacion=u"T",
-    modo=u"P"
+    modo=u"P",
+    remunerativo=True,
+    bonificable=False
 )
-## Ver: univ_data.py y preuniv_data.py
+
+r = add_remuneracion(
+    codigo = "12/2",
+    nombre = "FONID",
+    aplicacion = 'P',
+    modo = 'C',
+    remunerativo = False,
+    bonificable = False
+)
+
+###### Impuesto a las ganancias
+add_retencion(
+    codigo = '42/0',
+    nombre = 'Impuesto Ganancias',
+    aplicacion = 'T',
+    modo = 'P'
+)

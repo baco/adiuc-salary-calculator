@@ -41,8 +41,8 @@ setup_environ(settings)
 
 from salary_calculator_app.models import *
 
-#### Objeto Adicional Antiguedad RemuneracionRetencion
-rem_obj = RemuneracionRetencion.objects.get(codigo="30/0")
+#### Objeto Adicional Antiguedad Remuneracion
+rem_obj = Remuneracion.objects.get(codigo="30/0")
 
 #################################
 # Tabla de antiguedades para cargos Universitarios #

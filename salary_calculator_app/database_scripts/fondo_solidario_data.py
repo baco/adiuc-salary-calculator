@@ -41,8 +41,8 @@ setup_environ(settings)
 
 from salary_calculator_app.models import *
 
-#### Objeto RemuneracionRetencion Fondo SOlidario
-ret_obj = RemuneracionRetencion.objects.get(codigo="DAS/4")
+#### Objeto Retencion Fondo Solidario
+ret_obj = Retencion.objects.get(codigo="DAS/4")
 
 def addFondoSolidario(concepto,valor,vigencia_desde,vigencia_hasta):
 

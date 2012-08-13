@@ -97,7 +97,7 @@ def add_cargo_preuniv(nombre, lu, pampa, horas, tipo_horas, pago_por_hora):
 
 
 ### Salario object
-salario_obj = RemuneracionRetencion.objects.get(codigo="10/0")
+salario_obj = Remuneracion.objects.get(codigo="10/0")
 
 def add_salario_basico(cargo, valor, vigencia_desde, vigencia_hasta):
     """Crea un salario basico nuevo si no existia ya en la BD con los 
@@ -108,6 +108,25 @@ def add_salario_basico(cargo, valor, vigencia_desde, vigencia_hasta):
     else:
         g = SalarioBasico(remuneracion=salario_obj, cargo=cargo, valor=valor, vigencia_desde=vigencia_desde, vigencia_hasta=vigencia_hasta)
         g.save()
+
+
+rem = Remuneracion.objects.get(codigo="12/2")
+
+def add_fonid(cargo, valor, vigencia_desde, vigencia_hasta):
+
+    if not RemuneracionFijaCargo.objects.filter(
+        cargo=cargo,
+        valor=valor,
+        remuneracion=rem,
+        vigencia_desde=vigencia_desde,
+        vigencia_hasta=vigencia_hasta).exists():
+
+            r = RemuneracionFijaCargo(
+                cargo=cargo,
+                valor=valor,
+                remuneracion=rem,
+                vigencia_desde=vigencia_desde,
+                vigencia_hasta=vigencia_hasta).save()
 
 
 def add_garantia(cargo, valor, vigencia_desde, vigencia_hasta):
@@ -242,6 +261,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 430,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 #add_garantia(
 #    cargo = c,
 #    valor_minimo = 5600,
@@ -286,6 +311,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 430,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 5600,
@@ -325,6 +356,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 189.26,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2464.76,
@@ -362,6 +399,12 @@ add_salario_basico(
     cargo = c,
     valor = 7372.09,
     vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
+add_fonid(
+    cargo = c,
+    valor = 430,
+    vigencia_desde = sep_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
@@ -404,6 +447,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 430,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 5600,
@@ -444,6 +493,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 215,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2800,
@@ -481,6 +536,12 @@ add_salario_basico(
     cargo = c,
     valor = 3686.05,
     vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
+add_fonid(
+    cargo = c,
+    valor = 257.88,
+    vigencia_desde = sep_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
@@ -556,6 +617,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 129,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 1680,
@@ -626,6 +693,12 @@ add_salario_basico(
     cargo = c,
     valor = 6527.35,
     vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
+add_fonid(
+    cargo = c,
+    valor = 430,
+    vigencia_desde = sep_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
@@ -734,6 +807,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 215,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2800,
@@ -771,6 +850,12 @@ add_salario_basico(
     cargo = c,
     valor = 3981.81,
     vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
+add_fonid(
+    cargo = c,
+    valor = 215,
+    vigencia_desde = sep_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
@@ -884,6 +969,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 215,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2800,
@@ -954,6 +1045,12 @@ add_salario_basico(
     cargo = c,
     valor = 2941.48,
     vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
+add_fonid(
+    cargo = c,
+    valor = 178.49,
+    vigencia_desde = sep_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
@@ -1094,6 +1191,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 215,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2800,
@@ -1199,6 +1302,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 184.53,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2403.16,
@@ -1236,6 +1345,12 @@ add_salario_basico(
     cargo = c,
     valor = 3084.93,
     vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
+add_fonid(
+    cargo = c,
+    valor = 215,
+    vigencia_desde = sep_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
@@ -1277,6 +1392,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 17.92,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 233.42,
@@ -1314,6 +1435,12 @@ add_salario_basico(
     cargo = c,
     valor = 204.78,
     vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
+add_fonid(
+    cargo = c,
+    valor = 14.33,
+    vigencia_desde = sep_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
@@ -1421,6 +1548,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 171.92,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2238.98,
@@ -1460,6 +1593,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 215,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2800,
@@ -1497,6 +1636,12 @@ add_salario_basico(
     cargo = c,
     valor = 5458.95,
     vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
+add_fonid(
+    cargo = c,
+    valor = 430,
+    vigencia_desde = sep_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
@@ -1571,6 +1716,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 161.25,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2100,
@@ -1608,6 +1759,12 @@ add_salario_basico(
     cargo = c,
     valor = 6143.41,
     vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
+add_fonid(
+    cargo = c,
+    valor = 429.84,
+    vigencia_desde = sep_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
@@ -1649,6 +1806,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 343.84,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 4477.96,
@@ -1686,6 +1849,12 @@ add_salario_basico(
     cargo = c,
     valor = 3686.05,
     vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
+add_fonid(
+    cargo = c,
+    valor = 257.88,
+    vigencia_desde = sep_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
@@ -1727,6 +1896,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 208.71,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2718.04,
@@ -1766,6 +1941,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 430,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 5600,
@@ -1803,6 +1984,12 @@ add_salario_basico(
     cargo = c,
     valor = 10367.28,
     vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
+add_fonid(
+    cargo = c,
+    valor = 430,
+    vigencia_desde = sep_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
@@ -1877,6 +2064,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 430,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 5600,
@@ -1916,6 +2109,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 215,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2800,
@@ -1953,6 +2152,12 @@ add_salario_basico(
     cargo = c,
     valor = 7878.92,
     vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
+add_fonid(
+    cargo = c,
+    valor = 430,
+    vigencia_desde = sep_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
@@ -2126,6 +2331,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 430,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 5600,
@@ -2163,6 +2374,12 @@ add_salario_basico(
     cargo = c,
     valor = 3622.73,
     vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
+add_fonid(
+    cargo = c,
+    valor = 215,
+    vigencia_desde = sep_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
@@ -2237,6 +2454,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 161.25,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 2100,
@@ -2309,6 +2532,12 @@ add_salario_basico(
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
+add_fonid(
+    cargo = c,
+    valor = 430,
+    vigencia_desde = sep_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
 add_garantia(
     cargo = c,
     valor = 5600,
@@ -2346,6 +2575,12 @@ add_salario_basico(
     cargo = c,
     valor = 3112.66,
     vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
+add_fonid(
+    cargo = c,
+    valor = 213.63,
+    vigencia_desde = sep_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
@@ -2416,8 +2651,14 @@ add_salario_basico(
 )
 add_salario_basico(
     cargo = c,
-    valor = 5993.93,
+    valor = 204.78,
     vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
+add_fonid(
+    cargo = c,
+    valor = 14.33,
+    vigencia_desde = sep_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(
@@ -2457,6 +2698,12 @@ add_salario_basico(
     cargo = c,
     valor = 2294.33,
     vigencia_desde = sep12_vigencia_desde,
+    vigencia_hasta = sep12_vigencia_hasta
+)
+add_fonid(
+    cargo = c,
+    valor = 107.5,
+    vigencia_desde = sep_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
 add_garantia(

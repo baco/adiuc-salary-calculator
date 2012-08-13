@@ -42,6 +42,7 @@ class GarantiaSalarialPreUniversitaria(models.Model):
     vigencia_hasta = models.DateField(u'Vigente hasta',
         help_text=u'Fecha a partir de la cual esta garantía deja de ser vigente.')
 
+
 class GarantiaSalarialUniversitaria(models.Model):
     """Representa el valor minimo que un Cargo puede cobrar."""
 
@@ -78,7 +79,7 @@ class GarantiaSalarialUniversitaria(models.Model):
 
 
 class Cargo(models.Model):
-    """Modelo abstracto que representa un Cargo, ya sea pre o universitario."""
+    """Modelo que representa un Cargo, ya sea pre o universitario."""
 
     lu = models.CharField(u'Código LU', max_length=2, validators=[validate_isdigit],
         help_text=u'El código L.U. del cargo que figura en la planilla de la UNC.')
@@ -150,8 +151,8 @@ class CargoPreUniversitario(Cargo):
         return super(CargoPreUniversitario, self).__unicode__() + " - " + unicode(self.horas) + "hs"
 
 
-class RemuneracionRetencion(models.Model):
-    """Modelo abstracto que junta los atributos en comun que tiene una retencion y una remuneracion."""
+class Retencion(models.Model):
+    """Representa a una retencion."""
 
     MODO_OPCS = (
         ('P', u'Se aplica a la persona (solo una vez).'),
@@ -166,11 +167,11 @@ class RemuneracionRetencion(models.Model):
     )
 
     codigo = models.CharField(u'Código', max_length=5,
-        help_text=u'El código de remuneración/retención tal cual figura en la lista de la web de ADIUC.')
+        help_text=u'El código de la retencion tal cual figura en la lista de la web de ADIUC.')
     nombre  = models.CharField(u'Nombre', max_length=50,
-        help_text=u'El nombre de la remuneración/retención tal cual figura en la lista de la web de ADIUC.')
+        help_text=u'El nombre de la retencion tal cual figura en la lista de la web de ADIUC.')
     aplicacion = models.CharField(u'Aplica a', max_length=1, choices=APP_OPCS,
-        help_text=u'A qué tipo de cargo aplica esta remuneración/retención.')
+        help_text=u'A qué tipo de cargo aplica esta retencion.')
     modo = models.CharField(u'Modo', max_length=1,choices=MODO_OPCS)
 
     class Meta:
@@ -180,10 +181,58 @@ class RemuneracionRetencion(models.Model):
         return self.codigo + u" " + self.nombre
 
 
+# Algunos conceptos importantes:
+# Remuneracion REMUNERATIVA: se denomina así a todo aquel ítem del 
+# salario que tiene DESCUENTOS DE LEY (Jubilación, Obra social, ART).
+# Remuneracion BONIFICABLE: se denominan así a todos los ítems del salario al que se le aplican los
+# porcentuales de ANTIGÜEDAD de la escala de Art. Nº de la Ley Nº 1820.
+class Remuneracion(models.Model):
+    """Representa un adicional, es decir, una remuneracion."""
+
+    MODO_OPCS = (
+        ('P', u'Se aplica a la persona (solo una vez).'),
+        ('C', u'Se aplica por cargo (una vez por cada cargo).'),
+    )
+
+    # Tuplas de opciones.
+    APP_OPCS = (
+        ('U', u'Cargos Universitarios'),
+        ('P', u'Cargos Preuniversitarios'),
+        ('T', u'Todos los cargos')
+    )
+
+    codigo = models.CharField(u'Código', max_length=5,
+        help_text=u'El código de la remuneracion tal cual figura en la lista de la web de ADIUC.')
+    nombre  = models.CharField(u'Nombre', max_length=50,
+        help_text=u'El nombre de la remuneracion tal cual figura en la lista de la web de ADIUC.')
+    aplicacion = models.CharField(u'Aplica a', max_length=1, choices=APP_OPCS,
+        help_text=u'A qué tipo de cargo aplica esta remuneracion.')
+    modo = models.CharField(u'Modo', max_length=1,choices=MODO_OPCS)
+    remunerativo = models.BooleanField(u'Remunerativa',
+        help_text=u'Una remuneración es remunerativa cuando se le aplican descuentos de Ley (jubilación, obra social, art, etc.)')
+    bonificable = models.BooleanField(u'Bonificable',
+        help_text=u'Una remuneración es bonificable cuando se le aplican los porcentuales de Antiguedad.')
+
+    class Meta:
+        ordering = ['codigo', 'nombre', 'aplicacion']
+
+    def __unicode__(self):
+        result = self.codigo + u" " + self.nombre
+        if self.remunerativo:
+            result  += u' R'
+        else:
+            result +=  u' NR'
+        if self.bonificable:
+            result += u'B'
+        else:
+            result += u'NB'
+        return result
+
+
 class RetencionPorcentual(models.Model):
     """Una retencion que especifica el porcentaje del descuento que debe realizarse."""
 
-    retencion = models.ForeignKey('RemuneracionRetencion',
+    retencion = models.ForeignKey('Retencion',
         help_text = u'La retención relacionada con esta retención porcentual.')
     porcentaje = models.FloatField(u'Porcentaje de Descuento', validators=[validate_isgezero],
         help_text=u'El porcentaje del descuento. Ingresar un valor positivo.')
@@ -203,23 +252,29 @@ class RetencionDaspu(models.Model):
     """ Representa las retenciones para DASPU """
     
     #No usa retencion fija, porque necesita dos porcentajes.    
-    retencion = models.ForeignKey('RetencionPorcentual',
+    retencion = models.ForeignKey('Retencion',
         help_text = u'La retención relacionada con esta retención porcentual.')
 
-    porcentaje_minimo = models.FloatField(u'Porcentaje tope mínimo',
-        help_text='Porcentaje que al aplicarse al salario bruto indicara el tope mínimo para esta retención.')
+    porcentaje_personal = models.FloatField(u'Porcentaje de descuento de contribución personal',
+        help_text=u'Porcentaje de retención de aporte personal.')
         
-    cargo_referencia = models.OneToOneField(u'CargoUniversitario',
-        help_text='Se tomará como monto mínimo el porcentaje anterior sobre el salario bruto sin antiguedad de este caro.')
+    porcentaje_patronal = models.FloatField(u'Porcentaje de descuento de aporte patronal.',
+        help_text=u'Porcentaje de retención de contribución patronal.')
+    
+    vigencia_desde = models.DateField(u'Vigente desde',
+        help_text=u'Fecha a partir de la cual esta retención comienza a tener vigencia.')
+
+    vigencia_hasta = models.DateField(u'Vigente hasta',
+        help_text=u'Fecha a partir de la cual esta retención deja de ser vigente.') 
 
     def __unicode__(self):
-        return u"Retención DASPU: [" + unicode(self.retencion) + u" - " + unicode(self.porcentaje_minimo) + "%"
+            return u"Retención DASPU: [" + unicode(self.porcentaje_patronal) + u"% - " + unicode(self.porcentaje_personal) + u"%] - [" + unicode(self.vigencia_desde) + u" / " + unicode(self.vigencia_hasta) + u"]"
 
 
 class RetencionFija(models.Model):
     """Una retencion que especifica un descuento fijo que debe realizarse."""
 
-    retencion = models.ForeignKey('RemuneracionRetencion',
+    retencion = models.ForeignKey('Retencion',
         help_text = u'La retención relacionada con esta retención porcentual.')
     valor = models.FloatField(u'Valor de Descuento', validators=[validate_isgezero],
         help_text=u'El valor fijo que debe descontarse.')
@@ -234,13 +289,15 @@ class RetencionFija(models.Model):
     def __unicode__(self):
         return unicode(self.retencion) + u" $" + unicode(self.valor)
 
+
 class FondoSolidario(RetencionFija):
     concepto = models.CharField(u'Concepto', max_length='50')
-    
+
+
 class RemuneracionPorcentual(models.Model):
     """Una remuneracion que especifica el porcentaje de aumento que debe realizarse."""
 
-    remuneracion = models.ForeignKey('RemuneracionRetencion',
+    remuneracion = models.ForeignKey('Remuneracion',
         help_text = u'La retención relacionada con esta remuneración porcentual.')
     porcentaje = models.FloatField(u'Porcentaje de Aumento', validators=[validate_isgezero],
         help_text=u'El porcentaje del aumento. Ingresar un valor positivo.')
@@ -259,7 +316,7 @@ class RemuneracionPorcentual(models.Model):
 class RemuneracionFija(models.Model):
     """Una remuneracion que especifica un aumento fijo sobre el salario basico."""
 
-    remuneracion = models.ForeignKey('RemuneracionRetencion',
+    remuneracion = models.ForeignKey('Remuneracion',
         help_text = u'La retención relacionada con esta remuneración fija.')
     valor = models.FloatField(u'Valor del Aumento', validators=[validate_isgezero],
         help_text=u'El valor fijo que se sumará al salario básico.')
@@ -297,6 +354,14 @@ class RemuneracionFija(models.Model):
 #    def __unicode__(self):
 #       return unicode(self.valor_min) + u" - " + unicode(self.valor_max)
 
+class RemuneracionFijaCargo(RemuneracionFija):
+    """Es una remuneracion fija que se relaciona con un cargo en particular"""
+    
+    cargo = models.ForeignKey('Cargo')
+
+    def __unicode__(self):
+        return super(RemuneracionFijaCargo, self).__unicode__() + " -> " + unicode(self.cargo)
+
 
 class AsignacionFamiliar(models.Model):
     """Representa uan asignación familiar."""
@@ -304,7 +369,7 @@ class AsignacionFamiliar(models.Model):
 #    concepto = models.ForeignKey('ConceptoAsigFamiliar',help_text=u'Concepto de la asignación.')
 #    categoria = models.OneToOneField('CategoriaAsigFamiliar',help_text=u'Categoría de la asignación.')
 
-    remuneracion = models.ForeignKey('RemuneracionRetencion',
+    remuneracion = models.ForeignKey('Remuneracion',
         help_text = u'La remuneración asociada a esta asignación.')
 
     concepto = models.CharField(u'Concepto de asignación', max_length='50', help_text=u'Concepto de la asignación.')
@@ -375,4 +440,60 @@ class AntiguedadPreUniversitaria(RemuneracionPorcentual):
 
     def __unicode__(self):
         return unicode(self.anio) + u" años - " + unicode(self.porcentaje) + u"% - [" + unicode(self.vigencia_desde) + u" / " + unicode(self.vigencia_hasta) + u"]"
+
+
+class ImpuestoGananciasDeducciones(models.Model):
+    """Este modelo guarda los montos de las deducciones personales para el estimativo del ingreso anual."""
+
+    ganancia_no_imponible = models.FloatField(u'Ganancia no imponible', help_text=u'El monto de la ganancia no imponible.')
+    por_conyuge = models.FloatField(u'Por cónyuge', help_text=u'El monto que se descuenta por cónyuge.')
+    por_hijo_menor_24_anios = models.FloatField(u'Por cada hijo menor a 24 años',
+        help_text=u'El monto que se descuenta por cada hijo/a y/o hijastro/a menor de 24 años o incapacitado para el trabajo.')
+    por_descendiente = models.FloatField(u'Por cada descendiente', 
+        help_text=u'El monto que se descuenta por cada descendiente en línea recta (nieto/a, bisnieto/a) menor de 24 años o incapacitado para el trabajo.')
+    por_ascendiente = models.FloatField(u'Por cada ascendiente',
+        help_text=u'El monto que se descuenta por cada ascendiente (padre/madre, abuelo/a, bisabuelo/a, padrastro/madrastra)')
+    por_suegro_yerno_nuera = models.FloatField(u'Por suegro, yerno o nuera',
+        help_text=u'Por suegro/a y por cada yerno o nuera menor de 24 años o incapacitado para el trabajo.')
+    deduccion_especial = models.FloatField(u'Deducción Especial',
+        help_text=u'Deducción Especial')
+
+    #max_por_intereses_creditos_hipotecarios = models.FloatField(u'Máx. a pagar por crédito hipotecarios',
+        #help_text=u'Intereses pagados por créditos hipotecarios contraídos a partir del 01/01/2001 para la compra o construcción de su casa-habitación.')
+    #max_por_seguro_de_vida = models.FloatField(u'Máx. a pagar por seguro de vida',
+        #help_text=u'El monto que se descuenta por montos pagados en conceptos de seguro de vida.')
+    #max_por_donaciones = models.FloatField(u'Máx. % a pagar por donaciones realizadas',
+        #help_text=u'El % de la ganancia neta anual que se descuenta por donaciones realizadas a: org. nacionales, provinciales y municipales, instituciones sin fines de lucro con certificado emitido por AFIP.')
+
+    vigencia_desde = models.DateField(u'Vigente desde',
+        help_text=u'Fecha a partir de la cual estos datos comienzan a tener vigencia.')
+    vigencia_hasta = models.DateField(u'Vigente hasta',
+        help_text=u'Fecha a partir de la cual estos datos dejan de tener vigencia.')
+
+    class Meta:
+        ordering = ['vigencia_desde', 'vigencia_hasta']
+
+    def __unicode__(self):
+        return unicode(self.vigencia_desde) + " : " + unicode(self.vigencia_hasta)
+
+
+class ImpuestoGananciasTabla(models.Model):
+
+    ganancia_neta_min = models.FloatField(u'Ganancia neta mínima', help_text=u'El valor mínimo de la ganancia neta sujeta a impuesto.')
+    ganancia_neta_max = models.FloatField(u'Ganancia neta máxima', help_text=u'El valor máximo de la ganancia neta sujeta a impuesto.')
+    impuesto_fijo = models.FloatField(u'Impuesto fijo', help_text=u'El valor del impuesto a las ganancias para los que tienen gancia neta sujeta a impuesto\
+    entre los valores mínimos y máximos especificados.')
+    impuesto_porcentual = models.FloatField(u'Impuesto porcentual', help_text=u'El valor en porcentaje del impuesto a las ganancias que se aplica al exedente.')
+    sobre_exedente_de = models.FloatField(u'Sobre exedente de', help_text=u'Especifica el exedente sobre el cual se le tiene que aplicar el impuesto porcentual.')
+
+    vigencia_desde = models.DateField(u'Vigente desde',
+        help_text=u'Fecha a partir de la cual estos datos comienzan a tener vigencia.')
+    vigencia_hasta = models.DateField(u'Vigente hasta',
+        help_text=u'Fecha a partir de la cual estos datos dejan de tener vigencia.')
+
+    class Meta:
+        ordering = ['vigencia_desde', 'vigencia_hasta']
+
+    def __unicode__(self):
+        return unicode(self.vigencia_desde) + " : " + unicode(self.vigencia_hasta)
 

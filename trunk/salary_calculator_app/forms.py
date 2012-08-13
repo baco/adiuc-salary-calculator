@@ -59,6 +59,35 @@ class AFamiliaresForm(forms.Form):
     )
 
 
+class ImpuestoGananciasForm(forms.Form):
+    """Formulario para que el usuario ingrese datos referidos al calculo del impuesto a las ganancias"""
+
+    estado_civil = forms.ChoiceField(
+        label=u'Estado Civil',
+        choices=[(1, u'Soltero/a'), (2, u'Casado/a'), (3, u'Divorciado/a'), (4, u'Viudo/a')]
+    )
+    conyuge = forms.ChoiceField(
+        label=u'En caso de ser casado, ¿El salario neto de su cónyuge supera los $12960 anuales?',
+        choices=[(2, 'No'), (1, u'Sí')]
+    )
+    nro_hijos_menores_24 = forms.ChoiceField(
+        label=u'N° de hijos/hijastros menores de 24 años o incapacitados para el trabajo',
+        choices=[(i, i) for i in range(15)]
+    )
+    nro_descendientes = forms.ChoiceField(
+       label=u'N° de nietos/bisnietos menores de 24 años o incapacitados para el trabajo',
+        choices=[(i, i) for i in range(40)]
+    )
+    nro_ascendientes = forms.ChoiceField(
+       label=u'N° de padres, padrastros y abuelos incapacitados para el trabajo',
+        choices=[(i, i) for i in range(6)]
+    )
+    nro_suegros_yernos_nueras = forms.ChoiceField(
+        label=u'N° de suegro/a, yernos/nueras menores de 24 años o incapacitados para el trabajo',
+        choices=[(i, i) for i in range(20)]
+    )
+
+
 class CommonForm(forms.Form):
     """Formulario para el cálculo de salario docente. Contiene todos los valores
     que dependen de la persona y no de cada cargo por separado."""
@@ -84,6 +113,7 @@ class CommonForm(forms.Form):
 
     afiliado = forms.BooleanField(label=u'Afiliado a ADIUC', required=False)
     daspu = forms.BooleanField(label=u'Afiliado a DASPU', required=False)
+
 
 class CargoUnivForm(forms.Form):
     """Formulario de calculo de salario docente para docentes universitarios."""

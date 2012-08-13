@@ -103,10 +103,34 @@
                         <td> (Cant. personas mayores de 55 a&ntilde;os) {{ detailsform.fondo_solidario_mayores }} <br>  
                              (Cant. personas menores de 55 a&ntilde;os) {{ detailsform.fondo_solidario_menores }} </td>
                     </tr>
+                    <tr>
+                        <td> {{ gananciasform.estado_civil.label_tag }} </td>
+                        <td> {{ gananciasform.estado_civil }} </td>
+                    <tr>
+                    <tr>
+                        <td> {{ gananciasform.conyuge.label_tag }} </td>
+                        <td> {{ gananciasform.conyuge }} </td>
+                    <tr>
+                    <tr>
+                        <td> {{ gananciasform.nro_hijos_menores_24.label_tag }} </td>
+                        <td> {{ gananciasform.nro_hijos_menores_24 }} </td>
+                    <tr>
+                    <tr>
+                        <td> {{ gananciasform.nro_descendientes.label_tag }} </td>
+                        <td> {{ gananciasform.nro_descendientes }} </td>
+                    <tr>
+                    <tr>
+                        <td> {{ gananciasform.nro_ascendientes.label_tag }} </td>
+                        <td> {{ gananciasform.nro_ascendientes }} </td>
+                    <tr>
+                    <tr>
+                        <td> {{ gananciasform.nro_suegros_yernos_nueras.label_tag }} </td>
+                        <td> {{ gananciasform.nro_suegros_yernos_nueras }} </td>
+                    <tr>
                 </table>
             </div>
             <a id="daspu_opciones" href="javascript:void(0)" class="agregar_quitar" onclick="
-                toggle_and_change(detailsform,this,'[+] Opciones','[-] Opciones');
+                toggle_and_change(detailsform,this,'[+] C&aacute;lculo detallado','[-] C&aacute;lculo detallado','options_concept');
                 $(detailsform).html(
                     '<table> \
                         <tr> \
@@ -122,9 +146,33 @@
                             <td> (Cant. personas mayores de 55 a&ntilde;os) {{ detailsform.fondo_solidario_mayores|escapejs }} <br> \
                                  (Cant. personas menores de 55 a&ntilde;os) {{ detailsform.fondo_solidario_menores|escapejs }} </td> \
                         </tr> \
+                        <tr> \
+                            <td> {{ gananciasform.estado_civil.label_tag|escapejs }} </td> \
+                            <td> {{ gananciasform.estado_civil|escapejs }} </td> \
+                        <tr> \
+                        <tr> \
+                            <td> {{ gananciasform.conyuge.label_tag|escapejs }} </td> \
+                            <td> {{ gananciasform.conyuge|escapejs }} </td> \
+                        <tr> \
+                        <tr> \
+                            <td> {{ gananciasform.nro_hijos_menores_24.label_tag|escapejs }} </td> \
+                            <td> {{ gananciasform.nro_hijos_menores_24|escapejs }} </td> \
+                        <tr> \
+                        <tr> \
+                            <td> {{ gananciasform.nro_descendientes.label_tag|escapejs }} </td> \
+                            <td> {{ gananciasform.nro_descendientes|escapejs }} </td> \
+                        <tr> \
+                        <tr> \
+                            <td> {{ gananciasform.nro_ascendientes.label_tag|escapejs }} </td> \
+                            <td> {{ gananciasform.nro_ascendientes|escapejs }} </td> \
+                        <tr> \
+                        <tr> \
+                            <td> {{ gananciasform.nro_suegros_yernos_nueras.label_tag|escapejs }} </td> \
+                            <td> {{ gananciasform.nro_suegros_yernos_nueras|escapejs }} </td> \
+                        <tr> \
                     </table>'
                 )">
-                [+] Opciones
+                [+] C&aacute;lculo detallado
             </a>
 
             <div id="afamiliaresformset_content" class="common_form">                

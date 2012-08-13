@@ -37,12 +37,17 @@ admin.site.register(AntiguedadUniversitaria)
 admin.site.register(AntiguedadPreUniversitaria)
 
 
-admin.site.register(RemuneracionRetencion)
+admin.site.register(Retencion)
+admin.site.register(Remuneracion)
 admin.site.register(RetencionPorcentual)
 admin.site.register(RetencionFija)
 admin.site.register(RemuneracionPorcentual)
 admin.site.register(RemuneracionFija)
+admin.site.register(RemuneracionFijaCargo)
 
 admin.site.register(AsignacionFamiliar)
 admin.site.register(FondoSolidario)
 admin.site.register(RetencionDaspu)
+
+admin.site.register(ImpuestoGananciasDeducciones)
+admin.site.register(ImpuestoGananciasTabla)

@@ -112,7 +112,8 @@ class CommonForm(forms.Form):
     doctorado = forms.BooleanField(label=u'Título de doctorado', required=False)
 
     afiliado = forms.BooleanField(label=u'Afiliado a ADIUC', required=False)
-    daspu = forms.BooleanField(label=u'Afiliado a DASPU', required=False)
+    daspu = forms.BooleanField(label=u'Afiliado a DASPU', required=False
+    )
 
 
 class CargoUnivForm(forms.Form):

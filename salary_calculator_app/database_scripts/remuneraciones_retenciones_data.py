@@ -160,7 +160,7 @@ r = add_retencion(
     codigo=u"40/0",
     nombre= u"DASPU",
     aplicacion=u"T",
-    modo=u"C"
+    modo=u"P"
 )
 add_retencion_porcentual(
     retencion=r,

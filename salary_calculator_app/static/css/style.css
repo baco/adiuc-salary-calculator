@@ -19,6 +19,7 @@
 # <http://www.gnu.org/licenses/>.
 #
 ==============================================*/
+
 .afamiliares_form{
     width:auto;
 }
@@ -50,6 +51,8 @@ div.common_form {
     color: #FFFFFF;
     text-align: left;
     font-family: "Arial";
+    padding: 4px;
+    
 }
 
 table.common_form {
@@ -67,6 +70,11 @@ div.form_cargo {
 
 td.form_cargo_label {
     width: 83px;
+}
+
+a.agregar_quitar_white {
+    color: #FFFFFF;
+    font-size: small;
 }
 
 a.agregar_quitar {

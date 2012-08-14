@@ -23,12 +23,13 @@
 
 function toggle_and_change(id_toggle,id_text,text1,text2)
 {
-    if ($(id_text).html() == text1) {
-        $(id_toggle).slideDown();
-        $(id_text).html(text2);
-    }else{
+    if ($(id_text).html() == text2) {
         $(id_toggle).slideUp();
         $(id_text).html(text1);
     }
+	else{
+        $(id_toggle).slideDown();
+        $(id_text).html(text2);
+	}
 }
 

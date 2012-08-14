@@ -162,6 +162,12 @@ r = add_retencion(
     aplicacion=u"T",
     modo=u"C"
 )
+add_retencion_porcentual(
+    retencion=r,
+    porcentaje= 3.0,
+    vigencia_desde=vigencia_desde,
+    vigencia_hasta=vigencia_hasta
+)
 
 ##### Retenciones Porcentuales
 r = add_retencion(

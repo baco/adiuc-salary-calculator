@@ -73,11 +73,11 @@ modo = 'P'
 vigencia_desde = date(2012, 1, 1)
 vigencia_hasta = date(2012, 12, 31)
 
-if not RemuneracionRetencion.objects.filter(codigo=codigo, nombre=nombre, aplicacion=aplicacion, modo=modo).exists():
-    rt = RemuneracionRetencion(codigo=codigo, nombre=nombre, aplicacion=aplicacion, modo=modo)
+if not Remuneracion.objects.filter(codigo=codigo, nombre=nombre, aplicacion=aplicacion, modo=modo).exists():
+    rt = Remuneracion(codigo=codigo, nombre=nombre, aplicacion=aplicacion, modo=modo)
     rt.save()
 else:
-    rt = RemuneracionRetencion.objects.get(codigo=codigo, nombre=nombre, aplicacion=aplicacion, modo=modo)
+    rt = Remuneracion.objects.get(codigo=codigo, nombre=nombre, aplicacion=aplicacion, modo=modo)
 
 for v in fonid_values:
     if not RemuneracionFija.objects.filter(valor=v, remuneracion=rt, vigencia_desde=vigencia_desde, vigencia_hasta=vigencia_hasta).exists():

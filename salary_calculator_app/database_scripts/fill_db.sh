@@ -31,14 +31,14 @@
 export PYTHONPATH=`pwd`
 
 scripts=(
-    "fonid_data.py"
     "remuneraciones_retenciones_data.py"
-    "antiguedad_data.py"
     "univ_data.py"
     "preuniv_data.py"
+    "antiguedad_data.py"
     "asignaciones_familiares_data.py"
     "fondo_solidario_data.py"
     "retencion_daspu_data.py"
+    "impuesto_ganancias_data.py"
 )
 
 prefix="salary_calculator_app/database_scripts/"

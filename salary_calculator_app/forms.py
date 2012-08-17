@@ -52,7 +52,7 @@ class AFamiliaresForm(forms.Form):
     """Formulario con opciones específicas opcionales."""
 
     asig_familiar = forms.ChoiceField(
-        label=u'Asignación Familiar',
+        label=u'Asignación',
         required=False,
         choices=[(i, unicode(i)) for i in get_concepts_asigf()],
         help_text= u'Seleccione el tipo de asignación.'
@@ -76,7 +76,7 @@ class ImpuestoGananciasForm(forms.Form):
     )
     nro_descendientes = forms.ChoiceField(
        label=u'N° de nietos/bisnietos menores de 24 años o incapacitados para el trabajo',
-        choices=[(i, i) for i in range(40)]
+        choices=[(i, i) for i in range(15)]
     )
     nro_ascendientes = forms.ChoiceField(
        label=u'N° de padres, padrastros y abuelos incapacitados para el trabajo',
@@ -84,7 +84,7 @@ class ImpuestoGananciasForm(forms.Form):
     )
     nro_suegros_yernos_nueras = forms.ChoiceField(
         label=u'N° de suegro/a, yernos/nueras menores de 24 años o incapacitados para el trabajo',
-        choices=[(i, i) for i in range(20)]
+        choices=[(i, i) for i in range(6)]
     )
 
 
@@ -93,13 +93,13 @@ class CommonForm(forms.Form):
     que dependen de la persona y no de cada cargo por separado."""
 
     fecha = forms.DateField(
-        label=u'Fecha',
+        label=u'Periodo a calcular',
         initial=datetime.date.today,
         help_text=u'Seleccione una fecha para hacer el cálculo del salario.'
     )
 
     antiguedad = forms.ChoiceField(
-        label=u'Años de Antigüedad', 
+        label=u'Antigüedad', 
         choices=[(i, unicode(i)) for i in 
             range(0, max(AntiguedadUniversitaria.objects.all()[AntiguedadUniversitaria.objects.count()-1].anio,
             AntiguedadPreUniversitaria.objects.all()[AntiguedadPreUniversitaria.objects.count()-1].anio)+1)
@@ -108,8 +108,8 @@ class CommonForm(forms.Form):
         help_text=u'Ingrese su antigüedad docente'
     )
 
-    master = forms.BooleanField(label=u'Título de masters', required=False)
-    doctorado = forms.BooleanField(label=u'Título de doctorado', required=False)
+    master = forms.BooleanField(label=u'Añadir Título de Maestría', required=False)
+    doctorado = forms.BooleanField(label=u'Añadir Título de Doctorado', required=False)
 
     afiliado = forms.BooleanField(label=u'Afiliado a ADIUC', required=False)
     daspu = forms.BooleanField(label=u'Afiliado a DASPU', required=False

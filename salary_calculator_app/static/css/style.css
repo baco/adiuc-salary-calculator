@@ -40,23 +40,27 @@ div.form_content {
     font-family: "Arial";
 }
 
-.univ_preuniv_form {
+form.univ_preuniv_form {
     width: 700px;
     height: auto;
     margin: auto;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: #004b6a;
 }
 
 div.common_form {
-    background-color: #004b6a;
-    color: #FFFFFF;
+    background-color: #ededed;
+    /*color: #FFFFFF;*/
     text-align: left;
     font-family: "Arial";
+    margin: 10px;
     padding: 4px;
-    
 }
 
 table.common_form {
     margin: auto;
+    padding: 8px 0px 6px 0px;
 }
 
 div.form_cargo {
@@ -64,26 +68,21 @@ div.form_cargo {
     height: auto;
     margin: 0px;
     font-family: "Arial";
-    /*min-height: 170px;*/
-    /*height: 170px;*/
 }
 
 td.form_cargo_label {
     width: 83px;
 }
 
-a.agregar_quitar_white {
-    color: #FFFFFF;
-    font-size: small;
-}
-
 a.agregar_quitar {
-    color: #000000;
+    color: blue;
     font-size: small;
 }
 
-p.padding_fix {
-    padding-top: 4px;
+legend {
+    font-family: "Times New Roman";
+    font-size: 18px;
+    color: #004b6a;
 }
 
 #errorbox{
@@ -98,8 +97,20 @@ p.padding_fix {
     font-size: 7pt;
     text-align: center;
 }
+
 #calculate{
-	width:700px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: bold;
+	width: 680px;
+    height: 30px; 
+    margin: 0px 10px 5px 10px;
+    background-color: #B2B2B2;
+}
+
+#calculate:hover {
+    color: #000000;
+    background-color: #D1D1D1;
 }
 
 .centeralign {
@@ -109,6 +120,7 @@ p.padding_fix {
 .rightalign {
     text-align: right;  
 }
+
 div.totales{
     background-color: #004B6A;
     text-align: left;
@@ -158,14 +170,6 @@ div.title {
 	width: 700px;
 	margin: 0px;
     padding:0px;
-}
-
-#univformset_content{
-	float:left;
-}
-
-#preunivformset_content{
-	float:right;
 }
 
 div.results_cargo {

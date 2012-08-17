@@ -101,19 +101,21 @@ function decrease_total_forms(formsetPrefix, value)
 }
 
 //Habilita el elemento siempre y cuando haya algun formulario.
-function enable_disable(element_id,formSetPrefix1,formSetPrefix2)
+function enable_disable(element_id, formSetPrefix1, formSetPrefix2)
 {
 	var cant1 = get_total_forms(formSetPrefix1) - total_hidden_forms[formSetPrefix1];
 	var cant2 = get_total_forms(formSetPrefix2) - total_hidden_forms[formSetPrefix2];
 	var cant = cant1 + cant2;
 	
-	element = document.getElementById(element_id);
+	element = $('#'+element_id);
 	if (cant > 0)
 	{ 
-		element.disabled = false;
+		//element.disabled = false;
+        element.show();
 	}
 	else
 	{
-		element.disabled = true;
+		//element.disabled = true;
+        element.hide();
 	}
 }

@@ -123,8 +123,6 @@ def calculate(request):
             context_univ = processUnivFormSet(commonform, univformset)
             context_preuniv = processPreUnivFormSet(commonform, preunivformset)
 
-            #context_details = processDetailsForm(commonform,detailsform)
-
             # Control de errores
             if context_univ.has_key('error_msg'):
                 context['error_msg'] = context_univ['error_msg']
@@ -438,18 +436,19 @@ def calculateRemRetPorPersona(context, es_afiliado, afiliacion_daspu, afamiliare
     acum_ret += daspu_importe + daspu_extra
 
     #Calculo los detalles (opciones extras)
-    details_context = processDetailsForm(context,detailsform)
-    if details_context.has_key("error_msg"):
-        if context.has_key("error_msg"):
-            context["error_msg"] += "\n"+ details_context["error_msg"]
+    if afiliacion_daspu:
+        details_context = processDetailsForm(context,detailsform)
+        if details_context.has_key("error_msg"):
+            if context.has_key("error_msg"):
+                context["error_msg"] += "\n"+ details_context["error_msg"]
+            else:
+                context["error_msg"] = details_context["error_msg"]
         else:
-            context["error_msg"] = details_context["error_msg"]
-    else:
-        for d in details_context.keys():
-            concept,obj,val = details_context[d]
-            if concept == 'retencion_fija_persona':
-                ret_fijas_persona.append( (obj , val) )
-                acum_ret += val
+            for d in details_context.keys():
+                concept,obj,val = details_context[d]
+                if concept == 'retencion_fija_persona':
+                    ret_fijas_persona.append( (obj , val) )
+                    acum_ret += val
 
 
 
@@ -875,6 +874,10 @@ def processPreUnivFormSet(commonform, preunivformset):
                     acum_rem += min(rem.valor, 430.0)
                     rem_list.append( (rem, min(rem.valor, 430.0)) )
                 rem_fijas = rem_fijas.exclude(remuneracion=rem.remuneracion)
+        else:
+            for rem in RemuneracionFijaCargo.objects.all():
+                rem_fijas = rem_fijas.exclude(remuneracion=rem.remuneracion)
+
 
         ## Retenciones NO especiales:
 

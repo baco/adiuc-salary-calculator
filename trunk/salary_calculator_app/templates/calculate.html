@@ -88,6 +88,10 @@
                             <td> {{ commonform.daspu.label_tag }} </td>
                             <td> {{ commonform.daspu }} </td>
                         </tr>
+                        <tr>
+                            <td> {{ commonform.ganancias.label_tag }} </td>
+                            <td> {{ commonform.ganancias }} </td>
+                        </tr>
                     </table>
                 </fieldset>
             </div>
@@ -121,7 +125,7 @@
 
 
             <!--  GANANCIAS FORM -->
-            <div id="gananciasform" class="common_form">
+            <div id="gananciasform" class="common_form" style="display:none;">
                 <fieldset>
                     <legend>Impuesto a las Ganancias</legend>
                     <table class="common_form">
@@ -414,7 +418,18 @@
                             $('#detailsform').slideDown();
                         }
                     }
-                    );
+                );
+
+                $("input#id_ganancias").click(
+                    function(){
+                        if (!$('input#id_ganancias').is(':checked')){
+                            $('#gananciasform').slideUp();
+                        }
+                        else {
+                            $('#gananciasform').slideDown();
+                        }
+                    }
+                );
             });
         </script>
 

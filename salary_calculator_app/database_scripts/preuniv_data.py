@@ -231,11 +231,11 @@ sep12_vigencia_hasta = date(2012, 12, 31)
 ##############
 c = add_cargo_preuniv(
     nombre = u'Vice Director de 1°', 
-    lu = u'1', 
-    pampa = u'201',
+    lu = 1, 
+    pampa = 201,
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -276,16 +276,16 @@ add_fonid(
 #    antiguedad_min=0,
 #    antiguedad_max=1,
 #    vigencia_desde = mar_vigencia_desde,
-#	vigencia_hasta = jun_vigencia_hasta
+#    vigencia_hasta = jun_vigencia_hasta
 #)
 ##############
 c = add_cargo_preuniv(
     nombre = u'Regente de 1°', 
-    lu = u'2', 
-    pampa = u'202', 
+    lu = 2, 
+    pampa = 202, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -320,17 +320,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 5600,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ##############
 c = add_cargo_preuniv(
     nombre = u'Jefe Gral Ens.Práctica', 
-    lu = u'3', 
-    pampa = u'203', 
+    lu = 3, 
+    pampa = 203, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -365,17 +365,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 2464.76,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ##############
 c = add_cargo_preuniv(
     nombre = u'Profesor TC', 
-    lu = u'4', 
-    pampa = u'204', 
+    lu = 4, 
+    pampa = 204, 
     horas = 36, 
     tipo_horas = 'C',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -410,18 +410,18 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 5600,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 
 ###############
 c = add_cargo_preuniv(
     nombre = u'Asesor Pedagógico', 
-    lu = u'10', 
-    pampa = u'205', 
+    lu = 10, 
+    pampa = 205, 
     horas = 36, 
     tipo_horas = 'C',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -456,18 +456,18 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 5600,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 
 ###############
 c = add_cargo_preuniv(
     nombre = u'Jefe Labor. Informática', 
-    lu = u'11', 
-    pampa = u'206', 
+    lu = 11, 
+    pampa = 206, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -502,17 +502,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 2800,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Asesor Psicopedagógico', 
-    lu = u'12', 
-    pampa = u'207', 
+    lu = 12, 
+    pampa = 207, 
     horas = 18, 
     tipo_horas = 'C',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -547,17 +547,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 3358.47,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Director Escuela Superior', 
-    lu = u'15', 
-    pampa = u'208', 
+    lu = 15, 
+    pampa = 208, 
     horas = 35, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -587,11 +587,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Ayudante Clases Práct.(02)', 
-    lu = u'16', 
-    pampa = u'209', 
+    lu = 16, 
+    pampa = 209, 
     horas = 12, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -626,17 +626,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 1680,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Vice Director Escuela Superior', 
-    lu = u'17', 
-    pampa = u'210', 
+    lu = 17, 
+    pampa = 210, 
     horas = 35, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -665,11 +665,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Rector de 1° Categoría', 
-    lu = u'18', 
-    pampa = u'211', 
+    lu = 18, 
+    pampa = 211, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -704,18 +704,18 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 5600,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 
 ###############
 c = add_cargo_preuniv(
     nombre = u'Ayudante Clases Prácticas', 
-    lu = u'19', 
-    pampa = u'212', 
+    lu = 19, 
+    pampa = 212, 
     horas = 21, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -744,11 +744,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Director de 3° Categoría', 
-    lu = u'21', 
-    pampa = u'213', 
+    lu = 21, 
+    pampa = 213, 
     horas = 35, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -777,11 +777,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Prosecretario 1° (Esc.Com.)', 
-    lu = u'22', 
-    pampa = u'240', 
+    lu = 22, 
+    pampa = 240, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -816,17 +816,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 2800,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Regente de Esc.Superior', 
-    lu = u'23', 
-    pampa = u'214', 
+    lu = 23, 
+    pampa = 214, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -861,17 +861,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 2800,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Regente de 1° Esc.Superior', 
-    lu = u'24', 
-    pampa = u'215', 
+    lu = 24, 
+    pampa = 215, 
     horas = 35, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -900,17 +900,17 @@ add_salario_basico(
 add_garantia(
     cargo = c,
     valor = 2800,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Secret. de 1° Categoría', 
-    lu = u'25', 
-    pampa = u'216', 
+    lu = 25, 
+    pampa = 216, 
     horas = 35, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -939,11 +939,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Secretario Esc.Superior', 
-    lu = u'29', 
-    pampa = u'217', 
+    lu = 29, 
+    pampa = 217, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -978,17 +978,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 2800,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Prof. Jefe Trab.Prácticos', 
-    lu = u'30', 
-    pampa = u'218', 
+    lu = 30, 
+    pampa = 218, 
     horas = 21, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1017,11 +1017,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Bibliot. Ley 22.416', 
-    lu = u'33', 
-    pampa = u'219', 
+    lu = 33, 
+    pampa = 219, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1056,17 +1056,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 2324.51,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Prof. Jefe Trab.Prácticos', 
-    lu = u'35', 
-    pampa = u'220', 
+    lu = 35, 
+    pampa = 220, 
     horas = 21, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1095,11 +1095,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Prof. Centro Deportivo', 
-    lu = u'37', 
-    pampa = u'221', 
+    lu = 37, 
+    pampa = 221, 
     horas = 17, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1128,11 +1128,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Maestro Ayud.Ens.Práctico', 
-    lu = u'38', 
-    pampa = u'222', 
+    lu = 38, 
+    pampa = 222, 
     horas = 18, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1161,11 +1161,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Jefe Preceptores de 1°', 
-    lu = u'39', 
-    pampa = u'223', 
+    lu = 39, 
+    pampa = 223, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1200,17 +1200,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 2800,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Ayudante Trab.Prácticos', 
-    lu = u'40', 
-    pampa = u'224', 
+    lu = 40, 
+    pampa = 224, 
     horas = 21, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1239,11 +1239,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Vice Rector Escuela Artes', 
-    lu = u'41', 
-    pampa = u'225', 
+    lu = 41, 
+    pampa = 225, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1272,11 +1272,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Bibliot.Ens. Superior', 
-    lu = u'42', 
-    pampa = u'226', 
+    lu = 42, 
+    pampa = 226, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1311,17 +1311,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 2403.16,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Preceptores', 
-    lu = u'43', 
-    pampa = u'227', 
+    lu = 43, 
+    pampa = 227, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1356,17 +1356,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 2800,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Hs. Cátedra Terciario', 
-    lu = u'44', 
-    pampa = u'228', 
+    lu = 44, 
+    pampa = 228, 
     horas = 1, 
     tipo_horas = 'C',
-	pago_por_hora = True
+    pago_por_hora = True
 )
 add_salario_basico(
     cargo = c,
@@ -1401,17 +1401,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 233.42,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Hs. Cátedra Secundario', 
-    lu = u'45', 
-    pampa = u'229', 
+    lu = 45, 
+    pampa = 229, 
     horas = 1, 
     tipo_horas = 'C',
-	pago_por_hora = True
+    pago_por_hora = True
 )
 add_salario_basico(
     cargo = c,
@@ -1446,17 +1446,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 186.58,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Hs. Cát. Inherentes a cargos', 
-    lu = u'46', 
-    pampa = u'230', 
+    lu = 46, 
+    pampa = 230, 
     horas = 12, 
     tipo_horas = 'C',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1485,11 +1485,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Rector Educación Artística', 
-    lu = u'49', 
-    pampa = u'231', 
+    lu = 49, 
+    pampa = 231, 
     horas = 12, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1518,11 +1518,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Profesor T.P (4)', 
-    lu = u'50', 
-    pampa = u'239', 
+    lu = 50, 
+    pampa = 239, 
     horas = 12, 
     tipo_horas = 'C',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1557,17 +1557,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 2238.98,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Jefe Equipo Tec.Pedagógico', 
-    lu = u'51', 
-    pampa = u'232', 
+    lu = 51, 
+    pampa = 232, 
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1602,17 +1602,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 2800,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Secretario 1° Categoría', 
-    lu = u'52', 
-    pampa = u'233',
+    lu = 52, 
+    pampa = 233,
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1647,17 +1647,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 5600,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Prosecretario Nivel Superior', 
-    lu = u'53', 
-    pampa = u'234',
+    lu = 53, 
+    pampa = 234,
     horas = 0, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1686,11 +1686,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'J.T.P T.C (Esc. Comercio)', 
-    lu = u'55', 
-    pampa = u'235',
+    lu = 55, 
+    pampa = 235,
     horas = 15, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1725,17 +1725,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 2100,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Prof. T.P (1)', 
-    lu = u'57', 
-    pampa = u'236',
+    lu = 57, 
+    pampa = 236,
     horas = 30, 
     tipo_horas = 'C',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1770,17 +1770,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 5597.96,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Prof. T.P (2)', 
-    lu = u'58', 
-    pampa = u'237',
+    lu = 58, 
+    pampa = 237,
     horas = 24, 
     tipo_horas = 'C',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1815,17 +1815,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 4477.96,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Prof. T.P (3)', 
-    lu = u'59', 
-    pampa = u'238',
+    lu = 59, 
+    pampa = 238,
     horas = 18, 
     tipo_horas = 'C',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1860,17 +1860,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 3358.47,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Auxiliar Docente', 
-    lu = u'80', 
-    pampa = u'241',
+    lu = 80, 
+    pampa = 241,
     horas = 25, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1905,17 +1905,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 2718.04,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Director 1° D.E', 
-    lu = u'81', 
-    pampa = u'301',
+    lu = 81, 
+    pampa = 301,
     horas = 45, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1950,17 +1950,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 5600,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Vice Director 1° D.E', 
-    lu = u'82', 
-    pampa = u'302',
+    lu = 82, 
+    pampa = 302,
     horas = 45, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -1995,17 +1995,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 5600,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Regente de 1° D.E', 
-    lu = u'83', 
-    pampa = u'303',
+    lu = 83, 
+    pampa = 303,
     horas = 45, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -2034,11 +2034,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Sub Regente de 1° Cat. D.E', 
-    lu = u'84', 
-    pampa = u'304', 
+    lu = 84, 
+    pampa = 304, 
     horas = 45, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -2073,17 +2073,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 5600,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Sub Regente de 1° Categoría', 
-    lu = u'85', 
-    pampa = u'305', 
+    lu = 85, 
+    pampa = 305, 
     horas = 27.3, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -2118,17 +2118,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 2800,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Secretario de 1° Categ.D.E', 
-    lu = u'86', 
-    pampa = u'306', 
+    lu = 86, 
+    pampa = 306, 
     horas = 45, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -2163,17 +2163,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 5600,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Jefe Dpto D.E', 
-    lu = u'87', 
-    pampa = u'307', 
+    lu = 87, 
+    pampa = 307, 
     horas = 45, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -2202,11 +2202,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Jefe Gabinete Psicoped. D.E', 
-    lu = u'88', 
-    pampa = u'308', 
+    lu = 88, 
+    pampa = 308, 
     horas = 45, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -2235,11 +2235,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Gabinetista D.E', 
-    lu = u'89', 
-    pampa = u'309', 
+    lu = 89, 
+    pampa = 309, 
     horas = 45, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -2268,11 +2268,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Asesor Pedagógico', 
-    lu = u'90', 
-    pampa = u'310', 
+    lu = 90, 
+    pampa = 310, 
     horas = 27.3, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -2301,11 +2301,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Jefe Preceptores 1° D.E', 
-    lu = u'91', 
-    pampa = u'311', 
+    lu = 91, 
+    pampa = 311, 
     horas = 45, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -2340,17 +2340,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 5600,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Jefe Preceptores 1°', 
-    lu = u'92', 
-    pampa = u'312', 
+    lu = 92, 
+    pampa = 312, 
     horas = 27.3, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -2385,17 +2385,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 2800,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Ayud. Gabinete Práctico D.E', 
-    lu = u'93', 
-    pampa = u'313', 
+    lu = 93, 
+    pampa = 313, 
     horas = 45, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -2424,11 +2424,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Ayud. Gabinete Práctico', 
-    lu = u'94', 
-    pampa = u'314', 
+    lu = 94, 
+    pampa = 314, 
     horas = 15, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -2463,17 +2463,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 2100,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Bibliotecario D.E', 
-    lu = u'95', 
-    pampa = u'315', 
+    lu = 95, 
+    pampa = 315, 
     horas = 45, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -2502,11 +2502,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Preceptor D.E', 
-    lu = u'96', 
-    pampa = u'316', 
+    lu = 96, 
+    pampa = 316, 
     horas = 45, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -2541,17 +2541,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 5600,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Preceptor', 
-    lu = u'97', 
-    pampa = u'317', 
+    lu = 97, 
+    pampa = 317, 
     horas = 27.3, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -2586,17 +2586,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 2782.18,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Hs Cát. Inherentes a cargos', 
-    lu = u'98', 
-    pampa = u'319', 
+    lu = 98, 
+    pampa = 319, 
     horas = 12, 
     tipo_horas = 'C',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -2625,11 +2625,11 @@ add_salario_basico(
 ###############
 c = add_cargo_preuniv(
     nombre = u'Horas Cátedra Secundario', 
-    lu = u'98', 
-    pampa = u'318', 
+    lu = 98, 
+    pampa = 318, 
     horas = 0, 
     tipo_horas = 'C',
-	pago_por_hora = True
+    pago_por_hora = True
 )
 add_salario_basico(
     cargo = c,
@@ -2664,17 +2664,17 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 204.78,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )
 ###############
 c = add_cargo_preuniv(
     nombre = u'Ayudante Gab. Psicoped.', 
-    lu = u'99', 
-    pampa = u'242', 
+    lu = 99, 
+    pampa = 242, 
     horas = 10, 
     tipo_horas = 'R',
-	pago_por_hora = False
+    pago_por_hora = False
 )
 add_salario_basico(
     cargo = c,
@@ -2709,6 +2709,6 @@ add_fonid(
 add_garantia(
     cargo = c,
     valor = 1400,
-	vigencia_desde = mar_vigencia_desde,
-	vigencia_hasta = jun_vigencia_hasta
+    vigencia_desde = mar_vigencia_desde,
+    vigencia_hasta = jun_vigencia_hasta
 )

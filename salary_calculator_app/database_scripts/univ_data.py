@@ -112,8 +112,8 @@ sep12_vigencia_hasta = date(2012, 12, 31)
 ######################
 c = add_cargo_univ(
     nombre="Profesor Titular",
-    lu="5",
-    pampa="101",
+    lu=5,
+    pampa=101,
     dedicacion="D.E"
 )
 add_salario_basico(
@@ -143,8 +143,8 @@ add_salario_basico(
 ######################
 c = add_cargo_univ(
     nombre="Profesor Titular",
-    lu="13",
-    pampa="102",
+    lu=13,
+    pampa=102,
     dedicacion="D.S.E"
 )
 add_salario_basico(
@@ -174,8 +174,8 @@ add_salario_basico(
 ######################
 c = add_cargo_univ(
     nombre="Profesor Titular",
-    lu="27",
-    pampa="103",
+    lu=27,
+    pampa=103,
     dedicacion="D.S"
 )
 add_salario_basico(
@@ -205,8 +205,8 @@ add_salario_basico(
 ######################
 c = add_cargo_univ(
     nombre="Profesor Asociado",
-    lu="6",
-    pampa="105",
+    lu=6,
+    pampa=105,
     dedicacion="D.E"
 )
 add_salario_basico(
@@ -236,8 +236,8 @@ add_salario_basico(
 ######################
 c = add_cargo_univ(
     nombre="Profesor Asociado",
-    lu="8",
-    pampa="106",
+    lu=8,
+    pampa=106,
     dedicacion="D.S.E"
 )
 add_salario_basico(
@@ -267,8 +267,8 @@ add_salario_basico(
 ######################
 c = add_cargo_univ(
     nombre="Profesor Asociado",
-    lu="54",
-    pampa="107",
+    lu=54,
+    pampa=107,
     dedicacion="D.S"
 )
 add_salario_basico(
@@ -298,8 +298,8 @@ add_salario_basico(
 ######################
 c = add_cargo_univ(
     nombre="Profesor Adjunto",
-    lu="7",
-    pampa="109",
+    lu=7,
+    pampa=109,
     dedicacion="D.E"
 )
 add_salario_basico(
@@ -329,8 +329,8 @@ add_salario_basico(
 ######################
 c = add_cargo_univ(
     nombre="Profesor Adjunto",
-    lu="20",
-    pampa="110",
+    lu=20,
+    pampa=110,
     dedicacion="D.S.E"
 )
 add_salario_basico(
@@ -360,8 +360,8 @@ add_salario_basico(
 ######################
 c = add_cargo_univ(
     nombre="Profesor Adjunto",
-    lu="31",
-    pampa="111",
+    lu=31,
+    pampa=111,
     dedicacion="D.S"
 )
 add_salario_basico(
@@ -390,9 +390,9 @@ add_salario_basico(
 )
 ######################
 c = add_cargo_univ(
-    nombre="Profesor Asistente (Ex. JTP)",
-    lu="9",
-    pampa="113",
+    nombre="Profesor Asistente",
+    lu=9,
+    pampa=113,
     dedicacion="D.E"
 )
 add_salario_basico(
@@ -421,9 +421,9 @@ add_salario_basico(
 )
 ######################
 c = add_cargo_univ(
-    nombre="Profesor Asistente (Ex. JTP)",
-    lu="26",
-    pampa="114",
+    nombre="Profesor Asistente",
+    lu=26,
+    pampa=114,
     dedicacion="D.S.E"
 )
 add_salario_basico(
@@ -452,9 +452,9 @@ add_salario_basico(
 )
 ######################
 c = add_cargo_univ(
-    nombre="Profesor Asistente (Ex. JTP)",
-    lu="32",
-    pampa="115",
+    nombre="Profesor Asistente",
+    lu=32,
+    pampa=115,
     dedicacion="D.S"
 )
 add_salario_basico(
@@ -483,9 +483,9 @@ add_salario_basico(
 )
 ######################
 c = add_cargo_univ(
-    nombre='Profesor Ayudante "A" (Ex. Ayud. 1°)',
-    lu="14",
-    pampa="117",
+    nombre='Profesor Ayudante "A"',
+    lu=14,
+    pampa=117,
     dedicacion="D.E"
 )
 add_salario_basico(
@@ -514,9 +514,9 @@ add_salario_basico(
 )
 ######################
 c = add_cargo_univ(
-    nombre='Profesor Ayudante "A" (Ex. Ayud. 1°)',
-    lu="28",
-    pampa="118",
+    nombre='Profesor Ayudante "A"',
+    lu=28,
+    pampa=118,
     dedicacion="D.S.E"
 )
 add_salario_basico(
@@ -545,9 +545,9 @@ add_salario_basico(
 )
 ######################
 c = add_cargo_univ(
-    nombre='Profesor Ayudante "A" (Ex. Ayud. 1°)',
-    lu="34",
-    pampa="119",
+    nombre='Profesor Ayudante "A"',
+    lu=34,
+    pampa=119,
     dedicacion="D.S"
 )
 add_salario_basico(
@@ -576,9 +576,9 @@ add_salario_basico(
 )
 ######################
 c = add_cargo_univ(
-    nombre='Profesor Ayudante "B" (Ex. Ayud. 2°)',
-    lu="36",
-    pampa="121",
+    nombre='Profesor Ayudante "B"',
+    lu=36,
+    pampa=121,
     dedicacion="D.S"
 )
 add_salario_basico(

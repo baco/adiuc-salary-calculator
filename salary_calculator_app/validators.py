@@ -37,3 +37,9 @@ def validate_isgezero(number):
 
     if number<0:
         raise ValidationError(u'Debe ingresar un número positivo.')
+
+def validate_isgzero(number):
+	"""number es valido si es mayor estricto que 0."""
+
+	if number<=0:
+		raise ValidationError(u'Debe ingresar un número mayor a 0.')

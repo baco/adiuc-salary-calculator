@@ -41,7 +41,7 @@ div.form_content {
 }
 
 form.univ_preuniv_form {
-    width: 700px;
+    width: 663px; /*1cm == 37 pixels*/
     height: auto;
     margin: auto;
     padding-top: 3px;
@@ -102,7 +102,7 @@ legend {
     color: #000000;
     font-size: 17px;
     font-weight: bold;
-	width: 680px;
+	width: 643px;
     height: 30px; 
     margin: 0px 10px 5px 10px;
     background-color: #B2B2B2;
@@ -167,7 +167,7 @@ div.title {
 }
 
 #forms_table {
-	width: 700px;
+	width: 663px;
 	margin: 0px;
     padding:0px;
 }

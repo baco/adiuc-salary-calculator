@@ -154,7 +154,16 @@ def calculate(request):
             # Esto modifica el contexto.
             afiliacion_daspu = commonform.cleaned_data['daspu']
             afiliacion_adiuc = commonform.cleaned_data['afiliado']
-            context = calculateRemRetPorPersona(context, afiliacion_adiuc, afiliacion_daspu, afamiliaresformset, detailsform, gananciasform)
+            calcular_ganancias = commonform.cleaned_data['ganancias']
+            context = calculateRemRetPorPersona(
+                context,
+                afiliacion_adiuc,
+                afiliacion_daspu,
+                calcular_ganancias,
+                afamiliaresformset,
+                detailsform,
+                gananciasform
+                )
 
             # Renderizo el template con el contexto.
             return render_to_response('salary_calculated.html', context)
@@ -312,7 +321,7 @@ def processDetailsForm(context, detailsform):
     return result
 
 
-def calculateRemRetPorPersona(context, es_afiliado, afiliacion_daspu, afamiliaresformset, detailsform, gananciasform):
+def calculateRemRetPorPersona(context, es_afiliado, afiliacion_daspu, calcular_ganancias, afamiliaresformset, detailsform, gananciasform):
 
     fecha = context['fecha']
     total_rem = context['total_rem']
@@ -381,134 +390,137 @@ def calculateRemRetPorPersona(context, es_afiliado, afiliacion_daspu, afamiliare
             vigencia_hasta__gte=fecha
         )
         if not afiliacion_objs.exists():
-            context["error_msg"] = "No existe informacion sobre afiliaciones.\n"
+            context["error_msg"] = "No existe informacion sobre afiliación a ADIUC.\n"
         else:
             afiliacion_obj = afiliacion_objs.order_by('vigencia_hasta')[afiliacion_objs.count()-1]
             af_importe = total_bruto * afiliacion_obj.porcentaje / 100.0
             context['afiliacion'] = afiliacion_obj                
-            
-        acum_ret += af_importe
+        
+    acum_ret += af_importe
     
     # Calculo afiliacion daspu
     daspu_importe = 0.0
     daspu_extra = 0.0
-    if afiliacion_daspu:
-        rets_porc_daspu = RetencionPorcentual.objects.filter(
-            retencion__codigo =daspu_code,
-            vigencia_desde__lte=fecha,
-            vigencia_hasta__gte=fecha
+    #if afiliacion_daspu: ES OBLIGATORIO
+    rets_porc_daspu = RetencionPorcentual.objects.filter(
+        retencion__codigo =daspu_code,
+        vigencia_desde__lte=fecha,
+        vigencia_hasta__gte=fecha
+        )
+    if rets_porc_daspu.exists():
+        r = rets_porc_daspu.order_by('vigencia_hasta')[rets_porc_daspu.count()-1]
+
+        daspu_objs = RetencionDaspu.objects.filter(
+            retencion=r,
             )
-        if rets_porc_daspu.exists():
-            r = rets_porc_daspu.order_by('vigencia_hasta')[rets_porc_daspu.count()-1]
+        if not daspu_objs.exists():
+            context["error_msg"] = "No existe informacion sobre afiliaciones para DASPU.\n"
+        else:
+            daspu_obj = daspu_objs[daspu_objs.count()-1]
+            p = daspu_obj.retencion.porcentaje
+            p_min = daspu_obj.porcentaje_minimo
 
-            daspu_objs = RetencionDaspu.objects.filter(
-                retencion=r,
+            # Corroborar si no cubre el minimo de del cargo ayudante D.S.E. sin antiguedad.
+            basicos = SalarioBasico.objects.filter(
+                cargo=daspu_obj.cargo_referencia,
+                vigencia_desde__lte=fecha,
+                vigencia_hasta__gte=fecha
                 )
-            if not daspu_objs.exists():
-                context["error_msg"] = "No existe informacion sobre afiliaciones para DASPU.\n"
+            if not basicos.exists():
+                context['error_msg']='No se encuentra información la salarial requerida para el cálculo.'
             else:
-                daspu_obj = daspu_objs[daspu_objs.count()-1]
-                p = daspu_obj.retencion.porcentaje
-                p_min = daspu_obj.porcentaje_minimo
-
-                #corroborar si no cubre el minimo de del cargo ayudante dse sin antiguedad.
-                basicos = SalarioBasico.objects.filter(
-                    cargo=daspu_obj.cargo_referencia,
-                    vigencia_desde__lte=fecha,
-                    vigencia_hasta__gte=fecha
-                    )
-                if not basicos.exists():
-                    context['error_msg']='No se encuentra información salarial.'
-                else:
-                    basico = basicos.order_by('vigencia_hasta')[basicos.count()-1]
-                    basico = basico.valor
-                    daspu_importe += total_bruto * p / 100.0
-                    tope_min = basico * p_min / 100.0
-                
-                    context['daspu_importe'] = daspu_importe                
-                
-                    if daspu_importe < tope_min:
-                        daspu_extra = tope_min - daspu_importe
-                        context['daspu_extra'] = daspu_extra
-                        context['daspu_importe'] = tope_min
-                    context['daspu'] = daspu_obj
+                basico = basicos.order_by('vigencia_hasta')[basicos.count()-1]
+                basico = basico.valor
+                daspu_importe += total_bruto * p / 100.0
+                tope_min = basico * p_min / 100.0
             
+                context['daspu_importe'] = daspu_importe                
+            
+                if daspu_importe < tope_min:
+                    daspu_extra = tope_min - daspu_importe
+                    context['daspu_extra'] = daspu_extra
+                    context['daspu_importe'] = tope_min
+                context['daspu'] = daspu_obj
+
     acum_ret += daspu_importe + daspu_extra
 
     #Calculo los detalles (opciones extras)
-    if afiliacion_daspu:
-        details_context = processDetailsForm(context,detailsform)
-        if details_context.has_key("error_msg"):
-            if context.has_key("error_msg"):
-                context["error_msg"] += "\n"+ details_context["error_msg"]
-            else:
-                context["error_msg"] = details_context["error_msg"]
+    #if afiliacion_daspu:  ES OBLIGATORIO
+    details_context = processDetailsForm(context,detailsform)
+    if details_context.has_key("error_msg"):
+        if context.has_key("error_msg"):
+            context["error_msg"] += "\n"+ details_context["error_msg"]
         else:
-            for d in details_context.keys():
-                concept,obj,val = details_context[d]
-                if concept == 'retencion_fija_persona':
-                    ret_fijas_persona.append( (obj , val) )
-                    acum_ret += val
+            context["error_msg"] = details_context["error_msg"]
+    else:
+        for d in details_context.keys():
+            concept,obj,val = details_context[d]
+            if concept == 'retencion_fija_persona':
+                ret_fijas_persona.append( (obj , val) )
+                acum_ret += val
 
 
 
     #### Calculo del impuesto a las ganancias
-    importe_ganancias = -1
-    remuneracion_bruta = total_bruto*13 # El total bruto anual + el aguinaldo
+    if calcular_ganancias:
 
-    ## Deducciones generales.
-    # Busco la jubilacion, obra social, ley 19.032 y cuota sindical (adiuc)
-    deducciones_generales = 0.0
-    cant_cargos = len(context['lista_res'])
-    for ret, importe in ret_porc_persona:
-        if ret.retencion.codigo == u'64/0':
-            deducciones_generales += importe
-    for form_res in context['lista_res']:
-        for ret, importe in form_res['retenciones']:
-            if ret.retencion.codigo == u'22/0' or ret.retencion.codigo == u'21/0' or ret.retencion.codigo == u'20/9':
+        importe_ganancias = -1
+        remuneracion_bruta = total_bruto*13 # El total bruto anual + el aguinaldo
+
+        ## Deducciones generales.
+        # Busco la jubilacion, obra social, ley 19.032 y cuota sindical (adiuc)
+        deducciones_generales = 0.0
+        cant_cargos = len(context['lista_res'])
+        for ret, importe in ret_porc_persona:
+            if ret.retencion.codigo == u'64/0':
                 deducciones_generales += importe
-    deducciones_generales *= 12 # el total anual.
+        for form_res in context['lista_res']:
+            for ret, importe in form_res['retenciones']:
+                if ret.retencion.codigo == u'22/0' or ret.retencion.codigo == u'21/0' or ret.retencion.codigo == u'20/9':
+                    deducciones_generales += importe
+        deducciones_generales *= 12 # el total anual.
 
-    ## Deducciones especiales o tecnicas.
-    deducciones_especiales = 0.0
-    estado_civil = gananciasform.cleaned_data['estado_civil']
-    conyuge = gananciasform.cleaned_data['conyuge']
-    nro_hijos_menores_24 = float(gananciasform.cleaned_data['nro_hijos_menores_24'])
-    nro_descendientes = float(gananciasform.cleaned_data['nro_descendientes'])
-    nro_ascendientes = float(gananciasform.cleaned_data['nro_ascendientes'])
-    nro_suegros_yernos_nueras = float(gananciasform.cleaned_data['nro_suegros_yernos_nueras'])
-    
-    deducciones_objs = ImpuestoGananciasDeducciones.objects.filter(
-        vigencia_desde__lte=fecha,
-        vigencia_hasta__gte=fecha
-    )
-    if deducciones_objs.exists():
-        deducciones_obj = deducciones_objs.order_by('vigencia_hasta')[deducciones_objs.count()-1]
-        deducciones_especiales += deducciones_obj.ganancia_no_imponible
-        if estado_civil == 2 and conyuge == 1:
-            deducciones_especiales += deducciones_obj.por_conyuge
-        deducciones_especiales += deducciones_obj.por_hijo_menor_24_anios * nro_hijos_menores_24
-        deducciones_especiales += deducciones_obj.por_descendiente * nro_descendientes
-        deducciones_especiales += deducciones_obj.por_ascendiente * nro_ascendientes
-        deducciones_especiales += deducciones_obj.por_suegro_yerno_nuera * nro_suegros_yernos_nueras
-        deducciones_especiales += deducciones_obj.deduccion_especial
+        ## Deducciones especiales o tecnicas.
 
-    ganancia_neta = remuneracion_bruta - deducciones_generales - deducciones_especiales
-    ganancias_tablas = ImpuestoGananciasTabla.objects.filter(
-        ganancia_neta_min__lte = ganancia_neta,
-        ganancia_neta_max__gte = ganancia_neta,
-        vigencia_desde__lte=fecha,
-        vigencia_hasta__gte=fecha
-    )
-    if ganancias_tablas.exists():
-        ganancias_tabla = ganancias_tablas.order_by('vigencia_hasta')[ganancias_tablas.count()-1]
-        importe_ganancias = ganancias_tabla.impuesto_fijo + (ganancia_neta - ganancias_tabla.sobre_exedente_de) * (ganancias_tabla.impuesto_porcentual / 100)
+        deducciones_especiales = 0.0
+        estado_civil = gananciasform.cleaned_data['estado_civil']
+        conyuge = gananciasform.cleaned_data['conyuge']
+        nro_hijos_menores_24 = float(gananciasform.cleaned_data['nro_hijos_menores_24'])
+        nro_descendientes = float(gananciasform.cleaned_data['nro_descendientes'])
+        nro_ascendientes = float(gananciasform.cleaned_data['nro_ascendientes'])
+        nro_suegros_yernos_nueras = float(gananciasform.cleaned_data['nro_suegros_yernos_nueras'])
+        
+        deducciones_objs = ImpuestoGananciasDeducciones.objects.filter(
+            vigencia_desde__lte=fecha,
+            vigencia_hasta__gte=fecha
+        )
+        if deducciones_objs.exists():
+            deducciones_obj = deducciones_objs.order_by('vigencia_hasta')[deducciones_objs.count()-1]
+            deducciones_especiales += deducciones_obj.ganancia_no_imponible
+            if estado_civil == 2 and conyuge == 1:
+                deducciones_especiales += deducciones_obj.por_conyuge
+            deducciones_especiales += deducciones_obj.por_hijo_menor_24_anios * nro_hijos_menores_24
+            deducciones_especiales += deducciones_obj.por_descendiente * nro_descendientes
+            deducciones_especiales += deducciones_obj.por_ascendiente * nro_ascendientes
+            deducciones_especiales += deducciones_obj.por_suegro_yerno_nuera * nro_suegros_yernos_nueras
+            deducciones_especiales += deducciones_obj.deduccion_especial
 
-    ganancias_retencion_objs = Retencion.objects.filter(codigo='42/0')
-    if importe_ganancias >= 0 and ganancias_retencion_objs.exists():
-        new_ret_fija = RetencionFija(retencion=ganancias_retencion_objs[0], valor=importe_ganancias / 12, vigencia_desde=fecha, vigencia_hasta=fecha)
-        ret_fijas_persona.append( (new_ret_fija, new_ret_fija.valor) )
-        acum_ret += importe_ganancias / 12
+        ganancia_neta = remuneracion_bruta - deducciones_generales - deducciones_especiales
+        ganancias_tablas = ImpuestoGananciasTabla.objects.filter(
+            ganancia_neta_min__lte = ganancia_neta,
+            ganancia_neta_max__gte = ganancia_neta,
+            vigencia_desde__lte=fecha,
+            vigencia_hasta__gte=fecha
+        )
+        if ganancias_tablas.exists():
+            ganancias_tabla = ganancias_tablas.order_by('vigencia_hasta')[ganancias_tablas.count()-1]
+            importe_ganancias = ganancias_tabla.impuesto_fijo + (ganancia_neta - ganancias_tabla.sobre_exedente_de) * (ganancias_tabla.impuesto_porcentual / 100)
+
+        ganancias_retencion_objs = Retencion.objects.filter(codigo='42/0')
+        if importe_ganancias >= 0 and ganancias_retencion_objs.exists():
+            new_ret_fija = RetencionFija(retencion=ganancias_retencion_objs[0], valor=importe_ganancias / 12, vigencia_desde=fecha, vigencia_hasta=fecha)
+            ret_fijas_persona.append( (new_ret_fija, new_ret_fija.valor) )
+            acum_ret += importe_ganancias / 12
 
 
 
@@ -604,7 +616,6 @@ def processUnivFormSet(commonform, univformset):
 
     antiguedad = commonform.cleaned_data['antiguedad']
     fecha = commonform.cleaned_data['fecha']
-    es_afiliado = commonform.cleaned_data['afiliado']
     has_doctorado = commonform.cleaned_data['doctorado']
     has_master = commonform.cleaned_data['master']
 
@@ -774,7 +785,6 @@ def processPreUnivFormSet(commonform, preunivformset):
 
     antiguedad = commonform.cleaned_data['antiguedad']
     fecha = commonform.cleaned_data['fecha']
-    es_afiliado = commonform.cleaned_data['afiliado']
     has_doctorado = commonform.cleaned_data['doctorado']
     has_master = commonform.cleaned_data['master']
 
@@ -818,7 +828,7 @@ def processPreUnivFormSet(commonform, preunivformset):
 
         if preunivform in preunivformset.deleted_forms:
             continue
-		
+        
         cargo_obj = preunivform.cleaned_data['cargo']
         horas = preunivform.cleaned_data['horas']
 

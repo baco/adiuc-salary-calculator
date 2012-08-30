@@ -81,9 +81,9 @@ class GarantiaSalarialUniversitaria(models.Model):
 class Cargo(models.Model):
     """Modelo que representa un Cargo, ya sea pre o universitario."""
 
-    lu = models.CharField(u'Código LU', max_length=2, validators=[validate_isdigit],
+    lu = models.PositiveSmallIntegerField(u'Código LU', validators=[validate_isgzero],
         help_text=u'El código L.U. del cargo que figura en la planilla de la UNC.')
-    pampa = models.CharField(u'Código PAMPA', max_length=3, unique=True, validators=[validate_isdigit],
+    pampa = models.PositiveSmallIntegerField(u'Código PAMPA', unique=True, validators=[validate_isgzero],
         help_text=u'El código PAMPA del cargo que figura en la planilla de la UNC.')
     denominacion = models.ForeignKey('DenominacionCargo',
         help_text=u'El nombre del cargo asociado.')
@@ -97,7 +97,6 @@ class Cargo(models.Model):
         ordering = ['denominacion']
 
     def __unicode__(self):
-        #return self.lu + " - " + unicode(self.denominacion)
         return unicode(self.denominacion)
 
 
@@ -124,8 +123,11 @@ class CargoUniversitario(Cargo):
     )
     dedicacion = models.CharField(u'Dedicación', max_length=5, choices=DEDICACION_OPCS,
         help_text=u'El tipo de dedicación para el cargo. Pueden ser dedicación exclusiva, semi-exclusiva o simple.')
-    #adic2003 = models.FloatField(u'Adic. 8% RHCS 153/03', blank=True, null=True,	
+    #adic2003 = models.FloatField(u'Adic. 8% RHCS 153/03', blank=True, null=True,    
     #help_text=u'Es el adicional del 8% del salario básico del año 2003 que le corresponde a este cargo.')
+
+    class Meta:
+        ordering = ['pampa']
 
     def __unicode__(self):
         return super(CargoUniversitario, self).__unicode__() + " - " + self.dedicacion
@@ -144,6 +146,9 @@ class CargoPreUniversitario(Cargo):
         help_text=u'El tipo de horas del cargo.')
     pago_por_hora=models.BooleanField(u'Pago por hora?',
         help_text=u'Poner "Sí" si este cargo se paga por cantidad de horas. Poner "No" en caso contrario.')
+
+    class Meta:
+        ordering = ['lu']
 
     def __unicode__(self):
         if self.pago_por_hora or self.horas <= 0.:
@@ -490,4 +495,14 @@ class ImpuestoGananciasTabla(models.Model):
 
     def __unicode__(self):
         return unicode(self.vigencia_desde) + " : " + unicode(self.vigencia_hasta)
+
+
+class Configuracion(models.Model):
+    """Una tabla para que el usuario pueda configurar la app desde el admin site."""
+
+    asig_fam_solo_opc_hijo = models.BooleanField(u'Asignaciones Familiares: Considerar sólamente la opción de "Hijos".',
+        help_text=u'Si tilda el checkbox entonces las asignaciones familiares se calcularán teniendo en cuenta sólo la cantidad de Hijos.')
+
+    def __unicode__(self):
+        return unicode(asig_fam_solo_opc_hijo)
 

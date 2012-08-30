@@ -440,9 +440,11 @@ def calculateRemRetPorPersona(context, es_afiliado, afiliacion_daspu, calcular_g
                     daspu_extra = tope_min - daspu_importe
                     context['daspu_extra'] = daspu_extra
                     context['daspu_importe'] = tope_min
-                context['daspu'] = daspu_obj
+                    daspu_importe = tope_min
 
-    acum_ret += daspu_importe + daspu_extra
+                context['daspu'] = daspu_obj
+    
+    acum_ret += daspu_importe
 
     #Calculo los detalles (opciones extras)
     #if afiliacion_daspu:  ES OBLIGATORIO

@@ -112,7 +112,7 @@ class CommonForm(forms.Form):
     doctorado = forms.BooleanField(label=u'Añadir Título de Doctorado', required=False)
 
     afiliado = forms.BooleanField(label=u'Afiliado a ADIUC', required=False)
-    daspu = forms.BooleanField(label=u'Afiliado a DASPU', required=False)
+    daspu = forms.BooleanField(label=u'Considerar servicios DASPU', required=False)
     ganancias = forms.BooleanField(label=u'Considerar Impuesto a las Ganancias', required=False)
 
 

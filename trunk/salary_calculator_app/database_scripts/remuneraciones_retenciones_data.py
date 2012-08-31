@@ -155,12 +155,16 @@ def add_remuneracion_fija(remuneracion, valor, vigencia_desde, vigencia_hasta):
 vigencia_desde = date(2012, 1, 1)
 vigencia_hasta = date(2012, 12, 31)
 
+
+
+##### Retenciones Porcentuales
+
 # Retencion DASPU
 r = add_retencion(
     codigo=u"40/0",
     nombre= u"DASPU",
     aplicacion=u"T",
-    modo=u"P"
+    modo=u"C"
 )
 add_retencion_porcentual(
     retencion=r,
@@ -169,12 +173,12 @@ add_retencion_porcentual(
     vigencia_hasta=vigencia_hasta
 )
 
-##### Retenciones Porcentuales
+####
 r = add_retencion(
     codigo=u"20/3",
     nombre= u"Aporte Fondo Adic. Universitario",
     aplicacion=u"U",
-    modo=u"P"
+    modo=u"C"
 )
 add_retencion_porcentual(
     retencion = r,
@@ -226,7 +230,7 @@ r = add_retencion(
     codigo=u"64/0",
     nombre= u"ADIUC - Afiliación",
     aplicacion=u"T",
-    modo=u"P"
+    modo=u"C"
 )
 add_retencion_porcentual(
     retencion = r,

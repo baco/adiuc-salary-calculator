@@ -59,17 +59,7 @@
                         <td class="descuentos"> {% if afiliacion_importe > 0 %}-{% endif %}{{ afiliacion_importe|floatformat:-2 }} </td>
                     </tr>
                     {% endif %}
-                    {% if daspu %}
-                    <tr>
-                        <td> {{ daspu.retencion.retencion.codigo }} </td>
-                        <td> {{ daspu.retencion.retencion.nombre }}
-                            ({{daspu.retencion.porcentaje}}% 
-                            {% if daspu_extra %} + {{ daspu_extra|floatformat:-2 }} extra por m&iacute;nimo {% endif %})
-                        </td>
-                        <td>  </td>
-                        <td class="descuentos"> {% if daspu_importe > 0 %}-{% endif %}{{ daspu_importe|floatformat:-2 }} </td>
-                    </tr>
-                    {% endif %}
+                    
                     
                     {% for afamiliar in afamiliares_list %}
                         <tr>
@@ -120,6 +110,8 @@
                         <td class="descuentos"> {% if importe > 0 %}-{% endif %}{{ importe|floatformat:-2 }} </td>
                         </tr>
                     {% endfor %}
+                    
+
                     
                 </table>
                <hr>     
@@ -181,6 +173,16 @@
                     </tr>
                     {% endfor %}
                     
+                    <tr>
+                        <td> {{ res.daspu.retencion.retencion.codigo }} </td>
+                        <td> {{ res.daspu.retencion.retencion.nombre }}
+                            ({{res.daspu.retencion.porcentaje}}% 
+                            {% if res.daspu_extra %} + {{ res.daspu_extra|floatformat:-2 }} extra por m&iacute;nimo {% endif %})
+                        </td>
+                        <td>  </td>
+                        <td class="descuentos"> {% if res.daspu_importe > 0 %}-{% endif %}{{ res.daspu_importe|floatformat:-2 }} </td>
+                    </tr>
+
                     <tr class="bold">
                         <td></td>
                         <td> Adicionales: </td>

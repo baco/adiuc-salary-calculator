@@ -320,6 +320,57 @@ def processDetailsForm(context, detailsform):
 
     return result
 
+def calculateDASPU(fecha,total_bruto):
+    
+    daspu_context={}
+    daspu_importe = 0.0
+    daspu_extra = 0.0
+
+    rets_porc_daspu = RetencionPorcentual.objects.filter(
+        retencion__codigo =daspu_code,
+        vigencia_desde__lte=fecha,
+        vigencia_hasta__gte=fecha
+        )
+    if rets_porc_daspu.exists():
+        r = rets_porc_daspu.order_by('vigencia_hasta')[rets_porc_daspu.count()-1]
+
+        daspu_objs = RetencionDaspu.objects.filter(
+            retencion=r,
+            )
+        if not daspu_objs.exists():
+            context["error_msg"] = "No existe informacion sobre afiliaciones para DASPU.\n"
+        else:
+            daspu_obj = daspu_objs[daspu_objs.count()-1]
+            p = daspu_obj.retencion.porcentaje
+            p_min = daspu_obj.porcentaje_minimo
+
+            # Corroborar si no cubre el minimo de del cargo ayudante D.S.E. sin antiguedad.
+            basicos = SalarioBasico.objects.filter(
+                cargo=daspu_obj.cargo_referencia,
+                vigencia_desde__lte=fecha,
+                vigencia_hasta__gte=fecha
+                )
+            if not basicos.exists():
+                context['error_msg']='No se encuentra información la salarial requerida para el cálculo.'
+            else:
+                basico = basicos.order_by('vigencia_hasta')[basicos.count()-1]
+                basico = basico.valor
+                daspu_importe += total_bruto * p / 100.0
+                tope_min = basico * p_min / 100.0
+            
+                daspu_context['daspu_importe'] = daspu_importe                
+            
+                if daspu_importe < tope_min:
+                    daspu_extra = tope_min - daspu_importe
+                    daspu_context['daspu_extra'] = daspu_extra
+                    daspu_context['daspu_importe'] = tope_min
+                    daspu_importe = tope_min
+
+                daspu_context['daspu'] = daspu_obj
+        
+    return daspu_context
+
+
 
 def calculateRemRetPorPersona(context, es_afiliado, afiliacion_daspu, calcular_ganancias, afamiliaresformset, detailsform, gananciasform):
 
@@ -398,53 +449,6 @@ def calculateRemRetPorPersona(context, es_afiliado, afiliacion_daspu, calcular_g
         
     acum_ret += af_importe
     
-    # Calculo afiliacion daspu
-    daspu_importe = 0.0
-    daspu_extra = 0.0
-    #if afiliacion_daspu: ES OBLIGATORIO
-    rets_porc_daspu = RetencionPorcentual.objects.filter(
-        retencion__codigo =daspu_code,
-        vigencia_desde__lte=fecha,
-        vigencia_hasta__gte=fecha
-        )
-    if rets_porc_daspu.exists():
-        r = rets_porc_daspu.order_by('vigencia_hasta')[rets_porc_daspu.count()-1]
-
-        daspu_objs = RetencionDaspu.objects.filter(
-            retencion=r,
-            )
-        if not daspu_objs.exists():
-            context["error_msg"] = "No existe informacion sobre afiliaciones para DASPU.\n"
-        else:
-            daspu_obj = daspu_objs[daspu_objs.count()-1]
-            p = daspu_obj.retencion.porcentaje
-            p_min = daspu_obj.porcentaje_minimo
-
-            # Corroborar si no cubre el minimo de del cargo ayudante D.S.E. sin antiguedad.
-            basicos = SalarioBasico.objects.filter(
-                cargo=daspu_obj.cargo_referencia,
-                vigencia_desde__lte=fecha,
-                vigencia_hasta__gte=fecha
-                )
-            if not basicos.exists():
-                context['error_msg']='No se encuentra información la salarial requerida para el cálculo.'
-            else:
-                basico = basicos.order_by('vigencia_hasta')[basicos.count()-1]
-                basico = basico.valor
-                daspu_importe += total_bruto * p / 100.0
-                tope_min = basico * p_min / 100.0
-            
-                context['daspu_importe'] = daspu_importe                
-            
-                if daspu_importe < tope_min:
-                    daspu_extra = tope_min - daspu_importe
-                    context['daspu_extra'] = daspu_extra
-                    context['daspu_importe'] = tope_min
-                    daspu_importe = tope_min
-
-                context['daspu'] = daspu_obj
-    
-    acum_ret += daspu_importe
 
     #Calculo los detalles (opciones extras)
     #if afiliacion_daspu:  ES OBLIGATORIO
@@ -460,7 +464,6 @@ def calculateRemRetPorPersona(context, es_afiliado, afiliacion_daspu, calcular_g
             if concept == 'retencion_fija_persona':
                 ret_fijas_persona.append( (obj , val) )
                 acum_ret += val
-
 
 
     #### Calculo del impuesto a las ganancias
@@ -532,7 +535,6 @@ def calculateRemRetPorPersona(context, es_afiliado, afiliacion_daspu, calcular_g
     total_neto = total_neto - acum_ret + acum_rem
 
     context['afiliacion_importe'] = af_importe
-    context['daspu_importe'] = daspu_importe
     context['ret_fijas_persona'] = ret_fijas_persona
     context['ret_porc_persona'] = ret_porc_persona
     context['rem_fijas_persona'] = rem_fijas_persona
@@ -689,6 +691,9 @@ def processUnivFormSet(commonform, univformset):
         # Adicional titulo doctorado (cod 51), Adicional titulo maestria (cod 52)
         rem_porcentuales = filter_doc_masters_from_rem_porcentuales(rem_porcentuales, has_doctorado, has_master, 'U')
 
+        #daspu se calcula aparte
+        ret_porcentuales = ret_porcentuales.exclude(retencion__codigo = daspu_code)
+
         ## Retenciones / Remuneraciones NO especiales:
         for ret in ret_porcentuales:
             importe = salario_bruto * ret.porcentaje / 100.
@@ -707,6 +712,11 @@ def processUnivFormSet(commonform, univformset):
         for rem in rem_fijas:
             acum_rem += rem.valor
             rem_list.append( (rem, rem.valor) )
+
+        # Calculo afiliacion daspu
+        daspu_context = calculateDASPU(fecha,salario_bruto)
+        daspu_importe = daspu_context['daspu_importe']
+        acum_ret += daspu_importe
 
         ###### Salario Neto.
         salario_neto = salario_bruto - acum_ret + acum_rem
@@ -761,6 +771,7 @@ def processUnivFormSet(commonform, univformset):
             'antiguedad': antiguedad,
             'antiguedad_importe': antiguedad_importe
         }
+        form_res.update(daspu_context)
         lista_res.append(form_res)
 
         # Calculo los acumulados de los salarios para todos los cargos univs.

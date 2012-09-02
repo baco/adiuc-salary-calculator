@@ -62,6 +62,7 @@ subsidio_fallecimiento_code = "DAS/2"
 fs_code="DAS/4"
 
 
+
 ###############################################
 # Helpers
 ###############################################
@@ -99,6 +100,11 @@ def add_values_from_contexts(context1, context2, key):
 def calculate(request):
     """Vista principal"""
 
+    # Obtengo el objeto de configuracion.
+    conf = Configuracion.objects.all()
+    if conf.exists():
+        conf = conf[0]
+
     # Permite que aparezcan multiples formularios identicos.
     CargoUnivFormSet = formset_factory(CargoUnivForm, extra=0, max_num=5, can_delete=True)
     CargoPreUnivFormSet = formset_factory(CargoPreUnivForm, extra=0, max_num=5, can_delete=True)
@@ -113,11 +119,12 @@ def calculate(request):
         preunivformset = CargoPreUnivFormSet(request.POST, prefix='preunivcargo')
         commonform = CommonForm(request.POST)
         afamiliaresformset = AFamiliaresFormSet(request.POST, prefix='afamiliares')
+        afamiliaresformespecial = AFamiliaresFormEspecial(request.POST)
         detailsform = DetailsForm(request.POST)
         gananciasform = ImpuestoGananciasForm(request.POST)
 
         if univformset.is_valid() and preunivformset.is_valid() and commonform.is_valid() \
-             and afamiliaresformset.is_valid() and detailsform.is_valid() and gananciasform.is_valid():
+             and afamiliaresformset.is_valid() and afamiliaresformespecial.is_valid() and detailsform.is_valid() and gananciasform.is_valid():
 
             # Proceso los formularios de cargos.
             context_univ = processUnivFormSet(commonform, univformset)
@@ -161,8 +168,10 @@ def calculate(request):
                 afiliacion_daspu,
                 calcular_ganancias,
                 afamiliaresformset,
+                afamiliaresformespecial,
                 detailsform,
-                gananciasform
+                gananciasform,
+                conf
                 )
 
             # Renderizo el template con el contexto.
@@ -173,8 +182,10 @@ def calculate(request):
             context['preunivformset'] = preunivformset
             context['commonform'] = commonform
             context['afamiliaresformset'] = afamiliaresformset
+            context['afamiliaresformespecial'] = afamiliaresformespecial
             context['detailsform'] = detailsform
             context['gananciasform'] = gananciasform
+            context['conf'] = conf
 
     else:
 
@@ -183,6 +194,7 @@ def calculate(request):
         preunivformset = CargoPreUnivFormSet(prefix='preunivcargo')
         commonform = CommonForm()
         afamiliaresformset = AFamiliaresFormSet(prefix='afamiliares')
+        afamiliaresformespecial = AFamiliaresFormEspecial()
         detailsform = DetailsForm()
         gananciasform = ImpuestoGananciasForm()
 
@@ -190,8 +202,10 @@ def calculate(request):
         context['preunivformset'] = preunivformset
         context['commonform'] = commonform
         context['afamiliaresformset'] = afamiliaresformset
+        context['afamiliaresformespecial'] = afamiliaresformespecial
         context['detailsform'] = detailsform
         context['gananciasform'] = gananciasform
+        context['conf'] = conf
 
     return render_to_response('calculate.html', context)
 
@@ -201,7 +215,7 @@ def calculate(request):
 # Form processing
 ##############################################
 
-def processAFamiliaresFormSet(context,afamiliaresformset):
+def processAFamiliaresFormSet(context, afamiliaresformset, afamiliaresformespecial, conf):
     """ Procesa un formet con formularios de asignaciones familiares.
         Retorna una tupla con dos elementos:
             * El primero, una lista con todas las asignaciones.
@@ -212,6 +226,14 @@ def processAFamiliaresFormSet(context,afamiliaresformset):
 
     afamiliares_list = list()
     total = 0.0
+
+    if conf.asig_fam_solo_opc_hijo:
+        cant_hijos = afamiliaresformespecial.cleaned_data['cant_hijos']
+        for i in range(cant_hijos):
+            aform = AFamiliaresForm({'asig_familiar' : u'Hijo'})
+            # Para que django convierta los datos del form a python data.
+            aform.is_valid()
+            afamiliaresformset.forms.append(aform)
 
     for afamiliaresform in afamiliaresformset:
         # No analizamos los forms que fueron borrados por el usuario.
@@ -372,7 +394,8 @@ def calculateDASPU(fecha,total_bruto):
 
 
 
-def calculateRemRetPorPersona(context, es_afiliado, afiliacion_daspu, calcular_ganancias, afamiliaresformset, detailsform, gananciasform):
+def calculateRemRetPorPersona(context, es_afiliado, afiliacion_daspu, calcular_ganancias,
+afamiliaresformset, afamiliaresformespecial, detailsform, gananciasform, conf):
 
     fecha = context['fecha']
     total_rem = context['total_rem']
@@ -410,7 +433,7 @@ def calculateRemRetPorPersona(context, es_afiliado, afiliacion_daspu, calcular_g
     rem_fijas_persona = list()
 
     # Proceso el formulario de asignacion familiar.
-    afamiliares_list, total_afamiliares = processAFamiliaresFormSet(context,afamiliaresformset)
+    afamiliares_list, total_afamiliares = processAFamiliaresFormSet(context, afamiliaresformset, afamiliaresformespecial, conf)
     acum_rem += total_afamiliares
     
     for ret in ret_pp:

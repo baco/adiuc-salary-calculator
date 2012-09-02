@@ -159,13 +159,25 @@
             <!--  FIN GANANCIAS FORM -->
 
 
+
             <!--  ASIGNACIONES FAMILIARES FORM -->
-            <div class="common_form">
+            <div class="common_form">                
                 <fieldset id="afamiliaresformset_content">
                     <legend>Asignaciones Familiares</legend>
+                    <!-- Formulario Especial -->
+                    {% if conf.asig_fam_solo_opc_hijo %}
+                     <div>
+                    {% else %}
+                     <div style="display:none">
+                    {% endif %}
+                        <table class="common_form">
+                            <tr><td>{{ afamiliaresformespecial.cant_hijos.label_tag }}</td><td>{{ afamiliaresformespecial.cant_hijos }}</td></tr>
+                        </table>
+                    </div>
+                    <!-- FormularioSet -->
                     {% for afamiliaresform in afamiliaresformset %}
                     {{ afamiliaresform.id }}
-                    {% if afamiliaresform in afamiliaresformset.deleted_forms or afamiliaresformset.DELETE.value == "on" %}
+                    {% if afamiliaresform in afamiliaresformset.deleted_forms or afamiliaresformset.DELETE.value == "on" or conf.asig_fam_solo_opc_hijo %}
                     <div class="afamiliares_form" style="display:none">
                     {% else %}
     				<div class="afamiliares_form">
@@ -190,7 +202,9 @@
                     </div>
                     {% endfor %}
                     <!--<p class="centeralign">-->
-                        <a id="nueva_afamiliar" href="javascript:void(0)" style="text-align:center;" class="agregar_quitar" onclick="show_new_form_HTML('afamiliaresformset_content',afamiliaresDivAttrs,
+                        <a id="nueva_afamiliar" href="javascript:void(0)" 
+                        {% if conf.asig_fam_solo_opc_hijo %} style="display:none" {% else %} style="text-align:center;" {% endif %}
+                        class="agregar_quitar" onclick="show_new_form_HTML('afamiliaresformset_content',afamiliaresDivAttrs,
                             '<table class=\'common_form\'> \
                                 <tr> \
                                     <td> {{ afamiliaresformset.empty_form.asig_familiar.label_tag|escapejs }} </td> \
@@ -430,6 +444,8 @@
                         }
                     }
                 );
+
+                $("select#id_cant_hijos")[0].value = "0";
             });
         </script>
 

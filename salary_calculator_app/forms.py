@@ -59,6 +59,18 @@ class AFamiliaresForm(forms.Form):
     )
 
 
+class AFamiliaresFormEspecial(forms.Form):
+    """Form para ingresar los datos de las asig familiares. Tiene un select
+    para ingresar la cantidad de hijos."""
+
+    cant_hijos = forms.IntegerField(
+        label=u'Cantidad de Hijos',
+        required=False,
+        widget=forms.Select(choices=[(i, i) for i in range(16)]),
+        help_text=u'Seleccione el tipo de asignación'
+    )
+
+
 class ImpuestoGananciasForm(forms.Form):
     """Formulario para que el usuario ingrese datos referidos al calculo del impuesto a las ganancias"""
 

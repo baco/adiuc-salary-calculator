@@ -504,5 +504,10 @@ class Configuracion(models.Model):
         help_text=u'Si tilda el checkbox entonces las asignaciones familiares se calcularán teniendo en cuenta sólo la cantidad de Hijos.')
 
     def __unicode__(self):
-        return unicode(asig_fam_solo_opc_hijo)
+        result = u'Asignaciones Familiares: Considerar sólamente la opción de "Hijos": '
+        if self.asig_fam_solo_opc_hijo:
+            result += u'Si'
+        else:
+            result += u'No'
+        return result
 

@@ -30,7 +30,7 @@
     	<link rel="stylesheet" href="{% get_static_prefix %}css/style.css" type="text/css" />
 	</head>
 
-	<body  style="background-image: url('{% get_static_prefix %}images/bg.png');">
+	<body>
 	<div align=center>
 	{% if error_msg %}
 	    <div class="errorbox">{{ error_msg }}</div>
@@ -173,6 +173,7 @@
                     </tr>
                     {% endfor %}
                     
+                    {% if res.daspu %}
                     <tr>
                         <td> {{ res.daspu.retencion.retencion.codigo }} </td>
                         <td> {{ res.daspu.retencion.retencion.nombre }}
@@ -182,6 +183,7 @@
                         <td>  </td>
                         <td class="descuentos"> {% if res.daspu_importe > 0 %}-{% endif %}{{ res.daspu_importe|floatformat:-2 }} </td>
                     </tr>
+                    {% endif %}
 
                     <tr class="bold">
                         <td></td>

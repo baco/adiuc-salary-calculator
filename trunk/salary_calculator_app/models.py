@@ -290,7 +290,7 @@ class RetencionFija(models.Model):
 
 
 class FondoSolidario(RetencionFija):
-    concepto = models.CharField(u'Concepto', max_length='50')
+    concepto = models.CharField(u'Concepto', max_length='80')
 
 
 class RemuneracionPorcentual(models.Model):
@@ -371,7 +371,7 @@ class AsignacionFamiliar(models.Model):
     remuneracion = models.ForeignKey('Remuneracion',
         help_text = u'La remuneración asociada a esta asignación.')
 
-    concepto = models.CharField(u'Concepto de asignación', max_length='50', help_text=u'Concepto de la asignación.')
+    concepto = models.CharField(u'Concepto de asignación', max_length='80', help_text=u'Concepto de la asignación.')
 
     valor = models.FloatField(u'Valor del Aumento', validators=[validate_isgezero],
         help_text=u'El valor fijo que se sumará al salario básico.')

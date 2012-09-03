@@ -44,6 +44,7 @@
             
             <div class="results_cargo">
                 <table class="result" cellspaing=2><br>
+
                     <div class="title_importes"><b>Importes por Persona:</b></div>
                     <tr>
                         <th> C&oacute;digo </th>
@@ -51,16 +52,7 @@
                         <th> Importe (+) </th>
                         <th> Importe (-) </th>
                     </tr>
-                    {% if afiliacion %}
-                    <tr>
-                        <td> {{ afiliacion.retencion.codigo }} </td>
-                        <td> {{ afiliacion.retencion.nombre }}({{afiliacion.porcentaje}} %) </td>
-                        <td>  </td>
-                        <td class="descuentos"> {% if afiliacion_importe > 0 %}-{% endif %}{{ afiliacion_importe|floatformat:-2 }} </td>
-                    </tr>
-                    {% endif %}
-                    
-                    
+
                     {% for afamiliar in afamiliares_list %}
                         <tr>
                         <td>  </td>
@@ -111,7 +103,6 @@
                         </tr>
                     {% endfor %}
                     
-
                     
                 </table>
                <hr>     

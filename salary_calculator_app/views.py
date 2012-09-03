@@ -241,6 +241,7 @@ def processAFamiliaresFormSet(context, afamiliaresformset, afamiliaresformespeci
             continue
 
         afamiliar_concepto = afamiliaresform.cleaned_data['asig_familiar']
+
         # Tomo las asignaciones familiares del mismo concepto, cateogria y fecha adecuada.
         afamiliares = AsignacionFamiliar.objects.filter(
             concepto = afamiliar_concepto,
@@ -254,8 +255,8 @@ def processAFamiliaresFormSet(context, afamiliaresformset, afamiliaresformespeci
         if afamiliares:
             afamiliar = afamiliares.order_by('vigencia_hasta')[afamiliares.count()-1]
             afamiliares_list.append(afamiliar)
-            total +=afamiliar.valor
-            
+            total += afamiliar.valor
+
     return (afamiliares_list,total)
 
 
@@ -392,8 +393,6 @@ def calculateDASPU(fecha,total_bruto):
         
     return daspu_context
 
-
-
 def calculateRemRetPorPersona(context, es_afiliado, afiliacion_daspu, calcular_ganancias,
 afamiliaresformset, afamiliaresformespecial, detailsform, gananciasform, conf):
 
@@ -433,7 +432,9 @@ afamiliaresformset, afamiliaresformespecial, detailsform, gananciasform, conf):
     rem_fijas_persona = list()
 
     # Proceso el formulario de asignacion familiar.
+
     afamiliares_list, total_afamiliares = processAFamiliaresFormSet(context, afamiliaresformset, afamiliaresformespecial, conf)
+
     acum_rem += total_afamiliares
     
     for ret in ret_pp:
@@ -455,38 +456,6 @@ afamiliaresformset, afamiliaresformespecial, detailsform, gananciasform, conf):
         acum_rem += importe
         rem_fijas_persona.append( (rem, rem.valor) )
 
-    # Calculo de afiliacion.
-    af_importe = 0.0
-    if es_afiliado:
-        afiliacion_objs = RetencionPorcentual.objects.filter(
-            retencion__codigo=afiliacion_code,
-            vigencia_desde__lte=fecha,
-            vigencia_hasta__gte=fecha
-        )
-        if not afiliacion_objs.exists():
-            context["error_msg"] = "No existe informacion sobre afiliación a ADIUC.\n"
-        else:
-            afiliacion_obj = afiliacion_objs.order_by('vigencia_hasta')[afiliacion_objs.count()-1]
-            af_importe = total_bruto * afiliacion_obj.porcentaje / 100.0
-            context['afiliacion'] = afiliacion_obj                
-        
-    acum_ret += af_importe
-    
-
-    #Calculo los detalles (opciones extras)
-    #if afiliacion_daspu:  ES OBLIGATORIO
-    details_context = processDetailsForm(context,detailsform)
-    if details_context.has_key("error_msg"):
-        if context.has_key("error_msg"):
-            context["error_msg"] += "\n"+ details_context["error_msg"]
-        else:
-            context["error_msg"] = details_context["error_msg"]
-    else:
-        for d in details_context.keys():
-            concept,obj,val = details_context[d]
-            if concept == 'retencion_fija_persona':
-                ret_fijas_persona.append( (obj , val) )
-                acum_ret += val
 
 
     #### Calculo del impuesto a las ganancias
@@ -557,7 +526,6 @@ afamiliaresformset, afamiliaresformespecial, detailsform, gananciasform, conf):
 
     total_neto = total_neto - acum_ret + acum_rem
 
-    context['afiliacion_importe'] = af_importe
     context['ret_fijas_persona'] = ret_fijas_persona
     context['ret_porc_persona'] = ret_porc_persona
     context['rem_fijas_persona'] = rem_fijas_persona
@@ -645,6 +613,8 @@ def processUnivFormSet(commonform, univformset):
     fecha = commonform.cleaned_data['fecha']
     has_doctorado = commonform.cleaned_data['doctorado']
     has_master = commonform.cleaned_data['master']
+    #afiliacion adiuc:
+    es_afiliado = commonform.cleaned_data['afiliado']
 
     context = {}
 
@@ -716,6 +686,9 @@ def processUnivFormSet(commonform, univformset):
 
         #daspu se calcula aparte
         ret_porcentuales = ret_porcentuales.exclude(retencion__codigo = daspu_code)
+        
+        if not es_afiliado:
+            ret_porcentuales = ret_porcentuales.exclude(retencion__codigo = afiliacion_code)
 
         ## Retenciones / Remuneraciones NO especiales:
         for ret in ret_porcentuales:
@@ -738,6 +711,9 @@ def processUnivFormSet(commonform, univformset):
 
         # Calculo afiliacion daspu
         daspu_context = calculateDASPU(fecha,salario_bruto)
+        if daspu_context.has_key('error_msg'):
+            context['error_msg'] = "\n"+daspu_context['error_msg']
+
         daspu_importe = daspu_context['daspu_importe']
         acum_ret += daspu_importe
 
@@ -823,7 +799,7 @@ def processPreUnivFormSet(commonform, preunivformset):
     fecha = commonform.cleaned_data['fecha']
     has_doctorado = commonform.cleaned_data['doctorado']
     has_master = commonform.cleaned_data['master']
-
+    es_afiliado = commonform.cleaned_data['afiliado']
     context = {}
 
     #guardo en esta lista un diccionario para cada formulario procesado
@@ -926,6 +902,8 @@ def processPreUnivFormSet(commonform, preunivformset):
 
 
         ## Retenciones NO especiales:
+        if not es_afiliado:
+            ret_porcentuales = ret_porcentuales.exclude(retencion__codigo = afiliacion_code)
 
         for ret in ret_porcentuales:
                 importe = salario_bruto * ret.porcentaje / 100.

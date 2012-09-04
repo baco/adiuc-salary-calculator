@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 #=============================================
 #
@@ -22,30 +23,25 @@
 #
 #=============================================
 
-# Especifica bien el orden en que deben ejecutarse los scripts que llenan
-# la base de datos con los datos basicos.
+import sys
+import os
+import pdb
+from datetime import date
+sys.path.append(os.getcwd() + '/../../')
 
-# Correr con:
-# bash salary_calculator_app/database_scripts/fill_db.sh
+try:
+        from salary_calculator import settings
+except ImportError:
+        import sys
+        sys.stderr.write("Error: Can't find the file 'settings.py' in the directory containing %r. It appears you've customized things.\nYou'll have to run django-admin.py, passing it your settings module.\n(If the file settings.py does indeed exist, it's causing an ImportError somehow.)\n" % __file__)
+        sys.exit(1)
 
-export PYTHONPATH=`pwd`
+from django.core.management import setup_environ
+setup_environ(settings)
 
-scripts=(
-    "remuneraciones_retenciones_data.py"
-    "univ_data.py"
-    "preuniv_data.py"
-    "antiguedad_data.py"
-    "asignaciones_familiares_data.py"
-    "fondo_solidario_data.py"
-    "retencion_daspu_data.py"
-    "impuesto_ganancias_data.py"
-    "configuracion_data.py"
-)
+from salary_calculator_app.models import *
 
-prefix="salary_calculator_app/database_scripts/"
 
-for s in "${scripts[@]}"
-do 
-    echo "Running $s ..."
-    python  $prefix$s
-done
+# Solo se deberia agregar un solo objeto de configuracion.
+c = Configuracion(asig_fam_solo_opc_hijo=False)
+c.save()

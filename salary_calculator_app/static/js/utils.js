@@ -32,4 +32,3 @@ function toggle_and_change(id_toggle,id_text,text1,text2)
         $(id_text).html(text2);
 	}
 }
-

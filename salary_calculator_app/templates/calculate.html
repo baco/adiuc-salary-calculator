@@ -406,6 +406,7 @@
             enable_disable(calculateButtonId, univPrefix, preunivPrefix);
 
             $(document).ready(function() {
+                
                 $('form').keypress(function(e){    
                     if(e == 13) return false;
                 }); 
@@ -422,6 +423,21 @@
                 else {
                     $('#detailsform').slideDown();
                 }
+            
+                // general form
+                var today = new Date();
+                var date = ((today.getDate() < 10) ? "0" : "") + today.getDate() + "/" + ((today.getMonth()+1 < 10) ? "0" : "") 
+                    + (today.getMonth()+1) + "/" + today.getFullYear();
+                $("input#id_fecha").val(date);
+                $("select#id_cant_hijos").val("0");
+                $("select#id_antiguedad").val("0");
+                $("input#id_master")[0].checked = false;
+                $("input#id_doctorado")[0].checked = false;
+                $("input#id_afiliado")[0].checked = false;
+                $("input#id_daspu")[0].checked = false;
+                $('#detailsform').hide();
+                $("input#id_ganancias")[0].checked = false;
+                $('#gananciasform').hide();
 
                 $("input#id_daspu").click(
                     function(){
@@ -445,7 +461,20 @@
                     }
                 );
 
-                $("select#id_cant_hijos")[0].value = "0";
+                // daspu form
+                $("input#id_sis")[0].checked = false;
+                $("input#id_subsidio_fallecimiento")[0].checked = false;
+                $("select#id_fondo_solidario_mayores").val("0");
+                $("select#id_fondo_solidario_menores").val("0");
+
+                // Impuesto ganancias form
+                $("select#id_estado_civil").val("1");
+                $("select#id_conyuge").val("2");
+                $("select#id_nro_hijos_menores_24").val("0");
+                $("select#id_nro_descendientes").val("0");
+                $("select#id_nro_ascendientes").val("0");
+                $("select#id_nro_suegros_yernos_nueras").val("0");
+
             });
         </script>
 

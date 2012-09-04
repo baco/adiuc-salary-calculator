@@ -957,6 +957,7 @@ def processPreUnivFormSet(commonform, preunivformset):
         # Aqui iran los resultados del calculo para este cargo en particular.
         form_res = {
             'cargo': cargo_obj,
+            'basico_horas': basico.valor * horas,
             'basico': basico.valor,
             'retenciones': ret_list,
             'remuneraciones': rem_list,
@@ -968,6 +969,8 @@ def processPreUnivFormSet(commonform, preunivformset):
             'antiguedad_importe': antiguedad_importe
         }
         lista_res.append(form_res)
+
+        print form_res
 
         # Calculo los acumulados de los salarios para todos los cargos.
         # y tambien los acumulados de las remuneraciones y retenciones.

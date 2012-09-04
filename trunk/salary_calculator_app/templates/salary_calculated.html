@@ -41,10 +41,10 @@
 
             <br>
             
-            
             <div class="results_cargo">
+                {% if afamiliar_list or rem_fijas_persona or rem_porc_persona or ret_fijas_persona or ret_porc_persona %}
                 <table class="result" cellspaing=2><br>
-
+    
                     <div class="title_importes"><b>Importes por Persona:</b></div>
                     <tr>
                         <th> C&oacute;digo </th>
@@ -105,6 +105,7 @@
                     
                     
                 </table>
+                {% endif %}
                <hr>     
 
                 <div class="title_importes"><b>Cargos:</b></div>
@@ -112,7 +113,7 @@
                 <table>
                     <tr>
                         <td> Cargo: </td>
-                        <td>{{ res.cargo.denominacion }} {% if res.cargo.dedicacion %}, {{ res.cargo.get_dedicacion_display }}{% endif %}</td>              
+                        <td>{{ res.cargo.denominacion }} {% if res.cargo.dedicacion %}, {{ res.cargo.get_dedicacion_display }}{% endif %}</td>
                     </tr>
                     <tr> <td> C&oacute;digo LU: </td> <td> {{ res.cargo.lu }} </td> </tr>
                     <tr> <td> C&oacute;digo PAMPA: </td> <td> {{ res.cargo.pampa }} </td> </tr>
@@ -123,12 +124,11 @@
                         <th> Detalle </th>
                         <th> Importe (+) </th>
                         <th> Importe (-) </th>
-
                     </tr>
                     <tr>
                         <td> 10 </td>
                         <td> Sueldo B&aacute;sico </td>
-                        <td> {{ res.basico|floatformat:-2 }} </td>
+                        <td> {% if res.cargo.pago_por_hora %} {{ res.basico_horas|floatformat:-2 }} {% else %} {{ res.basico|floatformat:-2 }} {% endif %} </td>
                         <td></td>
                     </tr>
 

@@ -477,7 +477,7 @@ add_salario_basico(
 )
 add_salario_basico(
     cargo = c,
-    valor = 1243.84,
+    valor = 1456.31,
     vigencia_desde = sep12_vigencia_desde,
     vigencia_hasta = sep12_vigencia_hasta
 )
